@@ -48,7 +48,7 @@
 <div class="logo">
 	<a href="index.php?page=home">
 	    
-		<img src="<?=AppAsset->basePath.'/logo.png'?>" alt="">
+		<img src="<?=Yii::$app->request->asset().'/images/logo.png'?>" alt="">
 	</a>
 </div><!-- /.logo -->
 <!-- ============================================================= LOGO : END ============================================================= -->				</div><!-- /.logo-holder -->
