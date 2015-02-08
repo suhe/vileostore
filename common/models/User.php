@@ -33,6 +33,13 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return '{{%user}}';
     }
+    
+    /**
+     * Relation
+     */
+    public function getDiscusion(){
+        return $this->hasMany(User::className(), ['id' => 'user_id']);
+    }
 
     /**
      * @inheritdoc

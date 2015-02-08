@@ -47,8 +47,14 @@
 					<!-- ============================================================= LOGO ============================================================= -->
 <div class="logo">
 	<a href="index.php?page=home">
-	    
-		<img src="<?=Yii::$app->request->getBaseUrl().'/assets/images/logo.png'?>" alt="">
+	    <?=himiklab\thumbnail\EasyThumbnailImage::thumbnailImg(
+		'@assets/images/logo.png',
+		181,
+		68,
+		\himiklab\thumbnail\EasyThumbnailImage::THUMBNAIL_OUTBOUND,
+		['alt' => 'logo']
+	    );?>  
+		
 	</a>
 </div><!-- /.logo -->
 <!-- ============================================================= LOGO : END ============================================================= -->				</div><!-- /.logo-holder -->

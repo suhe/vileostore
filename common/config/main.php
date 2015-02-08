@@ -15,4 +15,5 @@ return [
         '@assets' =>  realpath(dirname(__FILE__).'/../../').'/assets/',
         '@image_product' => '@assets/images/products/', 
     ],
+    'timeZone' => 'Asia/Jakarta',
 ];
