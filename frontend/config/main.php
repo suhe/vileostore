@@ -9,7 +9,7 @@ $params = array_merge(
 
 use \yii\web\Request;
 $baseUrl = str_replace('/frontend/web', '', (new Request)->getBaseUrl());
-$baseUrl = (new Request)->getBaseUrl();
+//$baseUrl = (new Request)->getBaseUrl();
 return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
@@ -28,7 +28,12 @@ return [
             'baseUrl' => $baseUrl,
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => []
+            'rules' => [
+                'controller/<page:\d+>' => 'controller/index',
+                '<id:\d+>/<title>/*' => 'category/view/id/<id>',
+                '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+                '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+            ]
         ],
         'user' => [
             'identityClass' => 'common\models\User',
