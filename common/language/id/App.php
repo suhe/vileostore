@@ -14,6 +14,7 @@ return [
     /** Abjad G **/
     'grid' => 'Grid',
     /** Abjad H **/
+    'home page' => 'Home Page',
     /** Abjad I **/
     /** Abjad J **/
     /** Abjad K **/

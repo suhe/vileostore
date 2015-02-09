@@ -23,6 +23,9 @@ return [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'RhLqcR79Fcg9GUBYSQa9R9BzTfo7htK-',
         ],
+        'store' => [
+            'class' => 'common\helpers\App',
+        ],
     ],
     'aliases' => [
         '@assets' =>  realpath(dirname(__FILE__).'/../../').'/assets/',
