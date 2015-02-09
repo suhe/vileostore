@@ -201,7 +201,7 @@ $this->params['breadcrumbs'] = [
 	</div><!-- /.tab-content -->
     </div><!-- /.product-tabs -->
 </div><!-- /.col -->
-</div><!-- /.row -->
+
 
 <?php 
 $js = <<<JS

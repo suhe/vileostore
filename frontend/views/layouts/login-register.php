@@ -24,14 +24,13 @@ AppAsset::register($this);
 <body class="cnt-homepage">
 <?php $this->beginBody() ?>
 <?=$this->render('header')?>
-<div class="body-content outer-top-xs" id="top-banner-and-menu">
+<div class="body-content outer-top-bd" id="top-banner-and-menu">
 <div class='container'>
 <div class="homepage-container">
-<div class='row single-product outer-bottom-sm '>
-    <div class='col-md-12'>
+<div class='row outer-bottom-sm '>
+    
 	<?=$content?>
-	<div class="clearfix"></div>
-    </div><!-- /.row -->
+	
     
 <?=$this->render('footer')?>
 <?php $this->endBody() ?>

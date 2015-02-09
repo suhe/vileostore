@@ -19,7 +19,7 @@ class Discusion extends \yii\db\ActiveRecord {
     
     public static function getDiscusionByProduct($id){
         return static::find()
-        ->select(['CONCAT(user.first_name,\' \',user.middle_name,\' \',user.last_name ) as full_name','description','created_date'])
+        ->select(['CONCAT(user.first_name,\' \',user.middle_name,\' \',user.last_name ) as full_name','description','discusion.created_date'])
         ->joinWith('user')
         ->where(['discusion.product_id' => $id])
         ->all();

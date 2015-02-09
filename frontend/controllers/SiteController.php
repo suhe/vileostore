@@ -78,18 +78,23 @@ class SiteController extends Controller
 
     public function actionLogin()
     {
-        if (!\Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+        if (!\Yii::$app->user->isGuest) return $this->goHome();
+        $loginModel = new LoginForm();
+        $registerModel = new \common\models\User(['scenario' => 'register']);
+        if ($loginModel->load(Yii::$app->request->post()) && $loginModel->login()) {
+            Yii::$app->session->setFlash('error', Yii::t('app/message','msg welcome back'));
             return $this->goBack();
-        } else {
-            return $this->render('login', [
-                'model' => $model,
-            ]);
         }
+        else if ($registerModel->load(Yii::$app->request->post()) && $registerModel->Register()) {
+            Yii::$app->session->setFlash('error', Yii::t('app/message','msg thanks for registration'));
+            return $this->redirect(['user/profile'],301);
+        }
+        
+        $this->layout = 'login-register';
+        return $this->render('login-register', [
+            'loginModel' => $loginModel,
+            'registerModel' => $registerModel,
+        ]);
     }
 
     public function actionLogout()

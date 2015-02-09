@@ -46,7 +46,7 @@
 				<div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
 					<!-- ============================================================= LOGO ============================================================= -->
 <div class="logo">
-	<a href="index.php?page=home">
+	<a href="<?=\yii\helpers\Url::to(['site/index'])?>">
 	    <?=himiklab\thumbnail\EasyThumbnailImage::thumbnailImg(
 		'@assets/images/logo.png',
 		181,
