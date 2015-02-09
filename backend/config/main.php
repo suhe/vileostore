@@ -5,7 +5,7 @@ $params = array_merge(
     require(__DIR__ . '/params.php'),
     require(__DIR__ . '/params-local.php')
 );
-
+$baseUrl = '/vileo/administrator';
 return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
@@ -16,6 +16,9 @@ return [
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
+        ],
+        'request' => [
+            //'baseUrl' => $baseUrl,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -30,5 +33,6 @@ return [
             'errorAction' => 'site/error',
         ],
     ],
+    'homeUrl' => $baseUrl,
     'params' => $params,
 ];

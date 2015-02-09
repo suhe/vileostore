@@ -1,0 +1,19 @@
+#Options -Indexes
+Options +FollowSymlinks
+
+<IfModule mod_rewrite.c> 
+  RewriteEngine on
+  RewriteCond %{REQUEST_URI} !^public
+  #RewriteRule ^(.*)$ frontend/web/$1 [L]
+  RewriteRule ^frontend/web/files/(.*)$ vilestore/assets/$1 [L]
+  #RewriteRule ^assets/(.*)$ frontend/web/$1 [R=301,NC,L]
+</IfModule>
+
+# Deny accessing below extensions
+<Files ~ "(.json|.lock|.git)">
+Order allow,deny
+Deny from all
+</Files>
+
+# Deny accessing dot files
+RewriteRule (^\.|/\.) - [F]

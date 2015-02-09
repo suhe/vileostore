@@ -32,6 +32,7 @@ return [
         '@image_product' => '@assets/images/products/',
         '@image_brand'   => '@assets/images/brands/', 
     ],
+    
     'language' => 'id',
     'timeZone' => 'Asia/Jakarta',
 ];

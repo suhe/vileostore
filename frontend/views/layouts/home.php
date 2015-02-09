@@ -31,8 +31,11 @@ AppAsset::register($this);
             <?=$content?> 	    
             <?=$this->render('featured')?>
 		</div><!-- /.homebanner-holder -->
-		<!-- ============================================== CONTENT : END ============================================== -->
+		
 	</div><!-- /.row -->
+	<!-- Brand -->
+	<?=$this->render('brand-footer')?>
+	<!-- Brand -->
 
 	</div><!-- /.container -->
 </div><!-- /#top-banner-and-menu -->

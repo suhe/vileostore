@@ -36,6 +36,9 @@ AppAsset::register($this);
 		</div><!-- /.col -->         
 	    <!-- ============================================== CONTENT : END ============================================== -->
 	</div><!-- /.row -->
+	<!-- Brand -->
+	<?=$this->render('brand-footer')?>
+	<!-- Brand -->
 	
     </div><!-- /.container -->
 </div><!-- /#top-banner-and-menu -->

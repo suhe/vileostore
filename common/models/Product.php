@@ -45,4 +45,17 @@ class Product extends \yii\db\ActiveRecord {
         return $query->all();
     }
     
+    public static function NewProduct($limit,$category_id=0){
+        $query = static::find()
+        ->joinWith('product_category')
+        ->orderBy(['product.id' => SORT_DESC])
+        ->limit($limit);
+        
+        if(!$query)
+            return $query=$query->all();
+        
+        $query = $query->andWhere(['product_category.category_id' => $category_id]);
+        return $query = $query->all();
+    }
+    
 }

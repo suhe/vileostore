@@ -1,8 +1,3 @@
-<!-- Brand Footer-->
-<?=$this->render('brand-footer')?>
-<!-- Brand Footer-->
-
-
 <!-- ============================================================= FOOTER ============================================================= -->
 <footer id="footer" class="footer color-bg">
 	  <div class="links-social inner-top-sm">

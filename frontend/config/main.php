@@ -6,8 +6,8 @@ $params = array_merge(
 
 
 use \yii\web\Request;
-$baseUrl = str_replace('/frontend/web', '', (new Request)->getBaseUrl());
-
+$baseUrl = str_replace('/frontend/web', '/index.jsp', (new Request)->getBaseUrl());
+#$baseUrl = '/vileostore';
 return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
@@ -17,9 +17,6 @@ return [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'RhLqcR79Fcg9GUBYSQa9R9BzTfo7htK-',
-            'baseUrl' => $baseUrl,
-        ],
-        'request' => [
             'baseUrl' => $baseUrl,
         ],
         'urlManager' => [
@@ -50,5 +47,6 @@ return [
             'errorAction' => 'site/error',
         ],
     ],
+    'homeUrl' => '/vileostore',
     'params' => $params,
 ];

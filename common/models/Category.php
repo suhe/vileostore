@@ -16,4 +16,10 @@ class Category extends \yii\db\ActiveRecord {
         ->where(['status' => $status , 'parent_id' => $parent_id ])
         ->all();    
     }
+    
+    public static function ListCategory($option=[],$All=true){
+        return static::find()
+        ->where(['id' => $option])
+        ->all();   
+    }
 }

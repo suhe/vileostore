@@ -32,6 +32,9 @@ AppAsset::register($this);
 	<?=$content?>
 	<div class="clearfix"></div>
     </div><!-- /.row -->
+    <!-- Brand -->
+	<?=$this->render('brand-footer')?>
+	<!-- Brand -->
     
 <?=$this->render('footer')?>
 <?php $this->endBody() ?>

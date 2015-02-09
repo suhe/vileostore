@@ -2455,6 +2455,11 @@ a {
   padding: 0 15px !important;
   position: relative;
 }
+
+
+
+
+
 .scroll-tabs .nav-tab-line li a:hover,
 .scroll-tabs .nav-tab-line li a:focus {
   background: rgba(0, 0, 0, 0);

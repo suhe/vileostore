@@ -1,18 +1,33 @@
 #Options -Indexes
-Options +FollowSymlinks
+#Options +FollowSymlinks
+#IndexIgnore */*
 
-<IfModule mod_rewrite.c> 
-  RewriteEngine on
-  RewriteCond %{REQUEST_URI} !^public
-  RewriteRule ^(.*)$ frontend/web/$1 [L]
-  RewriteRule ^files/?$ assets [L]  
-</IfModule>
+#<IfModule mod_rewrite.c> 
+	#Options +FollowSymlinks
+	#RewriteEngine on
+	#RewriteCond %{REQUEST_URI} !^public
+	#RewriteRule ^(.*)$ frontend/web/$1 [L]
+	#RewriteRule ^administrator(/.+)?$ backend/web/$1 [L,PT]
+	#RewriteRule ^(.+)?$ frontend/web/$1
+#</IfModule>
 
 # Deny accessing below extensions
-<Files ~ "(.json|.lock|.git)">
-Order allow,deny
-Deny from all
-</Files>
+#<Files ~ "(.json|.lock|.git)">
+#Order allow,deny
+#Deny from all
+#</Files>
 
 # Deny accessing dot files
-RewriteRule (^\.|/\.) - [F]
+#RewriteRule (^\.|/\.) - [F]
+
+# prevent directory listings
+
+# prevent directory listings
+Options -Indexes
+IndexIgnore */*
+ 
+# follow symbolic links
+Options FollowSymlinks
+RewriteEngine on
+RewriteRule ^administrator(/.+)?$ backend/web/$1 [L,PT]
+RewriteRule ^index.jsp(/.+)?$ frontend/web/$1
