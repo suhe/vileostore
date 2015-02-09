@@ -2,7 +2,7 @@
 return [
     'adminEmail' => 'admin@example.com',
     'baseUrl' => 'http://localhost/vileostore/',
-    'show_page' => 1,
+    'show_page' => 15,
     'list_page' => [
         '15' => '15',
         '20' => '30',

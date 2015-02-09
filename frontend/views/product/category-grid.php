@@ -40,13 +40,15 @@
 			</ul><!-- /.social-icons -->
 		    </div><!-- /.action -->
 		    <!-- /.action -->		
-		    <div class="action">
-			<ul class="list-unstyled">
-			    <li class="add-cart-button btn-group">
-				<button class="btn btn-primary icon" data-toggle="dropdown" type="button"><i class="fa fa-shopping-cart"></i></button>													</button>
-				<?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$row->product_id],['class'=>'btn btn-primary'])?>
-			    </li>
-			</ul>
+		    <div class="action text-center">
+			<center>
+			    <ul class="list-unstyled">
+				<li class="add-cart-button btn-group">
+				    <button class="btn btn-primary icon" data-toggle="dropdown" type="button"><i class="fa fa-shopping-cart"></i></button>													</button>
+				    <?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$row->product_id],['class'=>'btn btn-primary'])?>
+				</li>
+			    </ul>
+			</center>
 		    </div><!-- /.action -->    
 		</div>
 		<!-- /.cart -->
