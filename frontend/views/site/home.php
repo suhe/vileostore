@@ -10,7 +10,7 @@ $this->title = Yii::t('app','home page')
     <div id="hero">
         <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
 	    <?php foreach(\common\models\Banner::homePageBanner('home') as $row){?>	
-	    <div class="item" style="background-image: url(<?=\yii\helpers\Url::to('assets/images/sliders/01.jpg')?>);">
+	    <div class="item" style="background-image: url(<?=\yii\helpers\Url::base()?>/assets/images/banners/1/01.jpg);">
 		<div class="container-fluid">
 		    <div class="caption bg-color vertical-center text-left">
 			<div class="big-text fadeInDown-1">

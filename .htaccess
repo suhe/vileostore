@@ -1,16 +1,18 @@
 #Options -Indexes
+Options +FollowSymlinks
 
 <IfModule mod_rewrite.c> 
   RewriteEngine on
   RewriteCond %{REQUEST_URI} !^public
-  RewriteRule ^(.*)$ frontend/web/$1 [L] 
+  RewriteRule ^(.*)$ frontend/web/$1 [L]
+  RewriteRule ^files/?$ assets [L]  
 </IfModule>
 
 # Deny accessing below extensions
-#<Files ~ "(.json|.lock|.git)">
-#Order allow,deny
-#Deny from all
-#</Files>
+<Files ~ "(.json|.lock|.git)">
+Order allow,deny
+Deny from all
+</Files>
 
 # Deny accessing dot files
-#RewriteRule (^\.|/\.) - [F]
+RewriteRule (^\.|/\.) - [F]
