@@ -156,6 +156,7 @@ $this->params['breadcrumbs'] = [
 			<h4 class="title"><?=Yii::t('app','ask to sales')?></h4>
 			<div class="review-form">
 			    
+			    <?php if(!Yii::$app->user->isGuest){ ?>
 			    <div class="form-container">
 				<?php
 				$form = \yii\bootstrap\ActiveForm::begin([
@@ -175,12 +176,25 @@ $this->params['breadcrumbs'] = [
 					    
 					</div>
 				    </div><!-- /.row -->
+				    
 				    <div class="action text-right">
-					<button type="submit" class="btn btn-primary btn-upper"><?=Yii::t('app','send')?></button>
+					<?=\yii\helpers\Html::submitButton('<i class="fa fa-pencil icon-on-right"></i> '.Yii::t('app','subscribe'), ['class' => 'btn btn-primary btn-md','name' => 'post'])?>
 				    </div><!-- /.action -->
+				    <div class="clearfix" style="margin-bottom:10px"></div>
 				<?php \yii\bootstrap\ActiveForm::end() ?><!-- /.cnt-form -->
 			    </div><!-- /.form-container -->
+			    <?php } else { ?>
+			    
+			    <h4><?=Yii::t('app/message','msg you must login')?></h4>
+			    
+			    <a  class="btn btn-primary" href="<?=\yii\helpers\Url::to(['site/register'])?>"> <i class="fa fa-user"></i>  <?=Yii::t('app','register')?></a>
+			    <a  class="btn btn-primary" href="<?=\yii\helpers\Url::to(['site/login'])?>"> <i class="fa fa-key"></i> <?=Yii::t('app','login')?></a>
+			    
+			    <?php } ?>
+			    
 			</div><!-- /.review-form -->
+			
+			
 		    </div><!-- /.product-add-review -->										
 		</div>
 	    </div><!-- /.tab-pane -->

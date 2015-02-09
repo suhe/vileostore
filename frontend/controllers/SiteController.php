@@ -174,4 +174,16 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+    
+    public function actionNewsletter(){
+        $formModel = new \common\models\Newsletter();
+        if ($formModel->load(Yii::$app->request->post()) && $formModel->getSave()) {
+            $formModel->refresh();
+            Yii::$app->response->format = 'json';
+            return ['success' => true,'message' => Yii::t('app/message','msg thanks your email has been registered')];
+        } else {
+            Yii::$app->response->format = 'json';
+            return ['success' => false,'message' => Yii::t('app/message','msg your email has been available registered')];
+        }
+    }
 }

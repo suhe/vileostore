@@ -956,9 +956,10 @@ a {
 /*  DARK GREEN Color
 /*===================================================================================*/
 .top-bar {
-  background: #ef0403;
+  background: url("images/nav.PNG") ;
   padding: 5px 0 5px;
   font-size: 12px;
+  border-bottom:1px solid #CCC;
 }
 .top-bar .cnt-account {
   float: left;

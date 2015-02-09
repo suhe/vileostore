@@ -35,7 +35,7 @@ $this->title = $category->name;
 				    switch(Yii::$app->request->QueryParams['sort']){
 					case 'name': $string = Yii::$app->request->QueryParams['orderby']=='asc'?Yii::t('app','name A to Z'):Yii::t('app','name Z to A');break;
 					case 'price': $string = Yii::$app->request->QueryParams['orderby']=='asc'?Yii::t('app','lower to high'):Yii::t('app','high to lower');break;
-					default: $string=Yii::t('app','uknown');break;
+					default: $string=Yii::t('app','sort by');break;
 				    }
 				}
 				else {
@@ -59,7 +59,7 @@ $this->title = $category->name;
 				
 				<div class="col col-sm-3 col-md-6 no-padding">
 				    <div class="lbl-cnt">
-					<span class="lbl"><?=Yii::t('app','show')?></span>
+					<span class="lbl"><?=Yii::t('app','page')?></span>
 					<div class="fld inline">
 					    <div class="dropdown dropdown-small dropdown-med dropdown-white inline">
 						<button data-toggle="dropdown" type="button" class="btn dropdown-toggle">

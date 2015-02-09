@@ -33,9 +33,9 @@
 				    <!-- col -->
 				    <div class=" col-md-8 col-sm-8 social-icons">
 					<ul class="list-inline">
-					    <li><?=\yii\helpers\Html::a('<i class="fa fa-file"></i> '.$row->online?Yii::t('app','online'):Yii::t('app','not online'),['#'])?></li>
-					    <li><?=\yii\helpers\Html::a('<i class="fa fa-map-marker"></i> '.$row->cod?Yii::t('app','cash on delivery'):Yii::t('app','not cod'),['#'])?></li>
-					    <li><?=\yii\helpers\Html::a('<i class="fa fa-umbrella"></i> '.$row->dropshier?Yii::t('app','dropshier'):Yii::t('app','not dropshier'),['#'])?></li>
+					    <li><i class="fa fa-file"></i> <?=\yii\helpers\Html::a($row->online?Yii::t('app','online'):Yii::t('app','not online'),['#'])?></li>
+					    <li><i class="fa fa-map-marker"></i> <?=\yii\helpers\Html::a($row->cod?Yii::t('app','cash on delivery'):Yii::t('app','not cod'),['#'])?></li>
+					    <li><i class="fa fa-umbrella"></i> <?=\yii\helpers\Html::a($row->dropshier?Yii::t('app','dropshier'):Yii::t('app','not dropshier'),['#'])?></li>
 					</ul><!-- /.social-icons -->
 				    </div>
 				    <!-- /.col -->
