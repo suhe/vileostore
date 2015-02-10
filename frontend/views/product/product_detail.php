@@ -1,6 +1,6 @@
 <?php
 $this->params['breadcrumbs'] = [
-    ['label' => Yii::t('app',$category->name),'url' => ['product/category','id'=>$category->id]],
+    ['label' => Yii::t('app',$data->category_name),'url' => ['product/category','id'=>$data->category_id]],
     ['label' => \yii\helpers\Html::encode($data->name),'url' => ['product/read','id'=>$data->id]]   
 ];?>
 <?=$this->title = $data->name;?> 

@@ -74,7 +74,7 @@
 				//'labelOptions' => ['class' => 'col-sm-2 control-label'],
 			    ],
 			]);?>
-		        <?=\yii\helpers\Html::activeTextInput(new \common\models\Product(), 'name', ['placeholder' => Yii::t('app','search here'), 'class' => 'search-field']); ?>
+		        <?=\yii\helpers\Html::activeTextInput(new \common\models\Product(), 'name', ['placeholder' => Yii::t('app','search here'),'value' => isset(Yii::$app->request->QueryParams['Product']['name'])?Yii::$app->request->QueryParams['Product']['name']:'','class' => 'search-field']); ?>
 		        <?=\yii\helpers\Html::submitButton('',['class' => 'search-button btn btn-default','name' => 'search'])?>
 		    </div>	
 			<!--<div class="control-group">

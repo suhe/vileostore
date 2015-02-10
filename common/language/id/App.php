@@ -32,14 +32,18 @@ return [
     'not cod' => 'Tidak COD',
     /** Abjad O **/
     'online' => 'Online',
-    /** Abjad Page **/
+    /** Abjad P **/
     'page' => 'Hal',
     'price down' => 'Harga Terendah',
     'price high' => 'Harga Tertinggi',
     'price lower to high' => 'Harga Rendah ke Tinggi',
     'price high to lower' => 'Harga Tinggi ke Rendah',
+    /** Abjad Q **/
+    'query result' => 'Hasil Pencarian',
     /** Abjad R**/
+    'random sort' => 'Urutan Acak',
     'register & login' => 'Register & Login',
+    'result' => 'Hasil',
     /** Abjad S**/
     'search' => 'Pencarian',
     'sign in' => 'Sign In',

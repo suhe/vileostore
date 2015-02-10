@@ -21,7 +21,7 @@
 		<?=$form->field(new \common\models\Product(),'brand_id')->dropDownList(\common\models\Brand::getDropDownList(),['options'=>[$this->params['brand_id'] => ["\nselected" => true]]])?>	
 		<?=$form->field(new \common\models\Product(),'price_down')->textInput(['value' => $this->params['price_down'],'class' => 'form-control text-right'])?>
 		<?=$form->field(new \common\models\Product(),'price_high')->textInput(['value' => $this->params['price_high'],'class' => 'form-control text-right'])?>
-		
+		<?=$form->field(new \common\models\Product(),'sort_by')->dropDownList(\common\models\Product::getProductSortByList(),['options'=>[$this->params['sort_by'] => ["\nselected" => true]]])?>	
 		<div class='col-md-12'>
 		    <div class="form-group pull-right" >
 			<?=\yii\helpers\Html::submitButton('<i class="fa fa-search icon-on-right"></i> '.Yii::t('app','search'), ['class' => 'btn btn-primary btn-md','name' => 'search'])?>

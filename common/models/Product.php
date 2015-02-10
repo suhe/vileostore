@@ -6,12 +6,12 @@ use yii\helpers\Html;
 class Product extends \yii\db\ActiveRecord {
     
     public $product_id;
+    public $category_name;
     public $price_down;
     public $price_high;
     public $category_id;
     public $sort_by;
-    public $order_by;
-    public $page;
+    
     
     public static function tableName(){
         return 'product';
@@ -19,6 +19,10 @@ class Product extends \yii\db\ActiveRecord {
     
     public function getProductCategory(){
         return $this->hasOne(ProductCategory::className(), ['id' => 'product_id']);
+    }
+    
+    public function getCategory(){
+        return $this->hasOne(Category::className(), ['id' => 'category_id']);
     }
     
     public function getProduct_category(){
@@ -46,8 +50,20 @@ class Product extends \yii\db\ActiveRecord {
             [['brand_id'], 'safe','on'=>['search']],
             [['price_down'], 'safe','on'=>['search']],
             [['price_high'], 'safe','on'=>['search']],
-            
+            [['sort_by'], 'safe','on'=>['search']],
         ];
+    }
+    
+    public static function getProductSortByList($All=true){
+        $data = [];
+        if($All)
+            $data[0] = Yii::t('app','random sort');
+        
+        $data[1] = Yii::t('app','name A to Z');
+        $data[2] = Yii::t('app','name Z to A');
+        $data[3] = Yii::t('app','price lower to high');
+        $data[4] = Yii::t('app','price high to lower');
+        return $data;
     }
     
     public static function GetProductByCategory($category,$limit='',$status=''){
@@ -84,8 +100,9 @@ class Product extends \yii\db\ActiveRecord {
     public function getAllQueryWithSearch($params){
         $query =  static::find()
         ->select(['product.id  product_id','name','price','image','short_description','online','cod','dropshier'])
-         ->joinWith('product_category')
-        ->andWhere(['status' => 1]);
+        ->joinWith('product_category')
+        ->andWhere(['status' => 1])
+        ->groupBy('product.id');
         
         if (!$this->load($params))
             return $query;
@@ -104,16 +121,20 @@ class Product extends \yii\db\ActiveRecord {
         
         if ($this->load($params) && $this->price_high)
             $query = $query->andFilterWhere(['<=', 'product.price', $this->price_high]);
-            
-        //if(($params['sort']=='name') && ($params['orderby']=='asc'))   $query = $query->orderBy(['product.name' => SORT_ASC]);
-        //if(($params['sort']=='name') && ($params['orderby']=='desc'))  $query = $query->orderBy(['product.name'=> SORT_DESC]);
-        //if(($params['sort']=='price') && ($params['orderby']=='asc'))  $query = $query->orderBy(['ABS(product.price)' => SORT_ASC]);
-        //if(($params['sort']=='price') && ($params['orderby']=='desc')) $query = $query->orderBy(['ABS(product.price)' => SORT_DESC]); 
         
+        if ($this->load($params) && $this->sort_by==1)
+            $query = $query->orderBy(['product.name' => SORT_ASC]);
+            
+        if ($this->load($params) && $this->sort_by==2)
+            $query = $query->orderBy(['product.name'=> SORT_DESC]);
+            
+        if ($this->load($params) && $this->sort_by==3)
+            $query = $query->orderBy(['ABS(product.price)' => SORT_ASC]);
+            
+        if ($this->load($params) && $this->sort_by==4)
+            $query = $query->orderBy(['ABS(product.price)' => SORT_DESC]);
+            
         return $query;
-    
-        //if (!isset($params['sort'])) 
-            //return $query;
         
     }
     

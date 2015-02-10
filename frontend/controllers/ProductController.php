@@ -35,7 +35,7 @@ class ProductController extends \yii\web\Controller {
         ]);
     }
     
-    public function actionSearch($view=''){
+    public function actionSearch($offset=0){
         $model = new \common\models\Product(['scenario' => 'search']);
         
         if($model->validate() && $model->load(Yii::$app->request->queryParams)){
@@ -56,10 +56,8 @@ class ProductController extends \yii\web\Controller {
         $this->layout = 'search';
         return $this->render('search',[
             'model' => $model,
-            'view' => $view,
             'pages' => $pages,
             'query' => $query,
-            'gridView' => 'category-grid',
             'listView' => 'category-list',
         ]);
     }
@@ -73,13 +71,17 @@ class ProductController extends \yii\web\Controller {
             Yii::$app->response->format = 'json';
             return ['success' => true,'name' => 'Naomi','comment' => $formModel->description,'date' => Yii::t('app','1 second ago')];
         }
+        $model = \common\models\Product::find()
+        ->select(['*','category.name category_name'])
+        ->joinWith('category')
+        ->where(['product.id' => $id])
+        ->one();
         
         $this->layout = 'single';
-        $category = \common\models\ProductCategory::findOne(['product_id' => $id]);
         return $this->render('product_detail',[
             'formModel' => $formModel,
-            'data' => \common\models\Product::findOne($id),
-            'category' => \common\models\Category::findOne($category->category_id),
+            'data' => $model,
+            'category' => \common\models\Category::findOne($model->category_id),
             'discusion' => \common\models\Discusion::getDiscusionByProduct($id),
             'images' => \common\models\ProductImage::find()->where(['product_id' => $id])->all()
         ]);
