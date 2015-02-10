@@ -2,87 +2,88 @@
 <header class="header-style-1">
 <!-- ============================================== TOP MENU ============================================== -->
 <div class="top-bar animate-dropdown navbar-fixed-top">
-	<div class="container">
-		<div class="header-top-inner">
-			<div class="cnt-account">
-				<ul class="list-unstyled">
-					<li><a href="#"><i class="icon fa fa-user"></i>My Account</a></li>
-					<li><a href="#"><i class="icon fa fa-heart"></i>Wishlist</a></li>
-					<li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
-					<li><a href="#"><i class="icon fa fa-key"></i>Checkout</a></li>
-					<li><a href="#"><i class="icon fa fa-sign-in"></i>Login</a></li>
-				</ul>
-			</div><!-- /.cnt-account -->
+    <div class="container">
+	<div class="header-top-inner">
+	    <div class="cnt-account">
+		<ul class="list-unstyled">
+		    <li><a href="#"><i class="icon fa fa-user"></i>My Account</a></li>
+		    <li><a href="#"><i class="icon fa fa-heart"></i>Wishlist</a></li>
+		    <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
+		    <li><a href="#"><i class="icon fa fa-key"></i>Checkout</a></li>
+		    <li><a href="#"><i class="icon fa fa-sign-in"></i>Login</a></li>
+		</ul>
+	    </div><!-- /.cnt-account -->
 
-			<div class="cnt-block">
-				<ul class="list-unstyled list-inline">
-					<li class="dropdown dropdown-small">
-						<a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="key">currency :</span><span class="value">USD </span><b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">USD</a></li>
-							<li><a href="#">INR</a></li>
-							<li><a href="#">GBP</a></li>
-						</ul>
-					</li>
-
-					<li class="dropdown dropdown-small">
-						<a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="key">language :</span><span class="value">English </span><b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">English</a></li>
-							<li><a href="#">French</a></li>
-							<li><a href="#">German</a></li>
-						</ul>
-					</li>
-				</ul><!-- /.list-unstyled -->
-			</div><!-- /.cnt-cart -->
-			<div class="clearfix"></div>
-		</div><!-- /.header-top-inner -->
-	</div><!-- /.container -->
+	    <div class="cnt-block">
+		<ul class="list-unstyled list-inline">
+		    <?php if(!Yii::$app->user->isGuest){ ?>
+		    <li class="dropdown dropdown-small">
+			<a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="key"><?=Yii::t('app','hai')?> :</span><span class="value"><?=Yii::$app->user->identity->first_name?> </span><b class="caret"></b></a>
+			    <ul class="dropdown-menu">
+				<li><?=\yii\helpers\Html::a(Yii::t('my profile'),['user/profile'])?></li>
+				<li><?=\yii\helpers\Html::a(Yii::t('history transaction'),['cart/history'])?></li>
+				<li><?=\yii\helpers\Html::a(Yii::t('addresses'),['user/address'])?></li>
+				<li><?=\yii\helpers\Html::a(Yii::t('change password'),['user/chpassword'])?></li>
+			    </ul>
+		    </li>
+		    <?php } ?>
+		</ul><!-- /.list-unstyled -->
+	    </div><!-- /.cnt-cart -->
+	    
+	    <div class="clearfix"></div>
+	    
+	</div><!-- /.header-top-inner -->
+    </div><!-- /.container -->
 </div><!-- /.header-top -->
+
 <!-- ============================================== TOP MENU : END ============================================== -->
-	<div class="main-header">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
-					<!-- ============================================================= LOGO ============================================================= -->
-<div class="logo">
-	<a href="<?=\yii\helpers\Url::to(['site/index'])?>">
-	    <?=himiklab\thumbnail\EasyThumbnailImage::thumbnailImg(
-		'@assets/images/logo.png',
-		181,
-		68,
-		\himiklab\thumbnail\EasyThumbnailImage::THUMBNAIL_OUTBOUND,
-		['alt' => 'logo']
-	    );?>  
-		
-	</a>
-</div><!-- /.logo -->
-<!-- ============================================================= LOGO : END ============================================================= -->				</div><!-- /.logo-holder -->
+<div class="main-header">
+    <div class="container">
+	<div class="row">
+	    <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
+		<!-- ============================================================= LOGO ============================================================= -->
+		<div class="logo">
+		    <a href="<?=\yii\helpers\Url::to(['site/index'])?>">
+			<?=himiklab\thumbnail\EasyThumbnailImage::thumbnailImg(
+			    '@assets/images/logo.png',
+			    181,
+			    68,
+			    \himiklab\thumbnail\EasyThumbnailImage::THUMBNAIL_OUTBOUND,
+			    ['alt' => 'logo']
+			);?>  	
+		    </a>
+		</div><!-- /.logo -->
+		<!-- ============================================================= LOGO : END ============================================================= -->				</div><!-- /.logo-holder -->
 
-				<div class="col-xs-12 col-sm-12 col-md-6 top-search-holder">
-					<div class="contact-row">
-    <div class="phone inline">
-        <i class="icon fa fa-phone"></i> (400) 888 888 868
-    </div>
-    <div class="contact inline">
-        <i class="icon fa fa-envelope"></i> saler@unicase.com
-    </div>
-</div><!-- /.contact-row -->
-<!-- ============================================================= SEARCH AREA ============================================================= -->
-<div class="search-area">
-    <form>
-        <div class="control-group">
-            <input class="search-field" placeholder="Search here..." />
-            <a class="search-button" href="#" ></a>    
-
-        </div>
-    </form>
-	
-	
-	
-	
-</div><!-- /.search-area -->
-<!-- ============================================================= SEARCH AREA : END ============================================================= -->				</div><!-- /.top-search-holder -->
+	    <div class="col-xs-12 col-sm-12 col-md-6 top-search-holder">
+		<div class="contact-row">
+		    <div class="phone inline"><i class="icon fa fa-phone"></i> <?=Yii::$app->setting->Variable('Hunting Phone')->content?></div>
+		    <div class="contact inline"><i class="icon fa fa-envelope"></i> <?=Yii::$app->setting->Variable('Email')->content?></div>
+		</div><!-- /.contact-row -->
+		<!-- ============================================================= SEARCH AREA ============================================================= -->
+		<div class="search-area">
+		    <div class="control-group">
+		    <?php
+			$form = \yii\bootstrap\ActiveForm::begin([
+			    'id' => 'formSearch',
+			    'method' => 'GET',
+			    'action' => ['product/search'],
+			    'options' => ['class' => 'form-horizontal'],
+			    'fieldConfig' => [
+				'template' => "{input}",
+				//'labelOptions' => ['class' => 'col-sm-2 control-label'],
+			    ],
+			]);?>
+		        <?=\yii\helpers\Html::activeTextInput(new \common\models\Product(), 'name', ['placeholder' => Yii::t('app','search here'), 'class' => 'search-field']); ?>
+		        <?=\yii\helpers\Html::submitButton('',['class' => 'search-button btn btn-default','name' => 'search'])?>
+		    </div>	
+			<!--<div class="control-group">
+			    <input class="search-field" placeholder="Search here..." />
+			    <a class="search-button" href="#" ></a>    
+			</div>--->
+		    <?php \yii\bootstrap\ActiveForm::end() ?><!-- /.cnt-form -->
+		</div><!-- /.search-area -->
+		<!-- ============================================================= SEARCH AREA : END ============================================================= -->				</div><!-- /.top-search-holder -->
 
 
 

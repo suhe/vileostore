@@ -4,30 +4,27 @@ $this->params['breadcrumbs'] = [
     ['label' => \yii\helpers\Html::encode($data->name),'url' => ['product/read','id'=>$data->id]]   
 ];?>
 <?=$this->title = $data->name;?> 
-
 <div class="row  wow fadeInUp">
-    <div class="col-xs-12 col-sm-6 col-md-4 gallery-holder">
-	<div class="product-item-holder size-big single-product-gallery small-gallery">
-	    <div id="owl-single-product">
-		<?php
-		$id=1;
-		foreach($images as $image){?>
-		<!-- /.single-product-gallery-item -->
-		<div class="single-product-gallery-item" id="data<?=$id?>">
-		    <a data-lightbox="image-1" data-title="Gallery" href="<?=Yii::$app->params['baseUrl'] ?>assets/images/products/<?=$image->product_id?>/<?=$image->name?>">
-			<?=himiklab\thumbnail\EasyThumbnailImage::thumbnailImg(
-				    '@image_product/'.$image->product_id.'/'.$image->name,
-				    347,
-				    270,
-				    \himiklab\thumbnail\EasyThumbnailImage::THUMBNAIL_OUTBOUND,
-				    ['alt' => $image->name]
-			);?>
-				
-			
-		    </a>
-		</div><!-- /.single-product-gallery-item -->
-		<?php $id++; } ?>
-	    </div><!-- /.single-product-slider -->
+	<div class="col-xs-12 col-sm-6 col-md-4 gallery-holder">
+	    <div class="product-item-holder size-big single-product-gallery small-gallery">
+		<div id="owl-single-product">
+		    <?php
+		    $id=1;
+		    foreach($images as $image){?>
+		    <!-- /.single-product-gallery-item -->
+		    <div class="single-product-gallery-item" id="data<?=$id?>">
+			<a data-lightbox="image-1" data-title="Gallery" href="<?=Yii::$app->params['baseUrl'] ?>assets/images/products/<?=$image->product_id?>/<?=$image->name?>">
+			    <?=himiklab\thumbnail\EasyThumbnailImage::thumbnailImg(
+					'@image_product/'.$image->product_id.'/'.$image->name,
+					347,
+					270,
+					\himiklab\thumbnail\EasyThumbnailImage::THUMBNAIL_OUTBOUND,
+					['alt' => $image->name]
+			    );?>
+			</a>
+		    </div><!-- /.single-product-gallery-item -->
+		    <?php $id++; } ?>
+		</div><!-- /.single-product-slider -->
 
 	    <div class="single-product-gallery-thumbs second-gallery-thumb gallery-thumbs">
 		<div id="owl-single-product2-thumbnails">
@@ -201,7 +198,7 @@ $this->params['breadcrumbs'] = [
 	</div><!-- /.tab-content -->
     </div><!-- /.product-tabs -->
 </div><!-- /.col -->
-
+</div><!-- /.row -->
 
 <?php 
 $js = <<<JS

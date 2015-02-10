@@ -7,9 +7,9 @@ class Banner extends \yii\db\ActiveRecord {
         return 'banner';
     }
     
-    public static function HomePageBanner($position='home'){
+    public static function HomePageBanner($position='home',$slide='static'){
         return \common\models\Banner::find()
-        ->where(['status' => 1])
+        ->where(['status' => 1,'slide' => $slide])
         ->all();
     }
 }

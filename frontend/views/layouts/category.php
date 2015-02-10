@@ -42,7 +42,6 @@ AppAsset::register($this);
 	
     </div><!-- /.container -->
 </div><!-- /#top-banner-and-menu -->
-
 <?=$this->render('footer')?>
 <?php $this->endBody() ?>
 </body>

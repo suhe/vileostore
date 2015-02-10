@@ -7,7 +7,6 @@ $params = array_merge(
 
 use \yii\web\Request;
 $baseUrl = str_replace('/frontend/web', '/index.jsp', (new Request)->getBaseUrl());
-#$baseUrl = '/vileostore';
 return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
@@ -32,7 +31,10 @@ return [
         ],
         'user' => [
             'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
+        ],
+        'setting' => [
+            'class' => '\common\models\Setting',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

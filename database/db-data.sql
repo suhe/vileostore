@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2015 at 10:28 AM
+-- Generation Time: Feb 10, 2015 at 11:32 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -19,6 +19,40 @@ SET time_zone = "+00:00";
 --
 -- Database: `vileostore`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `banner`
+--
+
+CREATE TABLE IF NOT EXISTS `banner` (
+`id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `position` varchar(255) DEFAULT NULL,
+  `slide` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `width` int(11) DEFAULT NULL,
+  `height` int(11) DEFAULT NULL,
+  `link_url` varchar(255) DEFAULT NULL,
+  `description` text,
+  `created_by` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `updated_date` datetime DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `banner`
+--
+
+INSERT INTO `banner` (`id`, `name`, `status`, `position`, `slide`, `image`, `width`, `height`, `link_url`, `description`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
+(1, 'MAC', 1, 'home', 'slideshow', '01.jpg', NULL, NULL, 'http://apple.co.id', 'Our payment platform', 1, '2015-02-09 16:47:25', NULL, NULL),
+(2, 'HP', 1, 'home', 'slideshow', '2.jpg', NULL, NULL, NULL, 'management tools for both ', 1, '2015-02-09 16:47:25', NULL, NULL),
+(3, 'MAC OS', 1, 'home', 'slideshow', '3.jpg', NULL, NULL, NULL, 'Our payment platform provides you ', 1, '2015-02-09 16:47:25', NULL, NULL),
+(5, 'Samsung', 1, 'home', 'static', '1.jpg', 470, 146, NULL, 'with easy-to-use managemen', NULL, NULL, NULL, NULL),
+(6, 'Watch', 1, 'home', 'static', '2.jpg', 470, 146, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -169,6 +203,22 @@ INSERT INTO `newsletter` (`id`, `email`, `created_date`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `page`
+--
+
+CREATE TABLE IF NOT EXISTS `page` (
+`id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `content` longtext,
+  `created_by` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `updated_date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `product`
 --
 
@@ -176,6 +226,7 @@ CREATE TABLE IF NOT EXISTS `product` (
 `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `slug` varchar(255) DEFAULT NULL,
+  `brand_id` int(11) DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
   `price` double DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
@@ -186,16 +237,24 @@ CREATE TABLE IF NOT EXISTS `product` (
   `dropshier` tinyint(1) DEFAULT '1',
   `stock` int(11) DEFAULT NULL,
   `review` int(11) DEFAULT NULL,
-  `counter` int(11) DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `counter` int(11) DEFAULT '0',
+  `best_seller` int(11) DEFAULT '0',
+  `total_sell` int(11) DEFAULT '0',
+  `created_by` int(11) DEFAULT '1',
+  `created_date` datetime DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `updated_date` datetime DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `slug`, `status`, `price`, `image`, `short_description`, `long_description`, `online`, `cod`, `dropshier`, `stock`, `review`, `counter`) VALUES
-(1, 'THREE - Always On AON 12 Bulan 10GB', 'three-always-on-aon-12-bulan-kuota-10gb', 1, 89000, 'c1.jpg', 'Free internet 1 tahun, fair quota 10GB. Setelah Kuota habis hanya bisa akses ke 11 situs populer tertentu selama setahun dari pertama kali kartu di aktifkan. Kartu ini sudah aktif dari Januari 2015 sampai dengan Januari 2016. Kartu yang sudah di gunakan t', 'Kapan terakhir kali kamu mencicipi kebebasan berinternet tanpa banyak syarat? Mulai dari adanya batasan waktu, masa pakai yang singkat, hingga kuota yang selalu hangus jika tidak digunakan ketika masa pakai telah berakhir.\r\nPada akhirnya, kebebasan menjadi batasan yang membuat kamu menjadi lebih boros. Apalagi dengan adanya ketentuan "pemakaian wajar" yang membuat kecepatan internetmu berkurang, atau bahkan bisa terjebak membayar lebih mahal setelah kuota yang ditentukan habis.\r\nJika kamu merasa kebebasan itu omong kosong.', 1, 0, 1, 11, 0, NULL),
-(2, 'THREE - Internet Sepuasnya 3 Bulan (1GB)', 'three-always-on-aon-12-bulan-kuota-1gb', 1, 23000, 'three1.gif', 'Kartu Perdana THREE 3 UNLIMITED GRATIS 3 BULAN. Bisa dipakai di seluruh indonesia selama masih ada sinyal Three 3 dengan koneksi super ngebut tanpa putus. Speed Up to 3.6 Mbps Quota 1 GB per bulan. Setelah 3 Bulan, per bulannya Rp. 35.000,- (Belum termasu', 'Perdana Three unlimited , free 3 bulan internet, iuran bulanan selanjutnya (bulan ke-4 dst) @Rp 35.000,- (BELUM TERMASUK PPN)\r\n\r\nPenjelasan :\r\nTri, operator jaringan GSM milik PT Hutchison CP Telecommunication kini ambil bagian dalam meningkatkan penggunaan internet masyarakat Indonesia. Mereka menghadirkan layanan mobile broadband berbasis HSPA (High Speed Packet Access). Yang dilengkapi dgn paket berlangganan data & modem mulai 18 Februari 2010.\r\n\r\nSetelah 3 bulan, pelanggan dikenakan tarif akses Rp 35.000/bulan (belum termasuk PPN). Pelanggan bisa mengisi ulang pulsa internet ini dgn pulsa regular Tri.\r\n\r\nLayanan ini didukung oleh teknologi HSPA Tri yng menawarkan kecepatan sampai dgn 1,8 Mbps utk HSDPA (High Speed Downlink Packet Access) & 1,4 Mbps utk HSUPA (High Speed Uplink Packet Access).', 1, 0, 1, 11, 0, 1);
+INSERT INTO `product` (`id`, `name`, `slug`, `brand_id`, `status`, `price`, `image`, `short_description`, `long_description`, `online`, `cod`, `dropshier`, `stock`, `review`, `counter`, `best_seller`, `total_sell`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
+(1, 'THREE - Always On AON 12 Bulan 10GB', 'three-always-on-aon-12-bulan-kuota-10gb', 1, 1, 89000, 'c1.jpg', 'Free internet 1 tahun, fair quota 10GB. Setelah Kuota habis hanya bisa akses ke 11 situs populer tertentu selama setahun dari pertama kali kartu di aktifkan. Kartu ini sudah aktif dari Januari 2015 sampai dengan Januari 2016. Kartu yang sudah di gunakan t', 'Kapan terakhir kali kamu mencicipi kebebasan berinternet tanpa banyak syarat? Mulai dari adanya batasan waktu, masa pakai yang singkat, hingga kuota yang selalu hangus jika tidak digunakan ketika masa pakai telah berakhir.\r\nPada akhirnya, kebebasan menjadi batasan yang membuat kamu menjadi lebih boros. Apalagi dengan adanya ketentuan "pemakaian wajar" yang membuat kecepatan internetmu berkurang, atau bahkan bisa terjebak membayar lebih mahal setelah kuota yang ditentukan habis.\r\nJika kamu merasa kebebasan itu omong kosong.', 1, 0, 1, 11, 0, 1, 1, NULL, 1, NULL, NULL, NULL),
+(2, 'THREE - Internet Sepuasnya 3 Bulan (1GB)', 'three-always-on-aon-12-bulan-kuota-1gb', 2, 1, 23000, 'three1.gif', 'Kartu Perdana THREE 3 UNLIMITED GRATIS 3 BULAN. Bisa dipakai di seluruh indonesia selama masih ada sinyal Three 3 dengan koneksi super ngebut tanpa putus. Speed Up to 3.6 Mbps Quota 1 GB per bulan. Setelah 3 Bulan, per bulannya Rp. 35.000,- (Belum termasu', 'Perdana Three unlimited , free 3 bulan internet, iuran bulanan selanjutnya (bulan ke-4 dst) @Rp 35.000,- (BELUM TERMASUK PPN)\r\n\r\nPenjelasan :\r\nTri, operator jaringan GSM milik PT Hutchison CP Telecommunication kini ambil bagian dalam meningkatkan penggunaan internet masyarakat Indonesia. Mereka menghadirkan layanan mobile broadband berbasis HSPA (High Speed Packet Access). Yang dilengkapi dgn paket berlangganan data & modem mulai 18 Februari 2010.\r\n\r\nSetelah 3 bulan, pelanggan dikenakan tarif akses Rp 35.000/bulan (belum termasuk PPN). Pelanggan bisa mengisi ulang pulsa internet ini dgn pulsa regular Tri.\r\n\r\nLayanan ini didukung oleh teknologi HSPA Tri yng menawarkan kecepatan sampai dgn 1,8 Mbps utk HSDPA (High Speed Downlink Packet Access) & 1,4 Mbps utk HSUPA (High Speed Uplink Packet Access).', 1, 0, 1, 11, 0, 1, 1, NULL, 1, NULL, NULL, NULL),
+(3, 'THREE - Internet Sepuasnya 3 Bulan (1GB)', 'three-always-on-aon-12-bulan-kuota-1gb', 3, 1, 23000, 'three1.gif', 'Kartu Perdana THREE 3 UNLIMITED GRATIS 3 BULAN. Bisa dipakai di seluruh indonesia selama masih ada sinyal Three 3 dengan koneksi super ngebut tanpa putus. Speed Up to 3.6 Mbps Quota 1 GB per bulan. Setelah 3 Bulan, per bulannya Rp. 35.000,- (Belum termasu', 'Perdana Three unlimited , free 3 bulan internet, iuran bulanan selanjutnya (bulan ke-4 dst) @Rp 35.000,- (BELUM TERMASUK PPN)\r\n\r\nPenjelasan :\r\nTri, operator jaringan GSM milik PT Hutchison CP Telecommunication kini ambil bagian dalam meningkatkan penggunaan internet masyarakat Indonesia. Mereka menghadirkan layanan mobile broadband berbasis HSPA (High Speed Packet Access). Yang dilengkapi dgn paket berlangganan data & modem mulai 18 Februari 2010.\r\n\r\nSetelah 3 bulan, pelanggan dikenakan tarif akses Rp 35.000/bulan (belum termasuk PPN). Pelanggan bisa mengisi ulang pulsa internet ini dgn pulsa regular Tri.\r\n\r\nLayanan ini didukung oleh teknologi HSPA Tri yng menawarkan kecepatan sampai dgn 1,8 Mbps utk HSDPA (High Speed Downlink Packet Access) & 1,4 Mbps utk HSUPA (High Speed Uplink Packet Access).', 1, 0, 1, 11, 0, 1, 1, NULL, 1, NULL, NULL, NULL),
+(4, 'THREE - Internet Sepuasnya 3 Bulan (1GB)', 'three-always-on-aon-12-bulan-kuota-1gb', 4, 1, 23000, 'three1.gif', 'Kartu Perdana THREE 3 UNLIMITED GRATIS 3 BULAN. Bisa dipakai di seluruh indonesia selama masih ada sinyal Three 3 dengan koneksi super ngebut tanpa putus. Speed Up to 3.6 Mbps Quota 1 GB per bulan. Setelah 3 Bulan, per bulannya Rp. 35.000,- (Belum termasu', 'Perdana Three unlimited , free 3 bulan internet, iuran bulanan selanjutnya (bulan ke-4 dst) @Rp 35.000,- (BELUM TERMASUK PPN)\r\n\r\nPenjelasan :\r\nTri, operator jaringan GSM milik PT Hutchison CP Telecommunication kini ambil bagian dalam meningkatkan penggunaan internet masyarakat Indonesia. Mereka menghadirkan layanan mobile broadband berbasis HSPA (High Speed Packet Access). Yang dilengkapi dgn paket berlangganan data & modem mulai 18 Februari 2010.\r\n\r\nSetelah 3 bulan, pelanggan dikenakan tarif akses Rp 35.000/bulan (belum termasuk PPN). Pelanggan bisa mengisi ulang pulsa internet ini dgn pulsa regular Tri.\r\n\r\nLayanan ini didukung oleh teknologi HSPA Tri yng menawarkan kecepatan sampai dgn 1,8 Mbps utk HSDPA (High Speed Downlink Packet Access) & 1,4 Mbps utk HSUPA (High Speed Uplink Packet Access).', 1, 0, 1, 11, 0, 1, 1, NULL, 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -206,20 +265,24 @@ INSERT INTO `product` (`id`, `name`, `slug`, `status`, `price`, `image`, `short_
 CREATE TABLE IF NOT EXISTS `product_category` (
 `id` int(11) NOT NULL,
   `product_id` int(11) DEFAULT NULL,
-  `category_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+  `category_id` int(11) DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `product_category`
 --
 
-INSERT INTO `product_category` (`id`, `product_id`, `category_id`) VALUES
-(1, 1, 6),
-(2, 2, 6),
-(3, 1, 39),
-(4, 2, 39),
-(5, 1, 40),
-(6, 2, 40);
+INSERT INTO `product_category` (`id`, `product_id`, `category_id`, `created_by`, `created_date`) VALUES
+(1, 1, 6, NULL, NULL),
+(2, 2, 6, NULL, NULL),
+(3, 1, 39, NULL, NULL),
+(4, 2, 39, NULL, NULL),
+(5, 1, 40, NULL, NULL),
+(6, 2, 40, NULL, NULL),
+(7, 1, 36, NULL, NULL),
+(8, 2, 36, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -230,19 +293,44 @@ INSERT INTO `product_category` (`id`, `product_id`, `category_id`) VALUES
 CREATE TABLE IF NOT EXISTS `product_image` (
 `id` int(11) NOT NULL,
   `product_id` int(11) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL
+  `name` varchar(255) DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `product_image`
 --
 
-INSERT INTO `product_image` (`id`, `product_id`, `name`) VALUES
-(1, 1, 'c1.jpg'),
-(2, 1, 'c2.jpg'),
-(3, 1, 'c3.jpg'),
-(4, 2, 'three1.gif'),
-(5, 2, 'three2.jpg');
+INSERT INTO `product_image` (`id`, `product_id`, `name`, `created_by`, `created_date`) VALUES
+(1, 1, 'c1.jpg', NULL, NULL),
+(2, 1, 'c2.jpg', NULL, NULL),
+(3, 1, 'c3.jpg', NULL, NULL),
+(4, 2, 'three1.gif', NULL, NULL),
+(5, 2, 'three2.jpg', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `setting`
+--
+
+CREATE TABLE IF NOT EXISTS `setting` (
+`id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `content` longtext,
+  `updated_by` int(11) DEFAULT NULL,
+  `updated_date` datetime DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `setting`
+--
+
+INSERT INTO `setting` (`id`, `name`, `content`, `updated_by`, `updated_date`) VALUES
+(1, 'Store Name', 'Vileo.co.id', 1, '2015-02-10 10:01:46'),
+(2, 'Hunting Phone', '0857-2053-1358', 1, '2015-02-10 10:01:46'),
+(3, 'Email', 'sales@vileo.co.id', 1, '2015-02-10 10:01:46');
 
 -- --------------------------------------------------------
 
@@ -307,6 +395,12 @@ INSERT INTO `user` (`id`, `first_name`, `middle_name`, `last_name`, `status`, `e
 --
 
 --
+-- Indexes for table `banner`
+--
+ALTER TABLE `banner`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `brand`
 --
 ALTER TABLE `brand`
@@ -331,6 +425,12 @@ ALTER TABLE `newsletter`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `page`
+--
+ALTER TABLE `page`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -349,6 +449,12 @@ ALTER TABLE `product_image`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `setting`
+--
+ALTER TABLE `setting`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tag`
 --
 ALTER TABLE `tag`
@@ -364,6 +470,11 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `banner`
+--
+ALTER TABLE `banner`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `brand`
 --
@@ -385,20 +496,30 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 ALTER TABLE `newsletter`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
+-- AUTO_INCREMENT for table `page`
+--
+ALTER TABLE `page`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `product_category`
 --
 ALTER TABLE `product_category`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `product_image`
 --
 ALTER TABLE `product_image`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `setting`
+--
+ALTER TABLE `setting`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tag`
 --

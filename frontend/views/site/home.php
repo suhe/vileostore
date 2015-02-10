@@ -10,7 +10,7 @@ $this->title = Yii::t('app','home page')
     <!-- ========================================== SECTION – HERO ========================================= -->			
     <div id="hero">
         <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
-	    <?php foreach(\common\models\Banner::homePageBanner('home') as $row){?>	
+	    <?php foreach(\common\models\Banner::homePageBanner('home','slideshow') as $row){?>	
 	    <div class="item" style="background-image: url(<?=Yii::$app->homeUrl?>/assets/images/banners/<?=$row->id?>/<?=$row->image?>);">
 		<div class="container-fluid">
 		    <div class="caption bg-color vertical-center text-left">
@@ -157,488 +157,82 @@ $this->title = Yii::t('app','home page')
 <!-- ============================================== WIDE PRODUCTS ============================================== -->
 <div class="wide-banners wow fadeInUp outer-bottom-vs">
     <div class="row">
-	<div class="col-md-7">
-		    <div class="wide-banner cnt-strip">
-				<div class="image">
-					<img class="img-responsive" data-echo="<?=Yii::$app->homeUrl?>/assets/images/banners/1.jpg" src="<?=Yii::$app->homeUrl?>/assets/images/blank.gif" alt="">
-				</div>	
-				<div class="strip">
-					<div class="strip-inner">
-						<h3 class="hidden-xs">samsung</h3>
-						<h2>galaxy</h2>
-					</div>	
-				</div>
-			</div><!-- /.wide-banner -->
-		</div><!-- /.col -->
-
-		<div class="col-md-5">
-			<div class="wide-banner cnt-strip">
-				<div class="image">
-					<img class="img-responsive" data-echo="<?=Yii::$app->homeUrl?>/assets/images/banners/2.jpg" src="<?=Yii::$app->homeUrl?>/assets/images/blank.gif" alt="">
-				</div>	
-				<div class="strip">
-					<div class="strip-inner">
-						<h3 class="hidden-xs">new trend</h3>
-						<h2>watch phone</h2>
-					</div>	
-				</div>
-			</div><!-- /.wide-banner -->
-		</div><!-- /.col -->
-
-	</div><!-- /.row -->
+	<?php foreach(\common\models\Banner::homePageBanner('home','static') as $row){?>	
+	<div class="col-md-6">
+	    <div class="wide-banner cnt-strip">
+		<div class="image">
+		    <?=himiklab\thumbnail\EasyThumbnailImage::thumbnailImg(
+			'@image_banner/'.$row->id.'/'.$row->image,
+			    $row->width,
+			    $row->height,
+			\himiklab\thumbnail\EasyThumbnailImage::THUMBNAIL_OUTBOUND,
+			['alt' => $row->name,'class'=>'img-responsive']
+		    );?>  
+		</div>	
+		
+		<div class="strip">
+		    <div class="strip-inner">
+			<h3 class="hidden-xs"><?=$row->name?></h3>
+		    </div>	
+		</div>
+	    </div><!-- /.wide-banner -->
+	</div><!-- /.col -->
+	<?php } ?>
+    </div><!-- /.row -->
 </div><!-- /.wide-banners -->
 <!-- ============================================== WIDE PRODUCTS : END ============================================== -->
 
 <!-- ============================================== BEST SELLER ============================================== -->
-
 <div class="sidebar-widget wow fadeInUp outer-bottom-vs">
-	<h3 class="section-title">Best seller</h3>
-	<div class="sidebar-widget-body outer-top-xs">
-		<div class="owl-carousel best-seller custom-carousel owl-theme outer-top-xs">
-	        	        <div class="item">
-	        	<div class="products best-product">
-		        							<div class="product">
-							<div class="product-micro">
-	<div class="row product-micro-row">
-		<div class="col col-xs-5">
-			<div class="product-image">
-				<div class="image">
-					<a href="assets/images/products/s1.jpg" data-lightbox="image-1" data-title="Nunc ullamcors">
-						<img data-echo="assets/images/products/s1.jpg" src="assets/images/blank.gif" alt="">
+    <h3 class="section-title"><?=Yii::t('app','best seller')?></h3>
+    <div class="sidebar-widget-body outer-top-xs">
+	<div class="owl-carousel best-seller custom-carousel owl-theme outer-top-xs">
+	    <?php foreach(\common\models\Product::getProductByCondition(['status'=>1,'best_seller'=>1]) as $row){?>
+	    <div class="item">
+	        <div class="products special-product">
+		    <div class="product">
+			<div class="product-micro">
+			    <div class="row product-micro-row">
+				<div class="col col-xs-5">
+				    <div class="product-image">
+					<div class="image">
+					    <a href="assets/images/products/sm1.jpg" data-lightbox="image-1" data-title="Nunc ullamcors">
+						<?=himiklab\thumbnail\EasyThumbnailImage::thumbnailImg(
+						    '@image_product/'.$row->id.'/'.$row->image,
+						    100,
+						    120,
+						    \himiklab\thumbnail\EasyThumbnailImage::THUMBNAIL_OUTBOUND,
+						    ['alt' => $row->name]
+						);?>
 						<div class="zoom-overlay"></div>
-					</a>					
-				</div><!-- /.image -->
-					
-											<div class="tag tag-micro new">
-							<span>new</span>
-						</div>
-					
-								</div><!-- /.product-image -->
-		</div><!-- /.col -->
-		<div class="col col-xs-7">
-			<div class="product-info">
-				<h3 class="name"><a href="#">Asus Zenphone 6</a></h3>
-				<div class="rating rateit-small"></div>
-				<div class="product-price">	
-				<span class="price">
-					$650.99				</span>
-				
-			</div><!-- /.product-price -->
-				<div class="action"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
-			</div>
-		</div><!-- /.col -->
-	</div><!-- /.product-micro-row -->
-</div><!-- /.product-micro -->
-      
-						</div>
-		        							<div class="product">
-							<div class="product-micro">
-	<div class="row product-micro-row">
-		<div class="col col-xs-5">
-			<div class="product-image">
-				<div class="image">
-					<a href="assets/images/products/s1.jpg" data-lightbox="image-1" data-title="Nunc ullamcors">
-						<img data-echo="assets/images/products/s1.jpg" src="assets/images/blank.gif" alt="">
-						<div class="zoom-overlay"></div>
-					</a>					
-				</div><!-- /.image -->
-					
-					
-								</div><!-- /.product-image -->
-		</div><!-- /.col -->
-		<div class="col col-xs-7">
-			<div class="product-info">
-				<h3 class="name"><a href="#">Asus Zenphone 6</a></h3>
-				<div class="rating rateit-small"></div>
-				<div class="product-price">	
-				<span class="price">
-					$650.99				</span>
-				
-			</div><!-- /.product-price -->
-				<div class="action"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
-			</div>
-		</div><!-- /.col -->
-	</div><!-- /.product-micro-row -->
-</div><!-- /.product-micro -->
-      
-						</div>
-		        		        	</div>
-	        </div>
-	    		        <div class="item">
-	        	<div class="products best-product">
-		        							<div class="product">
-							<div class="product-micro">
-	<div class="row product-micro-row">
-		<div class="col col-xs-5">
-			<div class="product-image">
-				<div class="image">
-					<a href="assets/images/products/s2.jpg" data-lightbox="image-1" data-title="Nunc ullamcors">
-						<img data-echo="assets/images/products/s2.jpg" src="assets/images/blank.gif" alt="">
-						<div class="zoom-overlay"></div>
-					</a>					
-				</div><!-- /.image -->
-					
-					
-								</div><!-- /.product-image -->
-		</div><!-- /.col -->
-		<div class="col col-xs-7">
-			<div class="product-info">
-				<h3 class="name"><a href="#">Apple Iphone 5s</a></h3>
-				<div class="rating rateit-small"></div>
-				<div class="product-price">	
-				<span class="price">
-					$650.99				</span>
-				
-			</div><!-- /.product-price -->
-				<div class="action"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
-			</div>
-		</div><!-- /.col -->
-	</div><!-- /.product-micro-row -->
-</div><!-- /.product-micro -->
-      
-						</div>
-		        							<div class="product">
-							<div class="product-micro">
-	<div class="row product-micro-row">
-		<div class="col col-xs-5">
-			<div class="product-image">
-				<div class="image">
-					<a href="assets/images/products/s2.jpg" data-lightbox="image-1" data-title="Nunc ullamcors">
-						<img data-echo="assets/images/products/s2.jpg" src="assets/images/blank.gif" alt="">
-						<div class="zoom-overlay"></div>
-					</a>					
-				</div><!-- /.image -->
-					
-					
-											<div class="tag tag-micro sale">
-							<span>sale</span>
-						</div>
-								</div><!-- /.product-image -->
-		</div><!-- /.col -->
-		<div class="col col-xs-7">
-			<div class="product-info">
-				<h3 class="name"><a href="#">Apple Iphone 5s</a></h3>
-				<div class="rating rateit-small"></div>
-				<div class="product-price">	
-				<span class="price">
-					$650.99				</span>
-				
-			</div><!-- /.product-price -->
-				<div class="action"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
-			</div>
-		</div><!-- /.col -->
-	</div><!-- /.product-micro-row -->
-</div><!-- /.product-micro -->
-      
-						</div>
-		        		        	</div>
-	        </div>
-	    		        <div class="item">
-	        	<div class="products best-product">
-		        							<div class="product">
-							<div class="product-micro">
-	<div class="row product-micro-row">
-		<div class="col col-xs-5">
-			<div class="product-image">
-				<div class="image">
-					<a href="assets/images/products/s3.jpg" data-lightbox="image-1" data-title="Nunc ullamcors">
-						<img data-echo="assets/images/products/s3.jpg" src="assets/images/blank.gif" alt="">
-						<div class="zoom-overlay"></div>
-					</a>					
-				</div><!-- /.image -->
-											<div class="tag tag-micro hot">
-							<span>hot</span>
-						</div>
-					
-					
-								</div><!-- /.product-image -->
-		</div><!-- /.col -->
-		<div class="col col-xs-7">
-			<div class="product-info">
-				<h3 class="name"><a href="#">Canon EOS 60D</a></h3>
-				<div class="rating rateit-small"></div>
-				<div class="product-price">	
-				<span class="price">
-					$650.99				</span>
-				
-			</div><!-- /.product-price -->
-				<div class="action"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
-			</div>
-		</div><!-- /.col -->
-	</div><!-- /.product-micro-row -->
-</div><!-- /.product-micro -->
-      
-						</div>
-		        							<div class="product">
-							<div class="product-micro">
-	<div class="row product-micro-row">
-		<div class="col col-xs-5">
-			<div class="product-image">
-				<div class="image">
-					<a href="assets/images/products/s3.jpg" data-lightbox="image-1" data-title="Nunc ullamcors">
-						<img data-echo="assets/images/products/s3.jpg" src="assets/images/blank.gif" alt="">
-						<div class="zoom-overlay"></div>
-					</a>					
-				</div><!-- /.image -->
-					
-					
-								</div><!-- /.product-image -->
-		</div><!-- /.col -->
-		<div class="col col-xs-7">
-			<div class="product-info">
-				<h3 class="name"><a href="#">Canon EOS 60D</a></h3>
-				<div class="rating rateit-small"></div>
-				<div class="product-price">	
-				<span class="price">
-					$650.99				</span>
-				
-			</div><!-- /.product-price -->
-				<div class="action"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
-			</div>
-		</div><!-- /.col -->
-	</div><!-- /.product-micro-row -->
-</div><!-- /.product-micro -->
-      
-						</div>
-		        		        	</div>
-	        </div>
-	    		        <div class="item">
-	        	<div class="products best-product">
-		        							<div class="product">
-							<div class="product-micro">
-	<div class="row product-micro-row">
-		<div class="col col-xs-5">
-			<div class="product-image">
-				<div class="image">
-					<a href="assets/images/products/s2.jpg" data-lightbox="image-1" data-title="Nunc ullamcors">
-						<img data-echo="assets/images/products/s2.jpg" src="assets/images/blank.gif" alt="">
-						<div class="zoom-overlay"></div>
-					</a>					
-				</div><!-- /.image -->
-											<div class="tag tag-micro hot">
-							<span>hot</span>
-						</div>
-					
-					
-								</div><!-- /.product-image -->
-		</div><!-- /.col -->
-		<div class="col col-xs-7">
-			<div class="product-info">
-				<h3 class="name"><a href="#">Sony Ericson Vaga</a></h3>
-				<div class="rating rateit-small"></div>
-				<div class="product-price">	
-				<span class="price">
-					$650.99				</span>
-				
-			</div><!-- /.product-price -->
-				<div class="action"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
-			</div>
-		</div><!-- /.col -->
-	</div><!-- /.product-micro-row -->
-</div><!-- /.product-micro -->
-      
-						</div>
-		        							<div class="product">
-							<div class="product-micro">
-	<div class="row product-micro-row">
-		<div class="col col-xs-5">
-			<div class="product-image">
-				<div class="image">
-					<a href="assets/images/products/s2.jpg" data-lightbox="image-1" data-title="Nunc ullamcors">
-						<img data-echo="assets/images/products/s2.jpg" src="assets/images/blank.gif" alt="">
-						<div class="zoom-overlay"></div>
-					</a>					
-				</div><!-- /.image -->
-					
-					
-								</div><!-- /.product-image -->
-		</div><!-- /.col -->
-		<div class="col col-xs-7">
-			<div class="product-info">
-				<h3 class="name"><a href="#">Sony Ericson Vaga</a></h3>
-				<div class="rating rateit-small"></div>
-				<div class="product-price">	
-				<span class="price">
-					$650.99				</span>
-				
-			</div><!-- /.product-price -->
-				<div class="action"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
-			</div>
-		</div><!-- /.col -->
-	</div><!-- /.product-micro-row -->
-</div><!-- /.product-micro -->
-      
-						</div>
-		        		        	</div>
-	        </div>
-	    		    </div>
-	</div><!-- /.sidebar-widget-body -->
+					    </a>					
+					</div><!-- /.image -->
+					<!--<div class="tag tag-micro hot"><span><?php // Yii::t('app','special')?></span></div>-->
+				    </div><!-- /.product-image -->
+				</div><!-- /.col -->
+				<div class="col col-xs-7">
+				    <div class="product-info">
+					<h3 class="name"><?=\yii\helpers\Html::a($row->name,['product/read','id'=>$row->id])?></h3>
+					<div class="rating rateit-small"></div>
+					<div class="product-price">	
+					    <span class="price"><?=Yii::$app->Formatter->asDecimal($row->price,2)?></span>
+					</div><!-- /.product-price -->
+					<div class="action">
+					    <?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$row->id],['class' => 'lnk btn btn-primary'])?>
+					</div>
+				    </div>
+				</div><!-- /.col -->
+			    </div><!-- /.product-micro-row -->
+			</div><!-- /.product-micro -->
+		    </div>  			
+		</div>
+	    </div>
+	    <?php } ?>
+	    <!-- /. Item -->
+	</div>
+	
+    </div><!-- /.sidebar-widget-body -->
 </div><!-- /.sidebar-widget -->
 <!-- ============================================== BEST SELLER : END ============================================== -->	
-
-
-
-<!-- ============================================== WIDE PRODUCTS ============================================== -->
-<div class="wide-banners wow fadeInUp outer-bottom-vs">
-	<div class="row">
-
-		<div class="col-md-12">
-			<div class="wide-banner cnt-strip">
-				<div class="image">
-					<img class="img-responsive" data-echo="<?=Yii::$app->homeUrl?>/assets/images/banners/3.jpg" src="<?=Yii::$app->homeUrl?>/assets/images/blank.gif" alt="">
-				</div>	
-				<div class="strip strip-text">
-					<div class="strip-inner">
-						<h2 class="text-right">one stop place for<br>
-						<span class="shopping-needs">all your shopping needs</span></h2>
-					</div>	
-				</div>
-				<div class="new-label">
-				    <div class="text">NEW</div>
-				</div><!-- /.new-label -->
-			</div><!-- /.wide-banner -->
-		</div><!-- /.col -->
-
-	</div><!-- /.row -->
-</div><!-- /.wide-banners -->
-<!-- ============================================== WIDE PRODUCTS : END ============================================== -->
-
-
-			<!-- ============================================== BLOG SLIDER ============================================== -->
-<section class="section outer-bottom-vs wow fadeInUp">
-	<h3 class="section-title">latest form blog</h3>
-	<div class="blog-slider-container outer-top-xs">
-		<div class="owl-carousel blog-slider custom-carousel">
-													
-				<div class="item">
-					<div class="blog-post">
-						<div class="blog-post-image">
-							<div class="image">
-								<a href="index.php?page=blog"><img data-echo="assets/images/blog-post/1.jpg" width="270" height="135" src="assets/images/blank.gif" alt=""></a>
-							</div>
-						</div><!-- /.blog-post-image -->
-					
-					
-						<div class="blog-post-info text-left">
-							<h3 class="name"><a href="#">Simple Blog demo from fashion web</a></h3>	
-							<span class="info">By Jone Doe-22 april 2014 -03 comments</span>
-							<p class="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p>
-							<a href="#" class="lnk btn btn-primary">Read more</a>
-						</div><!-- /.blog-post-info -->
-						
-						
-					</div><!-- /.blog-post -->
-				</div><!-- /.item -->
-			
-												
-				<div class="item">
-					<div class="blog-post">
-						<div class="blog-post-image">
-							<div class="image">
-								<a href="index.php?page=blog"><img data-echo="assets/images/blog-post/2.jpg" width="270" height="135" src="assets/images/blank.gif" alt=""></a>
-							</div>
-						</div><!-- /.blog-post-image -->
-					
-					
-						<div class="blog-post-info text-left">
-							<h3 class="name"><a href="#">Simple Blog demo from fashion web</a></h3>	
-							<span class="info">By Jone Doe-22 april 2014 -03 comments</span>
-							<p class="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p>
-							<a href="#" class="lnk btn btn-primary">Read more</a>
-						</div><!-- /.blog-post-info -->
-						
-						
-					</div><!-- /.blog-post -->
-				</div><!-- /.item -->
-			
-												
-				<div class="item">
-					<div class="blog-post">
-						<div class="blog-post-image">
-							<div class="image">
-								<a href="index.php?page=blog"><img data-echo="assets/images/blog-post/3.jpg" width="270" height="135" src="assets/images/blank.gif" alt=""></a>
-							</div>
-						</div><!-- /.blog-post-image -->
-					
-					
-						<div class="blog-post-info text-left">
-							<h3 class="name"><a href="#">Simple Blog demo from fashion web</a></h3>	
-							<span class="info">By Jone Doe-22 april 2014 -03 comments</span>
-							<p class="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p>
-							<a href="#" class="lnk btn btn-primary">Read more</a>
-						</div><!-- /.blog-post-info -->
-						
-						
-					</div><!-- /.blog-post -->
-				</div><!-- /.item -->
-			
-												
-				<div class="item">
-					<div class="blog-post">
-						<div class="blog-post-image">
-							<div class="image">
-								<a href="index.php?page=blog"><img data-echo="assets/images/blog-post/4.jpg" width="270" height="135" src="assets/images/blank.gif" alt=""></a>
-							</div>
-						</div><!-- /.blog-post-image -->
-					
-					
-						<div class="blog-post-info text-left">
-							<h3 class="name"><a href="#">Simple Blog demo from fashion web</a></h3>	
-							<span class="info">By Jone Doe-22 april 2014 -03 comments</span>
-							<p class="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p>
-							<a href="#" class="lnk btn btn-primary">Read more</a>
-						</div><!-- /.blog-post-info -->
-						
-						
-					</div><!-- /.blog-post -->
-				</div><!-- /.item -->
-			
-												
-				<div class="item">
-					<div class="blog-post">
-						<div class="blog-post-image">
-							<div class="image">
-								<a href="index.php?page=blog"><img data-echo="assets/images/blog-post/5.jpg" width="270" height="135" src="assets/images/blank.gif" alt=""></a>
-							</div>
-						</div><!-- /.blog-post-image -->
-					
-					
-						<div class="blog-post-info text-left">
-							<h3 class="name"><a href="#">Simple Blog demo from fashion web</a></h3>	
-							<span class="info">By Jone Doe-22 april 2014 -03 comments</span>
-							<p class="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p>
-							<a href="#" class="lnk btn btn-primary">Read more</a>
-						</div><!-- /.blog-post-info -->
-						
-						
-					</div><!-- /.blog-post -->
-				</div><!-- /.item -->
-			
-												
-				<div class="item">
-					<div class="blog-post">
-						<div class="blog-post-image">
-							<div class="image">
-								<a href="index.php?page=blog"><img data-echo="assets/images/blog-post/6.jpg" width="270" height="135" src="assets/images/blank.gif" alt=""></a>
-							</div>
-						</div><!-- /.blog-post-image -->
-					
-					
-						<div class="blog-post-info text-left">
-							<h3 class="name"><a href="#">Simple Blog demo from fashion web</a></h3>	
-							<span class="info">By Jone Doe-22 april 2014 -03 comments</span>
-							<p class="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p>
-							<a href="#" class="lnk btn btn-primary">Read more</a>
-						</div><!-- /.blog-post-info -->
-						
-						
-					</div><!-- /.blog-post -->
-				</div><!-- /.item -->
-			
-						
-		</div><!-- /.owl-carousel -->
-	</div><!-- /.blog-slider-container -->
-</section><!-- /.section -->
-<!-- ============================================== BLOG SLIDER : END ============================================== -->
 
 <!-- ============================================== CONTENT : END ============================================== -->
