@@ -1,5 +1,6 @@
 <?php
 namespace common\models;
+use Yii;
 
 class Category extends \yii\db\ActiveRecord {
     
@@ -21,5 +22,28 @@ class Category extends \yii\db\ActiveRecord {
         return static::find()
         ->where(['id' => $option])
         ->all();   
+    }
+    
+    public static function getHierarchyList($All=true) {
+        $options = [];
+        if($All==true)
+            $options[0] = Yii::t('app','all category');
+            
+        $parents = self::find()
+        ->where(['parent_id'=> 0])
+        ->all();
+        
+        foreach($parents as $id => $p) {
+            $children = self::find()
+            ->where(['parent_id'=> $p->id])
+            ->all();
+            
+            $child_options = [];
+            foreach($children as $child) {
+                $child_options[$child->id] = $child->name;
+            }
+            $options[$p->name] = $child_options;
+        }
+        return $options;
     }
 }

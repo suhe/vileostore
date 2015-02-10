@@ -25,20 +25,22 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 <?=$this->render('header')?>
 <div class="body-content outer-top-xs" id="top-banner-and-menu">
-<div class='container'>
-<div class="homepage-container">
-<div class='row single-product outer-bottom-sm '>
-    <div class='col-md-12'>
-	<?=$content?>
-	<div class="clearfix"></div>
-    </div><!-- /.row -->
-    <!-- Brand -->
+    <div class="container">
+	<div class="row">
+	    <!-- ============================================== CONTENT ============================================== -->
+		<div class='col-md-12'>
+		    <?=$content?>
+		</div><!-- /.col -->         
+	    <!-- ============================================== CONTENT : END ============================================== -->
+	</div><!-- /.row -->
+	<!-- Brand -->
 	<?=$this->render('brand-footer')?>
 	<!-- Brand -->
-    
+	
+    </div><!-- /.container -->
+</div><!-- /#top-banner-and-menu -->
 <?=$this->render('footer')?>
 <?php $this->endBody() ?>
 </body>
 </html>
-<?php $this->endPage() ?>		
-
+<?php $this->endPage() ?>

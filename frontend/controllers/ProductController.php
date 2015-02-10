@@ -35,6 +35,35 @@ class ProductController extends \yii\web\Controller {
         ]);
     }
     
+    public function actionSearch($view=''){
+        $model = new \common\models\Product(['scenario' => 'search']);
+        
+        if($model->validate() && $model->load(Yii::$app->request->queryParams)){
+            
+        }
+        
+        $query = $model->getAllQueryWithSearch(Yii::$app->request->QueryParams);
+        $countQuery = clone $query; //coun total query
+        //pagination total count and pagesize
+        $pages = new \yii\data\Pagination([
+            'pageSizeParam' => 'show',
+            'totalCount' => $countQuery->count(),
+            'pageSize' => isset(Yii::$app->request->QueryParams['show'])?Yii::$app->request->QueryParams['show']:Yii::$app->params['show_page'],
+            'params' => array_merge($_GET),
+        ]);
+        
+        $query = $query->offset($pages->offset)->limit($pages->limit)->all();
+        $this->layout = 'search';
+        return $this->render('search',[
+            'model' => $model,
+            'view' => $view,
+            'pages' => $pages,
+            'query' => $query,
+            'gridView' => 'category-grid',
+            'listView' => 'category-list',
+        ]);
+    }
+    
     public function actionRead($id){
         $formModel = new \common\models\Discusion(['scenario' => 'comment']);
         
