@@ -22,7 +22,7 @@ $this->title = $category->name;
 	</div><!-- /.col -->
 	<!-- /.col -->
 	<div class="col col-sm-12 col-md-6">
-	    <div class="col col-sm-3 col-md-6 no-padding">
+	    <div class="col col-sm-3 col-md-9 no-padding">
 		<!-- /.lbl-cnt -->
 		<div class="lbl-cnt">
 		    <!-- /.fld -->
@@ -34,7 +34,7 @@ $this->title = $category->name;
 				if(isset(Yii::$app->request->QueryParams['sort'])){
 				    switch(Yii::$app->request->QueryParams['sort']){
 					case 'name': $string = Yii::$app->request->QueryParams['orderby']=='asc'?Yii::t('app','name A to Z'):Yii::t('app','name Z to A');break;
-					case 'price': $string = Yii::$app->request->QueryParams['orderby']=='asc'?Yii::t('app','lower to high'):Yii::t('app','high to lower');break;
+					case 'price': $string = Yii::$app->request->QueryParams['orderby']=='asc'?Yii::t('app','price lower to high'):Yii::t('app','price high to lower');break;
 					default: $string=Yii::t('app','sort by');break;
 				    }
 				}
@@ -57,9 +57,8 @@ $this->title = $category->name;
 		</div><!-- /.lbl-cnt -->
 	    </div><!-- /.col -->
 				
-				<div class="col col-sm-3 col-md-6 no-padding">
+				<div class="col col-sm-3 col-md-3 no-padding">
 				    <div class="lbl-cnt">
-					<span class="lbl"><?=Yii::t('app','page')?></span>
 					<div class="fld inline">
 					    <div class="dropdown dropdown-small dropdown-med dropdown-white inline">
 						<button data-toggle="dropdown" type="button" class="btn dropdown-toggle">

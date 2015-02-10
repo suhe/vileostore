@@ -23,7 +23,7 @@
 			    <div class="dropdown-banner-holder">
 				<a href="#">
 				    <?=himiklab\thumbnail\EasyThumbnailImage::thumbnailImg(
-					'@assets/images/banners/banner-side.png',
+					'@assets/images/categories/'.$nav->id.'/'.$nav->image,
 					    395,
 					    397,
 					    \himiklab\thumbnail\EasyThumbnailImage::THUMBNAIL_OUTBOUND,
