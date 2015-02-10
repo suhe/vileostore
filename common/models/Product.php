@@ -45,6 +45,12 @@ class Product extends \yii\db\ActiveRecord {
         return $query->all();
     }
     
+    public static function getProductByCondition($condition=[]){
+        $query = static::find()
+        ->where($condition);
+        return $query->all();
+    }
+    
     public static function NewProduct($limit,$category_id=0){
         $query = static::find()
         ->joinWith('product_category')

@@ -45,6 +45,35 @@
 </div><!-- /.side-menu -->
 <!-- ================================== TOP NAVIGATION : END ================================== -->
 
+<!-- ================================== Search Bar By Price ================================== -->
+<?php if(Yii::$app->controller->getRoute()=='product/category') {?>
+<div class="sidebar-widget newsletter wow fadeInUp outer-bottom-small">
+    <h3 class="section-title"><?=Yii::t('app','search by category')?></h3>
+	<div class="sidebar-widget-body ">
+	    <?php
+	    $form = \yii\bootstrap\ActiveForm::begin([
+		'id' => 'formPrice',
+		'method' => 'GET',
+		'options' => ['class' => 'form-horizontal'],
+		'fieldConfig' => [
+		    'template' => "<div class='col-md-12'>{input}{error}</div>",
+		    //'labelOptions' => ['class' => 'col-sm-2 control-label'],
+		],
+	    ]);?>
+	    <?=$form->field(new \common\models\ProductCategory(),'price_down')->textInput(['value'=> isset(Yii::$app->request->QueryParams['ProductCategory']['price_down'])?Yii::$app->request->QueryParams['ProductCategory']['price_down']:0 ,'class' => 'form-control text-right'])?>
+	    <?=$form->field(new \common\models\ProductCategory(),'price_high')->textInput(['value'=>isset(Yii::$app->request->QueryParams['ProductCategory']['price_high'])?Yii::$app->request->QueryParams['ProductCategory']['price_high']:1000000000,'class' => 'form-control text-right'])?>
+	    <?=$form->field(new \common\models\ProductCategory(),'brand_id')->dropDownList(\common\models\Brand::getDropDownList(),['options'=>[isset(Yii::$app->request->QueryParams['ProductCategory']['brand_id'])?Yii::$app->request->QueryParams['ProductCategory']['brand_id']:0 => ["\nselected" => true]]])?>	
+	    <div class='col-md-12'>
+		<div class="form-group pull-right" >
+		    <?=\yii\helpers\Html::submitButton('<i class="fa fa-search icon-on-right"></i> '.Yii::t('app','search'), ['class' => 'btn btn-primary btn-md','name' => 'search'])?>
+		</div>
+		<div class="clearfix"></div>
+	    </div>
+	    <?php \yii\bootstrap\ActiveForm::end() ?><!-- /.cnt-form -->
+    </div><!-- /.sidebar-widget-body -->
+</div><!-- /.sidebar-widget -->
+<?php } ?>
+<!-- ================================== Search Bar By Price ================================== -->
 
 <!-- ============================================== NEWSLETTER ============================================== -->
 <div class="sidebar-widget newsletter wow fadeInUp outer-bottom-small">
@@ -60,7 +89,6 @@
 		    'options' => ['class' => 'form-horizontal'],
 		    'fieldConfig' => [
 			'template' => "<div class='col-md-12'>{input}{error}</div>",
-			//'labelOptions' => ['class' => 'col-sm-2 control-label'],
 		    ],
 		]);?>
 		<?=$form->field(new \common\models\Newsletter(),'email')->textInput(['placeholder' => Yii::t('app','email')])?>

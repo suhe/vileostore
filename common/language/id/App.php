@@ -2,6 +2,7 @@
 return [
     /** Abjad A **/
     'add to cart' => 'Beli Online',
+    'all brand' => 'Semua Brand',
     'availability' => 'Ketersediaan',
     /** Abjad B **/
     /** Abjad C **/
