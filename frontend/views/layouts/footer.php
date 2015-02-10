@@ -18,16 +18,13 @@
     </div><!-- /.footer-logo -->
 
      <div class="module-body m-t-20">
-        <p class="about-us"> Nam libero tempore, cum soluta nobis est ses  eligendi optio cumque cum soluta nobis est ses  eligendi optio cumque.</p>
+        <p class="about-us"><?=Yii::$app->setting->Variable('Store Slogan')->content?></p>
     
         <div class="social-icons">
             
-        <a href="http://facebook.com/transvelo" class='active'><i class="icon fa fa-facebook"></i></a>
-        <a href="#"><i class="icon fa fa-twitter"></i></a>
-        <a href="#"><i class="icon fa fa-linkedin"></i></a>
-        <a href="#"><i class="icon fa fa-rss"></i></a>
-        <a href="#"><i class="icon fa fa-pinterest"></i></a>
-
+        <a href="http://facebook.com/vileostore" class='active'><i class="icon fa fa-facebook"></i></a>
+        <a href="https://twitter.com/vileostore"><i class="icon fa fa-twitter"></i></a>
+        <a href="https://linkedin.com/vileostore"><i class="icon fa fa-linkedin"></i></a>
         </div><!-- /.social-icons -->
     </div><!-- /.module-body -->
 
@@ -38,20 +35,20 @@
             		 <!-- ============================================================= CONTACT TIMING============================================================= -->
 <div class="contact-timing">
 	<div class="module-heading">
-		<h4 class="module-title">opening time</h4>
+		<h4 class="module-title"><?=Yii::t('app','opening time')?></h4>
 	</div><!-- /.module-heading -->
 
 	<div class="module-body outer-top-xs">
 		<div class="table-responsive">
 			<table class="table">
 				<tbody>
-					<tr><td>Monday-Friday:</td><td class="pull-right">08.00 To 18.00</td></tr>
-					<tr><td>Saturday:</td><td class="pull-right">09.00 To 20.00</td></tr>
-					<tr><td>Sunday:</td><td class="pull-right">10.00 To 20.00</td></tr>
+					<tr><td><?=Yii::t('app','monday-friday')?> : </td><td class="pull-right"><?=Yii::$app->setting->Variable('Weekday Opening')->content?></td></tr>
+					<tr><td><?=Yii::t('app','saturday')?> :</td><td class="pull-right"><?=Yii::$app->setting->Variable('Saturday Opening')->content?></td></tr>
+					<tr><td><?=Yii::t('app','sunday')?> :</td><td class="pull-right"><?=Yii::$app->setting->Variable('Sunday Opening')->content?></td></tr>
 				</tbody>
 			</table>
 		</div><!-- /.table-responsive -->
-		<p class='contact-number'>Hot Line:(400)888 868 848</p>
+		<p class='contact-number'><?=Yii::t('app','contact support & and sales')?> :   <?=Yii::$app->setting->Variable('Hunting Phone')->content?></p>
 	</div><!-- /.module-body -->
 </div><!-- /.contact-timing -->
 <!-- ============================================================= CONTACT TIMING : END ============================================================= -->            	</div><!-- /.col -->
@@ -105,7 +102,7 @@
             		 <!-- ============================================================= INFORMATION============================================================= -->
 <div class="contact-information">
 	<div class="module-heading">
-		<h4 class="module-title">information</h4>
+		<h4 class="module-title"><?=Yii::t('app','address store')?></h4>
 	</div><!-- /.module-heading -->
 
 	<div class="module-body outer-top-xs">
@@ -118,7 +115,12 @@
                     </span>
                 </div>
                 <div class="media-body">
-                    <p>868 Any Stress,Burala Casi,Picasa USA.</p>
+                    <p>
+		    <?=Yii::$app->setting->Variable('Store Address')->content?>
+		    <?=Yii::$app->setting->Variable('Store City')->content?>
+		    <?=Yii::$app->setting->Variable('Store Province')->content?> ,
+		    <?=Yii::$app->setting->Variable('Store Pos Code')->content?>
+		    </p>
                 </div>
             </li>
 
@@ -130,11 +132,11 @@
                     </span>
                 </div>
                 <div class="media-body">
-                    <p>(400) 0888 888 888<br>(400) 888 888 888</p>
+                    <p><?=Yii::$app->setting->Variable('Hunting Phone')->content?></p>
                 </div>
             </li>
-
-              <li class="media">
+	  
+             <li class="media">
                 <div class="pull-left">
                      <span class="icon fa-stack fa-lg">
                       <i class="fa fa-circle fa-stack-2x"></i>
@@ -142,8 +144,7 @@
                     </span>
                 </div>
                 <div class="media-body">
-                    <span><a href="#">Contact @Unicase.com</a></span><br>
-                    <span><a href="#">Sale @Unicase.com</a></span>
+                    <span><a href="#"><?=Yii::$app->setting->Variable('Email')->content?></a></span>
                 </div>
             </li>
               
@@ -229,9 +230,9 @@
         <div class="container">
             <div class="col-xs-12 col-sm-6 no-padding">
                 <div class="copyright">
-                   Copyright © 2014
-                    <a href="index.php?page=home">Unicase Shop.</a>
-                    - All rights Reserved
+                   <?=Yii::t('app','copyright')?> &copy; 2014 - <?=date('Y')?>
+                    <?=\yii\helpers\Html::a(Yii::$app->setting->Variable('Store Name')->content)?>
+                    - <?=Yii::t('app','all right reserved')?>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 no-padding">

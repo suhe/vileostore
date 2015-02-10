@@ -49,6 +49,6 @@ return [
             'errorAction' => 'site/error',
         ],
     ],
-    'homeUrl' => '/vileostore',
+    'homeUrl' => str_replace('/index.jsp', '',$baseUrl),
     'params' => $params,
 ];
