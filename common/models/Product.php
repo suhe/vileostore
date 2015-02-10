@@ -9,6 +9,9 @@ class Product extends \yii\db\ActiveRecord {
     public $price_down;
     public $price_high;
     public $category_id;
+    public $sort_by;
+    public $order_by;
+    public $page;
     
     public static function tableName(){
         return 'product';
