@@ -4,6 +4,7 @@ if($_POST){
     $cart->update($_POST);
     Yii::$app->controller->refresh();
 }
+$this->title = Yii::t('app','shopping cart');
 ?>
 <div class="shopping-cart">
     <ul class="wizard-steps">
