@@ -161,67 +161,43 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="module-heading outer-bottom-xs">
-                        <h4 class="module-title">category</h4>
+                        <h4 class="module-title"><?=Yii::t('app','help & support')?></h4>
                     </div><!-- /.module-heading -->
 
                     <div class="module-body">
                         <ul class='list-unstyled'>
-                            <li><a href="#">Order History</a></li>
-                            <li><a href="#">Returns</a></li>
-                            <li><a href="#">Libero Sed rhoncus</a></li>
-                            <li><a href="#">Venenatis augue tellus</a></li>
-                            <li><a href="#">My Vouchers</a></li>
+			    <?php foreach(\common\models\Page::content(['status'=>1,'type'=>'Help & Support']) as $page){?>
+				<li><?=\yii\helpers\Html::a($page->title,['page/content','id'=>$page->id])?></li>
+                            <?php } ?>
                         </ul>
                     </div><!-- /.module-body -->
                 </div><!-- /.col -->
 
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="module-heading outer-bottom-xs">
-                        <h4 class="module-title">my account</h4>
+                        <h4 class="module-title"><?=Yii::t('app','my account')?></h4>
                     </div><!-- /.module-heading -->
 
                     <div class="module-body">
                         <ul class='list-unstyled'>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Customer Service</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Site Map</a></li>
-                            <li><a href="#">Search Terms</a></li>
+                            <li><?=\yii\helpers\Html::a(Yii::t('app','login & register'),['site/login'])?></li>
+			    <li><?=\yii\helpers\Html::a(Yii::t('app','my profile'),['user/profile'])?></li>
                         </ul>
                     </div><!-- /.module-body -->
                 </div><!-- /.col -->
-
-                <div class="col-xs-12 col-sm-6 col-md-3">
+		
+		<div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="module-heading outer-bottom-xs">
-                        <h4 class="module-title">our services</h4>
+                        <h4 class="module-title"><?=Yii::t('app','online shop')?></h4>
                     </div><!-- /.module-heading -->
 
                     <div class="module-body">
-                        <ul class='list-unstyled'>
-                            <li><a href="#">Order History</a></li>
-                            <li><a href="#">Returns</a></li>
-                            <li><a href="#">Libero Sed rhoncus</a></li>
-                            <li><a href="#">Venenatis augue tellus</a></li>
-                            <li><a href="#">My Vouchers</a></li>
-                        </ul>
+                        <p>
+			<?=\common\models\Page::publish(['id'=>6])->content?>      
+			</p>
                     </div><!-- /.module-body -->
                 </div><!-- /.col -->
-
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="module-heading outer-bottom-xs">
-                        <h4 class="module-title">help & support</h4>
-                    </div><!-- /.module-heading -->
-
-                    <div class="module-body">
-                        <ul class='list-unstyled'>
-                            <li><a href="#">Knowledgebase</a></li>
-                            <li><a href="#">Terms of Use</a></li>
-                            <li><a href="#">Contact Support</a></li>
-                            <li><a href="#">Marketplace Blog</a></li>
-                            <li><a href="#">About Unicase</a></li>
-                        </ul>
-                    </div><!-- /.module-body -->
-                </div>
+		
             </div>
         </div>
     </div>
@@ -238,6 +214,7 @@
             <div class="col-xs-12 col-sm-6 no-padding">
                 <div class="clearfix payment-methods">
                     <ul>
+			<li><?=Yii::t('app/message','msg we are support payment')?> :</li>
                         <li><img src="assets/images/payments/1.png" alt=""></li>
                         <li><img src="assets/images/payments/2.png" alt=""></li>
                         <li><img src="assets/images/payments/3.png" alt=""></li>

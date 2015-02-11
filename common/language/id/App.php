@@ -28,7 +28,9 @@ return [
     /** Abjad K **/
     /** Abjad L **/
     'list' => 'List',
+    'login & register' => 'Login & Register',
     /** Abjad M **/
+    'my profile' => 'My Profile',
     'monday-friday' => 'Senin s/d Jumat',
     /** Abjad N **/
     'name' => 'Name',
@@ -36,6 +38,7 @@ return [
     'name Z to A' => 'Nama Z sampai A',
     'not cod' => 'Tidak COD',
     /** Abjad O **/
+    'opening time' => 'Jam Buka Online',
     'online' => 'Online',
     /** Abjad P **/
     'page' => 'Hal',
