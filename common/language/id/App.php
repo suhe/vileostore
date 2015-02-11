@@ -6,6 +6,7 @@ return [
     'all brand' => 'Semua Brand',
     'all category' => 'Semua Kategori',
     'all right reserved' => 'All Right Reserved',
+    'product discussion' => 'Diskusi Produk',
     'availability' => 'Ketersediaan',
     /** Abjad B **/
     'brand' => 'Brand',
@@ -16,8 +17,10 @@ return [
     'contact support & and sales' => 'Kontak Support & Sales',
     'create a new account' => 'Pendaftaran Akun Baru',
     /** Abjad D **/
+    'description' => 'Keterangan',
     'dropshier' => 'Dropshier',
     /** Abjad E **/
+    'empty' => 'Kosong',
     /** Abjad F **/
     /** Abjad G **/
     'grid' => 'Grid',
@@ -28,6 +31,7 @@ return [
     /** Abjad K **/
     /** Abjad L **/
     'list' => 'List',
+    'login' => 'Login',
     'login & register' => 'Login & Register',
     /** Abjad M **/
     'my profile' => 'My Profile',
@@ -50,6 +54,7 @@ return [
     'query result' => 'Hasil Pencarian',
     /** Abjad R**/
     'random sort' => 'Urutan Acak',
+    'register' => 'Register Baru',
     'register & login' => 'Register & Login',
     'result' => 'Hasil',
     /** Abjad S**/

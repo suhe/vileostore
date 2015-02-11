@@ -32,7 +32,11 @@
 			</div><!-- /.product-price -->
 			</div><!-- /.product-info -->
 			<div class="action">
+			    <?php if($row->stock>0){?> 
 			    <?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$row->id],['class'=>'btn btn-primary'])?>
+			    <?php } else { ?>
+			    <?=\yii\helpers\Html::a(Yii::t('app','empty'),['product/category','id'=>$row->category_id],['class'=>'btn btn-primary'])?>
+			    <?php } ?>
 			</div>
 		</div><!-- /.product -->
 	    </div><!-- /.products -->

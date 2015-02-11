@@ -134,9 +134,13 @@ $this->title = Yii::t('app','home page')
 					<ul class="list-unstyled">
 					    <li class="add-cart-button btn-group">
 						<button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-						    <i class="fa fa-shopping-cart"></i>													
+						    <i class="fa <?=$row->stock>0?'fa-shopping-cart':'fa-thumbs-down'?>"></i>													
 						</button>
-						<?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$row->id],['class'=>'btn btn-primary'])?>							
+						<?php if($row->stock>0){?> 
+						<?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$row->id],['class'=>'btn btn-primary'])?>
+						<?php } else { ?>
+						<?=\yii\helpers\Html::a(Yii::t('app','empty'),['product/category','id'=>$row->category_id],['class'=>'btn btn-primary'])?>
+						<?php } ?>
 					    </li>
 					</ul>
 				    </div><!-- /.action -->
@@ -218,7 +222,11 @@ $this->title = Yii::t('app','home page')
 					    <span class="price"><?=Yii::$app->Formatter->asDecimal($row->price,2)?></span>
 					</div><!-- /.product-price -->
 					<div class="action">
+					    <?php if($row->stock>0){?> 
 					    <?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$row->id],['class' => 'lnk btn btn-primary'])?>
+					    <?php } else { ?>
+					    <?=\yii\helpers\Html::a(Yii::t('app','empty'),['product/category','id'=>$row->category_id],['class'=>'btn btn-primary'])?>
+					    <?php } ?>
 					</div>
 				    </div>
 				</div><!-- /.col -->

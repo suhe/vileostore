@@ -1,3 +1,7 @@
+<?php
+use vileosoft\shoppingcart\Cart;
+$cart = new Cart();
+?>
 <!-- ============================================== HEADER ============================================== -->
 <header class="header-style-1">
 <!-- ============================================== TOP MENU ============================================== -->
@@ -90,37 +94,49 @@
 
 				<div class="col-xs-12 col-sm-12 col-md-3 animate-dropdown top-cart-row">
 					<!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
-
+	
 	<div class="dropdown dropdown-cart">
 		<a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
 			<div class="items-cart-inner">
 				<div class="total-price-basket">
-					<span class="lbl">cart -</span>
+					<span class="lbl"><?=Yii::t('app','cart')?> -</span>
 					<span class="total-price">
-						<span class="sign">$</span>
-						<span class="value">600.00</span>
+						<span class="sign"><?=Yii::$app->params['currency']?></span>
+						<span class="value"><?=Yii::$app->Formatter->asDecimal($cart->total()?$cart->total():0,2);?></span>
 					</span>
 				</div>
 				<div class="basket">
 					<i class="glyphicon glyphicon-shopping-cart"></i>
 				</div>
-				<div class="basket-item-count"><span class="count">2</span></div>
+				<div class="basket-item-count"><span class="count"><?=Yii::$app->Formatter->asDecimal($cart->total_items()?$cart->total_items():0,0);?></span></div>
 			
 		    </div>
 		</a>
+		<?php if(count($cart->contents()>0)){ ?>
 		<ul class="dropdown-menu">
 			<li>
 				<div class="cart-item product-summary">
+					<?php foreach ($cart->contents() as $items){ ?>
 					<div class="row">
 						<div class="col-xs-4">
 							<div class="image">
-								<a href="index.php?page=detail"><img src="assets/images/cart.jpg" alt=""></a>
+								<a href="<?=\yii\helpers\Url::to(['product/read','id'=>$items['id']])?>">
+								    <?=himiklab\thumbnail\EasyThumbnailImage::thumbnailImg(
+				    '@image_product/'.$items['id'].'/'.$items['options']['image'],
+				    47,
+				    61,
+				    \himiklab\thumbnail\EasyThumbnailImage::THUMBNAIL_OUTBOUND,
+				    ['alt' => $items['name']]
+				);
+				?>  
+								    
+								</a>
 							</div>
 						</div>
 						<div class="col-xs-7">
 							
-							<h3 class="name"><a href="index.php?page-detail">Simple Product</a></h3>
-							<div class="price">$600.00</div>
+							<h3 class="name"><?=\yii\helpers\Html::a($items['name'],['product/read','id'=>$items['id']])?></h3>
+							<div class="price"><?=Yii::$app->formatter->asDecimal($items['price'],2)?></div>
 						</div>
 						<div class="col-xs-1 action">
 							<a href="#"><i class="fa fa-trash"></i></a>
@@ -128,22 +144,24 @@
 					</div>
 				</div><!-- /.cart-item -->
 				<div class="clearfix"></div>
+				<?php } ?>
+				
 			<hr>
 		
 			<div class="clearfix cart-total">
 				<div class="pull-right">
 					
-						<span class="text">Sub Total :</span><span class='price'>$600.00</span>
+						<span class="text">Sub Total :</span><span class='price'><?=Yii::$app->Formatter->asDecimal($cart->total()?$cart->total():0,2);?></span>
 						
 				</div>
 				<div class="clearfix"></div>
-					
-				<a href="index.php?page=checkout" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a>	
+				<?=\yii\helpers\Html::a(Yii::t('app','checkout'),['cart/shopping'],['class' => 'btn btn-upper btn-primary btn-block m-t-20'])?>	
 			</div><!-- /.cart-total-->
 					
 				
 		</li>
 		</ul><!-- /.dropdown-menu-->
+		<?php } ?>
 	</div><!-- /.dropdown-cart -->
 
 <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= -->				</div><!-- /.top-cart-row -->
@@ -168,4 +186,6 @@
 							    
 		</div><!-- /.breadcrumb-inner -->
 	</div><!-- /.container -->
+	
 </div>
+

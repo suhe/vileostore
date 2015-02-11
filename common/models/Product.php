@@ -2,15 +2,17 @@
 namespace common\models;
 use Yii;
 use yii\helpers\Html;
-
-class Product extends \yii\db\ActiveRecord {
+//use yz\shoppingcart\CartPositionInterface;
+//implements CartPositionInterface
+class Product extends \yii\db\ActiveRecord  {
     
     public $product_id;
     public $category_name;
     public $price_down;
     public $price_high;
-    public $category_id;
+    //public $category_id;
     public $sort_by;
+    public $cost=0;
     
     
     public static function tableName(){
@@ -99,7 +101,7 @@ class Product extends \yii\db\ActiveRecord {
     
     public function getAllQueryWithSearch($params){
         $query =  static::find()
-        ->select(['product.id  product_id','name','price','image','short_description','online','cod','dropshier'])
+        ->select(['product.id  product_id','category_id','name','price','image','short_description','online','cod','dropshier'])
         ->joinWith('product_category')
         ->andWhere(['status' => 1])
         ->groupBy('product.id');
@@ -137,5 +139,38 @@ class Product extends \yii\db\ActiveRecord {
         return $query;
         
     }
+    
+    /**
+     * Abstract for Shopping Cart
+     * /
+    
+    public function getPrice(){
+        return $this->price;
+    }
+    
+    public function getId(){
+        return $this->id;
+    }
+    
+    public function getCost($withDiscount = true){
+        return '2';
+    }
+    
+    public function getCount($withDiscount = true){
+        return '5';
+    }
+    
+    public function setQuantity($quantity){
+        return $quantity;
+    }
+    
+    public function getQuantity(){
+        
+    }
+    
+    
+     * Abstract for Shopping Cart
+     * /
+    **/
     
 }

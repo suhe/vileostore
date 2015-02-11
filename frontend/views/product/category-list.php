@@ -44,9 +44,13 @@
 					<ul class="list-unstyled pull-right">
 					    <li class="add-cart-button btn-group">
 						<button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-						    <i class="fa fa-shopping-cart"></i>													
+						    <i class="fa <?=$row->stock>0?'fa-shopping-cart':'fa-thumbs-down'?>"></i>													
 						</button>
+						<?php if($row->stock>0){?>
 						<?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$row->product_id],['class'=>'btn btn-primary'])?>
+						<?php } else { ?>
+						<?=\yii\helpers\Html::a(Yii::t('app','empty'),['product/read','id'=>$row->product_id],['class'=>'btn btn-primary'])?>
+						<?php } ?>
 					    </li>
 					</ul>
 				    </div>

@@ -175,7 +175,11 @@ $this->registerJs($js);?>
 					    <span class="price"><?=Yii::$app->Formatter->asDecimal($row->price,2)?></span>
 					</div><!-- /.product-price -->
 					<div class="action">
+					    <?php if($row->stock>0){?> 
 					    <?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$row->id],['class' => 'lnk btn btn-primary'])?>
+					    <?php } else { ?>
+					    <?=\yii\helpers\Html::a(Yii::t('app','empty'),['product/category','id'=>$row->category_id],['class'=>'btn btn-primary'])?>
+					    <?php } ?>
 					</div>
 				    </div>
 				</div><!-- /.col -->
@@ -239,7 +243,11 @@ $this->registerJs($js);?>
 					    <span class="price"><?=Yii::$app->Formatter->asDecimal($row->price,2)?></span>
 					</div><!-- /.product-price -->
 						<div class="action">
+						    <?php if($row->stock>0){?> 
 						    <?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$row->id],['class' => 'lnk btn btn-primary'])?>
+						    <?php } else { ?>
+						    <?=\yii\helpers\Html::a(Yii::t('app','empty'),['product/category','id'=>$row->category_id],['class'=>'btn btn-primary'])?>
+						    <?php } ?>
 						</div>
 				    </div>
 				</div><!-- /.col -->

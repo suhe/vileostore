@@ -75,4 +75,13 @@ return array (
       '@himiklab/thumbnail' => $vendorDir . '/himiklab/yii2-easy-thumbnail-image-helper',
     ),
   ),
+  'omnilight/yii2-shopping-cart' => 
+  array (
+    'name' => 'omnilight/yii2-shopping-cart',
+    'version' => '1.1.0.0',
+    'alias' => 
+    array (
+      '@yz/shoppingcart' => $vendorDir . '/omnilight/yii2-shopping-cart',
+    ),
+  ),
 );

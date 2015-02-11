@@ -91,8 +91,20 @@ $this->params['breadcrumbs'] = [
 			<div class="row outer-top-vs">
 				<div class="col-md-12 clearfix animate-effect">
 				<!-- /.action -->
-				<div class="action pull-right">
+				<div class="action">
+				    <ul class="list-unstyled pull-right">
+					<li class="add-cart-button btn-group">
+						
+				        <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
+					    <i class="fa <?=$data->stock>0?'fa-shopping-cart':'fa-thumbs-down'?>"></i>													
+					</button>
+					<?php if($data->stock>0){?>
 					<?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$data->id],['class'=>'btn btn-primary'])?>
+					<?php } else { ?>
+					<?=\yii\helpers\Html::a(Yii::t('app','empty'),['product/category','id'=>$data->category_id],['class'=>'btn btn-primary'])?>
+					<?php } ?>
+					</li>
+				    </ul>	
 				</div><!-- /.action -->
 				<div class="clearfix"></div>
 				</div>
@@ -101,8 +113,8 @@ $this->params['breadcrumbs'] = [
 			<div class="row product-social-link outer-top-vs">
 				<!-- /.col -->
 				<div class="col-md-1 col-sm-2">
-				<span class="label"><?=Yii::t('app','via')?></span>
-						</div><!-- /.col -->
+				    <span class="label text-danger"><?=Yii::t('app','via')?></span>
+				</div><!-- /.col -->
 				<!-- /.col -->
 				<div class=" col-md-11 col-sm-10 social-icons">
 				<ul class="list-inline">
@@ -121,7 +133,7 @@ $this->params['breadcrumbs'] = [
     <div class="product-tabs outer-top-smal  wow fadeInUp">
 	<ul id="product-tabs" class="nav nav-tabs nav-tab-cell-detail">
 	    <li class="active"><a data-toggle="tab" href="#description"><?=Yii::t('app','description')?></a></li>
-	    <li><a data-toggle="tab" href="#tags"><?=Yii::t('app','asked question')?></a></li>
+	    <li><a data-toggle="tab" href="#tags"><?=Yii::t('app','product discussion')?></a></li>
 	</ul><!-- /.nav-tabs #product-tabs -->
 	
 	<div class="tab-content outer-top-xs">

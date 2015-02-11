@@ -51,16 +51,19 @@
 		<p class='contact-number'><?=Yii::t('app','contact support & and sales')?> :   <?=Yii::$app->setting->Variable('Hunting Phone')->content?></p>
 	</div><!-- /.module-body -->
 </div><!-- /.contact-timing -->
-<!-- ============================================================= CONTACT TIMING : END ============================================================= -->            	</div><!-- /.col -->
+<!-- ============================================================= CONTACT TIMING : END ============================================================= -->
+</div><!-- /.col -->
 
-            	<div class="col-xs-12 col-sm-6 col-md-3">
-            		 <!-- ============================================================= LATEST TWEET============================================================= -->
+<div class="col-xs-12 col-sm-6 col-md-3">
+<!-- ============================================================= LATEST TWEET============================================================= -->
 <div class="latest-tweet">
 	<div class="module-heading">
-		<h4 class="module-title">latest tweet</h4>
+		<h4 class="module-title"><?=Yii::t('app','latest news & info')?></h4>
 	</div><!-- /.module-heading -->
 
 	<div class="module-body outer-top-xs">
+       
+       <?php foreach(\common\models\Page::content(['status'=>1,'type'=>'News & Info']) as $page){?>	
        <div class="re-twitter">
             <div class="comment media">
                 <div class='pull-left'>
@@ -70,33 +73,18 @@
                     </span>
                 </div>
                 <div class="media-body">
-                    <a href="#">@laurakalbag</a> As a result of your previous recommendation :) 
-                    <span class="time">
-                        12 hours ago
-                    </span>
+                    <?=\yii\helpers\Html::a($page->title,['page/content','id'=>$page->id])?>
+		    <?=substr($page->content,0,50)?>
                 </div>
             </div>
            
         </div>
-        <div class="re-twitter">
-            <div class="comment media">
-                <div class='pull-left'>
-                    <span class="icon fa-stack fa-lg">
-                      <i class="fa fa-circle fa-stack-2x"></i>
-                      <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                    </span>
-                </div>
-                <div class="media-body">
-                    <a href="#">@laurakalbag</a> As a result of your previous recommendation :) 
-                    <span class="time">
-                        12 hours ago
-                    </span>
-                </div>
-            </div>
-        </div>
+       <?php } ?>
+        
     </div><!-- /.module-body -->
 </div><!-- /.contact-timing -->
-<!-- ============================================================= LATEST TWEET : END ============================================================= -->            	</div><!-- /.col -->
+<!-- ============================================================= LATEST TWEET : END ============================================================= -->
+</div><!-- /.col -->
 
             	<div class="col-xs-12 col-sm-6 col-md-3">
             		 <!-- ============================================================= INFORMATION============================================================= -->

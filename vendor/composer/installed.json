@@ -1074,5 +1074,45 @@
             "thumbnail",
             "yii2"
         ]
+    },
+    {
+        "name": "omnilight/yii2-shopping-cart",
+        "version": "1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/omnilight/yii2-shopping-cart.git",
+            "reference": "e34d7f491e76a8429713ca2d4d59df2837aac8f1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/omnilight/yii2-shopping-cart/zipball/e34d7f491e76a8429713ca2d4d59df2837aac8f1",
+            "reference": "e34d7f491e76a8429713ca2d4d59df2837aac8f1",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0",
+            "yiisoft/yii2": "*"
+        },
+        "time": "2014-12-09 10:10:11",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "yz\\shoppingcart\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "authors": [
+            {
+                "name": "Pavel Agalecky",
+                "email": "pavel.agalecky@gmail.com"
+            }
+        ],
+        "description": "Yii2 extension that adds shopping cart functions",
+        "keywords": [
+            "shopping cart",
+            "yii"
+        ]
     }
 ]
