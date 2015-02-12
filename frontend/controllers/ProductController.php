@@ -72,7 +72,7 @@ class ProductController extends \yii\web\Controller {
             return ['success' => true,'name' => 'Naomi','comment' => $formModel->description,'date' => Yii::t('app','1 second ago')];
         }
         $model = \common\models\Product::find()
-        ->select(['*','category.name category_name'])
+        ->select(['*','product.id','category.name category_name'])
         ->joinWith('category')
         ->where(['product.id' => $id])
         ->one();
