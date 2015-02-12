@@ -291,10 +291,10 @@ class Cart extends Component
 			{
 				if (is_array($val) && isset($val['rowid']))
 				{
-					if ($this->_update($val) === TRUE)
-					{
+					//if ($this->_update($val) === TRUE)
+					//{
 						$save_cart = TRUE;
-					}
+					//}
 				}
 			}
 		}
@@ -324,6 +324,13 @@ class Cart extends Component
 	 */
 	protected function _update($items = array())
 	{
+		
+		// Without these array indexes there is nothing we can do
+		if ( ! isset($items['qty']) OR ! isset($items['rowid']) OR ! isset($this->_cart_contents[$items['rowid']]))
+		{
+			return FALSE;
+		}
+		
 		// Without these array indexes there is nothing we can do
 		if ( ! isset($items['rowid'], $this->_cart_contents[$items['rowid']]))
 		{

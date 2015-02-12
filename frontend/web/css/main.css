@@ -4778,7 +4778,7 @@ a {
 .shopping-cart .shopping-cart-table table tbody tr .cart-product-name-info .cart-product-info span span {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
-  text-transform: lowercase;
+  text-transform: titlecase;
   margin-left: 14px;
 }
 .shopping-cart .shopping-cart-table table tbody tr .cart-product-edit a {

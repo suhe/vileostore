@@ -19,7 +19,10 @@ class CartController extends \yii\web\Controller {
             'qty'     => $this->qty,
             'price'   => $product->price,
             'name'    => $product->name,
-            'options' => ['image' => $product->image]
+            'options' => [
+                'image' =>  $product->image,
+                'sku'   =>  $product->sku,
+            ]
         ];
         
         $cart->insert($data);
@@ -33,10 +36,25 @@ class CartController extends \yii\web\Controller {
     }
     
     public function actionShopping(){
-        $this->layout = 'single';
+        $formModel = new \frontend\models\CartForm();
         $cart = new Cart();
+        if($formModel->load(Yii::$app->request->post()) && $formModel->validate()){
+            $rowid  = $formModel->rowid;
+            $qty = $formModel->qty;
+            $cart = new Cart();
+            foreach($cart->contents() as $items){
+                $data = [
+                    'rowid'   => $rowid[$items['rowid']],
+                    'qty'     => $qty[$items['rowid']],
+                ];
+                $cart->update($data);
+            }
+        }
+        $this->layout = 'single';
+       
         return $this->render('shopping', [
-            'cart'  => $cart,  
+            'cart'  => $cart,
+            'formModel' => $formModel,
         ]);
     }
 }

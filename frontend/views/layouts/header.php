@@ -10,11 +10,7 @@ $cart = new Cart();
 	<div class="header-top-inner">
 	    <div class="cnt-account">
 		<ul class="list-unstyled">
-		    <li><a href="#"><i class="icon fa fa-user"></i>My Account</a></li>
-		    <li><a href="#"><i class="icon fa fa-heart"></i>Wishlist</a></li>
-		    <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
-		    <li><a href="#"><i class="icon fa fa-key"></i>Checkout</a></li>
-		    <li><a href="#"><i class="icon fa fa-sign-in"></i>Login</a></li>
+		    <li><a href="<?=\yii\helpers\Url::to(['user/profile'])?>"><i class="icon fa fa-user"></i><?=Yii::t('app','my account')?></a></li>
 		</ul>
 	    </div><!-- /.cnt-account -->
 
@@ -99,16 +95,16 @@ $cart = new Cart();
 		<a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
 			<div class="items-cart-inner">
 				<div class="total-price-basket">
-					<span class="lbl"><?=Yii::t('app','cart')?> -</span>
+					<span class="lbl"><?=Yii::t('app','shopping cart')?> -</span>
 					<span class="total-price">
 						<span class="sign"><?=Yii::$app->params['currency']?></span>
-						<span class="value"><?=Yii::$app->Formatter->asDecimal($cart->total()?$cart->total():0,2);?></span>
+						<span class="value"><?=Yii::$app->formatter->asDecimal($cart->total(),2)?></span>
 					</span>
 				</div>
 				<div class="basket">
 					<i class="glyphicon glyphicon-shopping-cart"></i>
 				</div>
-				<div class="basket-item-count"><span class="count"><?=Yii::$app->Formatter->asDecimal($cart->total_items()?$cart->total_items():0,0);?></span></div>
+				<div class="basket-item-count"><span class="count"><?=Yii::$app->formatter->asDecimal($cart->total_items(),0)?></span></div>
 			
 		    </div>
 		</a>
@@ -139,13 +135,14 @@ $cart = new Cart();
 							<div class="price"><?=Yii::$app->formatter->asDecimal($items['price'],2)?></div>
 						</div>
 						<div class="col-xs-1 action">
-							<a href="#"><i class="fa fa-trash"></i></a>
+							<a href="<?=\yii\helpers\Url::to(['shopping/remove','id'=>$items['rowid']])?>"><i class="fa fa-trash"></i></a>
 						</div>
 					</div>
+					<?php } ?>
+					
+					
 				</div><!-- /.cart-item -->
 				<div class="clearfix"></div>
-				<?php } ?>
-				
 			<hr>
 		
 			<div class="clearfix cart-total">

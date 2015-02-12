@@ -7,56 +7,40 @@ if($_POST){
 $this->title = Yii::t('app','shopping cart');
 ?>
 <div class="shopping-cart">
-    <ul class="wizard-steps">
-	<li data-target="#step1" class="active">
-	    <span class="step">1</span>
-	    <span class="title"><a href="cart.html">Shopping Cart</a></span>
-	</li>
-	
-	<li data-target="#step2">
-	    <span class="step">2</span>
-	    <span class="title"><a href="address.html">Shipping Address</a></span>
-	</li>
-	
-	<li data-target="#step3">
-	    <span class="step">3</span>
-	    <span class="title">Payment</span>
-	</li>
-	
-	<li data-target="#step4">
-	    <span class="step">4</span>
-	    <span class="title">Finish</span>
-	</li>
-    </ul>
-				
-    <div class="col-md-12 col-sm-12 shopping-cart-table ">				
+    <div class="col-md-12 col-sm-12">
+    <div class="row">
+    <?=$this->render('tabPage')?>
+    <hr class="separator">
+    <div class="clearfix"></div>
+    </div>
+    </div>
+    
+    <div class="col-md-12 col-sm-12 shopping-cart-table clearfix">				
 	<div class="table-responsive">
 	    <table class="table table-bordered">
 		<thead>
 		    <tr>
-			<th class="cart-romove item">Remove</th>
-			<th class="cart-description item">Image</th>
-			<th class="cart-product-name item">Product Name</th>
+			<th class="cart-romove item"><?=Yii::t('app','remove')?></th>
+			<th class="cart-description item"><?=Yii::t('app','image')?></th>
+			<th class="cart-product-name item"><?=Yii::t('app','product name')?></th>
 			<th class="cart-edit item"><?=Yii::t('app','view')?></th>
-			<th class="cart-qty item">Quantity</th>
-			<th class="cart-sub-total item">Subtotal</th>
-			<th class="cart-total last-item">Grandtotal</th>
+			<th class="cart-qty item"><?=Yii::t('app','quantity')?></th>
+			<th class="cart-sub-total item"><?=Yii::t('app','price')?></th>
+			<th class="cart-total last-item"><?=Yii::t('app','sub total')?></th>
 		    </tr>
 		</thead><!-- /thead -->
-		<tfoot>
-		    <tr>
-			<td colspan="7">
-			    <div class="shopping-cart-btn">
-				<span class="">
-				    <a href="#" class="btn btn-upper btn-primary outer-left-xs">Continue Shopping</a>
-				    <a href="#" class="btn btn-upper btn-primary pull-right outer-right-xs">Update shopping cart</a>
-				</span>
-			    </div><!-- /.shopping-cart-btn -->
-			</td>
-		    </tr>
-		</tfoot>
 		<tbody>
-		 <?php foreach ($cart->contents() as $items){ ?>
+		<?php
+		$total=0;
+		$form = \yii\bootstrap\ActiveForm::begin([
+		    'id' => 'form-cart',
+		    'method' => 'post',
+		    'options' => ['class' => 'form-horizontal'],
+		    'fieldConfig' => [
+			'template' => "{input}{error}",
+		    ],
+		]);			
+		 foreach ($cart->contents() as $i=>$items){ ?>
 		    <tr>
 			<td class="romove-item"><a href="<?=\yii\helpers\Url::to(['cart/remove','id'=>$items['rowid']])?>" title="cancel" class="icon"><i class="fa fa-trash-o"></i></a></td>
 			<td class="cart-image">
@@ -79,69 +63,67 @@ $this->title = Yii::t('app','shopping cart');
 				</div>
 				<div class="col-sm-8">
 				    <div class="reviews">
-					(08 Reviews)
+					(<?='8'?> <?=Yii::t('app','reviews')?>)
 				    </div>
 				</div>
 			    </div><!-- /.row -->
 				
 			    <div class="cart-product-info">
-				<span class="product-imel">IMEL:<span>084628312</span></span><br>
-				<span class="product-color">COLOR:<span>White</span></span>
+				<span class="product-imel"><?=Yii::t('app','sku')?><span><?=$items['options']['sku']?></span></span><br>
 			    </div>
 			</td>
 			<td class="cart-product-edit"><?=\yii\helpers\Html::a(Yii::t('app','view'),['product/read','id'=>$items['id']])?></td>
 			<td class="cart-product-quantity">
 			    <div class="quant-input">
-				<!--<div class="arrows">
-				    <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
-				    <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
-				</div>-->
-				<input type="text" id="kat" value="1">
+				<?=$form->field($formModel,"rowid[$i]")->textInput(['value' => $items["rowid"],'class' => 'form-control text-right qty-cart'])?>
+				<?=$form->field($formModel,"qty[$i]")->textInput(['value' => $items["qty"],'class' => 'form-control text-right qty-cart'])?>
 			    </div>
 		        </td>
 			<td class="cart-product-sub-total"><span class="cart-sub-total-price"><?=Yii::$app->formatter->asDecimal($items['price'],2)?></span></td>
-			<td class="cart-product-grand-total"><span class="cart-grand-total-price"><?=Yii::$app->formatter->asDecimal($items['price'] * $items['qty'],2)?></span></td>
+			<td class="cart-product-grand-total"><span class="cart-grand-total-price"><?=Yii::$app->formatter->asDecimal($subtotal = $items['price'] * $items['qty'],2)?></span></td>
 		    </tr>
-		<?php } ?>
+		    <?php
+		    $total+=$subtotal; 
+		} ?>
+		<?php \yii\bootstrap\ActiveForm::end()?>
 		</tbody><!-- /tbody -->
 	    </table><!-- /table -->
 	</div>
+	
+	
+	
 </div><!-- /.shopping-cart-table -->
 
-
-
 <div class="col-md-offset-8 col-md-4 col-sm-12 cart-shopping-total">
-	<table class="table table-bordered">
-		<thead>
-			<tr>
-				<th>
-					<div class="cart-sub-total">
-						Subtotal<span class="inner-left-md">$600.00</span>
-					</div>
-					<div class="cart-grand-total">
-						Grand Total<span class="inner-left-md">$600.00</span>
-					</div>
-				</th>
-			</tr>
-		</thead><!-- /thead -->
-		<tbody>
-				<tr>
-					<td>
-						<div class="cart-checkout-btn pull-right">
-							<button type="submit" class="btn btn-primary">PROCCED TO CHEKOUT</button>
-							<span class="">Checkout with multiples address!</span>
-						</div>
-					</td>
-				</tr>
-		</tbody><!-- /tbody -->
-	</table><!-- /table -->
+    <table class="table table-bordered">
+	<thead>
+	    <tr>
+		<th>
+		    <div class="cart-sub-total">
+			<?=Yii::t('app','total')?><span class="inner-left-md"><?=Yii::$app->formatter->asDecimal($total,2)?></span>
+		    </div>		
+		</th>
+	    </tr>
+	</thead><!-- /thead -->
+	<tbody>
+	    <tr>
+		<td>
+		    <div class="cart-checkout-btn pull-right">
+			<?=\yii\helpers\Html::a(Yii::t('app','continue shopping'),['site/index'],['class' => 'btn btn-primary'])?>
+			<?=\yii\helpers\Html::a(Yii::t('app','checkout'),['cart/address'],['class' => 'btn btn-primary'])?>
+		    </div>
+		</td>
+	    </tr>
+	</tbody><!-- /tbody -->
+    </table><!-- /table -->
 </div><!-- /.cart-shopping-total -->
-			</div><!-- /.shopping-cart -->
+
+</div><!-- /.shopping-cart -->
 
 <?php 
 $js = <<<JS
-$("#kat").blur(function(){ 
-    $(location).attr('href','/vileostore/index.jsp/cart/basket/3');
+$(".qty-cart").blur(function() {
+    $("#form-cart").submit();
 });
 JS;
 $this->registerJs($js);
