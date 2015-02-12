@@ -2,6 +2,8 @@
 return [
     /** Abjad A **/
     'add to cart' => 'Beli Online',
+    'add new' => 'Tambah Baru',
+    'address' => 'Alamat',
     'address store' => 'Alamat Toko', 
     'all brand' => 'Semua Brand',
     'all category' => 'Semua Kategori',
@@ -14,23 +16,29 @@ return [
     'category' => 'Kategori',
     'cash on delivery' => 'Cash On Delivery',
     'checkout' => 'Checkout',
+    'city' => 'Kota',
     'copyright' => 'Copyright',
     'contact support & and sales' => 'Kontak Support & Sales',
     'continue shopping' => 'Lanjut Belanja',
     'create a new account' => 'Pendaftaran Akun Baru',
     /** Abjad D **/
     'description' => 'Keterangan',
+    'district' => 'Kecamatan',
     'dropshier' => 'Dropshier',
     /** Abjad E **/
     'empty' => 'Kosong',
     /** Abjad F **/
     'finish' => 'Selesai',
     /** Abjad G **/
+    'go to store' => 'Kembali ke Situs Toko',
     'grid' => 'Grid',
     /** Abjad H **/
+    'hai' => 'Hallo',
     'home page' => 'Home Page',
     /** Abjad I **/
     'image' => 'Gambar',
+    'in stock' => 'Tersedia',
+    'in stock date' => 'Stok Tersedia Tanggal',
     /** Abjad J **/
     /** Abjad K **/
     /** Abjad L **/
@@ -58,11 +66,14 @@ return [
     'price lower to high' => 'Harga Rendah ke Tinggi',
     'price high to lower' => 'Harga Tinggi ke Rendah',
     'product name' => 'Nama Produk',
+    'province' => 'Provinsi',
     /** Abjad Q **/
     'quantity' => 'Jumlah',
     'query result' => 'Hasil Pencarian',
     /** Abjad R**/
     'random sort' => 'Urutan Acak',
+    'receiver' => 'Penerima',
+    'receiver contact' => 'No Handphone',
     'remove' => 'Hapus',
     'register' => 'Register Baru',
     'register & login' => 'Register & Login',
@@ -73,6 +84,7 @@ return [
     'shipping address' => 'Alamat Pengiriman',
     'shopping cart' => 'Shopping Cart',
     'sign in' => 'Sign In',
+    'sign up' => 'Sign Up',
     'sign up account' => 'Daftarkan Diri Anda disini',
     'sign up newsletter' => 'Berlangganan Info Produk',
     'sort by' => 'Urutkan',

@@ -50,11 +50,87 @@ class CartController extends \yii\web\Controller {
                 $cart->update($data);
             }
         }
-        $this->layout = 'single';
+        $this->layout = 'shopping-cart';
        
         return $this->render('shopping', [
             'cart'  => $cart,
             'formModel' => $formModel,
         ]);
     }
+    
+    public function actionAddress(){
+        //cek auth
+        if(Yii::$app->user->isGuest){
+            Yii::$app->session->setFlash('msg',Yii::t('app/message','msg you must have login to continue'));
+            Yii::$app->getUser()->setReturnUrl([Yii::$app->controller->getRoute()]);
+            return $this->redirect(['site/login'],301);
+        }
+        
+        //cek cart
+        $cart = new Cart();
+        if(!$cart->contents()){
+            Yii::$app->session->setFlash('msg',Yii::t('app/message','msg you must buy minimal one product'));
+            return $this->redirect(['site/login'],301);
+        }
+        
+        $formModel = new \common\models\UserAddress();
+        $this->layout = 'shopping-address';
+        return $this->render('address', [
+            'formModel' => $formModel,
+        ]);
+    }
+    
+    public function actionCompile(){
+        $id = isset($_POST['id'])?$_POST['id']:0;
+        $query = \common\models\UserAddress::findOne($id);
+        Yii::$app->response->format = 'json';
+        if($query){
+            return [
+                'success' => true,
+                'address' => $query->address,
+                'city'    => $query->city_id,
+                'province' => $query->province_id,
+                'town' => $query->town_id
+            ];
+        } else {
+            return [
+                'success' => false
+            ];
+        }
+    }
+    
+    public function actionProvince($id){
+        $models = \common\models\City::find()
+        ->where(['province_id' => $id])
+        ->orderBy(['name' => SORT_ASC])
+        ->all();
+        
+        if($models) {
+            foreach($models as $row){
+                echo "<option value='".$row->id."'>".$row->name."</option>";
+            }
+        }
+        else {
+            echo "<option>-</option>";
+        }
+        
+    }
+    
+    public function actionTown($id){
+        $models = \common\models\Town::find()
+        ->where(['city_id' => $id])
+        ->orderBy(['name' => SORT_ASC])
+        ->all();
+        
+        if($models) {
+            foreach($models as $row){
+                echo "<option value='".$row->id."'>".$row->name."</option>";
+            }
+        }
+        else {
+            echo "<option>-</option>";
+        }
+        
+    }
+    
 }

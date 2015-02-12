@@ -33,9 +33,13 @@
 				    <!-- col -->
 				    <div class=" col-md-8 col-sm-8 social-icons">
 					<ul class="list-inline">
+					    <?php if($row->stock>0){ ?>
 					    <li><i class="fa fa-file"></i> <?=\yii\helpers\Html::a($row->online?Yii::t('app','online'):Yii::t('app','not online'),['#'])?></li>
 					    <li><i class="fa fa-map-marker"></i> <?=\yii\helpers\Html::a($row->cod?Yii::t('app','cash on delivery'):Yii::t('app','not cod'),['#'])?></li>
 					    <li><i class="fa fa-umbrella"></i> <?=\yii\helpers\Html::a($row->dropshier?Yii::t('app','dropshier'):Yii::t('app','not dropshier'),['#'])?></li>
+					    <?php } else { ?>
+					    <li><i class="fa fa-time"></i> <?=Yii::t('app','in stock date').' '.Yii::$app->formatter->asDate($row->arrival_date,'php:d M Y');?> </li>
+					    <?php } ?>
 					</ul><!-- /.social-icons -->
 				    </div>
 				    <!-- /.col -->

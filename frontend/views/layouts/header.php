@@ -20,12 +20,15 @@ $cart = new Cart();
 		    <li class="dropdown dropdown-small">
 			<a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="key"><?=Yii::t('app','hai')?> :</span><span class="value"><?=Yii::$app->user->identity->first_name?> </span><b class="caret"></b></a>
 			    <ul class="dropdown-menu">
-				<li><?=\yii\helpers\Html::a(Yii::t('my profile'),['user/profile'])?></li>
-				<li><?=\yii\helpers\Html::a(Yii::t('history transaction'),['cart/history'])?></li>
-				<li><?=\yii\helpers\Html::a(Yii::t('addresses'),['user/address'])?></li>
-				<li><?=\yii\helpers\Html::a(Yii::t('change password'),['user/chpassword'])?></li>
+				<li><?=\yii\helpers\Html::a(Yii::t('app','my profile'),['user/profile'])?></li>
+				<li><?=\yii\helpers\Html::a(Yii::t('app','history transaction'),['cart/history'])?></li>
+				<li><?=\yii\helpers\Html::a(Yii::t('app','addresses'),['user/address'])?></li>
+				<li><?=\yii\helpers\Html::a(Yii::t('app','change password'),['user/chpassword'])?></li>
 			    </ul>
 		    </li>
+		    <?php } else { ?>
+		    <li><a href="<?=\yii\helpers\Url::to(['site/login'])?>"><i class="icon fa fa-user"></i> <?=Yii::t('app','register')?></a></li>
+		    <li><a href="<?=\yii\helpers\Url::to(['site/login'])?>"><i class="icon fa fa-key"></i> <?=Yii::t('app','login')?></a></li>
 		    <?php } ?>
 		</ul><!-- /.list-unstyled -->
 	    </div><!-- /.cnt-cart -->

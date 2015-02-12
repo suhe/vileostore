@@ -101,7 +101,8 @@ class Product extends \yii\db\ActiveRecord  {
     
     public function getAllQueryWithSearch($params){
         $query =  static::find()
-        ->select(['product.id  product_id','category_id','name','price','image','short_description','online','cod','dropshier'])
+        ->select(['product.id  product_id','product.category_id','name','price','stock',
+                  'image','short_description','online','cod','dropshier','arrival_date'])
         ->joinWith('product_category')
         ->andWhere(['status' => 1])
         ->groupBy('product.id');

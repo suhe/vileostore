@@ -118,9 +118,13 @@ $this->params['breadcrumbs'] = [
 				<!-- /.col -->
 				<div class=" col-md-11 col-sm-10 social-icons">
 				<ul class="list-inline">
-					<li><a href="#"><i class="fa fa-file"></i> <?=$data->online?Yii::t('app','online'):Yii::t('app','not online')?></a></li>
-					<li><a href="#"><i class="fa fa-map-marker"></i> <?=$data->online?Yii::t('app','cash on delivery'):Yii::t('app','not cod')?></a></li>
-					<li><a href="#"><i class="fa fa-umbrella"></i> <?=$data->online?Yii::t('app','dropshier'):Yii::t('app','not dropshier')?></a></li>
+				    <?php if($data->stock>0){ ?>
+				    <li><i class="fa fa-file"></i> <?=\yii\helpers\Html::a($data->online?Yii::t('app','online'):Yii::t('app','not online'),['#'])?></li>
+				    <li><i class="fa fa-map-marker"></i> <?=\yii\helpers\Html::a($data->cod?Yii::t('app','cash on delivery'):Yii::t('app','not cod'),['#'])?></li>
+				    <li><i class="fa fa-umbrella"></i> <?=\yii\helpers\Html::a($data->dropshier?Yii::t('app','dropshier'):Yii::t('app','not dropshier'),['#'])?></li>
+				    <?php } else { ?>
+				    <li><i class="fa fa-time"></i> <?=Yii::t('app','in stock').' '.Yii::$app->formatter->asDate($data->arrival_date,'php:d M Y');?> </li>
+				    <?php } ?>
 				</ul><!-- /.social-icons -->
 				</div>
 			</div><!-- /.row -->

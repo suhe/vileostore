@@ -16,57 +16,16 @@ use yii\filters\AccessControl;
 /**
  * Site controller
  */
-class SiteController extends Controller
-{
+class SiteController extends Controller {
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
-                'rules' => [
-                    [
-                        'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
+    
+    
+    public function actions(){
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function actions()
-    {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
-        ];
-    }
-
-    public function actionIndex()
-    {
+    public function actionIndex(){
         $this->layout = 'home';
         return $this->render('home');
     }
@@ -87,7 +46,9 @@ class SiteController extends Controller
         }
         else if ($registerModel->load(Yii::$app->request->post()) && $registerModel->Register()) {
             Yii::$app->session->setFlash('error', Yii::t('app/message','msg thanks for registration'));
-            return $this->redirect(['user/profile'],301);
+            $loginModel = new LoginForm();
+            Yii::$app->user->login($loginModel->getUser(), 3600 * 24 * 30);
+            return $this->goBack();
         }
         
         $this->layout = 'login-register';
@@ -190,5 +151,11 @@ class SiteController extends Controller
             Yii::$app->response->format = 'json';
             return ['success' => false,'message' => Yii::t('app/message','msg your email has been available registered')];
         }
+    }
+    
+    public function actionError(){
+        $this->layout = '404';
+        return $this->render('error', [
+        ]);
     }
 }

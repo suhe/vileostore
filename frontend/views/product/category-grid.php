@@ -32,20 +32,29 @@
 		
 		<div class="cart clearfix animate-effect">		
 		    <!-- /.action -->
-		    <div class="action" style="margin-bottom:10px ">
+		    <div class="action col-md-12" style="margin-bottom:10px">
 			<ul class="list-inline">
-			    <li><?=\yii\helpers\Html::a('<i class="fa fa-file"></i> '.$row->online?Yii::t('app','online'):Yii::t('app','not online'),['#'])?></li>
-			    <li><?=\yii\helpers\Html::a('<i class="fa fa-map-marker"></i> '.$row->cod?Yii::t('app','cash on delivery'):Yii::t('app','not cod'),['#'])?></li>
-			    <li><?=\yii\helpers\Html::a('<i class="fa fa-umbrella"></i> '.$row->dropshier?Yii::t('app','dropshier'):Yii::t('app','not dropshier'),['#'])?></li>
+			    <?php if($row->stock>0){ ?>
+			    <li><i class="fa fa-file"></i> <?=\yii\helpers\Html::a($row->online?Yii::t('app','online'):Yii::t('app','not online'),['#'])?></li>
+			    <li><i class="fa fa-map-marker"></i> <?=\yii\helpers\Html::a($row->cod?Yii::t('app','cash on delivery'):Yii::t('app','not cod'),['#'])?></li>
+			    <li><i class="fa fa-umbrella"></i> <?=\yii\helpers\Html::a($row->dropshier?Yii::t('app','dropshier'):Yii::t('app','not dropshier'),['#'])?></li>
+			    <?php } else { ?>
+			    <li><i class="fa fa-time"></i> <?=Yii::t('app','in stock').' '.Yii::$app->formatter->asDate($row->arrival_date,'php:d M Y');?> </li>
+			    <?php } ?>
 			</ul><!-- /.social-icons -->
 		    </div><!-- /.action -->
-		    <!-- /.action -->		
-		    <div class="action text-center">
+		    <!-- /.action -->
+		    
+		    <div class="action col-md-12">
 			<center>
 			    <ul class="list-unstyled">
 				<li class="add-cart-button btn-group">
-				    <button class="btn btn-primary icon" data-toggle="dropdown" type="button"><i class="fa fa-shopping-cart"></i></button>													</button>
+				    <button class="btn btn-primary icon" data-toggle="dropdown" type="button"><i class="fa fa-shopping-cart"></i></button>
+				    <?php if($row->stock>0){?>
 				    <?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$row->product_id],['class'=>'btn btn-primary'])?>
+				    <?php } else { ?>
+				    <?=\yii\helpers\Html::a(Yii::t('app','empty'),['product/read','id'=>$row->product_id],['class'=>'btn btn-primary'])?>
+				    <?php } ?>    
 				</li>
 			    </ul>
 			</center>
