@@ -675,7 +675,7 @@ CREATE TABLE IF NOT EXISTS `discusion` (
   `user_id` int(11) DEFAULT NULL,
   `description` text,
   `created_by` int(11) DEFAULT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP
+  `created_date` datetime
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 --
