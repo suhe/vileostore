@@ -25,6 +25,8 @@ $this->title = Yii::t('app','shopping cart');
 		<a href="#" class="facebook-sign-in"><i class="fa fa-map-marker"></i> Cash On Delivery</a>
 	    </div>
 	    <hr class="separator">
+		
+	    <p style="color:red"><?=Yii::$app->session->getFlash('msg')?></p>	
 	    
 	    <?php
 	    $form = \yii\bootstrap\ActiveForm::begin([
@@ -38,11 +40,12 @@ $this->title = Yii::t('app','shopping cart');
 	    <div class="loading" style="display: none" ><?=Yii::t('app','please wait do not refresh .... ')?></div>
 	    <?=$form->field($formModel,'latest_address')->dropdownList(\common\models\UserAddress::dropdownList(Yii::t('app','add new'),['user_id' => Yii::$app->user->getId()]),['id' => 'select'])?>
 	    
-	    <?=$form->field($formModel,'address')->textarea(['rows' => 2,'id'=>'address'])?>
+	    <?=$form->field($formModel,'address')->textarea(['rows' => 2])?>
 	    <?=$form->field($formModel,'province_id')
 	    ->dropdownList(\common\models\Province::dropdownList('-'),[
 		'onchange' => '$.post("'.Yii::$app->urlManager->createUrl('cart/province?id=').'" + $(this).val(),function(data){
 			$("#useraddress-city_id").removeAttr("disabled");
+			$("#useraddress-town_id").val("0");
 			$("#useraddress-city_id").html(data);
 		    });
 	    ']);?>
@@ -89,19 +92,23 @@ $('#select').on('change', function(e) {
 	data: info,
 	success: function(data) {
                 if(data.success==true){
-		    $('#address').val(data.address);
+		    $('#useraddress-address').val(data.address);
 		    $('#useraddress-province_id').val(data.province);
 		    $('#useraddress-city_id').val(data.city);
 		    $('#useraddress-town_id').val(data.town);
+		    $('#useraddress-receiver').val(data.receiver);
+		    $('#useraddress-receiver_contact').val(data.receiver_contact);
 		    $('#useraddress-city_id').removeAttr('disabled');
 		    $('#useraddress-town_id').removeAttr('disabled');
 		    $(".loading").hide();
 		}
 		else {
-		    $('#address').val("");
+		    $('#useraddress-address').val("");
 		    $('#useraddress-province_id').val(0);
 		    $('#useraddress-city_id').val(0);
 		    $('#useraddress-town_id').val(0);
+		    $('#useraddress-receiver').val("");
+		    $('#useraddress-receiver_contact').val("");
 		    $('#useraddress-city_id').attr('disabled', 'disabled');
 		    $('#useraddress-town_id').attr('disabled', 'disabled');
 		    $(".loading").hide();

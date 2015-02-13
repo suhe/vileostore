@@ -81,6 +81,8 @@ return [
     /** Abjad S**/
     'saturday' => 'Sabtu',
     'search' => 'Pencarian',
+    'select city' => 'Pilih Kota',
+    'select town' => 'Pilih Kecamatan',
     'shipping address' => 'Alamat Pengiriman',
     'shopping cart' => 'Shopping Cart',
     'sign in' => 'Sign In',

@@ -73,9 +73,28 @@ class CartController extends \yii\web\Controller {
             return $this->redirect(['site/login'],301);
         }
         
-        $formModel = new \common\models\UserAddress();
+        $formModel = new \common\models\UserAddress(['scenario' => 'register']);
+        $user_id = Yii::$app->user->getId();
+        if($formModel->load(Yii::$app->request->post()) && $formModel->getSaveUserAddress($user_id)){
+            Yii::$app->session->set('cart_payment',TRUE); // set to set payment 
+            Yii::$app->session->setFlash('msg',Yii::t('app/message','msg config address finish'));
+            return $this->redirect(['cart/payment'],301);
+        }
         $this->layout = 'shopping-address';
         return $this->render('address', [
+            'formModel' => $formModel,
+        ]);
+    }
+    
+    public function actionPayment(){
+        $formModel = new \common\models\UserAddress(['scenario' => 'register']);
+        if(!Yii::$app->session->get('cart_payment')){
+            Yii::$app->session->setFlash('msg',Yii::t('app/message','msg your address / cart empty'));
+            return $this->redirect(['cart/address'],301);
+        }
+        
+        $this->layout = 'shopping-payment';
+        return $this->render('payment', [
             'formModel' => $formModel,
         ]);
     }
@@ -90,7 +109,9 @@ class CartController extends \yii\web\Controller {
                 'address' => $query->address,
                 'city'    => $query->city_id,
                 'province' => $query->province_id,
-                'town' => $query->town_id
+                'town' => $query->town_id,
+                'receiver' => $query->receiver,
+                'receiver_contact' => $query->receiver_contact,
             ];
         } else {
             return [
@@ -106,6 +127,7 @@ class CartController extends \yii\web\Controller {
         ->all();
         
         if($models) {
+            echo "<option>".Yii::t('app','select city')."</option>";
             foreach($models as $row){
                 echo "<option value='".$row->id."'>".$row->name."</option>";
             }
@@ -123,6 +145,7 @@ class CartController extends \yii\web\Controller {
         ->all();
         
         if($models) {
+            echo "<option>".Yii::t('app','select town')."</option>";
             foreach($models as $row){
                 echo "<option value='".$row->id."'>".$row->name."</option>";
             }
