@@ -1,6 +1,7 @@
 <?php
 return [
     /** Abjad A **/
+    'account' => 'Rekening',
     'add to cart' => 'Beli Online',
     'add new' => 'Tambah Baru',
     'address' => 'Alamat',
@@ -11,6 +12,7 @@ return [
     'product discussion' => 'Diskusi Produk',
     'availability' => 'Ketersediaan',
     /** Abjad B **/
+    'bank transfer' => 'Bank Transfer',
     'brand' => 'Brand',
     /** Abjad C **/
     'category' => 'Kategori',
@@ -20,6 +22,7 @@ return [
     'copyright' => 'Copyright',
     'contact support & and sales' => 'Kontak Support & Sales',
     'continue shopping' => 'Lanjut Belanja',
+    'cost' => 'Harga',
     'create a new account' => 'Pendaftaran Akun Baru',
     /** Abjad D **/
     'description' => 'Keterangan',
@@ -43,6 +46,7 @@ return [
     /** Abjad K **/
     /** Abjad L **/
     'list' => 'List',
+    'location' => 'Lokasi',
     'login' => 'Login',
     'login & register' => 'Login & Register',
     /** Abjad M **/
@@ -57,6 +61,7 @@ return [
     /** Abjad O **/
     'opening time' => 'Jam Buka Online',
     'online' => 'Online',
+    'owner' => 'Pemilik',
     /** Abjad P **/
     'page' => 'Hal',
     'payment' => 'Pembayaran',
@@ -81,8 +86,10 @@ return [
     /** Abjad S**/
     'saturday' => 'Sabtu',
     'search' => 'Pencarian',
+    'select' => 'Pilih',
     'select city' => 'Pilih Kota',
     'select town' => 'Pilih Kecamatan',
+    'shipping' => 'Pengiriman',
     'shipping address' => 'Alamat Pengiriman',
     'shopping cart' => 'Shopping Cart',
     'sign in' => 'Sign In',

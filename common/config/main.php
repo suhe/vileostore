@@ -32,6 +32,8 @@ return [
         '@image_product' => '@assets/images/products/',
         '@image_brand'   => '@assets/images/brands/',
         '@image_banner'  => '@assets/images/banners/',
+        '@image_courier' => '@assets/images/couriers/',
+        '@image_bank' => '@assets/images/banks/',
     ],
     
     'language' => 'id',

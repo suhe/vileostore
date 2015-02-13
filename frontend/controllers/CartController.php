@@ -76,7 +76,8 @@ class CartController extends \yii\web\Controller {
         $formModel = new \common\models\UserAddress(['scenario' => 'register']);
         $user_id = Yii::$app->user->getId();
         if($formModel->load(Yii::$app->request->post()) && $formModel->getSaveUserAddress($user_id)){
-            Yii::$app->session->set('cart_payment',TRUE); // set to set payment 
+            Yii::$app->session->set('cart_payment',TRUE); // set to set payment
+            Yii::$app->session->set('cart_address_id',$formModel->id); // set to set town id 
             Yii::$app->session->setFlash('msg',Yii::t('app/message','msg config address finish'));
             return $this->redirect(['cart/payment'],301);
         }
@@ -87,17 +88,32 @@ class CartController extends \yii\web\Controller {
     }
     
     public function actionPayment(){
-        $formModel = new \common\models\UserAddress(['scenario' => 'register']);
+        if(Yii::$app->user->isGuest) return $this->redirect(['cart/address'],301);
+            
+        $user_id = Yii::$app->user->getId();
+        $formModel = new \common\models\Order(['scenario' => 'payment']);
+        
         if(!Yii::$app->session->get('cart_payment')){
             Yii::$app->session->setFlash('msg',Yii::t('app/message','msg your address / cart empty'));
+            return $this->redirect(['cart/address'],301);
+        }
+        //get Address
+        $address = \common\models\UserAddress::getLatestAddress($user_id);
+        
+        //action here
+        if($formModel->load(Yii::$app->request->post()) && $formModel->validate()){
             return $this->redirect(['cart/address'],301);
         }
         
         $this->layout = 'shopping-payment';
         return $this->render('payment', [
             'formModel' => $formModel,
+            'cart'  => new Cart(),
+            'courier' => \common\models\Shipping::getShippingTotal($address?$address->town_id:0),
         ]);
     }
+    
+    
     
     public function actionCompile(){
         $id = isset($_POST['id'])?$_POST['id']:0;

@@ -5,8 +5,6 @@ use Yii;
 class UserAddress extends \yii\db\ActiveRecord  {
     
     public $latest_address;
-    public $receiver;
-    public $receiver_contact;
     
     public static function tableName(){
         return 'user_address';
@@ -15,7 +13,7 @@ class UserAddress extends \yii\db\ActiveRecord  {
     public function rules(){
         return[
             [['address','province_id','city_id','town_id','receiver','receiver_contact'],'required','on'=>'register'],
-            [['latest_address'],'safe','on'=>['register']],
+            [['latest_address','id'],'safe','on'=>['register']],
             [['province_id'],'integer','tooSmall'=>Yii::t('app/message','msg fill province'),'min'=>1,'on'=>['register']],
             [['city_id'],'integer','tooSmall'=>Yii::t('app/message','msg fill city'),'min'=>1,'on'=>['register']],
             [['town_id'],'integer','tooSmall'=>Yii::t('app/message','msg fill town'),'min'=>1,'on'=>['register']],
@@ -71,6 +69,8 @@ class UserAddress extends \yii\db\ActiveRecord  {
         $model->receiver_contact =  $this->receiver_contact;
         $model->created_by = Yii::$app->user->getId();
         $model->created_date = date('Y-m-d H:i:s');
+        $model->updated_by = Yii::$app->user->getId();
+        $model->updated_date = date('Y-m-d H:i:s');
         $model->insert();
     }
     
@@ -87,6 +87,13 @@ class UserAddress extends \yii\db\ActiveRecord  {
         $model->updated_by = Yii::$app->user->getId();
         $model->updated_date = date('Y-m-d H:i:s');
         $model->update();
+    }
+    
+    public static function getLatestAddress($user_id){
+        return static::find()
+        ->where(['user_id' => $user_id])
+        ->orderBy(['updated_date' => SORT_DESC])
+        ->one();
     }
     
 }

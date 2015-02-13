@@ -13,4 +13,5 @@ return [
     'msg fill town' => 'Kecamatan Harus diisi untuk perhitungan Biaya Kurir Ekspedisi',
     'msg your address / cart empty' => 'Belanjaan atau Alamat tidak diset',
     'msg config address finish' => 'Pengaturan Alamat Pengaturan sudah selesai',
+    'msg fill one' => 'Pilih Salah Satu',
  ];

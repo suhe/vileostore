@@ -8,6 +8,10 @@ class Town extends \yii\db\ActiveRecord {
         return 'town';
     }
     
+    public function getCourier(){
+        return $this->hasOne(Courier::className(), ['id' => 'town_id']);
+    }
+    
     public static function dropdownList($captionTitle='',$condition=[]){
         $options[0] = $captionTitle;
         $query = static::find();
