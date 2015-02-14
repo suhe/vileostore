@@ -12,6 +12,7 @@ class User extends ActiveRecord implements IdentityInterface{
     const STATUS_ACTIVE = 1;
     public $created_at;
     public $updated_at;
+    public $username;
 
     /**
      * @inheritdoc
@@ -43,9 +44,9 @@ class User extends ActiveRecord implements IdentityInterface{
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
-            [['first_name'],'required','on'=>['register']],
-            [['middle_name'],'safe','on'=>['register']],
-            [['last_name'],'safe','on'=>['register']],
+            [['first_name'],'required','on'=>['register','update_profile']],
+            [['middle_name'],'safe','on'=>['register','update_profile']],
+            [['last_name'],'safe','on'=>['register','update_profile']],
             [['email'],'required','on'=>['register']],
             [['password'],'required','on'=>['register']],
             [['email'],'email','on'=>['register']],
@@ -198,6 +199,19 @@ class User extends ActiveRecord implements IdentityInterface{
             $model->password = Yii::$app->security->generatePasswordHash($this->password);
             $model->created_date = date('Y-m-d H:i:s');
             $model->insert();
+            return true;
+        }
+        return false;
+    }
+    
+    public function getUpdateProfile($user_id){
+        if($this->validate()){
+            $model = new User();
+            $model = $model->findOne($user_id);
+            $model->first_name = $this->first_name;
+            $model->middle_name = $this->middle_name;
+            $model->last_name = $this->last_name;
+            $model->update();
             return true;
         }
         return false;

@@ -40,6 +40,7 @@ class ConfirmationForm extends Model
             $model = new \common\models\Order();
             $model = $model->findOne($id);
             $model->confirm = 3;
+            $model->status = 4;
             $model->confirm_account = $this->bank_account;
             $model->confirm_owner = $this->bank_name;
             $model->confirm_total =str_replace(",","",$this->total_transfer);

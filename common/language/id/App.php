@@ -6,7 +6,8 @@ return [
     'add new' => 'Tambah Baru',
     'address' => 'Alamat',
     'addresses' => 'Pengaturan Alamat',
-    'address store' => 'Alamat Toko', 
+    'address store' => 'Alamat Toko',
+    'all' => 'Semua',
     'all brand' => 'Semua Brand',
     'all category' => 'Semua Kategori',
     'all right reserved' => 'All Right Reserved',
@@ -14,6 +15,7 @@ return [
     'availability' => 'Ketersediaan',
     /** Abjad B **/
     'bank transfer' => 'Bank Transfer',
+    'basic information' => 'Informasi User',
     'brand' => 'Brand',
     /** Abjad C **/
     'category' => 'Kategori',
@@ -22,7 +24,9 @@ return [
     'checkout' => 'Checkout',
     'city' => 'Kota',
     'copyright' => 'Copyright',
+    'completed' => 'Completed',
     'confirm' => 'Konfirmasi',
+    'confirm payment click' => 'Konfirmasi Pembayaran Klik',
     'contact support & and sales' => 'Kontak Support & Sales',
     'continue shopping' => 'Lanjut Belanja',
     'cost' => 'Harga',
@@ -30,8 +34,10 @@ return [
     /** Abjad D **/
     'description' => 'Keterangan',
     'district' => 'Kecamatan',
+    'details' => 'Details',
     'dropshier' => 'Dropshier',
     /** Abjad E **/
+    'edit profile' => 'Edit Profile',
     'empty' => 'Kosong',
     /** Abjad F **/
     'finish' => 'Selesai',
@@ -64,6 +70,7 @@ return [
     'name A to Z' => 'Nama A sampai Z',
     'name Z to A' => 'Nama Z sampai A',
     'not cod' => 'Tidak COD',
+    'not a shippping' => 'Belum ada Data Pengiriman',
     /** Abjad O **/
     'opening time' => 'Jam Buka Online',
     'online' => 'Online',
@@ -71,6 +78,7 @@ return [
     'or manual confirmation' => 'Atau Konfirmasi Manual',
     /** Abjad P **/
     'page' => 'Hal',
+    'paid' => 'Lunas',
     'payment' => 'Pembayaran',
     'payment confirmation' => 'Konfirmasi Pembayaran',
     'price' => 'Harga',
@@ -104,16 +112,22 @@ return [
     'sign up' => 'Sign Up',
     'sign up account' => 'Daftarkan Diri Anda disini',
     'sign up newsletter' => 'Berlangganan Info Produk',
+    'sku' => 'SKU',
     'sort by' => 'Urutkan',
     'subscribe' => 'Subscribe',
     'sub total' => 'Sub Total',
     'sunday' => 'Minggu',
     /** Abjad T**/
     'this at' => 'Berikut ini',
+    'this link' => 'Link Berikut',
     'total transfer' => 'Total Transfer',
+    /** Abjad U**/
+    'update profile' => 'Update Profile',
     /** Abjad V**/
+    'verify payment' => 'Verifikasi Pembayaran',
     'via' => 'Via',
     'view' => 'View',
+    'waiting payment' => 'Menunggu Pembayaran',
     'weight' => 'Berat',
     'welcome back' => 'Selamat Datang Kembali silahkan Login',
  ];

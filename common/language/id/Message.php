@@ -15,4 +15,6 @@ return [
     'msg config address finish' => 'Pengaturan Alamat Pengaturan sudah selesai',
     'msg fill one' => 'Pilih Salah Satu',
     'msg thanks for confirmation wait for verification' => 'Terima kasih atas konfirmasi pembayarannya sistem akan mengecek 1x24 jam',
+    'msg confirm payment click' => 'Anda Belum Melakukan Pembayaran , Apabila sudah melakukan Pembayaran, Mohon Konfirmasikan Pembayaran Anda ke',
+    'msg wait to admin verification your payment 1x24 jam' => 'Admin akan memproses pembayaran anda mohon untuk menunggu 1x24 Jam',
  ];

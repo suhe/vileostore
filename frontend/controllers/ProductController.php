@@ -8,6 +8,7 @@ use Yii;
  * Category controller
  */
 class ProductController extends \yii\web\Controller {
+    
     public function actionCategory($id,$view='list'){
         $model = new \common\models\ProductCategory();
         $this->layout = 'category';

@@ -5,6 +5,8 @@ use Yii;
 class Discusion extends \yii\db\ActiveRecord {
     
     public $full_name;
+    public $product_name;
+    public $product_image;
     
     public static function tableName(){
         return 'discusion';
@@ -15,6 +17,10 @@ class Discusion extends \yii\db\ActiveRecord {
      */
     public function getUser(){
         return $this->hasMany(User::className(), ['id' => 'user_id']);
+    }
+    
+    public function getProduct(){
+        return $this->hasMany(Product::className(), ['id' => 'product_id']);
     }
     
     public static function getDiscusionByProduct($id){
@@ -45,6 +51,15 @@ class Discusion extends \yii\db\ActiveRecord {
             return true;
         }
         return false;
+    }
+    
+    public function getAllQueryWithPagination($id,$params){
+        $query =  static::find()
+        ->select(['discusion.product_id','product.name as product_name','product.image as product_image','discusion.description'])
+        ->joinWith('product')
+        ->where(['user_id' => $id])
+        ->orderBy(['ABS(discusion.id)' => SORT_DESC]);
+        return $query;
     }
     
 }
