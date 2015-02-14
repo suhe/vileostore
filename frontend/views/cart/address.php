@@ -91,30 +91,29 @@ $('#select').on('change', function(e) {
 	type: 'post',
 	data: info,
 	success: function(data) {
-                if(data.success==true){
-		    $('#useraddress-address').val(data.address);
-		    $('#useraddress-province_id').val(data.province);
-		    $('#useraddress-city_id').val(data.city);
-		    $('#useraddress-town_id').val(data.town);
-		    $('#useraddress-receiver').val(data.receiver);
-		    $('#useraddress-receiver_contact').val(data.receiver_contact);
-		    $('#useraddress-city_id').removeAttr('disabled');
-		    $('#useraddress-town_id').removeAttr('disabled');
-		    $(".loading").hide();
-		}
-		else {
-		    $('#useraddress-address').val("");
-		    $('#useraddress-province_id').val(0);
-		    $('#useraddress-city_id').val(0);
-		    $('#useraddress-town_id').val(0);
-		    $('#useraddress-receiver').val("");
-		    $('#useraddress-receiver_contact').val("");
-		    $('#useraddress-city_id').attr('disabled', 'disabled');
-		    $('#useraddress-town_id').attr('disabled', 'disabled');
-		    $(".loading").hide();
-		    
-		}
+            if(data.success==true){
+		$('#useraddress-address').val(data.address);
+		$('#useraddress-province_id').val(data.province);
+		$('#useraddress-city_id').val(data.city);
+		$('#useraddress-town_id').val(data.town);
+		$('#useraddress-receiver').val(data.receiver);
+		$('#useraddress-receiver_contact').val(data.receiver_contact);
+		$('#useraddress-city_id').removeAttr('disabled');
+		$('#useraddress-town_id').removeAttr('disabled');
+		$(".loading").hide();
 	    }
+	    else {
+		$('#useraddress-address').val("");
+		$('#useraddress-province_id').val(0);
+		$('#useraddress-city_id').val(0);
+		$('#useraddress-town_id').val(0);
+		$('#useraddress-receiver').val("");
+		$('#useraddress-receiver_contact').val("");
+		$('#useraddress-city_id').attr('disabled', 'disabled');
+		$('#useraddress-town_id').attr('disabled', 'disabled');
+		$(".loading").hide();	    
+	    }
+	}
     });
 })
 JS;

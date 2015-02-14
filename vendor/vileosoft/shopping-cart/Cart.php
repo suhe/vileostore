@@ -82,7 +82,7 @@ class Cart extends Component
 		if ($this->_cart_contents === NULL)
 		{
 			// No cart exists so we'll set some base values
-			$this->_cart_contents = array('cart_total' => 0, 'total_items' => 0);
+			$this->_cart_contents = array('cart_total' => 0, 'total_items' => 0,'total_weight' => 0);
 		}
 
 		\Yii::t('app', 'Cart Class Initialized');
@@ -168,10 +168,10 @@ class Cart extends Component
 		// --------------------------------------------------------------------
 
 		// Does the $items array contain an id, quantity, price, and name?  These are required
-		if ( ! isset($items['id'], $items['qty'], $items['price'], $items['name']))
+		if ( ! isset($items['id'], $items['qty'], $items['price'], $items['name'],$items['weight']))
 		{
 		        
-			\Yii::t('app', 'The cart array must contain a product ID, quantity, price, and name.');
+			\Yii::t('app', 'The cart array must contain a product ID, quantity, price,weight, and name.');
 			return FALSE;
 		}
 
@@ -214,6 +214,7 @@ class Cart extends Component
 
 		// Prep the price. Remove leading zeros and anything that isn't a number or decimal point.
 		$items['price'] = (float) $items['price'];
+		$items['weight'] = (float) $items['weight'];
 
 		// We now need to create a unique identifier for the item being inserted into the cart.
 		// Every time something is added to the cart it is stored in the master cart array.
@@ -357,6 +358,12 @@ class Cart extends Component
 		{
 			$items['price'] = (float) $items['price'];
 		}
+		
+		// if a weight was passed, make sure it contains valid data
+		if (isset($items['weight']))
+		{
+			$items['weight'] = (float) $items['weight'];
+		}
 
 		// product id & name shouldn't be changed
 		foreach (array_diff($keys, array('id', 'name')) as $key)
@@ -388,6 +395,7 @@ class Cart extends Component
 
 			$this->_cart_contents['cart_total'] += ($val['price'] * $val['qty']);
 			$this->_cart_contents['total_items'] += $val['qty'];
+			$this->_cart_contents['total_weight'] += $val['qty'] * $val['weight'];
 			$this->_cart_contents[$key]['subtotal'] = ($this->_cart_contents[$key]['price'] * $this->_cart_contents[$key]['qty']);
 		}
 
@@ -452,6 +460,32 @@ class Cart extends Component
 	{
 		return $this->_cart_contents['total_items'];
 	}
+	
+	// --------------------------------------------------------------------
+
+	/**
+	 * Total Weight Gram
+	 *
+	 * Returns the total item count
+	 *
+	 * @return	int
+	 */
+	public function total_weight()
+	{
+		return $this->_cart_contents['total_weight'];
+	}
+	
+	/**
+	 * Total Weight KiloGram
+	 *
+	 * Returns the total item count
+	 *
+	 * @return	int
+	 */
+	public function total_weight_kg()
+	{
+		return ceil($this->total_weight()/1000);
+	}
 
 	// --------------------------------------------------------------------
 
@@ -470,6 +504,7 @@ class Cart extends Component
 
 		// Remove these so they don't create a problem when showing the cart table
 		unset($cart['total_items']);
+		unset($cart['total_weight']);
 		unset($cart['cart_total']);
 
 		return $cart;
@@ -487,7 +522,7 @@ class Cart extends Component
 	 */
 	public function get_item($row_id)
 	{
-		return (in_array($row_id, array('total_items', 'cart_total'), TRUE) OR ! isset($this->_cart_contents[$row_id]))
+		return (in_array($row_id, array('total_items', 'cart_total','total_weight'), TRUE) OR ! isset($this->_cart_contents[$row_id]))
 			? FALSE
 			: $this->_cart_contents[$row_id];
 	}
@@ -549,8 +584,7 @@ class Cart extends Component
 	 */
 	public function destroy()
 	{
-		$this->_cart_contents = array('cart_total' => 0, 'total_items' => 0);
+		$this->_cart_contents = array('cart_total' => 0, 'total_items' => 0,'total_weight' => 0);
 		\Yii::$app->session->offsetUnset('cart_contents');
 	}
-
 }

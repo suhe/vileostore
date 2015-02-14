@@ -103,5 +103,6 @@ return [
     /** Abjad V**/
     'via' => 'Via',
     'view' => 'View',
+    'weight' => 'Berat',
     'welcome back' => 'Selamat Datang Kembali silahkan Login',
  ];

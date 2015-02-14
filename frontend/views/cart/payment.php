@@ -1,10 +1,9 @@
 <?php
-use vileosoft\shoppingcart\Cart;
 if($_POST){
     $cart->update($_POST);
     Yii::$app->controller->refresh();
 }
-$this->title = Yii::t('app','shopping cart');
+$this->title = Yii::t('app','payment');
 ?>
 <div class="shopping-cart">
     <div class="col-md-12 col-sm-12">
@@ -15,15 +14,13 @@ $this->title = Yii::t('app','shopping cart');
 	</div>
     </div>
     
-    
-    
     <div class="col-md-offset-8 col-md-4 col-sm-12 cart-shopping-total">
     <table class="table table-bordered">
 	<thead>
 	    <tr>
 		<th>
 		    <div class="cart-sub-total">
-			<?=Yii::t('app','sub total')?><span class="inner-left-md"><?=Yii::$app->formatter->asDecimal($cart->total(),2)?></span>
+			<?=Yii::t('app','total')?><span class="inner-left-md"><?=Yii::$app->formatter->asDecimal($cart->total(),2)?></span>
 		    </div>		
 		</th>
 	    </tr>
@@ -42,10 +39,11 @@ $this->title = Yii::t('app','shopping cart');
 		'template' => "{input}{error}",
 	    ],
     ]);?>
+    <?=$form->field($formModel,'confirm')->input('hidden',['value' => 0]);?>
 	    
     <div class="col-md-12 col-sm-12 shopping-cart-table clearfix">				
 	<div class="table-responsive">    
-	   
+	    <div class="loading" style="display: none"></div>
 	    <table class="table table-bordered" style="margin-top:1px">
 		<thead>
 		    <tr>
@@ -58,12 +56,11 @@ $this->title = Yii::t('app','shopping cart');
 		    </tr>
 		</thead><!-- /thead -->
 		<tbody>
-		
-		
 		 <?php foreach ($courier as $v){ ?>
 		    <tr>
 			<td class="romove-item">
-			    <?=$form->field($formModel,"label_courier_id")->radio(['label' => '','value' => $v->id,'id'=>$v->id])?>
+			    <?php // $form->field($formModel,"label_courier_id")->radio(['label' => '','value' => $v->id,'class' => 'radioCost'])?>
+			    <?=\yii\helpers\Html::radio('courier',($v->id==1?true:false),['value' => $v->id])?>
 			</td>
 			<td class="cart-image">
 			    <a class="entry-thumbnail" href="<?=\yii\helpers\Url::to(['#','id'=>$v['id']])?>">
@@ -85,23 +82,23 @@ $this->title = Yii::t('app','shopping cart');
 				</div>
 				<div class="col-sm-8">
 				    <div class="reviews">
-					(<?='8'?> <?=Yii::t('app','reviews')?>)
+					<?=Yii::$app->formatter->asDecimal($cart->total_weight(),0)?> <?=Yii::$app->params['weight']?> 
 				    </div>
 				</div>
 			    </div><!-- /.row -->
 				
 			    <div class="cart-product-info">
-				<span class="product-imel"><?=Yii::t('app','sku')?><span>ss</span></span><br>
+				<span class="product-imel"><?=Yii::t('app','weight')?><span><?=Yii::$app->formatter->asDecimal($cart->total_weight_kg(),0)?> .Kg</span></span><br>
 			    </div>
 			</td>
 			
 			<td class="cart-product-quantity">
 			    <div class="quant-input">
-				<?=Yii::$app->formatter->asDecimal($weight=1,2)?>
+				<?=Yii::$app->formatter->asDecimal($cart->total_weight_kg(),0)?> 
 			    </div>
 		        </td>
 			<td class="cart-product-sub-total"><span class="cart-sub-total-price"><?=Yii::$app->formatter->asDecimal($cost=$v->cost,2)?></span></td>
-			<td class="cart-product-grand-total"><span class="cart-grand-total-price"><?=Yii::$app->formatter->asDecimal($subtotal=$weight*$cost,2)?></span></td>
+			<td class="cart-product-grand-total"><span class="cart-grand-total-price"><?=Yii::$app->formatter->asDecimal($subtotal=$cart->total_weight_kg()*$cost,2)?></span></td>
 		    </tr>
 		    <?php
 		    $total+=$subtotal; 
@@ -123,12 +120,11 @@ $this->title = Yii::t('app','shopping cart');
 		    </tr>
 		</thead><!-- /thead -->
 		<tbody>
-		
-		
 		 <?php foreach (\common\models\Bank::getAccount() as $v){ ?>
 		    <tr>
 			<td class="romove-item">
-			    <?=$form->field($formModel,"label_bank_id")->radio(['label' => '','value' => $v->id,'uncheckValue'=>null])?>
+			    <?php // $form->field($formModel,"label_bank_id")->radio(['label' => '','value' => $v->id])?>
+			    <?=\yii\helpers\Html::radio('bank',($v->id==1?true:false),['value' => $v->id])?>
 			</td>
 			<td class="cart-image">
 			    <a class="entry-thumbnail" href="<?=\yii\helpers\Url::to(['#','id'=>$v['id']])?>">
@@ -173,7 +169,7 @@ $this->title = Yii::t('app','shopping cart');
 	    <tr>
 		<th>
 		    <div class="cart-sub-total">
-			<?=Yii::t('app','total')?><span class="inner-left-md"><?=Yii::$app->formatter->asDecimal(8000,2)?></span>
+			<span class="inner-left-md"><div id="grandtotal"><?=Yii::t('app','total')?>  <?=Yii::$app->formatter->asDecimal($cart->total()+($shipping->cost * $cart->total_weight_kg()),2)?></div></span>
 		    </div>		
 		</th>
 	    </tr>
@@ -202,10 +198,27 @@ $this->title = Yii::t('app','shopping cart');
 
 </div><!-- /.shopping-cart -->
 
-<?php 
+<?php
+$url = \yii\helpers\Url::to(['cart/cost']);
 $js = <<<JS
-$(".qty-cart").blur(function() {
-    $("#form-cart").submit();
-});
+$('.radioCost').on('click', function(e) {
+    //e.preventDefault();
+    $(".loading").show();
+    var info = 'id=' + $(this).val();
+    $.ajax({
+	url: '{$url}',
+	type: 'post',
+	data: info,
+	success: function(data) {
+            if(data.success==true){
+		$("#grandtotal").html(data.cost);
+		$(".loading").hide();
+	    }
+	    else {
+		$(".loading").hide();	    
+	    }
+	}
+    });
+})
 JS;
 $this->registerJs($js);

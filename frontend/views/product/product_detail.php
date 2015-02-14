@@ -67,7 +67,7 @@ $this->params['breadcrumbs'] = [
 					</div>
 			
 					<div class="col-sm-8">
-						<div class="reviews"><a href="#" class="lnk">(<?=$data->counter?> <?=Yii::t('app','views')?>)</a></div>
+						<div class="reviews"><a href="#" class="lnk"><?=\Yii::t('app','weight')?> : <?=$data->weight?> <?=Yii::$app->params['weight']?></a></div>
 					</div>
 				</div><!-- /.row -->		
 			</div><!-- /.rating-reviews -->

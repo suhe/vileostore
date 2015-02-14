@@ -70,6 +70,7 @@ $this->title = Yii::t('app','shopping cart');
 				
 			    <div class="cart-product-info">
 				<span class="product-imel"><?=Yii::t('app','sku')?><span><?=$items['options']['sku']?></span></span><br>
+				<span class="product-color"><?=Yii::t('app','weight')?>:<span><?=$items['weight']?> <?=Yii::$app->params['weight']?></span></span>
 			    </div>
 			</td>
 			<td class="cart-product-edit"><?=\yii\helpers\Html::a(Yii::t('app','view'),['product/read','id'=>$items['id']])?></td>

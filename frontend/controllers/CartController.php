@@ -19,6 +19,7 @@ class CartController extends \yii\web\Controller {
             'qty'     => $this->qty,
             'price'   => $product->price,
             'name'    => $product->name,
+            'weight'  => $product->weight,
             'options' => [
                 'image' =>  $product->image,
                 'sku'   =>  $product->sku,
@@ -102,7 +103,10 @@ class CartController extends \yii\web\Controller {
         
         //action here
         if($formModel->load(Yii::$app->request->post()) && $formModel->validate()){
-            return $this->redirect(['cart/address'],301);
+            Yii::$app->session->set('after_payment',TRUE);
+            $formModel->getRequestOrder(Yii::$app->user->getId());
+            Yii::$app->session->setFlash('msg',Yii::t('app/message','msg thanks for purchase we wait confirm'));
+            return $this->redirect(['cart/finish'],301);
         }
         
         $this->layout = 'shopping-payment';
@@ -110,6 +114,7 @@ class CartController extends \yii\web\Controller {
             'formModel' => $formModel,
             'cart'  => new Cart(),
             'courier' => \common\models\Shipping::getShippingTotal($address?$address->town_id:0),
+            'shipping' => \common\models\Shipping::findOne(['town_id' => $address?$address->town_id:0,'courier_id' => Yii::$app->params['default_courier']])
         ]);
     }
     
@@ -170,6 +175,28 @@ class CartController extends \yii\web\Controller {
             echo "<option>-</option>";
         }
         
+    }
+    
+    public function actionCost(){
+        $cart = new Cart();
+        $id = isset($_POST['id'])?$_POST['id']:0;
+        $address = \common\models\UserAddress::getLatestAddress(Yii::$app->user->getId()); 
+        $query = \common\models\Shipping::findOne(['courier_id' => $id,'town_id' => $address?$address->town_id:0]);
+        if($query)
+            $cost =($query->cost * $cart->total_weight_kg()) + $cart->total();
+        else
+            $cost = 0;
+        Yii::$app->response->format = 'json';
+        if($query){
+            return [
+                'success' => true,
+                'cost' => Yii::$app->formatter->asDecimal($cost,2)
+            ];
+        } else {
+            return [
+                'success' => false
+            ];
+        }
     }
     
 }

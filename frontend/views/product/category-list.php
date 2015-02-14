@@ -21,6 +21,7 @@
 		    <div class="product-info">
 			<h3 class="name"><?=\yii\helpers\Html::a($row->name,['product/read','id'=>$row->product_id])?></h3>
 			<div class="rating rateit-small"></div>
+			<div class="reviews"><a href="#" class="lnk"><?=\Yii::t('app','weight')?> : <?=$row->weight?> <?=Yii::$app->params['weight']?></a></div>
 			<!-- product-price -->
                         <div class="product-price">	
 			    <span class="price"><?=Yii::$app->formatter->asDecimal($row->price)?></span>
