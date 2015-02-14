@@ -10,10 +10,6 @@ $this->title = Yii::t('app','register & login');
         <div class="col-md-6 col-sm-6 sign-in">
             <h4 class=""><?=Yii::t('app','sign in')?></h4>
             <p class=""><?=Yii::$app->session->getFlash('msg')?Yii::$app->session->getFlash('msg'):Yii::t('app','welcome back')?></p>
-	    <?php
-	    $request = Yii::$app->getRequest();
-	    echo  Yii::$app->getUser()->getReturnUrl();
-	    // 'lo'.$request?>
             <?php
 	    $form = \yii\bootstrap\ActiveForm::begin([
                 'id' => 'form',

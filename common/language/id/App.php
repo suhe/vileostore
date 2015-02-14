@@ -5,6 +5,7 @@ return [
     'add to cart' => 'Beli Online',
     'add new' => 'Tambah Baru',
     'address' => 'Alamat',
+    'addresses' => 'Pengaturan Alamat',
     'address store' => 'Alamat Toko', 
     'all brand' => 'Semua Brand',
     'all category' => 'Semua Kategori',
@@ -17,9 +18,11 @@ return [
     /** Abjad C **/
     'category' => 'Kategori',
     'cash on delivery' => 'Cash On Delivery',
+    'change password' => 'Perubahan Password',
     'checkout' => 'Checkout',
     'city' => 'Kota',
     'copyright' => 'Copyright',
+    'confirm' => 'Konfirmasi',
     'contact support & and sales' => 'Kontak Support & Sales',
     'continue shopping' => 'Lanjut Belanja',
     'cost' => 'Harga',
@@ -37,6 +40,7 @@ return [
     'grid' => 'Grid',
     /** Abjad H **/
     'hai' => 'Hallo',
+    'history transaction' => 'Histori Transaksi',
     'home page' => 'Home Page',
     /** Abjad I **/
     'image' => 'Gambar',
@@ -45,9 +49,11 @@ return [
     /** Abjad J **/
     /** Abjad K **/
     /** Abjad L **/
+    'link history transaction' => 'Link Histori Transaksi',
     'list' => 'List',
     'location' => 'Lokasi',
     'login' => 'Login',
+    'logout' => 'Keluar',
     'login & register' => 'Login & Register',
     /** Abjad M **/
     'my account' => 'My Account',
@@ -62,9 +68,11 @@ return [
     'opening time' => 'Jam Buka Online',
     'online' => 'Online',
     'owner' => 'Pemilik',
+    'or manual confirmation' => 'Atau Konfirmasi Manual',
     /** Abjad P **/
     'page' => 'Hal',
     'payment' => 'Pembayaran',
+    'payment confirmation' => 'Konfirmasi Pembayaran',
     'price' => 'Harga',
     'price down' => 'Harga Terendah',
     'price high' => 'Harga Tertinggi',
@@ -100,6 +108,9 @@ return [
     'subscribe' => 'Subscribe',
     'sub total' => 'Sub Total',
     'sunday' => 'Minggu',
+    /** Abjad T**/
+    'this at' => 'Berikut ini',
+    'total transfer' => 'Total Transfer',
     /** Abjad V**/
     'via' => 'Via',
     'view' => 'View',

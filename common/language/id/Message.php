@@ -14,4 +14,5 @@ return [
     'msg your address / cart empty' => 'Belanjaan atau Alamat tidak diset',
     'msg config address finish' => 'Pengaturan Alamat Pengaturan sudah selesai',
     'msg fill one' => 'Pilih Salah Satu',
+    'msg thanks for confirmation wait for verification' => 'Terima kasih atas konfirmasi pembayarannya sistem akan mengecek 1x24 jam',
  ];

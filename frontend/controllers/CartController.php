@@ -106,7 +106,7 @@ class CartController extends \yii\web\Controller {
             Yii::$app->session->set('after_payment',TRUE);
             $formModel->getRequestOrder(Yii::$app->user->getId());
             Yii::$app->session->setFlash('msg',Yii::t('app/message','msg thanks for purchase we wait confirm'));
-            return $this->redirect(['cart/finish'],301);
+            return $this->redirect(['cart/confirmation'],301);
         }
         
         $this->layout = 'shopping-payment';
@@ -118,7 +118,25 @@ class CartController extends \yii\web\Controller {
         ]);
     }
     
-    
+    public function actionConfirmation(){
+        //check payment
+        if(!Yii::$app->session->get('after_payment'))  return $this->redirect(['cart/payment'],301);
+        $this->layout = 'single';
+        $formModel = new \common\models\ConfirmationForm(['scenario' => 'confirm_user']);
+        $cart =  \common\models\Order::findOne(Yii::$app->session->get('payment_id'));
+        $formModel->bank_name = Yii::$app->user->identity->first_name.' '.Yii::$app->user->identity->middle_name.' '.Yii::$app->user->identity->last_name;
+        $formModel->total_transfer = Yii::$app->Formatter->asDecimal($cart->grand_total,0);
+        
+        if($formModel->load(Yii::$app->request->post()) && $formModel->getConfirmPayment(Yii::$app->session->get('payment_id'))){
+            Yii::$app->session->setFlash('msg',Yii::t('app/message','msg thanks for confirmation wait for verification'));
+            return $this->redirect(['user/history_details','id' => $cart->id],301);
+        }
+        
+        return $this->render('confirmation', [
+            'formModel' => $formModel,
+            'cart' => $cart,
+        ]);
+    }
     
     public function actionCompile(){
         $id = isset($_POST['id'])?$_POST['id']:0;

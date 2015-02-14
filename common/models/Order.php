@@ -21,12 +21,7 @@ class Order extends \yii\db\ActiveRecord {
     public function attributeLabels(){
         return [
             'label_courier_id' => '',
-            'label_bank_id' => '',
-            'name' => Yii::t('app','name'),
-            'price_down' => Yii::t('app','price down'),
-            'price_high' => Yii::t('app','price high'),
-            'category_id' => Yii::t('app','category'),
-            'brand_id' => Yii::t('app','brand'),
+            'label_bank_id' => ''
         ];
     }
     
@@ -67,6 +62,9 @@ class Order extends \yii\db\ActiveRecord {
         $model->created_by = $user_id;
         $model->created_date = date('Y-m-d H:i:s');
         $insert_master = $model->insert();
+        
+        //set id to session 
+        Yii::$app->session->set('payment_id',$model->id);
         
         if($insert_master){
             foreach($cart->contents() as $v){
