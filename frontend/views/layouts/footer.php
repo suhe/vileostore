@@ -155,7 +155,7 @@
                     <div class="module-body">
                         <ul class='list-unstyled'>
 			    <?php foreach(\common\models\Page::content(['status'=>1,'type'=>'Help & Support']) as $page){?>
-				<li><?=\yii\helpers\Html::a($page->title,['page/content','id'=>$page->id])?></li>
+				<li><?=\yii\helpers\Html::a($page->title,['site/page','id'=>$page->id])?></li>
                             <?php } ?>
                         </ul>
                     </div><!-- /.module-body -->

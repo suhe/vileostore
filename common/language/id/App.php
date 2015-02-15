@@ -29,6 +29,7 @@ return [
     'completed' => 'Completed',
     'confirm' => 'Konfirmasi',
     'confirm payment click' => 'Konfirmasi Pembayaran Klik',
+    'confirm payment invoice' => 'Konfirmasi Pembayaran untuk Invoice ',
     'contact support & and sales' => 'Kontak Support & Sales',
     'continue shopping' => 'Lanjut Belanja',
     'cost' => 'Harga',
@@ -60,6 +61,7 @@ return [
     'image' => 'Gambar',
     'in stock' => 'Tersedia',
     'in stock date' => 'Stok Tersedia Tanggal',
+    'invoice payment' => 'Invoice Tagihan Pembayaran',
     /** Abjad J **/
     /** Abjad K **/
     /** Abjad L **/
@@ -145,6 +147,7 @@ return [
     'update profile' => 'Update Profile',
     /** Abjad V**/
     'verify payment' => 'Verifikasi Pembayaran',
+    'verification invoice payment' => 'Verifikasi Konfirmasi Pembayaran',
     'via' => 'Via',
     'view' => 'View',
     'waiting payment' => 'Menunggu Pembayaran',

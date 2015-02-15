@@ -32,4 +32,6 @@ return [
     'msg email is not exists' => 'Email anda tidak terdaftar sebagai akun situs kami',
     'msg email forgot password from vileo.co.id' => 'Reset Password Email untuk akun di Vileo.co.id',
     'msg token reset password not valid' => 'Token untuk Reset Password tidak valid !',
+    'msg this email see at not normal' => 'Apabila pesan ini ditampilkan dengan baik langsung kunjungi situs kami : ',
+    'msg reset password to' => 'Password dikirimkan ke',
  ];

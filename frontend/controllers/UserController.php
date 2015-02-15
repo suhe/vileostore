@@ -81,6 +81,7 @@ class UserController extends Controller {
         //process to action
         if($formModel->load(Yii::$app->request->post()) && $formModel->getConfirmPayment($id)){
             Yii::$app->session->setFlash('msg',Yii::t('app/message','msg thanks for confirmation wait for verification'));
+            Yii::$app->mail->verification($id,Yii::t('app','confirm payment invoice'));
             return $this->redirect(['user/history_details','id' => $id],301);
         }
         

@@ -31,7 +31,7 @@ class SiteController extends Controller {
     }
 
     public function actionLogin(){
-        if (!\Yii::$app->user->isGuest) return $this->goHome();
+        if (!\Yii::$app->user->isGuest) return $this->redirect(['user/profile']);
         $loginModel = new LoginForm(['scenario' => 'login']);
         $registerModel = new \common\models\User(['scenario' => 'register']);
         if ($loginModel->load(Yii::$app->request->post()) && $loginModel->login()) {
@@ -65,8 +65,8 @@ class SiteController extends Controller {
         ]);
     }
     
-    public function actionReset_password($token){
-        $query = \common\models\User::findOne(['auth_key11' => $token]);
+    public function actionResetpassword($token=''){
+        $query = \common\models\User::findOne(['auth_key' => $token]);
         //if(!$query){
           //  Yii::$app->session->setFlash('msg', Yii::t('app/message','msg token reset password not valid'));
             //return $this->redirect(['site/forgot_password']);
@@ -82,7 +82,7 @@ class SiteController extends Controller {
 
     public function actionLogout(){
         Yii::$app->user->logout();
-        return $this->goHome();
+        return $this->redirect(['site/index']);
     }
 
     public function actionRequestPasswordReset(){
@@ -101,11 +101,23 @@ class SiteController extends Controller {
             'model' => $model,
         ]);
     }
-
-    
     
     public function actionTest(){
-        Yii::$app->mail->send(['hendarsyahss@gmail.com'],'Newsletter Vileo.co.id','newsletter',['email'=>'hendarsyahss@gmail.com']);
+        Yii::$app->mail->send(['hendarsyahss@gmail.com'],'Invoice Vileo.co.id','invoice',[
+            'data' => \common\models\Order::find()
+                        ->select(['order.invoice_no','courier.name as courier_name','order.grand_total',
+                                  'order.receiver','order.receiver_contact','order.address','order.town',
+                                  'order.city','order.town','order.shipping_cost'])     
+                        ->joinWith('courier')
+                        ->where(['order.id'=>21])
+                        ->one(),
+            'product' => \common\models\OrderProduct::find()
+                        ->select(['product_id','product.sku','product.image as product_image','product.name as product_name','qty','product_price',
+                                  'subtotal','product_weight'])
+                        ->joinWith('product')
+                        ->where(['order_id' => 21])
+                        ->all(),
+        ]);
     }
     
     public function actionNewsletter(){
@@ -127,4 +139,14 @@ class SiteController extends Controller {
         return $this->render('error', [
         ]);
     }
+    
+    
+    public function actionPage($id=1){
+        $model = \common\models\Page::findOne($id);
+        $this->layout = 'page';
+        return $this->render('page',[
+            'page' => $model
+        ]);
+    }
+    
 }

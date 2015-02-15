@@ -44,6 +44,7 @@ class ConfirmationForm extends Model
             $model->confirm_account = $this->bank_account;
             $model->confirm_owner = $this->bank_name;
             $model->confirm_total =str_replace(",","",$this->total_transfer);
+            $model->confirm_description = $this->description;
             $model->updated_by = Yii::$app->user->getId();
             $model->updated_date = date('Y-m-d H:i:s');
             $model->update();

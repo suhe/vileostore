@@ -2,6 +2,7 @@
 return [
     'mail_user' => 'info@vileo.co.id',
     'mail_host' => 'http://beta.vileo.co.id',
+    'mail_admin' => 'hendarsyahss@gmail.com',
     'copyright' => 'Vileo.co.id , Sahabat Belanja Online',
     'currency' => 'IDR',
     'supportEmail' => 'support@example.com',

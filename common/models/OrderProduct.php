@@ -5,6 +5,7 @@ use Yii;
 class OrderProduct extends \yii\db\ActiveRecord {
     public $sku;
     public $product_name;
+    public $product_image;
    
     
     public static function tableName(){
@@ -33,7 +34,7 @@ class OrderProduct extends \yii\db\ActiveRecord {
         return $this->hasOne(\common\models\Product::className(), ['id' => 'product_id']);
     }
     
-    public function getRequestOrder($items=[]){
+    public static function getRequestOrder($items=[]){
         $model = new OrderProduct();
         $model->order_id = $items['order_id'];
         $model->product_id = $items['product_id'];

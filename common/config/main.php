@@ -3,9 +3,9 @@ return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
         'db' => require(__DIR__ . '/database.php'),
-        /*'cache' => [
+        'cache' => [
             'class' => 'yii\caching\FileCache',
-        ],*/
+        ],
         'i18n' => [                                          
             'translations' => [                      
             'app*'=>[
@@ -13,8 +13,8 @@ return [
                 'sourceLanguage' => 'id-ID',
                 'basePath' => '@common/language',
                 'fileMap' => [
-                'app' => 'app.php',
-                'app/message' => 'message.php'
+                'app' => 'App.php',
+                'app/message' => 'Message.php'
                     ],
                 ],
             ],
@@ -26,7 +26,7 @@ return [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'mail.vileo.co.id',
-                'username' => 'info@vileo.co.id',
+                'username' => 'sales@vileo.co.id',
                 'password' => 'admin',
                 'port' => '587',
             ],    

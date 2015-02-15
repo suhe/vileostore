@@ -7,7 +7,8 @@ class Order extends \yii\db\ActiveRecord {
     
     public $label_courier_id=1;
     public $label_bank_id=1;
-   
+    public $courier_name;
+    public $bank_name;
     
     public static function tableName(){
         return 'order';
@@ -31,6 +32,14 @@ class Order extends \yii\db\ActiveRecord {
         return $this->hasMany(\common\models\OrderProduct::className(), ['id' => 'order_id']);
     }
     
+    public function getCourier(){
+        return $this->hasOne(\common\models\Courier::className(), ['id' => 'courier_id']);
+    }
+    
+    public function getBank(){
+        return $this->hasOne(\common\models\Bank::className(), ['id' => 'bank_id']);
+    }
+    
     public function getId(){
         $count = static::find()
         ->where(['MONTH(created_date)' => date('m'),'YEAR(created_date)' => date('Y')])
@@ -44,6 +53,7 @@ class Order extends \yii\db\ActiveRecord {
             case 2 : $str = Yii::t('app','shipping');break;
             case 3 : $str = Yii::t('app','paid');break;
             case 4 : $str = Yii::t('app','verify payment');break;
+            case 5 : $str = Yii::t('app','waiting payment');break;    
             default : $str = Yii::t('app','waiting payment');break;
         }
         return $str;
@@ -73,6 +83,7 @@ class Order extends \yii\db\ActiveRecord {
         $model = new Order();
         $model->invoice_no = $this->getId();
         $model->user_id  = $user_id;
+        $model->status  = 5;
         $model->courier_id  = isset($post['courier'])?$post['courier']:0;
         $model->bank_id  = $post['bank'];
         $model->sub_total = $cart->total();
@@ -119,6 +130,8 @@ class Order extends \yii\db\ActiveRecord {
                 $insert_details =  \common\models\OrderProduct::getRequestOrder($items);
             }
         }
+        //send email
+        Yii::$app->mail->invoice($model->id);
     }
     
     public function getMyOrderTransaction($params){
@@ -128,6 +141,7 @@ class Order extends \yii\db\ActiveRecord {
         
         $dataProvider = new \yii\data\ActiveDataProvider([
             'query' => $query,
+            'sort'=> ['defaultOrder' => ['ABS(id)'=> SORT_DESC]],
             'pagination' =>[
                 'pageSize' => Yii::$app->params['show_page']
             ]    
@@ -138,12 +152,12 @@ class Order extends \yii\db\ActiveRecord {
                 'invoice_no'=>[
                     'asc' => ['invoice_no' => SORT_ASC],
                     'desc' =>['invoice_no' => SORT_DESC],
-                    'default' => SORT_ASC
+                    'default' => SORT_DESC
                 ],
                 'created_date'=>[
                     'asc' => ['created_date' => SORT_ASC],
                     'desc' =>['created_date' => SORT_DESC],
-                    'default' => SORT_ASC
+                    'default' => SORT_DESC
                 ],
                 'status'=>[
                     'asc' => ['status' => SORT_ASC],
