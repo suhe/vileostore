@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2015 at 02:03 PM
+-- Generation Time: Feb 15, 2015 at 06:17 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.5.19
 
@@ -748,15 +748,14 @@ CREATE TABLE IF NOT EXISTS `newsletter` (
 `id` int(11) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `newsletter`
 --
 
 INSERT INTO `newsletter` (`id`, `email`, `created_date`) VALUES
-(11, 'hendarsyahss@gmail.com', '2015-02-15 13:59:32'),
-(12, 'hendarsyahss22@gmail.com', '2015-02-15 14:52:11');
+(15, 'hendarsyahss@gmail.com', '2015-02-15 20:19:41');
 
 -- --------------------------------------------------------
 
@@ -779,6 +778,7 @@ CREATE TABLE IF NOT EXISTS `order` (
   `confirm_account` varchar(255) DEFAULT NULL,
   `confirm_owner` varchar(255) DEFAULT NULL,
   `confirm_total` double DEFAULT NULL,
+  `confirm_description` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `province` varchar(255) DEFAULT NULL,
   `city` varchar(255) DEFAULT NULL,
@@ -792,21 +792,23 @@ CREATE TABLE IF NOT EXISTS `order` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `order`
 --
 
-INSERT INTO `order` (`id`, `invoice_no`, `type`, `status`, `user_id`, `courier_id`, `bank_id`, `sub_total`, `shipping_cost`, `grand_total`, `confirm`, `confirm_account`, `confirm_owner`, `confirm_total`, `address`, `province`, `city`, `town`, `receiver`, `receiver_contact`, `sender`, `sender_contact`, `awb`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
-(15, 'INV-2015-02-0', 1, 1, 9, 1, 1, 92000, 32000, 124000, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, '2015-02-14 11:14:34', NULL, NULL),
-(16, 'INV-2015-02-1', 1, 2, 9, 2, 2, 92000, 32000, 124000, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, '2015-02-14 11:14:59', NULL, NULL),
-(17, 'INV-2015-02-2', 1, 4, 9, 1, 1, 23000, 16000, 39000, 3, '5425040127', 'Suhendar Suhendar ', 39000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, '2015-02-14 15:33:27', 9, '2015-02-15 00:08:26'),
-(18, 'INV-2015-02-3', 1, 1, 9, 1, 1, 46000, 135000, 181000, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, '2015-02-14 15:36:15', NULL, NULL),
-(19, 'INV-2015-02-4', 1, 1, 9, 1, 1, 69000, 270000, 339000, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, '2015-02-14 15:44:28', NULL, NULL),
-(20, 'INV-2015-02-5', 1, 1, 9, 1, 1, 23000, 135000, 158000, 3, '5425040127', 'Suhendar  ', 159000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, '2015-02-14 16:07:28', 9, '2015-02-14 16:27:30'),
-(21, 'INV-2015-02-6', 2, 5, 9, 1, 1, 46000, 8000, 54000, 0, NULL, NULL, NULL, NULL, 'Dki Jakarta', 'Kota Jakarta Pusat', 'Johar Baru', 'Sukandar', '08522205577', 'Suhendar', '08522228877', NULL, 9, '2015-02-15 17:45:42', NULL, NULL),
-(22, 'INV-2015-02-7', 3, 5, 9, 0, 1, 23000, 0, 23000, 0, NULL, NULL, NULL, 'Cash On Delivery', 'Cash On Delivery', 'Cash On Delivery', 'Cash On Delivery', 'Cash On Delivery', 'Cash On Delivery', 'Cash On Delivery', 'Cash On Delivery', NULL, 9, '2015-02-15 18:39:48', NULL, NULL);
+INSERT INTO `order` (`id`, `invoice_no`, `type`, `status`, `user_id`, `courier_id`, `bank_id`, `sub_total`, `shipping_cost`, `grand_total`, `confirm`, `confirm_account`, `confirm_owner`, `confirm_total`, `confirm_description`, `address`, `province`, `city`, `town`, `receiver`, `receiver_contact`, `sender`, `sender_contact`, `awb`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
+(15, 'INV-2015-02-0', 1, 1, 9, 1, 1, 92000, 32000, 124000, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, '2015-02-14 11:14:34', NULL, NULL),
+(16, 'INV-2015-02-1', 1, 2, 9, 2, 2, 92000, 32000, 124000, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, '2015-02-14 11:14:59', NULL, NULL),
+(17, 'INV-2015-02-2', 1, 4, 9, 1, 1, 23000, 16000, 39000, 3, '5425040127', 'Suhendar Suhendar ', 39000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, '2015-02-14 15:33:27', 9, '2015-02-15 00:08:26'),
+(18, 'INV-2015-02-3', 1, 1, 9, 1, 1, 46000, 135000, 181000, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, '2015-02-14 15:36:15', NULL, NULL),
+(19, 'INV-2015-02-4', 1, 1, 9, 1, 1, 69000, 270000, 339000, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, '2015-02-14 15:44:28', NULL, NULL),
+(20, 'INV-2015-02-5', 1, 1, 9, 1, 1, 23000, 135000, 158000, 3, '5425040127', 'Suhendar  ', 159000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9, '2015-02-14 16:07:28', 9, '2015-02-14 16:27:30'),
+(21, 'INV-2015-02-6', 2, 5, 9, 1, 1, 46000, 8000, 54000, 0, NULL, NULL, NULL, NULL, 'JNE MEga Kuningan No.8A RT 05 /RW 02', 'Dki Jakarta', 'Kota Jakarta Pusat', 'Johar Baru', 'Sukandar', '08522205577', 'Suhendar', '08522228877', NULL, 9, '2015-02-15 17:45:42', NULL, NULL),
+(22, 'INV-2015-02-7', 3, 5, 9, 0, 1, 23000, 0, 23000, 0, NULL, NULL, NULL, NULL, 'Cash On Delivery', 'Cash On Delivery', 'Cash On Delivery', 'Cash On Delivery', 'Cash On Delivery', 'Cash On Delivery', 'Cash On Delivery', 'Cash On Delivery', NULL, 9, '2015-02-15 18:39:48', NULL, NULL),
+(23, 'INV-2015-02-8', 1, 5, 9, 2, 1, 69000, 16000, 85000, 0, NULL, NULL, NULL, NULL, 'Jalan Pegangsaan Timur No.16A', 'Jawa Barat', 'Kab. Bandung', 'Cilengkrang', 'Suhendar', '085222054064', NULL, NULL, NULL, 9, '2015-02-15 22:18:58', NULL, NULL),
+(24, 'INV-2015-02-9', 1, 4, 9, 2, 1, 69000, 16000, 85000, 3, '085025488', 'Suhendar', 85000, NULL, 'Jalan Pegangsaan Timur No.16A', 'Jawa Barat', 'Kab. Bandung', 'Cilengkrang', 'Suhendar', '085222054064', NULL, NULL, NULL, 9, '2015-02-15 22:19:28', 9, '2015-02-15 22:32:59');
 
 -- --------------------------------------------------------
 
@@ -822,7 +824,7 @@ CREATE TABLE IF NOT EXISTS `order_product` (
   `product_weight` decimal(10,0) DEFAULT NULL,
   `qty` int(11) DEFAULT NULL,
   `subtotal` double DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `order_product`
@@ -836,7 +838,11 @@ INSERT INTO `order_product` (`id`, `order_id`, `product_id`, `product_price`, `p
 (9, 19, 2, 23000, '100', 3, 69000),
 (10, 20, 2, 23000, '100', 1, 23000),
 (11, 21, 2, 23000, '100', 2, 46000),
-(12, 22, 2, 23000, '100', 1, 23000);
+(12, 22, 2, 23000, '100', 1, 23000),
+(13, 23, 2, 23000, '100', 2, 46000),
+(14, 23, 3, 23000, '100', 1, 23000),
+(15, 24, 2, 23000, '100', 2, 46000),
+(16, 24, 3, 23000, '100', 1, 23000);
 
 -- --------------------------------------------------------
 
@@ -12913,6 +12919,8 @@ CREATE TABLE IF NOT EXISTS `user_address` (
   `town_id` int(11) DEFAULT NULL,
   `receiver` varchar(255) DEFAULT NULL,
   `receiver_contact` varchar(255) DEFAULT NULL,
+  `sender` varchar(255) DEFAULT NULL,
+  `sender_contact` varchar(255) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
@@ -12923,13 +12931,13 @@ CREATE TABLE IF NOT EXISTS `user_address` (
 -- Dumping data for table `user_address`
 --
 
-INSERT INTO `user_address` (`id`, `user_id`, `address`, `province_id`, `city_id`, `town_id`, `receiver`, `receiver_contact`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
-(1, 1, 'Jl Kelapa Muda No.10 RT 01', 11, 1101, 1101010, NULL, NULL, 1, '2015-02-05 20:51:00', NULL, NULL),
-(2, 9, 'Jalan Ancol Barat No.6A ', 94, 9415, 9415050, 'Suhendar', '085222054064', 9, '2015-02-13 22:05:54', 9, '2015-02-15 20:02:12'),
-(3, 9, 'Jalan Pegangsaan Timur No.16A', 32, 3204, 3204300, 'Suhendar', '085222054064', 9, '2015-02-13 22:36:16', 9, '2015-02-14 15:33:23'),
-(5, 9, 'Selamat datang di gudangalamat.com situs penyedia pencarian alamat di Indonesia. Untuk mencari data alamat perusahaan maupun alamat ', 32, 3201, 3201081, 'Markus', '08522205577', 9, '2015-02-15 16:53:18', 9, '2015-02-15 16:53:18'),
-(6, 9, 'Yii::$app->session->set(''cart_address_type'',2); // set to set town id ', 31, 3174, 3174080, 'Sukandar', '0857202566', 9, '2015-02-15 16:55:14', 9, '2015-02-15 16:55:14'),
-(7, 9, 'fafa', 11, 1112, 1112050, 'asdasd', 'adsasda', 9, '2015-02-15 16:57:17', 9, '2015-02-15 16:57:17');
+INSERT INTO `user_address` (`id`, `user_id`, `address`, `province_id`, `city_id`, `town_id`, `receiver`, `receiver_contact`, `sender`, `sender_contact`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
+(1, 1, 'Jl Kelapa Muda No.10 RT 01', 11, 1101, 1101010, NULL, NULL, NULL, NULL, 1, '2015-02-05 20:51:00', NULL, NULL),
+(2, 9, 'Jalan Ancol Barat No.6A ', 94, 9415, 9415050, 'Suhendar', '085222054064', NULL, NULL, 9, '2015-02-13 22:05:54', 9, '2015-02-15 20:26:14'),
+(3, 9, 'Jalan Pegangsaan Timur No.16A', 32, 3204, 3204300, 'Suhendar', '085222054064', NULL, NULL, 9, '2015-02-13 22:36:16', 9, '2015-02-15 22:14:26'),
+(5, 9, 'Selamat datang di gudangalamat.com situs penyedia pencarian alamat di Indonesia. Untuk mencari data alamat perusahaan maupun alamat ', 32, 3201, 3201081, 'Markus', '08522205577', NULL, NULL, 9, '2015-02-15 16:53:18', 9, '2015-02-15 16:53:18'),
+(6, 9, 'Yii::$app->session->set(''cart_address_type'',2); // set to set town id ', 31, 3174, 3174080, 'Sukandar', '0857202566', NULL, NULL, 9, '2015-02-15 16:55:14', 9, '2015-02-15 16:55:14'),
+(7, 9, 'fafa', 11, 1112, 1112050, 'asdasd', 'adsasda', NULL, NULL, 9, '2015-02-15 16:57:17', 9, '2015-02-15 16:57:17');
 
 -- --------------------------------------------------------
 
@@ -13141,17 +13149,17 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 -- AUTO_INCREMENT for table `newsletter`
 --
 ALTER TABLE `newsletter`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `order_product`
 --
 ALTER TABLE `order_product`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `page`
 --
