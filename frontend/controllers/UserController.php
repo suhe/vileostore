@@ -216,4 +216,97 @@ class UserController extends Controller {
         ]);
     }
     
+    
+    public function actionDropship(){
+        $model = new \common\models\UserDropship();
+        $query = $model->getAllQueryWithPagination(Yii::$app->user->getId(),Yii::$app->request->QueryParams);
+        $countQuery = clone $query; //coun total query
+        //pagination total count and pagesize
+        $pages = new \yii\data\Pagination([
+            'pageSizeParam' => 'show',
+            'totalCount' => $countQuery->count(),
+            'pageSize' => Yii::$app->params['show_page'],
+            'params' => array_merge($_GET),
+        ]);
+        
+        // get query
+        $query = $query
+        ->offset($pages->offset)
+        ->limit($pages->limit)
+        ->all();
+        
+        $this->layout = 'user';
+        return $this->render('mydropship',[
+            'query' => $query,
+            'pages' => $pages,
+        ]);
+    }
+    
+    public function actionAdddropship(){
+        $formModel = new \common\models\UserDropship(['scenario' => 'register']);
+        $this->layout = 'user';
+        //proceess to action
+        if($formModel->load(Yii::$app->request->post()) && $formModel->getSaveUserDropship(Yii::$app->user->getId())){
+            Yii::$app->session->setFlash('msg',Yii::t('app/message','msg address have successfully saved'));
+            return $this->redirect(['user/dropship'],301);
+        }
+        
+        return $this->render('mydropship_form',[
+            'formModel' => $formModel,
+            'query' => 0,
+            'title' => Yii::t('app','add dropship') 
+        ]);
+    }
+    
+    public function actionEditdropship($id){
+         $query = \common\models\UserDropship::findOne($id);
+        //cek valid user id and order user id
+        if($query->user_id != Yii::$app->user->getId()) return $this->redirect(['user/address'],301);
+        
+        $formModel = new \common\models\UserDropship(['scenario' => 'register']);
+        $this->layout = 'user';
+        //proceess to action
+        if($formModel->load(Yii::$app->request->post()) && $formModel->getUpdateUserDropship(Yii::$app->user->getId(),$id)){
+            Yii::$app->session->setFlash('msg',Yii::t('app/message','msg address have successfully updated'));
+            return $this->redirect(['user/dropship'],301);
+        }
+        
+        $formModel->address = $query->address;
+        $formModel->province_id = $query->province_id;
+        $formModel->city_id = $query->city_id;
+        $formModel->town_id = $query->town_id;
+        $formModel->receiver = $query->receiver;
+        $formModel->receiver_contact = $query->receiver_contact;
+        $formModel->sender = $query->sender;
+        $formModel->sender_contact = $query->sender_contact;
+        
+        return $this->render('mydropship_form',[
+            'formModel' => $formModel,
+            'query' => $query,
+            'title' => Yii::t('app','edit dropship') 
+        ]);
+    }
+    
+    public function actionRemovedropship($id){
+        $query = \common\models\UserDropship::findOne($id);
+        //cek valid user id and order user id
+        if($query->user_id != Yii::$app->user->getId()) return $this->redirect(['user/dropship'],301);
+        $query->delete();
+        return $this->redirect(Yii::$app->request->referrer);
+    }
+    
+    /*public function actionChpassword(){
+        $this->layout = 'user';
+        $formModel = new \common\models\User(['scenario' => 'update_password']);
+        $user = $formModel->findOne(Yii::$app->user->getId());
+        if($formModel->load(Yii::$app->request->post()) && $formModel->getUpdatePassword(Yii::$app->user->getId())){
+            Yii::$app->session->setFlash('msg',Yii::t('app/message','msg your password is changed'));
+            return $this->redirect(Yii::$app->request->referrer);
+        }
+        
+        return $this->render('mypassword',[
+            'formModel' => $formModel
+        ]);
+    }*/
+    
 }

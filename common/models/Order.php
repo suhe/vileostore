@@ -76,14 +76,27 @@ class Order extends \yii\db\ActiveRecord {
         $model->courier_id  = $post['courier'];
         $model->bank_id  = $post['bank'];
         $model->sub_total = $cart->total();
+        $model->type = Yii::$app->session->get('cart_address_type');
         
         //get cost
-        $address = \common\models\UserAddress::getLatestAddress(Yii::$app->user->getId()); 
+        if(Yii::$app->session->get('cart_address_type') == 1)
+            $address = \common\models\UserAddress::getLatestAddress(Yii::$app->user->getId());
+        else if(Yii::$app->session->get('cart_address_type') == 2)
+            $address = \common\models\UserDropship::getLatestAddress(Yii::$app->user->getId());
+        
         $query = \common\models\Shipping::findOne(['courier_id' => $this->label_courier_id,'town_id' => $address?$address->town_id:0]);
-            
+    
         $model->shipping_cost = ($query->cost * $cart->total_weight_kg());
         $model->grand_total = ($query->cost * $cart->total_weight_kg()) + $cart->total();
         $model->confirm = 0;
+        $model->address = $address->address;
+        $model->town = \common\models\Town::findOne($address->town_id)->name;
+        $model->city = \common\models\City::findOne($address->city_id)->name;
+        $model->province = \common\models\Province::findOne($address->province_id)->name;
+        $model->sender = $address->sender;
+        $model->sender_contact = $address->sender_contact;
+        $model->receiver = $address->receiver;
+        $model->receiver_contact = $address->receiver_contact;
         $model->created_by = $user_id;
         $model->created_date = date('Y-m-d H:i:s');
         $insert_master = $model->insert();
@@ -103,7 +116,6 @@ class Order extends \yii\db\ActiveRecord {
                 ];
                 $insert_details =  \common\models\OrderProduct::getRequestOrder($items);
             }
-            
         }
     }
     

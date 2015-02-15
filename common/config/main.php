@@ -19,6 +19,21 @@ return [
                 ],
             ],
         ],
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            'viewPath' => '@common/mail',
+            'useFileTransport' => false,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'mail.vileo.co.id',
+                'username' => 'info@vileo.co.id',
+                'password' => 'admin',
+                'port' => '587',
+            ],    
+        ],
+        'mail' => [
+            'class' => 'common\models\Mail',
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'RhLqcR79Fcg9GUBYSQa9R9BzTfo7htK-',

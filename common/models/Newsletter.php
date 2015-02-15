@@ -33,6 +33,9 @@ class Newsletter extends \yii\db\ActiveRecord {
             $model->email = $this->email;
             $model->created_date = date('Y-m-d H:i:s');
             $model->insert();
+            //set email
+            $data['email'] = $this->email;
+            Yii::$app->mail->send([$this->email],Yii::t('app','newsletter'),'newsletter',['email' => $this->email]);
             return true;
         }
         return false;

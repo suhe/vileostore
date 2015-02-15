@@ -12,6 +12,7 @@
             <li><a href="<?=\yii\helpers\Url::to(['user/history'])?>"> <i class="fa fa-exchange"></i> <?=Yii::t('app','history transaction')?></a></li>
             <li><a href="<?=\yii\helpers\Url::to(['user/discussion'])?>"> <i class="fa fa-envelope"></i> <?=Yii::t('app','product discussion')?></a></li>
             <li><a href="<?=\yii\helpers\Url::to(['user/address'])?>"> <i class="fa fa-map-marker"></i> <?=Yii::t('app','addresses')?></a></li>
+	    <li><a href="<?=\yii\helpers\Url::to(['user/dropship'])?>"> <i class="fa fa-umbrella"></i> <?=Yii::t('app','dropship setting')?></a></li>
             <li><a href="<?=\yii\helpers\Url::to(['user/chpassword'])?>"> <i class="fa fa-key"></i> <?=Yii::t('app','change password')?></a></li>
             <li><a href="<?=\yii\helpers\Url::to(['site/logout'])?>"> <i class="fa fa-trello"></i> <?=Yii::t('app','logout')?></a></li>
           </ul>

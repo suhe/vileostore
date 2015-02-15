@@ -4,7 +4,7 @@
 	<span class="title"><?=\yii\helpers\Html::a(Yii::t('app','shopping cart'),['cart/shopping'])?></span>
     </li>
 	
-    <li data-target="#step2" <?=Yii::$app->controller->getRoute()=='cart/address'?'class="active"':''?>>
+    <li data-target="#step2" <?=(Yii::$app->controller->getRoute()=='cart/address' || Yii::$app->controller->getRoute()=='cart/dropship')?'class="active"':''?>>
 	<span class="step">2</span>
 	<span class="title"><?=\yii\helpers\Html::a(Yii::t('app','shipping address'),['cart/address'])?></span>
     </li>

@@ -3,11 +3,6 @@ namespace common\helpers;
 use yii;
 
 class App {
-    
-    public function __construct(){
-        parent::__construct();
-    }
-    
     public static function timeAgo($ptime){
         $estimate_time = time() - strtotime($ptime);
         if( $estimate_time < 1 ){
@@ -32,6 +27,14 @@ class App {
         }
     }
     
-    
+    public static function randString($length) {
+        $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";	
+	$size = strlen( $chars );
+        $str ='';
+	for( $i = 0; $i < $length; $i++ ) {
+		$str .= $chars[ rand( 0, $size - 1 ) ];
+	}
+	return $str;
+    }    
     
 }

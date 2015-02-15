@@ -60,7 +60,7 @@ $this->title = Yii::t('app','payment');
 		    <tr>
 			<td class="romove-item">
 			    <?php // $form->field($formModel,"label_courier_id")->radio(['label' => '','value' => $v->id,'class' => 'radioCost'])?>
-			    <?=\yii\helpers\Html::radio('courier',($v->id==1?true:false),['value' => $v->id])?>
+			    <?=\yii\helpers\Html::radio('courier',($v->id==1?true:false),['value' => $v->id,'class' => 'radioCost'])?>
 			</td>
 			<td class="cart-image">
 			    <a class="entry-thumbnail" href="<?=\yii\helpers\Url::to(['#','id'=>$v['id']])?>">
@@ -169,7 +169,7 @@ $this->title = Yii::t('app','payment');
 	    <tr>
 		<th>
 		    <div class="cart-sub-total">
-			<span class="inner-left-md"><div id="grandtotal"><?=Yii::t('app','total')?>  <?=Yii::$app->formatter->asDecimal($cart->total()+($shipping->cost * $cart->total_weight_kg()),2)?></div></span>
+			<span class="inner-left-md"><div id="grandtotal"><?=Yii::$app->formatter->asDecimal($cart->total()+($shipping->cost * $cart->total_weight_kg()),2)?></div></span>
 		    </div>		
 		</th>
 	    </tr>
@@ -202,7 +202,6 @@ $this->title = Yii::t('app','payment');
 $url = \yii\helpers\Url::to(['cart/cost']);
 $js = <<<JS
 $('.radioCost').on('click', function(e) {
-    //e.preventDefault();
     $(".loading").show();
     var info = 'id=' + $(this).val();
     $.ajax({
@@ -215,7 +214,7 @@ $('.radioCost').on('click', function(e) {
 		$(".loading").hide();
 	    }
 	    else {
-		$(".loading").hide();	    
+		$(".loading").hide();
 	    }
 	}
     });

@@ -12,6 +12,8 @@ class LoginForm extends Model
     public $email;
     public $password;
     public $rememberMe = true;
+    public $new_password;
+    public $confirm_password;
 
     private $_user = false;
 
@@ -20,10 +22,12 @@ class LoginForm extends Model
      */
     public function rules(){
         return [
-            [['email', 'password'], 'required'],
-            [['email'], 'email'],
-            ['rememberMe', 'boolean'],
-            ['password', 'validatePassword'],
+            [['email', 'password'], 'required','on'=>'login'],
+            ['password', 'validatePassword','on'=>'login'],
+            [['email'], 'required','on'=>'forgot_password'],
+            [['email'], 'email','on'=>['login','forgot_password']],
+            [['email'], 'validateEmailRegistered','on'=>'forgot_password'],
+            [['new_password','confirm_password'], 'required','on'=>'reset_password'],
         ];
     }
 
@@ -40,6 +44,18 @@ class LoginForm extends Model
             $user = $this->getUser();
             if (!$user || !$user->validatePassword($this->password)) {
                 $this->addError($attribute, Yii::t('app/message','incorrect username or password'));
+            }
+        }
+    }
+    
+    /**
+     * Custom Validation
+    **/
+    public function validateEmailRegistered($attribute,$params){
+        if (!$this->hasErrors()) {
+            $email_exists = \common\models\User::findOne(['email' => $this->email]);
+            if (!$email_exists) {
+                $this->addError($attribute,$params?$params:Yii::t('app/message','msg email is not exists'));
             }
         }
     }
@@ -70,5 +86,16 @@ class LoginForm extends Model
         }
 
         return $this->_user;
+    }
+    
+    public function forgotPassword(){
+        if($this->validate()){
+            $data =[];
+            $string = Yii::$app->store->randString(100);
+            \common\models\User::updateAll(['auth_key' => $string,'auth_key_expired' => date('Y-m-d')],['email'=>$this->email]);
+            Yii::$app->mail->send([$this->email],Yii::$app->params['store'].' '.Yii::t('app','forgot password'),'forgot_password',['email'=>$this->email,'auth_key' => $string]);
+            return true;
+        }
+        return false;
     }
 }

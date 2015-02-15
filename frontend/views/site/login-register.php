@@ -22,11 +22,18 @@ $this->title = Yii::t('app','register & login');
 	    ]);?>                  
             <?=$form->field($loginModel,'email')->textInput(['class' => 'form-control unicase-form-control text-input'])?>
             <?=$form->field($loginModel,'password')->passwordInput(['class' => 'form-control unicase-form-control text-input'])?>
+	    
             <!-- /.action -->
             <div class="action text-right">
 		<?=\yii\helpers\Html::submitButton('<i class="fa fa-key icon-on-right"></i> '.Yii::t('app','sign in'), ['class' => 'btn btn-primary btn-md','name' => 'login'])?>
 	    </div><!-- /.action -->
             <div class="clearfix"></div>
+	    
+	    <div class="radio outer-xs">
+		<?=\yii\helpers\Html::a(Yii::t('app','forgot password'),['site/forgot_password'],['class' => 'forgot-password'])?>
+	    </div>
+	    <div class="clearfix"></div>
+	    
             <?php \yii\bootstrap\ActiveForm::end() ?><!-- /.cnt-form -->					
         </div>
         <!-- Sign-in -->

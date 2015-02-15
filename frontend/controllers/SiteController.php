@@ -30,10 +30,9 @@ class SiteController extends Controller {
         return $this->render('home');
     }
 
-    public function actionLogin()
-    {
+    public function actionLogin(){
         if (!\Yii::$app->user->isGuest) return $this->goHome();
-        $loginModel = new LoginForm();
+        $loginModel = new LoginForm(['scenario' => 'login']);
         $registerModel = new \common\models\User(['scenario' => 'register']);
         if ($loginModel->load(Yii::$app->request->post()) && $loginModel->login()) {
             Yii::$app->session->setFlash('error', Yii::t('app/message','msg welcome back'));
@@ -52,29 +51,40 @@ class SiteController extends Controller {
             'registerModel' => $registerModel,
         ]);
     }
+    
+    public function actionForgot_password(){
+        if (!\Yii::$app->user->isGuest) return $this->goHome();
+        $model = new LoginForm(['scenario' => 'forgot_password']);
+        if ($model->load(Yii::$app->request->post()) && $model->forgotPassword()) {
+            Yii::$app->session->setFlash('msg', Yii::t('app/message','msg password has been send to email please check inbox/spam'));
+            return $this->redirect(Yii::$app->request->referrer);
+        }
+        $this->layout = 'login-register';
+        return $this->render('forgot_password', [
+            'model' => $model
+        ]);
+    }
+    
+    public function actionReset_password($token){
+        $query = \common\models\User::findOne(['auth_key11' => $token]);
+        //if(!$query){
+          //  Yii::$app->session->setFlash('msg', Yii::t('app/message','msg token reset password not valid'));
+            //return $this->redirect(['site/forgot_password']);
+        //}
+        
+        $this->layout = 'login-register';
+        $model = new LoginForm(['scenario' => 'forgot_password']);
+        return $this->render('reset_password', [
+            'model' => $model,
+            'query' => $query,
+        ]);
+    }
 
     public function actionLogout(){
         Yii::$app->user->logout();
         return $this->goHome();
     }
 
-    public function actionContact(){
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
-                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
-            } else {
-                Yii::$app->session->setFlash('error', 'There was an error sending email.');
-            }
-
-            return $this->refresh();
-        } else {
-            return $this->render('contact', [
-                'model' => $model,
-            ]);
-        }
-    }
-    
     public function actionRequestPasswordReset(){
         $model = new PasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
@@ -92,23 +102,10 @@ class SiteController extends Controller {
         ]);
     }
 
-    public function actionResetPassword($token)
-    {
-        try {
-            $model = new ResetPasswordForm($token);
-        } catch (InvalidParamException $e) {
-            throw new BadRequestHttpException($e->getMessage());
-        }
-
-        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-            Yii::$app->getSession()->setFlash('success', 'New password was saved.');
-
-            return $this->goHome();
-        }
-
-        return $this->render('resetPassword', [
-            'model' => $model,
-        ]);
+    
+    
+    public function actionTest(){
+        Yii::$app->mail->send(['hendarsyahss@gmail.com'],'Newsletter Vileo.co.id','newsletter',['email'=>'hendarsyahss@gmail.com']);
     }
     
     public function actionNewsletter(){
@@ -116,6 +113,7 @@ class SiteController extends Controller {
         if ($formModel->load(Yii::$app->request->post()) && $formModel->getSave()) {
             $formModel->refresh();
             Yii::$app->response->format = 'json';
+            //set email
             return ['success' => true,'message' => Yii::t('app/message','msg thanks your email has been registered')];
         }
         else {

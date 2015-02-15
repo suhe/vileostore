@@ -5,6 +5,7 @@ return [
     'add address' => 'Tambah Alamat',
     'add to cart' => 'Beli Online',
     'add new' => 'Tambah Baru',
+    'add dropship' => 'Tambah Dropship',
     'address' => 'Alamat',
     'addresses' => 'Pengaturan Alamat',
     'address store' => 'Alamat Toko',
@@ -36,7 +37,9 @@ return [
     'description' => 'Keterangan',
     'district' => 'Kecamatan',
     'details' => 'Details',
+    'dropship' => 'Dropship',
     'dropshier' => 'Dropshier',
+    'dropship setting' => 'Pengaturan Dropship',
     /** Abjad E **/
     'edit' => 'Edit',
     'edit address' => 'Edit Alamat',
@@ -44,6 +47,7 @@ return [
     'empty' => 'Kosong',
     /** Abjad F **/
     'finish' => 'Selesai',
+    'forgot password' => 'Lupa Password ?',
     /** Abjad G **/
     'go to discussion' => 'Bergabung ke Diskusi',
     'go to store' => 'Kembali ke Situs Toko',
@@ -65,6 +69,7 @@ return [
     'list' => 'List',
     'location' => 'Lokasi',
     'login' => 'Login',
+    'login page' => 'ke Halaman Login',
     'logout' => 'Keluar',
     'login & register' => 'Login & Register',
     /** Abjad M **/
@@ -76,6 +81,7 @@ return [
     'name A to Z' => 'Nama A sampai Z',
     'name Z to A' => 'Nama Z sampai A',
     'new password' => 'Password Baru',
+    'newsletter' => 'Newsletter Vileo.co.id',
     'not cod' => 'Tidak COD',
     'not a shippping' => 'Belum ada Data Pengiriman',
     /** Abjad O **/
@@ -105,6 +111,7 @@ return [
     'remove' => 'Hapus',
     'register' => 'Register Baru',
     'register & login' => 'Register & Login',
+    'reset password' =>'Reset Password',
     'result' => 'Hasil',
     'reviews' => 'Review',
     /** Abjad S**/
@@ -113,6 +120,9 @@ return [
     'select' => 'Pilih',
     'select city' => 'Pilih Kota',
     'select town' => 'Pilih Kecamatan',
+    'sender' => 'Pengirim',
+    'sender contact' => 'No Handphone',
+    'send password' => 'Kirim Password',
     'shipping' => 'Pengiriman',
     'shipping address' => 'Alamat Pengiriman',
     'shopping cart' => 'Shopping Cart',
@@ -128,6 +138,7 @@ return [
     /** Abjad T**/
     'this at' => 'Berikut ini',
     'this link' => 'Link Berikut',
+    'to people' => 'Kepada Yth',
     'total transfer' => 'Total Transfer',
     /** Abjad U**/
     'update' => 'Update',
