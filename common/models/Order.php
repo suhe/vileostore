@@ -73,7 +73,7 @@ class Order extends \yii\db\ActiveRecord {
         $model = new Order();
         $model->invoice_no = $this->getId();
         $model->user_id  = $user_id;
-        $model->courier_id  = $post['courier'];
+        $model->courier_id  = isset($post['courier'])?$post['courier']:0;
         $model->bank_id  = $post['bank'];
         $model->sub_total = $cart->total();
         $model->type = Yii::$app->session->get('cart_address_type');
@@ -83,20 +83,22 @@ class Order extends \yii\db\ActiveRecord {
             $address = \common\models\UserAddress::getLatestAddress(Yii::$app->user->getId());
         else if(Yii::$app->session->get('cart_address_type') == 2)
             $address = \common\models\UserDropship::getLatestAddress(Yii::$app->user->getId());
+        else if(Yii::$app->session->get('cart_address_type') == 3)
+            $address = '';
         
         $query = \common\models\Shipping::findOne(['courier_id' => $this->label_courier_id,'town_id' => $address?$address->town_id:0]);
     
-        $model->shipping_cost = ($query->cost * $cart->total_weight_kg());
-        $model->grand_total = ($query->cost * $cart->total_weight_kg()) + $cart->total();
+        $model->shipping_cost = $query?($query->cost * $cart->total_weight_kg()):0;
+        $model->grand_total =  ($query?($query->cost * $cart->total_weight_kg()):0) + $cart->total();
         $model->confirm = 0;
-        $model->address = $address->address;
-        $model->town = \common\models\Town::findOne($address->town_id)->name;
-        $model->city = \common\models\City::findOne($address->city_id)->name;
-        $model->province = \common\models\Province::findOne($address->province_id)->name;
-        $model->sender = $address->sender;
-        $model->sender_contact = $address->sender_contact;
-        $model->receiver = $address->receiver;
-        $model->receiver_contact = $address->receiver_contact;
+        $model->address = $address?$address->address:Yii::t('app','cash on delivery');
+        $model->town = $address?\common\models\Town::findOne($address->town_id)->name:Yii::t('app','cash on delivery');
+        $model->city = $address?\common\models\City::findOne($address->city_id)->name:Yii::t('app','cash on delivery');
+        $model->province = $address?\common\models\Province::findOne($address->province_id)->name:Yii::t('app','cash on delivery');
+        $model->sender = $address?$address->sender:Yii::t('app','cash on delivery');;
+        $model->sender_contact = $address?$address->sender_contact:Yii::t('app','cash on delivery');
+        $model->receiver = $address?$address->receiver:Yii::t('app','cash on delivery');
+        $model->receiver_contact = $address?$address->receiver_contact:Yii::t('app','cash on delivery');
         $model->created_by = $user_id;
         $model->created_date = date('Y-m-d H:i:s');
         $insert_master = $model->insert();

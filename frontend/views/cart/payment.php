@@ -44,6 +44,7 @@ $this->title = Yii::t('app','payment');
     <div class="col-md-12 col-sm-12 shopping-cart-table clearfix">				
 	<div class="table-responsive">    
 	    <div class="loading" style="display: none"></div>
+	    <?php if($shipping){ ?>
 	    <table class="table table-bordered" style="margin-top:1px">
 		<thead>
 		    <tr>
@@ -107,8 +108,9 @@ $this->title = Yii::t('app','payment');
 		</tbody><!-- /tbody -->
 	    </table><!-- /table -->
 	    
-	    <hr class="separator">
 	    
+	    <hr class="separator">
+	    <?php } ?>
 	    
 	    <table class="table table-bordered" style="margin-top:1px">
 		<thead>
@@ -169,7 +171,7 @@ $this->title = Yii::t('app','payment');
 	    <tr>
 		<th>
 		    <div class="cart-sub-total">
-			<span class="inner-left-md"><div id="grandtotal"><?=Yii::$app->formatter->asDecimal($cart->total()+($shipping->cost * $cart->total_weight_kg()),2)?></div></span>
+			<span class="inner-left-md"><div id="grandtotal"><?=Yii::$app->formatter->asDecimal($cart->total()+($shipping?$shipping->cost * $cart->total_weight_kg():0),2)?></div></span>
 		    </div>		
 		</th>
 	    </tr>

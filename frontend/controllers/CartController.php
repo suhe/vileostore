@@ -70,10 +70,7 @@ class CartController extends \yii\web\Controller {
         return $route;
     }
     
-    public function actionAddress(){
-        if(Yii::$app->session->get('cart_address_type'))
-            return $this->redirect([$this->switchAddress()],301);
-            
+    public function actionAddress(){    
         //cek auth
         if(Yii::$app->user->isGuest){
             Yii::$app->session->setFlash('msg',Yii::t('app/message','msg you must have login to continue'));
@@ -133,10 +130,39 @@ class CartController extends \yii\web\Controller {
         ]);
     }
     
-    public function actionPayment(){
+    
+    public function actionCod(){    
+        //cek auth
+        if(Yii::$app->user->isGuest){
+            Yii::$app->session->setFlash('msg',Yii::t('app/message','msg you must have login to continue'));
+            Yii::$app->getUser()->setReturnUrl([Yii::$app->controller->getRoute()]);
+            return $this->redirect(['site/login'],301);
+        }
+        
+        //cek cart
+        $cart = new Cart();
+        if(!$cart->contents()){
+            Yii::$app->session->setFlash('msg',Yii::t('app/message','msg you must buy minimal one product'));
+            return $this->redirect(['site/login'],301);
+        }
+        
+        $this->layout = 'shopping-address';
+        return $this->render('cod', [
+            'formModel' => $formModel,
+        ]);
+    }
+
+    public function actionPayment($id=0){
         if(Yii::$app->user->isGuest) return $this->redirect(['cart/address'],301);
         $Cart = new Cart();
-            
+        
+        //set if take
+        if($id==3){
+            Yii::$app->session->set('cart_payment',TRUE); // set to set payment
+            Yii::$app->session->set('cart_address_id',0); // set to set town id
+            Yii::$app->session->set('cart_address_type',3); // set to set town id 
+        }
+        
         $user_id = Yii::$app->user->getId();
         $formModel = new \common\models\Order(['scenario' => 'payment']);
         
@@ -149,6 +175,8 @@ class CartController extends \yii\web\Controller {
             $address = \common\models\UserAddress::getLatestAddress($user_id);
         else if(Yii::$app->session->get('cart_address_type') == 2)
             $address = \common\models\UserDropship::getLatestAddress($user_id);
+        else if(Yii::$app->session->get('cart_address_type') == 3)
+            $address = 0;
         
         //action here
         if($formModel->load(Yii::$app->request->post()) && $formModel->validate()){
