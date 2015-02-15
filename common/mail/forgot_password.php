@@ -67,8 +67,8 @@
                                                     <p style="margin:0;padding:0;margin-bottom:20px;font-weight:normal;font-size:14px;line-height:1.6"><?=Yii::t('app/message','msg reset password to').' '.$email?>
 						    <a target="_blank" style="color:#a30046;font-weight:normal;text-decoration:none" href="<?=Yii::$app->params['mail_host']?>/index.jsp/site/resetpassword/<?=$auth_key?>">
 							<?=Yii::t('app/message','follow this link')?>
-							atau klik link berikut <?=Yii::$app->params['mail_host']?>/index.jsp/site/resetpassword/<?=$auth_key?>
 						    </a>
+						    atau klik link berikut <?=Yii::$app->params['mail_host']?>/index.jsp/site/resetpassword/<?=$auth_key?>
 						    </p>
                                                 </div>
                                             </td>

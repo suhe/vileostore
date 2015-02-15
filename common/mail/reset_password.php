@@ -53,7 +53,7 @@
                                             <td valign="top" style="border-collapse:collapse" colspan="7">
                                                 <div>
                                                     <h1 align="left" style="color:#a30046;display:block;font-family:Arial;font-size:24px;font-weight:bold;line-height:80%;margin:0 0 10px;text-align:left">
-                                                    <?=Yii::t('app','forgot password')?>
+                                                    <?=Yii::t('app','reset password')?>
                                                     </h1>
                                                 </div>
                                             </td>
@@ -64,10 +64,8 @@
                                             <td  valign="top" bgcolor="#FFFFFF" style="background:#ffffff;border-collapse:collapse;padding:5px" colspan="8">
 
                                                 <div style="padding-top:5px;margin:0 0 0 10px">
-                                                    <p style="margin:0;padding:0;margin-bottom:20px;font-weight:normal;font-size:14px;line-height:1.6"><?=Yii::t('app/message','msg reset password to').' '.$email?>
-						    <a target="_blank" style="color:#a30046;font-weight:normal;text-decoration:none" href="<?=Yii::$app->params['mail_host']?>/site?resetpassword=<?=$auth_key?>">
-							<?=Yii::t('app/message','follow this link')?>
-						    </a>
+                                                    <p style="margin:0;padding:0;margin-bottom:20px;font-weight:normal;font-size:14px;line-height:1.6">Email anda adalah <?=$email?> dan Password anda telah dirubah oleh anda berikut password :
+							<?=$password?> , login kembali ke http://vileo.co.id
 						    </p>
                                                 </div>
                                             </td>

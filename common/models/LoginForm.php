@@ -91,9 +91,21 @@ class LoginForm extends Model
     public function forgotPassword(){
         if($this->validate()){
             $data =[];
-            $string = Yii::$app->store->randString(100);
+            $string = Yii::$app->store->randString(25);
             \common\models\User::updateAll(['auth_key' => $string,'auth_key_expired' => date('Y-m-d')],['email'=>$this->email]);
             Yii::$app->mail->send([$this->email],Yii::$app->params['store'].' '.Yii::t('app','forgot password'),'forgot_password',['email'=>$this->email,'auth_key' => $string]);
+            return true;
+        }
+        return false;
+    }
+    
+    public function resetPassword($key){
+        if($this->validate()){
+            $query = \common\models\User::findOne(['auth_key'=>$key]);
+            $password = $this->new_password;
+            $password_has = Yii::$app->security->generatePasswordHash($password);
+            \common\models\User::updateAll(['auth_key' => '','auth_key_expired' => date('Y-m-d'),'password' => $password_has],['auth_key'=>$key]);
+            Yii::$app->mail->send([$query->email],Yii::$app->params['store'].' '.Yii::t('app','forgot password'),'reset_password',['email' => $query->email,'password' => $password]);
             return true;
         }
         return false;

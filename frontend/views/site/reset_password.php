@@ -21,7 +21,7 @@ $this->title = Yii::t('app','reset password');
 		//'labelOptions' => ['class' => 'col-sm-2 control-label'],
 		],
 	    ]);?>
-	    <?=count($query)?>
+
             <?=$form->field($model,'new_password')->passwordInput(['class' => 'form-control unicase-form-control text-input'])?>
 	    <?=$form->field($model,'confirm_password')->passwordInput(['class' => 'form-control unicase-form-control text-input'])?>
             <!-- /.action -->

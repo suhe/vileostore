@@ -65,15 +65,21 @@ class SiteController extends Controller {
         ]);
     }
     
-    public function actionResetpassword($token=''){
-        $query = \common\models\User::findOne(['auth_key' => $token]);
-        //if(!$query){
-          //  Yii::$app->session->setFlash('msg', Yii::t('app/message','msg token reset password not valid'));
-            //return $this->redirect(['site/forgot_password']);
-        //}
+    public function actionResetpassword($id=''){
+        $query = \common\models\User::findOne(['auth_key' => $id,'auth_key_expired' => date('Y-m-d')]);
+        if(!$query){
+            Yii::$app->session->setFlash('msg', Yii::t('app/message','msg token reset password not valid'));
+            return $this->redirect(['site/forgot_password']);
+        }
         
         $this->layout = 'login-register';
-        $model = new LoginForm(['scenario' => 'forgot_password']);
+        $model = new LoginForm(['scenario' => 'reset_password']);
+        
+        if ($model->load(Yii::$app->request->post()) && $model->resetPassword($id)) {
+            Yii::$app->session->setFlash('msg', Yii::t('app/message','msg reset password has been send to email please check inbox/spam'));
+            return $this->redirect(['site/login']);
+        }
+        
         return $this->render('reset_password', [
             'model' => $model,
             'query' => $query,
