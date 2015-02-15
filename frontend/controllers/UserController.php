@@ -23,6 +23,8 @@ class UserController extends Controller {
     
     
     public function actions(){
+        if(Yii::$app->user->isGuest)
+            return $this->redirect(['site/login'],301);
     }
 
     public function actionProfile(){
@@ -93,7 +95,7 @@ class UserController extends Controller {
     
     
     public function actionDiscussion(){
-        $model = new \common\models\Discusion();
+        $model = new \common\models\Discussion();
         $query = $model->getAllQueryWithPagination(Yii::$app->user->getId(),Yii::$app->request->QueryParams);
         $countQuery = clone $query; //coun total query
         //pagination total count and pagesize
@@ -114,6 +116,103 @@ class UserController extends Controller {
         return $this->render('mydiscussion',[
             'query' => $query,
             'pages' => $pages,
+        ]);
+    }
+    
+    public function actionRemovedisc($id){
+        $query = \common\models\Discussion::findOne($id);
+        //cek valid user id and order user id
+        if($query->user_id != Yii::$app->user->getId()) return $this->redirect(['user/discussion'],301);
+        $query->delete();
+        return $this->redirect(Yii::$app->request->referrer);
+    }
+    
+    public function actionAddress(){
+        $model = new \common\models\UserAddress();
+        $query = $model->getAllQueryWithPagination(Yii::$app->user->getId(),Yii::$app->request->QueryParams);
+        $countQuery = clone $query; //coun total query
+        //pagination total count and pagesize
+        $pages = new \yii\data\Pagination([
+            'pageSizeParam' => 'show',
+            'totalCount' => $countQuery->count(),
+            'pageSize' => Yii::$app->params['show_page'],
+            'params' => array_merge($_GET),
+        ]);
+        
+        // get query
+        $query = $query
+        ->offset($pages->offset)
+        ->limit($pages->limit)
+        ->all();
+        
+        $this->layout = 'user';
+        return $this->render('myaddress',[
+            'query' => $query,
+            'pages' => $pages,
+        ]);
+    }
+    
+    public function actionAddaddress(){
+        $formModel = new \common\models\UserAddress(['scenario' => 'register']);
+        $this->layout = 'user';
+        //proceess to action
+        if($formModel->load(Yii::$app->request->post()) && $formModel->getSaveUserAddress(Yii::$app->user->getId())){
+            Yii::$app->session->setFlash('msg',Yii::t('app/message','msg address have successfully saved'));
+            return $this->redirect(['user/address'],301);
+        }
+        
+        return $this->render('myaddress_form',[
+            'formModel' => $formModel,
+            'query' => 0,
+            'title' => Yii::t('app','add address') 
+        ]);
+    }
+    
+    public function actionEditaddress($id){
+         $query = \common\models\UserAddress::findOne($id);
+        //cek valid user id and order user id
+        if($query->user_id != Yii::$app->user->getId()) return $this->redirect(['user/address'],301);
+        
+        $formModel = new \common\models\UserAddress(['scenario' => 'register']);
+        $this->layout = 'user';
+        //proceess to action
+        if($formModel->load(Yii::$app->request->post()) && $formModel->getUpdateUserAddress(Yii::$app->user->getId(),$id)){
+            Yii::$app->session->setFlash('msg',Yii::t('app/message','msg address have successfully updated'));
+            return $this->redirect(['user/address'],301);
+        }
+        
+        $formModel->address = $query->address;
+        $formModel->province_id = $query->province_id;
+        $formModel->city_id = $query->city_id;
+        $formModel->town_id = $query->town_id;
+        $formModel->receiver = $query->receiver;
+        $formModel->receiver_contact = $query->receiver_contact;
+        return $this->render('myaddress_form',[
+            'formModel' => $formModel,
+            'query' => $query,
+            'title' => Yii::t('app','edit address') 
+        ]);
+    }
+    
+    public function actionRemoveaddress($id){
+        $query = \common\models\UserAddress::findOne($id);
+        //cek valid user id and order user id
+        if($query->user_id != Yii::$app->user->getId()) return $this->redirect(['user/address'],301);
+        $query->delete();
+        return $this->redirect(Yii::$app->request->referrer);
+    }
+    
+    public function actionChpassword(){
+        $this->layout = 'user';
+        $formModel = new \common\models\User(['scenario' => 'update_password']);
+        $user = $formModel->findOne(Yii::$app->user->getId());
+        if($formModel->load(Yii::$app->request->post()) && $formModel->getUpdatePassword(Yii::$app->user->getId())){
+            Yii::$app->session->setFlash('msg',Yii::t('app/message','msg your password is changed'));
+            return $this->redirect(Yii::$app->request->referrer);
+        }
+        
+        return $this->render('mypassword',[
+            'formModel' => $formModel
         ]);
     }
     

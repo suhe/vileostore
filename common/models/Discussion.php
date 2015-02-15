@@ -2,14 +2,15 @@
 namespace common\models;
 use Yii;
 
-class Discusion extends \yii\db\ActiveRecord {
+class Discussion extends \yii\db\ActiveRecord {
     
-    public $full_name;
+    public $user_name;
     public $product_name;
     public $product_image;
+    public $review;
     
     public static function tableName(){
-        return 'discusion';
+        return 'discussion';
     }
     
     /**
@@ -25,9 +26,9 @@ class Discusion extends \yii\db\ActiveRecord {
     
     public static function getDiscusionByProduct($id){
         return static::find()
-        ->select(['CONCAT(user.first_name,\' \',user.middle_name,\' \',user.last_name ) as full_name','description','discusion.created_date'])
+        ->select(['CONCAT(user.first_name,\' \',user.middle_name,\' \',user.last_name ) as full_name','description','discussion.created_date'])
         ->joinWith('user')
-        ->where(['discusion.product_id' => $id])
+        ->where(['discussion.product_id' => $id])
         ->all();
     }
     
@@ -42,12 +43,15 @@ class Discusion extends \yii\db\ActiveRecord {
     
     public function getSave($id){
         if($this->validate()){
-            $model = new Discusion();
-            $model->user_id = 2;
+            $model = new Discussion();
+            $model->user_id = Yii::$app->user->getId();
             $model->product_id = $id;
-            $model->created_by = 2;
+            $model->created_by = Yii::$app->user->getId();
             $model->description = $this->description;
             $model->insert();
+            //update product
+            \common\models\Product::updateAllCounters(['review' => 1],['id'=>$id]);
+            \common\models\Product::updateAll(['latest_discussion' => Yii::$app->user->getId()],['id'=>$id]);
             return true;
         }
         return false;
@@ -55,10 +59,12 @@ class Discusion extends \yii\db\ActiveRecord {
     
     public function getAllQueryWithPagination($id,$params){
         $query =  static::find()
-        ->select(['discusion.product_id','product.name as product_name','product.image as product_image','discusion.description'])
+        ->select(['discussion.product_id','product.name as product_name','product.image as product_image',
+                  'discussion.description','product.review','discussion.id','CONCAT(user.first_name,\' \',user.middle_name,\' \',user.last_name) as user_name'])
         ->joinWith('product')
+        ->joinWith('user')
         ->where(['user_id' => $id])
-        ->orderBy(['ABS(discusion.id)' => SORT_DESC]);
+        ->orderBy(['ABS(discussion.id)' => SORT_DESC]);
         return $query;
     }
     

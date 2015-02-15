@@ -13,6 +13,8 @@ class User extends ActiveRecord implements IdentityInterface{
     public $created_at;
     public $updated_at;
     public $username;
+    public $new_password;
+    public $confirm_password;
 
     /**
      * @inheritdoc
@@ -51,6 +53,15 @@ class User extends ActiveRecord implements IdentityInterface{
             [['password'],'required','on'=>['register']],
             [['email'],'email','on'=>['register']],
             [['email'],'validateEmailRegistered','on' =>'register'],
+            [['new_password','confirm_password'],'required','on'=>['update_password']],
+            [['confirm_password'],'validateNewPassword','on' =>'update_password'],
+        ];
+    }
+    
+    public function attributeLabels(){
+        return [
+            'new_password' => Yii::t('app','new password'),
+            'confirm_password' => Yii::t('app','confirm'),
         ];
     }
 
@@ -154,6 +165,15 @@ class User extends ActiveRecord implements IdentityInterface{
             }
         }
     }
+    
+    public function validateNewPassword($attribute,$params){
+        if (!$this->hasErrors()) {
+            if ($this->new_password!=$this->confirm_password) {
+                $this->addError($attribute,$params?$params:Yii::t('app/message','msg password are not same'));
+            }
+        }
+    }
+
 
     /**
      * Generates password hash from password and sets it to the model
@@ -212,6 +232,16 @@ class User extends ActiveRecord implements IdentityInterface{
             $model->middle_name = $this->middle_name;
             $model->last_name = $this->last_name;
             $model->update();
+            return true;
+        }
+        return false;
+    }
+    
+    public function getUpdatePassword($user_id){
+        if($this->validate()){
+            $model = new User();
+            $model = $model->findOne($user_id);
+            $model->password = Yii::$app->security->generatePasswordHash($this->new_password);
             return true;
         }
         return false;

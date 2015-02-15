@@ -152,7 +152,7 @@ $this->params['breadcrumbs'] = [
 		    <div class="product-reviews">
 			<h4 class="title"><?=Yii::t('app','asked question')?></h4>
 			<div class="reviews" id="containerReview">
-			    <?php foreach($discusion as $comment){?>
+			    <?php foreach($discussion as $comment){?>
 			    <div class="review">
 				<div class="author m-t-15"><i class="fa fa-pencil-square-o"></i> <span class="name"><?=$comment->full_name?></span> <span class="date"><i class="fa fa-calendar"></i><span><?=common\helpers\App::timeAgo($comment->created_date)?></span></span></div>	
 				<div class="text"><?=$comment->description?></div>

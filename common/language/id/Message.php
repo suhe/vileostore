@@ -17,4 +17,9 @@ return [
     'msg thanks for confirmation wait for verification' => 'Terima kasih atas konfirmasi pembayarannya sistem akan mengecek 1x24 jam',
     'msg confirm payment click' => 'Anda Belum Melakukan Pembayaran , Apabila sudah melakukan Pembayaran, Mohon Konfirmasikan Pembayaran Anda ke',
     'msg wait to admin verification your payment 1x24 jam' => 'Admin akan memproses pembayaran anda mohon untuk menunggu 1x24 Jam',
+    'msg password are not same' => 'Password tidak sama mohon masukan kembali',
+    'msg your password is changed' => 'Password berhasil diubah',
+    'msg your profile is up to date' => 'Profile anda sudah diperbaharui',
+    'msg address have successfully saved' => 'Alamat berhasil ditambahkan',
+    'msg address have successfully updated' => 'Alamat berhasil diperbaharui',
  ];

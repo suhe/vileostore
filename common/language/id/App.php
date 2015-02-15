@@ -2,6 +2,7 @@
 return [
     /** Abjad A **/
     'account' => 'Rekening',
+    'add address' => 'Tambah Alamat',
     'add to cart' => 'Beli Online',
     'add new' => 'Tambah Baru',
     'address' => 'Alamat',
@@ -37,11 +38,14 @@ return [
     'details' => 'Details',
     'dropshier' => 'Dropshier',
     /** Abjad E **/
+    'edit' => 'Edit',
+    'edit address' => 'Edit Alamat',
     'edit profile' => 'Edit Profile',
     'empty' => 'Kosong',
     /** Abjad F **/
     'finish' => 'Selesai',
     /** Abjad G **/
+    'go to discussion' => 'Bergabung ke Diskusi',
     'go to store' => 'Kembali ke Situs Toko',
     'grid' => 'Grid',
     /** Abjad H **/
@@ -55,6 +59,8 @@ return [
     /** Abjad J **/
     /** Abjad K **/
     /** Abjad L **/
+    'latest by' => 'Update Terakhir oleh',
+    'latest date' => 'Update Terakhir Tanggal',
     'link history transaction' => 'Link Histori Transaksi',
     'list' => 'List',
     'location' => 'Lokasi',
@@ -69,6 +75,7 @@ return [
     'name' => 'Name',
     'name A to Z' => 'Nama A sampai Z',
     'name Z to A' => 'Nama Z sampai A',
+    'new password' => 'Password Baru',
     'not cod' => 'Tidak COD',
     'not a shippping' => 'Belum ada Data Pengiriman',
     /** Abjad O **/
@@ -99,6 +106,7 @@ return [
     'register' => 'Register Baru',
     'register & login' => 'Register & Login',
     'result' => 'Hasil',
+    'reviews' => 'Review',
     /** Abjad S**/
     'saturday' => 'Sabtu',
     'search' => 'Pencarian',
@@ -122,6 +130,7 @@ return [
     'this link' => 'Link Berikut',
     'total transfer' => 'Total Transfer',
     /** Abjad U**/
+    'update' => 'Update',
     'update profile' => 'Update Profile',
     /** Abjad V**/
     'verify payment' => 'Verifikasi Pembayaran',

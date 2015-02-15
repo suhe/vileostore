@@ -5,6 +5,9 @@ use Yii;
 class UserAddress extends \yii\db\ActiveRecord  {
     
     public $latest_address;
+    public $province;
+    public $city;
+    public $town;
     
     public static function tableName(){
         return 'user_address';
@@ -18,6 +21,21 @@ class UserAddress extends \yii\db\ActiveRecord  {
             [['city_id'],'integer','tooSmall'=>Yii::t('app/message','msg fill city'),'min'=>1,'on'=>['register']],
             [['town_id'],'integer','tooSmall'=>Yii::t('app/message','msg fill town'),'min'=>1,'on'=>['register']],
         ];
+    }
+    
+    /**
+     * Relation Table
+    */
+    public function getProvince(){
+        return $this->hasOne(Province::className(), ['id' => 'province_id']);
+    }
+    
+    public function getCity(){
+        return $this->hasOne(City::className(), ['id' => 'city_id']);
+    }
+    
+    public function getTown(){
+        return $this->hasOne(Town::className(), ['id' => 'town_id']);
     }
     
     public function attributeLabels(){
@@ -89,11 +107,33 @@ class UserAddress extends \yii\db\ActiveRecord  {
         $model->update();
     }
     
+    public function getUpdateUserAddress($user_id,$id){
+        if($this->validate()){
+            $this->latest_address =  $id;
+            $this->getUpdate($user_id);
+            return true;
+        }
+        return false;
+    }
+    
     public static function getLatestAddress($user_id){
         return static::find()
         ->where(['user_id' => $user_id])
         ->orderBy(['updated_date' => SORT_DESC])
         ->one();
+    }
+    
+    public function getAllQueryWithPagination($id,$params){
+        $query =  static::find()
+        ->select(['user_address.id','user_address.created_date','user_address.updated_date','user_address.address',
+                  'user_address.receiver','user_address.receiver_contact','province.name as province','city.name as city',
+                  'town.name as town'])
+        ->joinWith('province')
+        ->joinWith('city')
+        ->joinWith('town')
+        ->where(['user_id' => $id])
+        ->orderBy(['ABS(user_address.id)' => SORT_ASC]);
+        return $query;
     }
     
 }

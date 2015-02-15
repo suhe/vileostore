@@ -64,7 +64,7 @@ class ProductController extends \yii\web\Controller {
     }
     
     public function actionRead($id){
-        $formModel = new \common\models\Discusion(['scenario' => 'comment']);
+        $formModel = new \common\models\Discussion(['scenario' => 'comment']);
         
         //action request post
         if($formModel->load(Yii::$app->request->post()) && $formModel->getSave($id)){
@@ -83,7 +83,7 @@ class ProductController extends \yii\web\Controller {
             'formModel' => $formModel,
             'data' => $model,
             'category' => \common\models\Category::findOne($model->category_id),
-            'discusion' => \common\models\Discusion::getDiscusionByProduct($id),
+            'discussion' => \common\models\Discussion::getDiscusionByProduct($id),
             'images' => \common\models\ProductImage::find()->where(['product_id' => $id])->all()
         ]);
     }

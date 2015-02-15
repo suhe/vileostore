@@ -29,11 +29,6 @@ class SiteController extends Controller {
         $this->layout = 'home';
         return $this->render('home');
     }
-    
-    public function actionHome()
-    {
-        
-    }
 
     public function actionLogin()
     {
@@ -58,15 +53,12 @@ class SiteController extends Controller {
         ]);
     }
 
-    public function actionLogout()
-    {
+    public function actionLogout(){
         Yii::$app->user->logout();
-
         return $this->goHome();
     }
 
-    public function actionContact()
-    {
+    public function actionContact(){
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
@@ -82,30 +74,8 @@ class SiteController extends Controller {
             ]);
         }
     }
-
-    public function actionAbout()
-    {
-        return $this->render('about');
-    }
-
-    public function actionSignup()
-    {
-        $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
-                }
-            }
-        }
-
-        return $this->render('signup', [
-            'model' => $model,
-        ]);
-    }
-
-    public function actionRequestPasswordReset()
-    {
+    
+    public function actionRequestPasswordReset(){
         $model = new PasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
@@ -147,7 +117,8 @@ class SiteController extends Controller {
             $formModel->refresh();
             Yii::$app->response->format = 'json';
             return ['success' => true,'message' => Yii::t('app/message','msg thanks your email has been registered')];
-        } else {
+        }
+        else {
             Yii::$app->response->format = 'json';
             return ['success' => false,'message' => Yii::t('app/message','msg your email has been available registered')];
         }

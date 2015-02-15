@@ -31,6 +31,10 @@ class Product extends \yii\db\ActiveRecord  {
         return $this->hasOne(ProductCategory::className(), ['product_id' => 'id']);
     }
     
+    public function getDiscussion(){
+        return $this->hasMany(Discussion::className(), ['id' => 'product_id']);
+    }
+    
     public function attributeLabels(){
         return [
             'id' => Yii::t('app','id'),

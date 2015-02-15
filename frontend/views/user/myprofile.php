@@ -4,7 +4,7 @@ $this->params['breadcrumbs'] = [
     ['label' => Yii::t('app','my profile'),'url' => ['user/profile']],
 ];
 
-$this->title = Yii::t('app','payment confirmation');
+$this->title = Yii::t('app','basic information');
 ?>
 <div class="contact-page"> 
     <div class="col-md-12 contact-form">
@@ -12,7 +12,8 @@ $this->title = Yii::t('app','payment confirmation');
 	    <h4 style="margin-bottom:5px"><?=Yii::t('app','basic information')?></h4>
 	</div>
 	
-    <div class="col-md-12 clearfix" style="margin-top:10px">	
+    <div class="col-md-12 clearfix" style="margin-top:10px">
+    <p class="text-danger"><?=Yii::$app->session->getFlash('msg')?></p>		
     <?php
 	$total=0;
 	$form = \yii\bootstrap\ActiveForm::begin([

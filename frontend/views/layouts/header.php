@@ -22,10 +22,10 @@ $cart = new Cart();
 			    <ul class="dropdown-menu">
 				<li><?=\yii\helpers\Html::a('<i class="fa fa-user"></i> ' .Yii::t('app','my profile'),['user/profile'])?></li>
 				<li><?=\yii\helpers\Html::a('<i class="fa fa-exchange"></i> ' .Yii::t('app','history transaction'),['user/history'])?></li>
-				<li><?=\yii\helpers\Html::a(Yii::t('app','product discussion'),['user/discussion'])?></li>
-				<li><?=\yii\helpers\Html::a(Yii::t('app','addresses'),['user/address'])?></li>
-				<li><?=\yii\helpers\Html::a(Yii::t('app','change password'),['user/chpassword'])?></li>
-				<li><?=\yii\helpers\Html::a(Yii::t('app','logout'),['site/logout'])?></li>
+				<li><?=\yii\helpers\Html::a('<i class="fa fa-envelope"></i> ' . Yii::t('app','product discussion'),['user/discussion'])?></li>
+				<li><?=\yii\helpers\Html::a('<i class="fa fa-map-marker"></i> ' . Yii::t('app','addresses'),['user/address'])?></li>
+				<li><?=\yii\helpers\Html::a('<i class="fa fa-key"></i> ' . Yii::t('app','change password'),['user/chpassword'])?></li>
+				<li><?=\yii\helpers\Html::a('<i class="fa fa-trello"></i> ' .Yii::t('app','logout'),['site/logout'])?></li>
 			    </ul>
 		    </li>
 		    <?php } else { ?>
