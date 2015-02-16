@@ -73,7 +73,7 @@ class LoginForm extends Model
             return false;
         }
     }
-
+    
     /**
      * Finds user by [[username]]
      *
@@ -83,6 +83,20 @@ class LoginForm extends Model
     {
         if ($this->_user === false) {
             $this->_user = \common\models\User::findByEmail($this->email);
+        }
+
+        return $this->_user;
+    }
+    
+    /**
+     * Finds user by [[username]]
+     *
+     * @return User|null
+     */
+    public function getAdminUser()
+    {
+        if ($this->_user === false) {
+            $this->_user = \common\models\User::findOne(['email'=>$this->email,'group_id'=>2]);
         }
 
         return $this->_user;

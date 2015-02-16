@@ -51,7 +51,12 @@ class Product extends \yii\db\ActiveRecord  {
             [['id','name'], 'required','on'=>['save']],
             [['id'],'integer'],
             [['name'], 'string', 'max' => 255],
-            [['name'], 'safe'],
+            [['sku'],'safe','on'=>['search']],
+            [['name'],'safe','on'=>['search']],
+            [['price'],'safe','on'=>['search']],
+            [['weight'],'safe','on'=>['search']],
+            [['status'],'safe','on'=>['search']],
+            [['stock'],'safe','on'=>['search']],
             [['category_id'], 'safe','on'=>['search']],
             [['brand_id'], 'safe','on'=>['search']],
             [['price_down'], 'safe','on'=>['search']],
@@ -145,37 +150,44 @@ class Product extends \yii\db\ActiveRecord  {
         
     }
     
-    /**
-     * Abstract for Shopping Cart
-     * /
-    
-    public function getPrice(){
-        return $this->price;
+    public static function stringStatus($status){
+        switch($status){
+            case 1 : $str = Yii::t('app','active');break;
+            default: $str = Yii::t('app','non active');break;   
+        }
+        return $str;
     }
     
-    public function getId(){
-        return $this->id;
+    public static function dropdownStatus($All=true){
+       if($All) $data[0] = Yii::t('app','all');
+       $data[1] = Yii::t('app','active');
+       $data[2] = Yii::t('app','non active');
+       return $data;
     }
-    
-    public function getCost($withDiscount = true){
-        return '2';
-    }
-    
-    public function getCount($withDiscount = true){
-        return '5';
-    }
-    
-    public function setQuantity($quantity){
-        return $quantity;
-    }
-    
-    public function getQuantity(){
+
+    public function getActiveDataProviderProduct($params){
+        $query = static::find();
+        $dataProvider = new \yii\data\ActiveDataProvider([
+            'query' => $query,
+            'sort'=> ['defaultOrder' => ['id'=> SORT_ASC]],
+            'pagination' =>[
+                'pageSize' => Yii::$app->params['show_page']
+            ]    
+        ]);
         
+        if ((!$this->load($params)) && ($this->validate()))
+            return $dataProvider;
+        
+        $this->sku?$query->andFilterWhere(['like','sku',$this->sku]):'';
+        $this->name?$query->andFilterWhere(['like','name',$this->name]):'';
+        $this->status?$query->andFilterWhere(['status'=>$this->status]):'';
+        $this->weight?$query->andFilterWhere(['weight'=>$this->weight]):'';
+        $this->price?$query->andFilterWhere(['price'=>$this->price]):'';
+        $this->stock?$query->andFilterWhere(['stock'=>$this->stock]):'';
+        return $dataProvider;
     }
     
     
-     * Abstract for Shopping Cart
-     * /
-    **/
+    
     
 }

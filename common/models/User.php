@@ -15,6 +15,7 @@ class User extends ActiveRecord implements IdentityInterface{
     public $username;
     public $new_password;
     public $confirm_password;
+    public $fullName;
 
     /**
      * @inheritdoc
@@ -63,6 +64,10 @@ class User extends ActiveRecord implements IdentityInterface{
             'new_password' => Yii::t('app','new password'),
             'confirm_password' => Yii::t('app','confirm'),
         ];
+    }
+    
+    public function getFullName(){
+        return $this->first_name.' '.$this->middle_name.' '.$this->last_name;
     }
 
     /**
@@ -246,5 +251,6 @@ class User extends ActiveRecord implements IdentityInterface{
         }
         return false;
     }
+    
     
 }

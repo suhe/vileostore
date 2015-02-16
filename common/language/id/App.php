@@ -2,6 +2,7 @@
 return [
     /** Abjad A **/
     'account' => 'Rekening',
+    'active' => 'Aktif',
     'add address' => 'Tambah Alamat',
     'add to cart' => 'Beli Online',
     'add new' => 'Tambah Baru',
@@ -84,6 +85,7 @@ return [
     'name Z to A' => 'Nama Z sampai A',
     'new password' => 'Password Baru',
     'newsletter' => 'Newsletter Vileo.co.id',
+    'non active' => 'Non Aktif',
     'not cod' => 'Tidak COD',
     'not a shippping' => 'Belum ada Data Pengiriman',
     /** Abjad O **/
@@ -101,6 +103,7 @@ return [
     'price high' => 'Harga Tertinggi',
     'price lower to high' => 'Harga Rendah ke Tinggi',
     'price high to lower' => 'Harga Tinggi ke Rendah',
+    'product' => 'Produk',
     'product name' => 'Nama Produk',
     'province' => 'Provinsi',
     /** Abjad Q **/

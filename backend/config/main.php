@@ -3,7 +3,6 @@ $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/params.php')
 );
-$baseUrl = '/vileo/administrator';
 return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
@@ -14,6 +13,16 @@ return [
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
+        ],
+        'assetManager' => [
+            'bundles' => [
+                // you can override AssetBundle configs here       
+                 'yii\web\JqueryAsset' => [
+                    'basePath' => '@webroot',
+                    'baseUrl' => '@web',
+                    'js' => ['assets/plugins/jquery/jquery-1.8.3.min.js'] 
+                ],        
+            ],
         ],
         'request' => [
             //'baseUrl' => $baseUrl,
@@ -31,6 +40,5 @@ return [
             'errorAction' => 'site/error',
         ],
     ],
-    'homeUrl' => $baseUrl,
     'params' => $params,
 ];
