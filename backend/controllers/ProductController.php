@@ -92,8 +92,20 @@ class ProductController extends \yii\web\Controller {
         if(!$query) $this->redirect(['product/index']);
         
         $model = new \common\models\ProductCategory(['scenario' => 'update_category']);
-        if($model->load(Yii::$app->request->post()) && ($id=$model->getUpdate($id))){
+        if(Yii::$app->request->post()){
+            //delete from produk
+            \common\models\ProductCategory::deleteAll('product_id = :id ',[':id' => $id]);
+            $category = Yii::$app->request->post('category_id');
+            $count = count($category);
+            for($i=0;$i<$count;$i++){
+                $model = new \common\models\ProductCategory();
+                $model->category_id = $category[$i];
+                $model->product_id = $id;
+                $model->insert();
+            }
+            //Output Query
             Yii::$app->session->setFlash('msg',Yii::t('app/message','update product category has been succcesffuly'));
+            return $this->redirect(Yii::$app->request->referrer);
         }
         
         return $this->render('form_main',[

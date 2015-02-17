@@ -16,6 +16,7 @@ class ProductCategory extends \yii\db\ActiveRecord {
     public $arrival_date;
     public $stock;
     public $weight;
+    public $pid = true;
     
     public static function tableName(){
         return 'product_category';
@@ -74,6 +75,17 @@ class ProductCategory extends \yii\db\ActiveRecord {
         if(($params['sort']=='price') && ($params['orderby']=='desc')) $query = $query->orderBy(['ABS(product.price)' => SORT_DESC]); 
         return $query;
         
+    }
+    
+    public static function getChecked($id){
+        $query = static::find()
+        ->where([
+            'product_id' => Yii::$app->request->QueryParams['id'],
+            'category_id' => $id
+        ])
+        ->one();
+        if($query) return true;
+        else return false;
     }
     
 }

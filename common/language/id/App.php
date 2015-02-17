@@ -113,6 +113,7 @@ return [
     'price high to lower' => 'Harga Tinggi ke Rendah',
     'product' => 'Produk',
     'product discussion' => 'Diskusi Produk',
+    'product information' => 'Informasi Produk',
     'product name' => 'Nama Produk',
     'product options' => 'Option Produk',
     'province' => 'Provinsi',

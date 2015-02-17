@@ -18,6 +18,12 @@ class Category extends \yii\db\ActiveRecord {
         ->all();    
     }
     
+    public static function getHierarchyCategory($parent_id=0){
+        return static::find()
+        ->where(['parent_id' => $parent_id ])
+        ->all();    
+    }
+    
     public static function ListCategory($option=[],$All=true){
         return static::find()
         ->where(['id' => $option])
