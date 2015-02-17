@@ -35,6 +35,35 @@ class App {
 	    $str .= $chars[ rand( 0, $size - 1 ) ];
 	}
 	return $str;
-    }    
+    }
+    
+    public static function slug($str,$separator = '-', $lowercase = TRUE){
+        if ($separator == 'dash') {
+	    $separator = '-';
+	}
+        else if ($separator == 'underscore') {
+	    $separator = '_';
+	}
+        $q_separator = preg_quote($separator);
+        $trans = array(
+	    '&.+?;'                 => '',
+	    '[^a-z0-9 _-]'          => '',
+	    '\s+'                   => $separator,
+	    '('.$q_separator.')+'   => $separator
+	);
+	$str = strip_tags($str);
+        foreach ($trans as $key => $val){
+	    $str = preg_replace("#".$key."#i", $val, $str);
+	}
+
+	if ($lowercase === TRUE){
+	    $str = strtolower($str);
+	}
+	return trim($str,$separator);
+    }
+    
+    public function MySQLDate($date){
+        return preg_replace('!(\d+)/(\d+)/(\d+)!', '\3-\2-\1',trim($date));
+    }
     
 }

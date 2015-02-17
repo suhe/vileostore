@@ -5,6 +5,7 @@ use Yii;
 class Discussion extends \yii\db\ActiveRecord {
     
     public $user_name;
+    public $full_name;
     public $product_name;
     public $product_image;
     public $review;

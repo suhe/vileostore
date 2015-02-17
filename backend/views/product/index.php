@@ -16,7 +16,7 @@ use yii\helpers\Html;
                 <span class="caret"></span>
                 </button>
                     <ul class="dropdown-menu" role="menu">
-                        <li><?=Html::a('<i class="fa fa-plus"></i> '.Yii::t('app','add new'),['product/add'])?></li>
+                        <li><?=Html::a('<i class="fa fa-plus"></i> '.Yii::t('app','add new'),['product/update_information'])?></li>
                     </ul>
             </div>
             <div class="clearfix"></div>
@@ -60,12 +60,6 @@ use yii\helpers\Html;
                             'contentOptions' => ['class'=>'text-center'],
                             'filter' => \yii\helpers\Html::activeDropDownList($model,'status',\common\models\Product::dropdownStatus(),['class' => 'form-control']),
                         ],
-                        'weight' => [
-                            'attribute' => 'weight',
-                            'headerOptions' => ['style'=>'width:5%'],
-                            'format'=>['decimal',0],
-                            'filter' => true,
-                        ],
                         'price' => [
                             'attribute' => 'price',
                             'headerOptions' => ['style'=>'width:8%'],
@@ -79,7 +73,7 @@ use yii\helpers\Html;
                             'filter' => true,
                         ],
                         ['class'=>'yii\grid\ActionColumn',
-                            'headerOptions' => ['style'=>'width:8%'],
+                            'headerOptions' => ['style'=>'width:10%'],
                             'controller'=>'product',
                             'template'=>'{view}',
                                 'buttons' => [
@@ -89,7 +83,7 @@ use yii\helpers\Html;
                                                     <button type="button" class="btn btn-default"><i class="fa fa-pencil"></i> '.Yii::t('app','edit').'</button>
                                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
                                                         <ul class="dropdown-menu" role="menu">
-                                                            <li>'.Html::a('<i class="fa fa-pencil"></i> '.Yii::t('app','edit'),['product/edit','id' => $data->id]).'</li>
+                                                            <li>'.Html::a('<i class="fa fa-pencil"></i> '.Yii::t('app','edit'),['product/update_information','id' => $data->id]).'</li>
                                                             <li>'.Html::a('<i class="fa fa-trash"></i> '.Yii::t('app','remove'),['product/remove','id' => $data->id]).'</li>
                                                         </ul>
                                                 </div>

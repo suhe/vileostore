@@ -39,10 +39,15 @@ class Product extends \yii\db\ActiveRecord  {
         return [
             'id' => Yii::t('app','id'),
             'name' => Yii::t('app','name'),
+            'image' => Yii::t('app','image'),
+            'price' => Yii::t('app','price'),
             'price_down' => Yii::t('app','price down'),
             'price_high' => Yii::t('app','price high'),
+            'stock' => Yii::t('app','stock'),
             'category_id' => Yii::t('app','category'),
             'brand_id' => Yii::t('app','brand'),
+            'short_description' => Yii::t('app','short description'),
+            'long_description' => Yii::t('app','long description'),
         ];
     }
     
@@ -59,9 +64,16 @@ class Product extends \yii\db\ActiveRecord  {
             [['stock'],'safe','on'=>['search']],
             [['category_id'], 'safe','on'=>['search']],
             [['brand_id'], 'safe','on'=>['search']],
+            [['arrival_date'], 'safe','on'=>['arrival date']],
             [['price_down'], 'safe','on'=>['search']],
             [['price_high'], 'safe','on'=>['search']],
             [['sort_by'], 'safe','on'=>['search']],
+            
+            //save/update information required
+            [['sku','name','weight','category_id','brand_id','short_description','long_description'],'required','on'=>['save_information','update_information']],
+            //save/update options required
+            [['stock','price','status','online','cod','dropshier'],'required','on'=>['update_options']],
+            [['arrival_date'],'safe','on'=>['update_options']],
         ];
     }
     
@@ -187,6 +199,40 @@ class Product extends \yii\db\ActiveRecord  {
         return $dataProvider;
     }
     
+    public function getUpdateInformation($id=0){
+        if($this->validate()){
+            $model = new Product();
+            if($id) $model = $model->findOne($id);
+            $model->sku = $this->sku;    
+            $model->name = $this->name;
+            $model->slug = Yii::$app->store->slug($this->name);    
+            $model->weight = str_replace(',','',$this->weight);
+            $model->category_id = $this->category_id;
+            $model->brand_id = $this->brand_id;
+            $model->short_description = $this->short_description;
+            $model->long_description = $this->long_description;
+            $model->update();
+            return $model->id;
+        }
+        return false;
+    }
+    
+    public function getUpdateOptions($id){
+        if($this->validate()){
+            $model = new Product();
+            $model = $model->findOne($id);
+            $model->price = str_replace(',','',$this->price);
+            $model->stock = str_replace(',','',$this->stock);    
+            $model->arrival_date = preg_replace('!(\d+)/(\d+)/(\d+)!', '\3-\2-\1',$this->arrival_date);
+            $model->status = $this->status;    
+            $model->online = $this->online;
+            $model->cod = $this->cod;
+            $model->dropshier = $this->dropshier;
+            $model->update();
+            return true;
+        }
+        return false;
+    }
     
     
     

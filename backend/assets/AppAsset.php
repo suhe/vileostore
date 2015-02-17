@@ -39,8 +39,16 @@ class AppAsset extends AssetBundle
         'assets/plugins/bootstrap-select2/select2.min.js',
         'assets/plugins/classie/classie.js',
         'assets/plugins/switchery/js/switchery.min.js',
-        'assets/plugins/datatables-responsive/js/lodash.min.js',
+        'assets/plugins/bootstrap3-wysihtml5/bootstrap3-wysihtml5.all.min.js', 
+        'assets/plugins/jquery-autonumeric/autoNumeric.js',
+        'assets/plugins/dropzone/dropzone.min.js',
+        'assets/plugins/bootstrap-tag/bootstrap-tagsinput.min.js',
+        'assets/plugins/jquery-inputmask/jquery.inputmask.min.js',
+        'assets/plugins/boostrap-form-wizard/js/jquery.bootstrap.wizard.min.js',
+        'assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js',
+        'assets/plugins/summernote/js/summernote.min.js',
         'pages/js/pages.min.js',
+        'assets/js/form_elements.js',
         'assets/js/scripts.js',
     ];
     public $depends = [

@@ -14,13 +14,14 @@ return [
     'all brand' => 'Semua Brand',
     'all category' => 'Semua Kategori',
     'all right reserved' => 'All Right Reserved',
-    'product discussion' => 'Diskusi Produk',
+    'arrival date' => 'Tanggal Tersedia',
     'availability' => 'Ketersediaan',
     /** Abjad B **/
     'bank transfer' => 'Bank Transfer',
     'basic information' => 'Informasi User',
     'brand' => 'Brand',
     /** Abjad C **/
+    'catalog' => 'Katalog',
     'category' => 'Kategori',
     'cash on delivery' => 'Cash On Delivery',
     'change password' => 'Perubahan Password',
@@ -35,7 +36,9 @@ return [
     'continue shopping' => 'Lanjut Belanja',
     'cost' => 'Harga',
     'create a new account' => 'Pendaftaran Akun Baru',
+    'customer' => 'Pelanggan',
     /** Abjad D **/
+    'dashboard' =>'Dashboard',
     'description' => 'Keterangan',
     'district' => 'Kecamatan',
     'details' => 'Details',
@@ -47,12 +50,14 @@ return [
     'edit address' => 'Edit Alamat',
     'edit profile' => 'Edit Profile',
     'empty' => 'Kosong',
+    'exit' => 'Keluar',
     /** Abjad F **/
     'finish' => 'Selesai',
     'forgot password' => 'Lupa Password ?',
     /** Abjad G **/
     'go to discussion' => 'Bergabung ke Diskusi',
     'go to store' => 'Kembali ke Situs Toko',
+    'gram' => 'Gram',
     'grid' => 'Grid',
     /** Abjad H **/
     'hai' => 'Hallo',
@@ -62,6 +67,7 @@ return [
     'image' => 'Gambar',
     'in stock' => 'Tersedia',
     'in stock date' => 'Stok Tersedia Tanggal',
+    'information' => 'Informasi',
     'invoice payment' => 'Invoice Tagihan Pembayaran',
     /** Abjad J **/
     /** Abjad K **/
@@ -75,12 +81,13 @@ return [
     'login page' => 'ke Halaman Login',
     'logout' => 'Keluar',
     'login & register' => 'Login & Register',
+    'long description' => 'Keterangan Lengkap',
     /** Abjad M **/
     'my account' => 'My Account',
     'my profile' => 'My Profile',
     'monday-friday' => 'Senin s/d Jumat',
     /** Abjad N **/
-    'name' => 'Name',
+    'name' => 'Nama',
     'name A to Z' => 'Nama A sampai Z',
     'name Z to A' => 'Nama Z sampai A',
     'new password' => 'Password Baru',
@@ -93,6 +100,7 @@ return [
     'online' => 'Online',
     'owner' => 'Pemilik',
     'or manual confirmation' => 'Atau Konfirmasi Manual',
+    'order' => 'Order Penjualan',
     /** Abjad P **/
     'page' => 'Hal',
     'paid' => 'Lunas',
@@ -104,7 +112,9 @@ return [
     'price lower to high' => 'Harga Rendah ke Tinggi',
     'price high to lower' => 'Harga Tinggi ke Rendah',
     'product' => 'Produk',
+    'product discussion' => 'Diskusi Produk',
     'product name' => 'Nama Produk',
+    'product options' => 'Option Produk',
     'province' => 'Provinsi',
     /** Abjad Q **/
     'quantity' => 'Jumlah',
@@ -121,6 +131,7 @@ return [
     'reviews' => 'Review',
     /** Abjad S**/
     'saturday' => 'Sabtu',
+    'save' => 'Simpan',
     'search' => 'Pencarian',
     'select' => 'Pilih',
     'select city' => 'Pilih Kota',
@@ -131,23 +142,29 @@ return [
     'shipping' => 'Pengiriman',
     'shipping address' => 'Alamat Pengiriman',
     'shopping cart' => 'Shopping Cart',
+    'short description' => 'Keterangan Singkat',
     'sign in' => 'Sign In',
     'sign up' => 'Sign Up',
     'sign up account' => 'Daftarkan Diri Anda disini',
     'sign up newsletter' => 'Berlangganan Info Produk',
     'sku' => 'SKU',
     'sort by' => 'Urutkan',
+    'stock' => 'Stok',
     'subscribe' => 'Subscribe',
     'sub total' => 'Sub Total',
     'sunday' => 'Minggu',
     /** Abjad T**/
     'this at' => 'Berikut ini',
     'this link' => 'Link Berikut',
+    'toolbar' => 'Toolbar',
     'to people' => 'Kepada Yth',
     'total transfer' => 'Total Transfer',
+    'transactions' => 'Transaksi',
     /** Abjad U**/
     'update' => 'Update',
     'update profile' => 'Update Profile',
+    'users' =>'User & Pelanggan',
+    'user' =>'User',
     /** Abjad V**/
     'verify payment' => 'Verifikasi Pembayaran',
     'verification invoice payment' => 'Verifikasi Konfirmasi Pembayaran',
