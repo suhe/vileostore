@@ -26,7 +26,7 @@ use yii\helpers\Url;
                         <li <?=Yii::$app->controller->getRoute()=='product/update_information'?'class="active"':''?>><a href="<?=Url::to(['product/update_information','id'=>isset(Yii::$app->request->QueryParams['id'])])?>"><span><?=Yii::t('app','information')?></span></a></li>
                         <li <?=Yii::$app->controller->getRoute()=='product/update_options'?'class="active"':''?>><a href="<?=Url::to(['product/update_options','id'=>isset(Yii::$app->request->QueryParams['id'])])?>"><span><?=Yii::t('app','options')?></span></a></li>
                         <li <?=Yii::$app->controller->getRoute()=='product/update_image'?'class="active"':''?>><a href="<?=Url::to(['product/update_image','id'=>isset(Yii::$app->request->QueryParams['id'])])?>"><span><?=Yii::t('app','image')?></span></a></li>
-                        <li><a href="<?=Url::to(['product/add_category'])?>"><span><?=Yii::t('app','category')?></span></a></li>
+                        <li <?=Yii::$app->controller->getRoute()=='product/update_category'?'class="active"':''?>><a href="<?=Url::to(['product/update_category','id'=>isset(Yii::$app->request->QueryParams['id'])])?>"><span><?=Yii::t('app','category')?></span></a></li>
                     </ul>
  
                     <div class="tab-content">

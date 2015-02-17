@@ -86,5 +86,20 @@ class ProductController extends \yii\web\Controller {
             'form'  => 'form_images',
         ]);
     }
+    
+    public function actionUpdate_category($id){
+        $query = \common\models\Product::findOne($id);
+        if(!$query) $this->redirect(['product/index']);
+        
+        $model = new \common\models\ProductCategory(['scenario' => 'update_category']);
+        if($model->load(Yii::$app->request->post()) && ($id=$model->getUpdate($id))){
+            Yii::$app->session->setFlash('msg',Yii::t('app/message','update product category has been succcesffuly'));
+        }
+        
+        return $this->render('form_main',[
+            'model' => $model,
+            'form'  => 'form_category',
+        ]);
+    }
 
 }
