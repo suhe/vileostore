@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 
 $this->params['breadcrumbs'] = [
@@ -11,27 +12,53 @@ $this->title = Yii::t('app','product options');
 
 ?>
 
+<div class="row">
+    
+    <?=Yii::getAlias('@webroot/assets/products');  ?>
 
-<?=\dosamigos\fileupload\FileUploadUI::widget([
-    'model' => $model,
-    'attribute' => 'image',
-    'url' => ['product/update_image'],
-    'gallery' => true,
-    'fieldOptions' => [
-            'accept' => 'image/*'
-    ],
-    'clientOptions' => [
-            'maxFileSize' => 2000000
-    ],
-    'clientEvents' => [
-            'fileuploaddone' => 'function(e, data) {
-                                    console.log(e);
-                                    console.log(data);
-                                }',
-            'fileuploadfail' => 'function(e, data) {
-                                    console.log(e);
-                                    console.log(data);
-                                }',
-    ],
-]);
-?>
+<div class="col-md-12">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="panel-title">
+Drag n' drop uploader
+</div>
+<div class="tools">
+<a class="collapse" href="javascript:;"></a>
+<a class="config" data-toggle="modal" href="#grid-config"></a>
+<a class="reload" href="javascript:;"></a>
+<a class="remove" href="javascript:;"></a>
+</div>
+</div>
+<div class="panel-body no-scroll no-padding">
+<form action="/file-upload" class="dropzone" id="my-dropzone">
+<div class="fallback">
+<input name="file" type="file" multiple />
+</div>
+</form>
+</div>
+</div>
+
+
+
+</div>
+
+</div>
+
+<?php
+$url = Url::to(['product/image']);
+$upload = Yii::$app->request->baseUrl.'/assets/products';
+$js = <<<JS
+    Dropzone.options.myDropzone = {
+    init: function() {
+        thisDropzone = this;
+        $.get('{$url}', function(data) {
+            $.each(data, function(key,value){
+                var mockFile = { name: value.name, size: value.size };
+                thisDropzone.options.addedfile.call(thisDropzone, mockFile);
+                thisDropzone.options.thumbnail.call(thisDropzone, mockFile, "{$upload}/"+value.name);
+            });
+        });
+    }
+};
+JS;
+$this->registerJs($js);

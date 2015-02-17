@@ -18,12 +18,14 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+        'css/site.css',
         'assets/plugins/pace/pace-theme-flash.css',
         'pages/css/pages.css',
         'pages/css/pages-icons.css',
         'assets/plugins/font-awesome/css/font-awesome.css',
         'assets/plugins/jquery-scrollbar/jquery.scrollbar.css',
         'assets/plugins/bootstrap-select2/select2.css',
+        'assets/plugins/dropzone/css/dropzone.css',
     ];
     public $js = [
         'assets/plugins/pace/pace.min.js',

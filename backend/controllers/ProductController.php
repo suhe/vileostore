@@ -76,7 +76,7 @@ class ProductController extends \yii\web\Controller {
         $query = \common\models\Product::findOne($id);
         if(!$query) $this->redirect(['product/index']);
         
-        $model = new \common\models\Product(['scenario' => 'update_options']);
+        $model = new \common\models\ProductImage(['scenario' => 'update_image']);
         if($model->load(Yii::$app->request->post()) && ($id=$model->getUpdateOptions($id))){
             Yii::$app->session->setFlash('msg',Yii::t('app/message','update product has been succcesffuly'));
         }
@@ -84,7 +84,28 @@ class ProductController extends \yii\web\Controller {
         return $this->render('form_main',[
             'model' => $model,
             'form'  => 'form_images',
+            'dataProvider' => $model->getActiveDataProviderImage($id)
         ]);
+    }
+    
+    public function actionImage(){
+        $ds          = DIRECTORY_SEPARATOR; 
+        $storeFolder = Yii::getAlias('@webroot/assets/products');   
+        $result  = array();
+        $files = scandir($storeFolder);
+        if ( false!==$files) {
+            foreach($files as $file) {
+                if ( '.'!=$file && '..'!=$file) {    
+                    $obj['name'] = $file;
+                    $obj['size'] = filesize($storeFolder.$ds.$file);
+                    $result[] = $obj;
+                }
+            }
+        }
+        
+        header('Content-type: text/json');              
+        header('Content-type: application/json');
+        echo json_encode($result);
     }
     
     public function actionUpdate_category($id){
