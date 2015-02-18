@@ -102,4 +102,13 @@ return array (
       '@dosamigos/fileupload' => $vendorDir . '/2amigos/yii2-file-upload-widget',
     ),
   ),
+  '2amigos/yii2-tinymce-widget' => 
+  array (
+    'name' => '2amigos/yii2-tinymce-widget',
+    'version' => '0.1.0.0',
+    'alias' => 
+    array (
+      '@dosamigos/tinymce' => $vendorDir . '/2amigos/yii2-tinymce-widget',
+    ),
+  ),
 );

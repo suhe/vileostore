@@ -23,10 +23,10 @@ use yii\helpers\Url;
                 
                 <div class="panel-body">
                     <ul class="nav nav-tabs nav-tabs-fillup">
-                        <li <?=Yii::$app->controller->getRoute()=='product/update_information'?'class="active"':''?>><a href="<?=Url::to(['product/update_information','id'=>isset(Yii::$app->request->QueryParams['id'])])?>"><span><?=Yii::t('app','information')?></span></a></li>
-                        <li <?=Yii::$app->controller->getRoute()=='product/update_options'?'class="active"':''?>><a href="<?=Url::to(['product/update_options','id'=>isset(Yii::$app->request->QueryParams['id'])])?>"><span><?=Yii::t('app','options')?></span></a></li>
-                        <li <?=Yii::$app->controller->getRoute()=='product/update_image'?'class="active"':''?>><a href="<?=Url::to(['product/update_image','id'=>isset(Yii::$app->request->QueryParams['id'])])?>"><span><?=Yii::t('app','image')?></span></a></li>
-                        <li <?=Yii::$app->controller->getRoute()=='product/update_category'?'class="active"':''?>><a href="<?=Url::to(['product/update_category','id'=>isset(Yii::$app->request->QueryParams['id'])])?>"><span><?=Yii::t('app','category')?></span></a></li>
+                        <li <?=Yii::$app->controller->getRoute()=='product/update_information'?'class="active"':''?>><a href="<?=Url::to(['product/update_information','id'=>Yii::$app->request->QueryParams['id']])?>"><span><?=Yii::t('app','information')?></span></a></li>
+                        <li <?=Yii::$app->controller->getRoute()=='product/update_options'?'class="active"':''?>><a href="<?=Url::to(['product/update_options','id'=>Yii::$app->request->QueryParams['id']])?>"><span><?=Yii::t('app','options')?></span></a></li>
+                        <li <?=Yii::$app->controller->getRoute()=='product/update_image'?'class="active"':''?>><a href="<?=Url::to(['product/update_image','id'=>Yii::$app->request->QueryParams['id']])?>"><span><?=Yii::t('app','image')?></span></a></li>
+                        <li <?=Yii::$app->controller->getRoute()=='product/update_category'?'class="active"':''?>><a href="<?=Url::to(['product/update_category','id'=>Yii::$app->request->QueryParams['id']])?>"><span><?=Yii::t('app','category')?></span></a></li>
                     </ul>
  
                     <div class="tab-content">

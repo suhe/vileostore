@@ -79,7 +79,7 @@ class ProductController extends \yii\web\Controller {
         $model = new \common\models\Product(['scenario' => 'update_image']);
         //relational to main image
         $images = \common\models\ProductImage::findOne(['name' => $query->image]);
-        $model->image = $images->id;
+        $model->image = isset($image)?$images->id:0;
         return $this->render('form_main',[
             'model' => $model,
             'form'  => 'form_images'

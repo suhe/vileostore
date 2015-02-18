@@ -24,14 +24,39 @@ $form = ActiveForm::begin([
         'labelOptions' => ['class' => 'col-sm-3 control-label'],
     ],
 ]); ?>
-<?=$form->field($model, 'sku')->textInput(['style'=>'width:20%'])?>
-<?=$form->field($model, 'name')->textInput()?>
-<?=$form->field($model, 'weight')->textInput(['style'=>'width:20%','placeholder' => Yii::t('app','gram'),'data-a-dec'=>'.','data-a-sep'=>',','class'=>'autonumeric form-control'])?>
+<?=$form->field($model,'sku')->textInput(['style'=>'width:20%'])?>
+<?=$form->field($model,'name')->textInput()?>
+<?=$form->field($model,'weight')->textInput(['style'=>'width:20%','placeholder' => Yii::t('app','gram'),'data-a-dec'=>'.','data-a-sep'=>',','class'=>'autonumeric form-control'])?>
 <?php //$form->field($model, 'price')->textInput(['style'=>'width:20%','data-a-dec'=>'.','data-a-sep'=>',','class'=>'autonumeric form-control'])?>
-<?=$form->field($model, 'category_id')->dropDownList(\common\models\Category::getHierarchyList(false),['class'=>'cs-select cs-skin-slide','data-init-plugin'=>'cs-select'])?>
-<?=$form->field($model, 'brand_id')->dropDownList(\common\models\Brand::getDropdownList(false),['class'=>'cs-select cs-skin-slide','data-init-plugin'=>'cs-select'])?>
-<?=$form->field($model, 'short_description')->textarea()?>
-<?=$form->field($model, 'long_description')->textarea(['style'=>'height:200px'])?>
+<?=$form->field($model,'category_id')->dropDownList(\common\models\Category::getHierarchyList(false),['class'=>'cs-select cs-skin-slide','data-init-plugin'=>'cs-select'])?>
+<?=$form->field($model,'brand_id')->dropDownList(\common\models\Brand::getDropdownList(false),['class'=>'cs-select cs-skin-slide','data-init-plugin'=>'cs-select'])?>
+<?=$form->field($model,'short_description')->widget(\dosamigos\tinymce\TinyMce::className(), [
+    'options' => ['rows' => 6],
+    'language' => 'en',
+    'clientOptions' => [
+        'menubar' => false,
+        'plugins' => [
+            "advlist autolink lists link charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table contextmenu paste"
+        ],
+        'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent"
+    ]
+]);?>
+<?=$form->field($model,'long_description')->widget(\dosamigos\tinymce\TinyMce::className(), [
+    'options' => ['rows' => 40],
+    'language' => 'en',
+    'clientOptions' => [
+        'menubar' => false,
+        'plugins' => [
+            "advlist autolink lists link charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table contextmenu paste"
+        ],
+        'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent"
+    ]
+]);?>
+<?php // $form->field($model, 'long_description')->textarea(['style'=>'height:200px'])?>
 <?php // $form->field($model, 'arrival_date')->textInput(['id'=>'date','style'=>'width:12%'])?>
 <div class="form-group" style="margin-bottom:10px">
     <?=Html::submitButton('<i class="fa fa-save icon-on-right"></i> '.Yii::t('app','save'), ['class' => 'btn btn-primary btn-md pull-right','name' => 'post'])?>

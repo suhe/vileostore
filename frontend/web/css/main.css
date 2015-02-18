@@ -5265,3 +5265,10 @@ a {
 	
 }
 
+.product-tab ul{
+  margin-left:15px;
+}
+
+.product-tab ul li{
+  padding-left:15px;
+}

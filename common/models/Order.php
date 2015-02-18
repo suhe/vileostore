@@ -10,6 +10,7 @@ class Order extends \yii\db\ActiveRecord {
     public $courier_name;
     public $bank_name;
     public $customer_name;
+    public $email;
     
     public static function tableName(){
         return 'order';
@@ -227,7 +228,7 @@ class Order extends \yii\db\ActiveRecord {
         ->joinWith('bank')
         ->select(['order.id','order.invoice_no','order.created_date','order.status','order.type','courier.name as courier_name',
                   'CONCAT(user.first_name,\' \',user.middle_name,\' \',user.last_name) as customer_name','bank.name as bank_name',
-                  'order.shipping_cost','order.grand_total','order.sub_total'])
+                  'order.shipping_cost','order.grand_total','order.sub_total','order.receiver','order.address'])
         ->andWhere(['order.id'=>$id])
         ->one();
     }

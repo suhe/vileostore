@@ -4,6 +4,7 @@ return [
     'account' => 'Rekening',
     'active' => 'Aktif',
     'add address' => 'Tambah Alamat',
+    'add history' => 'Tambah History',
     'add to cart' => 'Beli Online',
     'add new' => 'Tambah Baru',
     'add dropship' => 'Tambah Dropship',
@@ -16,6 +17,7 @@ return [
     'all right reserved' => 'All Right Reserved',
     'arrival date' => 'Tanggal Tersedia',
     'availability' => 'Ketersediaan',
+    'awb' => 'AWB',
     /** Abjad B **/
     'bank transfer' => 'Bank Transfer',
     'basic information' => 'Informasi User',
@@ -27,6 +29,7 @@ return [
     'change password' => 'Perubahan Password',
     'checkout' => 'Checkout',
     'city' => 'Kota',
+    'cod' => 'COD',
     'copyright' => 'Copyright',
     'completed' => 'Completed',
     'confirm' => 'Konfirmasi',
@@ -61,6 +64,7 @@ return [
     'go to discussion' => 'Bergabung ke Diskusi',
     'go to store' => 'Kembali ke Situs Toko',
     'gram' => 'Gram',
+    'grand total' => 'Grand Total',
     'grid' => 'Grid',
     /** Abjad H **/
     'hai' => 'Hallo',
@@ -71,6 +75,7 @@ return [
     'in stock' => 'Tersedia',
     'in stock date' => 'Stok Tersedia Tanggal',
     'information' => 'Informasi',
+    'invoice' => 'Invoice',
     'invoice payment' => 'Invoice Tagihan Pembayaran',
     'invoice no' =>'No.Inv',
     /** Abjad J **/
@@ -110,6 +115,8 @@ return [
     'page' => 'Hal',
     'paid' => 'Lunas',
     'payment' => 'Pembayaran',
+    'payment accepted' => 'Pembayaran Telah diterima',
+    'payment not accepted' => 'Pembayaran Belum kami terima',
     'payment confirmation' => 'Konfirmasi Pembayaran',
     'price' => 'Harga',
     'price down' => 'Harga Terendah',

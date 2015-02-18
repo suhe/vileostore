@@ -19,7 +19,7 @@
 		</div><!-- /.product-image -->
 		<!-- product-info -->	
 		<div class="product-info text-left">
-		    <h3 class="name"><?=\yii\helpers\Html::a($row->name,['product/read','id'=>$row->product_id])?></h3>
+		    <h5 class="name text-sm"><?=\yii\helpers\Html::a($row->name,['product/read','id'=>$row->product_id])?></h5>
 		    <div class="rating rateit-small"></div>
 		    <div class="description"></div>
 			<!-- /.product-price -->
@@ -36,7 +36,7 @@
 			<ul class="list-inline">
 			    <?php if($row->stock>0){ ?>
 			    <li><i class="fa fa-file"></i> <?=\yii\helpers\Html::a($row->online?Yii::t('app','online'):Yii::t('app','not online'),['#'])?></li>
-			    <li><i class="fa fa-map-marker"></i> <?=\yii\helpers\Html::a($row->cod?Yii::t('app','cash on delivery'):Yii::t('app','not cod'),['#'])?></li>
+			    <li><i class="fa fa-map-marker"></i> <?=\yii\helpers\Html::a($row->cod?Yii::t('app','cod'):Yii::t('app','not cod'),['#'])?></li>
 			    <li><i class="fa fa-umbrella"></i> <?=\yii\helpers\Html::a($row->dropshier?Yii::t('app','dropshier'):Yii::t('app','not dropshier'),['#'])?></li>
 			    <?php } else { ?>
 			    <li><i class="fa fa-time"></i> <?=Yii::t('app','in stock').' '.Yii::$app->formatter->asDate($row->arrival_date,'php:d M Y');?> </li>

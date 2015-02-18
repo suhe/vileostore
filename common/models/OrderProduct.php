@@ -85,4 +85,14 @@ class OrderProduct extends \yii\db\ActiveRecord {
         return $dataProvider;
     }
     
+    public static function AllOrderProduct($id){
+        return static::find()
+        ->select(['product.sku','product.name as product_name','order_product.product_price','order_product.qty',
+                  'subtotal','order_product.product_id'])
+        ->joinWith('order')
+        ->joinWith('product')
+        ->andWhere(['order.id' => $id])
+        ->all();
+    }
+    
 }

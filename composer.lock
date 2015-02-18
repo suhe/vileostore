@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e1638809af4d8a7549fa51161a900a10",
+    "hash": "3131aa9a0dcc066802b872264cafb404",
     "packages": [
         {
             "name": "2amigos/yii2-file-upload-widget",
@@ -92,6 +92,49 @@
                 "yii"
             ],
             "time": "2014-04-07 22:24:40"
+        },
+        {
+            "name": "2amigos/yii2-tinymce-widget",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/2amigos/yii2-tinymce-widget.git",
+                "reference": "542ceac58ebfd63632be79712cc253fe8edba80b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/2amigos/yii2-tinymce-widget/zipball/542ceac58ebfd63632be79712cc253fe8edba80b",
+                "reference": "542ceac58ebfd63632be79712cc253fe8edba80b",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "dosamigos\\tinymce\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Antonio Ramirez",
+                    "email": "ramirez.cobos@gmail.com",
+                    "homepage": "http://www.ramirezcobos.com"
+                }
+            ],
+            "description": "TinyMCE widget for Yii2.",
+            "keywords": [
+                "extension",
+                "tinymce",
+                "widget",
+                "yii"
+            ],
+            "time": "2014-04-02 09:10:13"
         },
         {
             "name": "bower-asset/bootstrap",

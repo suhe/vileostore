@@ -15,7 +15,8 @@ use yii\helpers\Url;
                         <span class="caret"></span>
                         </button>
                             <ul class="dropdown-menu" role="menu">
-                                <li><?=Html::a('<i class="fa fa-times"></i> '.Yii::t('app','exit'),['product/index'])?></li>
+                                <li><?=Html::a('<i class="fa fa-plus"></i> '.Yii::t('app','add history'),['order/history_add','id'=>Yii::$app->request->QueryParams['id']])?></li>
+                                <li><?=Html::a('<i class="fa fa-exchange"></i> '.Yii::t('app','exit'),['order/index'])?></li>
                             </ul>
                     </div>
                     <div class="clearfix"></div>
@@ -25,6 +26,7 @@ use yii\helpers\Url;
                     <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm hidden-print">
                         <li <?=Yii::$app->controller->getRoute()=='order/summary'?'class="active"':''?>><a href="<?=Url::to(['order/summary','id'=>Yii::$app->request->QueryParams['id']])?>"><span><?=Yii::t('app','summary')?></span></a></li>
                         <li <?=Yii::$app->controller->getRoute()=='order/invoice'?'class="active"':''?>><a href="<?=Url::to(['order/invoice','id'=>Yii::$app->request->QueryParams['id']])?>"><span><?=Yii::t('app','invoice')?></span></a></li>
+                        <li <?=(Yii::$app->controller->getRoute()=='order/history' || Yii::$app->controller->getRoute()=='order/history_add')?'class="active"':''?>><a href="<?=Url::to(['order/history','id'=>Yii::$app->request->QueryParams['id']])?>"><span><?=Yii::t('app','history')?></span></a></li>
                     </ul>
  
                     <div class="tab-content">
@@ -34,6 +36,7 @@ use yii\helpers\Url;
                                     <?=$this->render($view,[
                                         'model' => $model,
                                         'data' => $data,
+                                        'details' => isset($details)? $details:0
                                      ])?>
                                 </div>
                             </div>

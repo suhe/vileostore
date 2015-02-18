@@ -20,7 +20,8 @@
         "yiisoft/yii2-swiftmailer": "*",
         "himiklab/yii2-easy-thumbnail-image-helper": "*",
         "omnilight/yii2-shopping-cart": "*",
-        "2amigos/yii2-file-upload-widget": "*"
+        "2amigos/yii2-file-upload-widget": "*",
+        "2amigos/yii2-tinymce-widget": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

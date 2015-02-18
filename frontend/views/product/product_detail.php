@@ -7,7 +7,7 @@ $this->params['breadcrumbs'] = [
 
 <div class="row  wow fadeInUp">
 	<!-- ========================================================= /.gallery-holder  ==================================================================================== -->	
-	<div class="col-xs-12 col-sm-6 col-md-6 gallery-holder">
+	<div class="col-xs-12 col-sm-6 col-md-4 gallery-holder">
 		<div class="product-item-holder size-big single-product-gallery small-gallery">
 			<div id="owl-single-product">
 				<?php
@@ -57,9 +57,9 @@ $this->params['breadcrumbs'] = [
 	<!-- ========================================================= /.gallery-holder  ==================================================================================== -->		
     
 	<!-- ========================================================= /.product-info-block  ==================================================================================== -->	
-    <div class='col-sm-6 col-md-6 product-info-block'>
+    <div class='col-sm-6 col-md-8 product-info-block'>
 		<div class="product-info">
-			<h1 class="name"><?=$data->name?></h1>
+			<h3 class="name"><?=$data->name?></h3>
 			<div class="rating-reviews m-t-20">
 				<div class="row">
 					<div class="col-sm-2">
