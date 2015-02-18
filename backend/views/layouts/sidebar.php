@@ -55,7 +55,7 @@ use yii\helpers\Url;
                     </a>
                     <span class="icon-thumbnail"><i class="pg-form"></i></span>
                     <ul class="sub-menu">
-                        <li class=""><a href="form_elements.html"><?=Yii::t('app','order')?></a><span class="icon-thumbnail">O</span></li>
+                        <li class=""><a href="<?=Url::to(['order/index'])?>"><?=Yii::t('app','order')?></a><span class="icon-thumbnail">O</span></li>
                     </ul>
                 </li>
             

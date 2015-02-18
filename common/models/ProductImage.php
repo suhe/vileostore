@@ -8,22 +8,30 @@ class ProductImage extends \yii\db\ActiveRecord  {
         return 'product_image';
     }
     
+    public function rules(){
+        return[
+            [['name'],'safe','on'=>['upload']],
+            [['name'],'file','on'=>['upload']],
+        ];
+    }
+    
     public function getImageByProduct($product_id){
         return static::find()
         ->where(['product_id'=>$product_id])
         ->all();
     }
     
-    public function getActiveDataProviderImage($id){
-        $query = static::find();
-        $dataProvider = new \yii\data\ActiveDataProvider([
-            'query' => $query,
-            'sort'=> ['defaultOrder' => ['id'=> SORT_ASC]],
-            'pagination' =>[
-                'pageSize' => Yii::$app->params['show_page']
-            ]    
-        ]);
-        $query->andFilterWhere(['product_id' => $id]);
-        return $dataProvider;
+    public static function DropdownList(){
+        $result = [];
+        $query = static::find()
+        ->where(['product_id' => Yii::$app->request->QueryParams['id']])
+        ->all();
+        
+        if($query){
+            foreach($query as $row){
+                $result[$row->id] =  $row->name;
+            }
+        }
+        return $result;
     }
 }

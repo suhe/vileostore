@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'yz\\shoppingcart\\' => array($vendorDir . '/omnilight/yii2-shopping-cart'),
+    'vileosoft\\shoppingcart\\' => array($vendorDir . '/vileosoft/shopping-cart'),
     'yii\\swiftmailer\\' => array($vendorDir . '/yiisoft/yii2-swiftmailer'),
     'yii\\imagine\\' => array($vendorDir . '/yiisoft/yii2-imagine'),
     'yii\\gii\\' => array($vendorDir . '/yiisoft/yii2-gii'),

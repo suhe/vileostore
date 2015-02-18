@@ -38,6 +38,9 @@ return [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'RhLqcR79Fcg9GUBYSQa9R9BzTfo7htK-',
         ],
+        'setting' => [
+            'class' => '\common\models\Setting',
+        ],
         'store' => [
             'class' => 'common\helpers\App',
         ],

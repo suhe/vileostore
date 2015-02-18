@@ -7,7 +7,7 @@ $this->params['breadcrumbs'] = [
 
 <div class="row  wow fadeInUp">
 	<!-- ========================================================= /.gallery-holder  ==================================================================================== -->	
-	<div class="col-xs-12 col-sm-6 col-md-4 gallery-holder">
+	<div class="col-xs-12 col-sm-6 col-md-6 gallery-holder">
 		<div class="product-item-holder size-big single-product-gallery small-gallery">
 			<div id="owl-single-product">
 				<?php
@@ -18,8 +18,8 @@ $this->params['breadcrumbs'] = [
 				<a data-lightbox="image-1" data-title="Gallery" href="<?=Yii::$app->params['baseUrl'] ?>assets/images/products/<?=$image->product_id?>/<?=$image->name?>">
 					<?=himiklab\thumbnail\EasyThumbnailImage::thumbnailImg(
 						'@image_product/'.$image->product_id.'/'.$image->name,
-						347,
-						270,
+						471,
+						575,
 						\himiklab\thumbnail\EasyThumbnailImage::THUMBNAIL_OUTBOUND,
 						['alt' => $image->name]
 					);?>
@@ -37,8 +37,8 @@ $this->params['breadcrumbs'] = [
 						<a class="horizontal-thumb active" data-target="#owl-single-product" data-slide="<?=($id-1)?>" href="#data<?=$id?>">
 							<?=himiklab\thumbnail\EasyThumbnailImage::thumbnailImg(
 								'@image_product/'.$image->product_id.'/'.$image->name,
-								47,
-								65,
+								67,
+								92,
 								\himiklab\thumbnail\EasyThumbnailImage::THUMBNAIL_OUTBOUND,
 								['alt' => $data->name]
 							);?>
@@ -57,7 +57,7 @@ $this->params['breadcrumbs'] = [
 	<!-- ========================================================= /.gallery-holder  ==================================================================================== -->		
     
 	<!-- ========================================================= /.product-info-block  ==================================================================================== -->	
-    <div class='col-sm-6 col-md-8 product-info-block'>
+    <div class='col-sm-6 col-md-6 product-info-block'>
 		<div class="product-info">
 			<h1 class="name"><?=$data->name?></h1>
 			<div class="rating-reviews m-t-20">

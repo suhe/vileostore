@@ -30,15 +30,18 @@ return [
     'copyright' => 'Copyright',
     'completed' => 'Completed',
     'confirm' => 'Konfirmasi',
+    'confirm payment' => 'Konfirmasi Pembayaran',
     'confirm payment click' => 'Konfirmasi Pembayaran Klik',
     'confirm payment invoice' => 'Konfirmasi Pembayaran untuk Invoice ',
     'contact support & and sales' => 'Kontak Support & Sales',
     'continue shopping' => 'Lanjut Belanja',
     'cost' => 'Harga',
+    'courier' => 'Kurir',
     'create a new account' => 'Pendaftaran Akun Baru',
     'customer' => 'Pelanggan',
     /** Abjad D **/
     'dashboard' =>'Dashboard',
+    'date' => 'Tanggal',
     'description' => 'Keterangan',
     'district' => 'Kecamatan',
     'details' => 'Details',
@@ -69,6 +72,7 @@ return [
     'in stock date' => 'Stok Tersedia Tanggal',
     'information' => 'Informasi',
     'invoice payment' => 'Invoice Tagihan Pembayaran',
+    'invoice no' =>'No.Inv',
     /** Abjad J **/
     /** Abjad K **/
     /** Abjad L **/
@@ -101,6 +105,7 @@ return [
     'owner' => 'Pemilik',
     'or manual confirmation' => 'Atau Konfirmasi Manual',
     'order' => 'Order Penjualan',
+    'order transaction' => 'Order Penjualan',
     /** Abjad P **/
     'page' => 'Hal',
     'paid' => 'Lunas',
@@ -113,6 +118,7 @@ return [
     'price high to lower' => 'Harga Tinggi ke Rendah',
     'product' => 'Produk',
     'product discussion' => 'Diskusi Produk',
+    'product images' => 'Gambar Produk',
     'product information' => 'Informasi Produk',
     'product name' => 'Nama Produk',
     'product options' => 'Option Produk',
@@ -142,6 +148,7 @@ return [
     'send password' => 'Kirim Password',
     'shipping' => 'Pengiriman',
     'shipping address' => 'Alamat Pengiriman',
+    'shipping value' => 'Biaya Kirim',
     'shopping cart' => 'Shopping Cart',
     'short description' => 'Keterangan Singkat',
     'sign in' => 'Sign In',
@@ -153,6 +160,7 @@ return [
     'stock' => 'Stok',
     'subscribe' => 'Subscribe',
     'sub total' => 'Sub Total',
+    'summary' => 'Summary',
     'sunday' => 'Minggu',
     /** Abjad T**/
     'this at' => 'Berikut ini',

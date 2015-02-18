@@ -9,6 +9,7 @@ class Order extends \yii\db\ActiveRecord {
     public $label_bank_id=1;
     public $courier_name;
     public $bank_name;
+    public $customer_name;
     
     public static function tableName(){
         return 'order';
@@ -17,14 +18,15 @@ class Order extends \yii\db\ActiveRecord {
     public function rules(){
         return[
             [['id','confirm'],'safe','on'=>['payment']],
-            [['invoice_no','created_date','status'],'safe','on'=>['search']],
+            [['invoice_no','customer_name','created_date','status'],'safe','on'=>['search']],
         ];
     }
     
     public function attributeLabels(){
         return [
             'label_courier_id' => '',
-            'label_bank_id' => ''
+            'label_bank_id' => '',
+            'created_date' => Yii::t('app','date'),
         ];
     }
     
@@ -38,6 +40,10 @@ class Order extends \yii\db\ActiveRecord {
     
     public function getBank(){
         return $this->hasOne(\common\models\Bank::className(), ['id' => 'bank_id']);
+    }
+    
+    public function getUser(){
+        return $this->hasOne(\common\models\User::className(), ['id' => 'user_id']);
     }
     
     public function getId(){
@@ -59,6 +65,15 @@ class Order extends \yii\db\ActiveRecord {
         return $str;
     }
     
+    public static function stringType($type){
+        switch($type){
+            case 1 : $str = Yii::t('app','shipping');break;
+            case 2 : $str = Yii::t('app','dropshier');break;
+            case 3 : $str = Yii::t('app','cash on delivery');break;
+        }
+        return $str;
+    }
+    
     public static function dropdownStatus($all=true){
         $data = [];
         if($all=true)
@@ -67,7 +82,7 @@ class Order extends \yii\db\ActiveRecord {
         $data[2] = Yii::t('app','shipping');
         $data[3] = Yii::t('app','paid');
         $data[4] = Yii::t('app','verify payment');
-        $data[5] = Yii::t('app','confirm payment');
+        $data[5] = Yii::t('app','waiting payment');
         return $data;
     }
     
@@ -179,6 +194,42 @@ class Order extends \yii\db\ActiveRecord {
         if($this->status)
             $query->andFilterWhere(['like', 'status',  $this->status]);
         return $dataProvider;
+    }
+    
+    public function getActiveDataProviderOrder($params){
+        $query = static::find()
+        ->joinWith('user')
+        ->select(['order.id id','order.invoice_no','user.first_name as customer_name','order.created_date','order.grand_total',
+                  'order.sub_total','order.shipping_cost','order.status']);
+        $dataProvider = new \yii\data\ActiveDataProvider([
+            'query' => $query,
+            'sort'=> ['defaultOrder' => ['id'=> SORT_DESC]],
+            'pagination' =>[
+                'pageSize' => Yii::$app->params['show_page']
+            ]    
+        ]);
+        
+        if ((!$this->load($params)) && ($this->validate()))
+            return $dataProvider;
+        
+        $this->invoice_no?$query->andFilterWhere(['like','invoice_no',$this->invoice_no]):'';
+        $this->created_date?$query->andFilterWhere(['<=','order.created_date', Yii::$app->store->MySQLDate($this->created_date)]):'';
+        $this->status?$query->andFilterWhere(['order.status'=>$this->status]):'';
+        $this->customer_name?$query->andFilterWhere(['like','user.first_name',$this->customer_name]):'';
+        return $dataProvider;
+    }
+    
+    public function getSingleOrder($id){
+        return static::find()
+        ->from('order')
+        ->joinWith('user')
+        ->joinWith('courier')
+        ->joinWith('bank')
+        ->select(['order.id','order.invoice_no','order.created_date','order.status','order.type','courier.name as courier_name',
+                  'CONCAT(user.first_name,\' \',user.middle_name,\' \',user.last_name) as customer_name','bank.name as bank_name',
+                  'order.shipping_cost','order.grand_total','order.sub_total'])
+        ->andWhere(['order.id'=>$id])
+        ->one();
     }
     
 }
