@@ -33,9 +33,6 @@ return [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => false,
         ],
-        'setting' => [
-            'class' => '\common\models\Setting',
-        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
