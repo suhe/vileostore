@@ -34,5 +34,6 @@ return [
     'msg token reset password not valid' => 'Token untuk Reset Password tidak valid !',
     'msg this email see at not normal' => 'Apabila pesan ini ditampilkan dengan baik langsung kunjungi situs kami : ',
     'msg reset password to' => 'Password dikirimkan ke',
-    'msg reset password has been send to email please check inbox/spam' => 'Reset Password anda telah dikirim ke email silahkan cek INBOX/SPAM email anda', 
+    'msg reset password has been send to email please check inbox/spam' => 'Reset Password anda telah dikirim ke email silahkan cek INBOX/SPAM email anda',
+    'msg main image has been changed' => 'Image Utama produk ini sudah diubah',
  ];

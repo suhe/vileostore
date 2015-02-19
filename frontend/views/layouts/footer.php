@@ -181,7 +181,7 @@
 
                     <div class="module-body">
                         <p>
-			<?=\common\models\Page::publish(['id'=>6])->content?>      
+			<?=Yii::$app->setting->Variable('Store About')->content?>     
 			</p>
                     </div><!-- /.module-body -->
                 </div><!-- /.col -->

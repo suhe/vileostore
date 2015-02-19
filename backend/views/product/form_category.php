@@ -47,7 +47,7 @@ $form = ActiveForm::begin([
 </ul>
 
 <div class="form-group" style="margin-bottom:10px">
-    <?=Html::submitButton('<i class="fa fa-save icon-on-right"></i> '.Yii::t('app','save'), ['class' => 'btn btn-primary btn-md pull-right','name' => 'post'])?>
+    <?=Html::submitButton('<i class="fa fa-save icon-on-right"></i> '.Yii::t('app','update'), ['class' => 'btn btn-primary btn-md pull-right','name' => 'post'])?>
 </div>
 <?php ActiveForm::end(); ?>
 <?php 

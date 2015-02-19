@@ -28,6 +28,7 @@ return [
     'cash on delivery' => 'Cash On Delivery',
     'change password' => 'Perubahan Password',
     'checkout' => 'Checkout',
+    'choose image' => 'Pilih Gambar',
     'city' => 'Kota',
     'cod' => 'COD',
     'copyright' => 'Copyright',

@@ -50,8 +50,13 @@ use yii\helpers\Html;
                         ],
                         'name' => [
                             'attribute' => 'name',
-                            'headerOptions' => ['style'=>'width:30%'],
+                            'headerOptions' => ['style'=>'width:20%'],
                             'filter' => true,
+                        ],
+                        'category_name' => [
+                            'attribute' => 'category_name',
+                            'headerOptions' => ['style'=>'width:15%'],
+                            'filter' => \yii\helpers\Html::activeDropDownList($model,'category_id',\common\models\Category::getHierarchyList(),['class'=>'form-control']),
                         ],
                         'status' => [
                             'attribute' => 'status',

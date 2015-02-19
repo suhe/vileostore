@@ -25,7 +25,7 @@
 			<!-- /.product-price -->
 			<div class="product-price">	
 			    <span class="price"><?=Yii::$app->formatter->asDecimal($row->price)?></span>
-			    <span class="price-before-discount">$ 800</span>					
+			    <span class="price-before-discount"><?=Yii::$app->formatter->asDecimal($row->price+10000)?></span>					
 			</div><!-- /.product-price -->
 		</div>
 		<!-- /.product-info -->

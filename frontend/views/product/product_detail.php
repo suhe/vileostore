@@ -74,22 +74,60 @@ $this->params['breadcrumbs'] = [
 
 			<div class="stock-container info-container m-t-10">
 				<div class="row">
-					<div class="col-sm-2">
-						<div class="stock-box"><span class="label"><?=\Yii::t('app','availability')?> :</span></div>	
-					</div>
-					<div class="col-sm-10">
-						<div class="stock-box"><span class="value"><?=$data->stock>0?Yii::t('app','in stock'):Yii::t('app','empty')?></span></div>	
-					</div>
-				</div><!-- /.row -->	
+				    <div class="col-sm-2">
+					<div class="stock-box"><span class="value"><?=\Yii::t('app','sku')?></span></div>	
+				    </div>
+				    <div class="col-sm-1">
+					<div class="stock-box"><span class="value">:</span></div>	
+				    </div>
+				    <div class="col-sm-9">
+					<div class="stock-box"><span class="value"><?=$data->sku?></span></div>	
+				    </div>
+				</div><!-- /.row -->
+				<div class="row">
+				    <div class="col-sm-2">
+					<div class="stock-box"><span class="value"><?=\Yii::t('app','price')?></span></div>	
+				    </div>
+				    <div class="col-sm-1">
+					<div class="stock-box"><span class="value">:</span></div>	
+				    </div>
+				    <div class="col-sm-9">
+					<div class="stock-box"><span class="value"><?=Yii::$app->Formatter->asDecimal($data->price,2)?></span></div>	
+				    </div>
+				</div><!-- /.row -->
+				<div class="row">
+				    <div class="col-sm-2">
+					<div class="stock-box"><span class="value"><?=\Yii::t('app','availability')?></span></div>	
+				    </div>
+				    <div class="col-sm-1">
+					<div class="stock-box"><span class="value">:</span></div>	
+				    </div>
+				    <div class="col-sm-9">
+					<div class="stock-box"><span class="value"><?=$data->stock>0?Yii::t('app','in stock'):Yii::t('app','empty')?></span></div>	
+				    </div>
+				</div><!-- /.row -->
 			</div><!-- /.stock-container -->
 			
 			<!-- /.description-container -->
 			<div class="description-container m-t-20">
 				<?=$data->short_description?>
 			</div><!-- /.description-container -->
-                                                                
+		                                   
 			<div class="row outer-top-vs">
-				<div class="col-md-12 clearfix animate-effect">
+			    
+			    <div class=" col-md-6 social-icons">
+				    <ul class="list-inline">
+					<?php if($data->stock>0){ ?>
+					<li><i class="fa fa-file"></i> <?=\yii\helpers\Html::a($data->online?Yii::t('app','online'):Yii::t('app','not online'),['#'])?></li>
+					<li><i class="fa fa-map-marker"></i> <?=\yii\helpers\Html::a($data->cod?Yii::t('app','cash on delivery'):Yii::t('app','not cod'),['#'])?></li>
+					<li><i class="fa fa-umbrella"></i> <?=\yii\helpers\Html::a($data->dropshier?Yii::t('app','dropshier'):Yii::t('app','not dropshier'),['#'])?></li>
+					<?php } else { ?>
+					<li><i class="fa fa-time"></i> <?=Yii::t('app','in stock').' '.Yii::$app->formatter->asDate($data->arrival_date,'php:d M Y');?> </li>
+					<?php } ?>
+				    </ul><!-- /.social-icons -->
+				</div>
+			    
+			    <div class="col-md-6 clearfix animate-effect">
 				<!-- /.action -->
 				<div class="action">
 				    <ul class="list-unstyled pull-right">
@@ -107,27 +145,8 @@ $this->params['breadcrumbs'] = [
 				    </ul>	
 				</div><!-- /.action -->
 				<div class="clearfix"></div>
-				</div>
+			    </div>
 			</div>
-
-			<div class="row product-social-link outer-top-vs">
-				<!-- /.col -->
-				<div class="col-md-1 col-sm-2">
-				    <span class="label text-danger"><?=Yii::t('app','via')?></span>
-				</div><!-- /.col -->
-				<!-- /.col -->
-				<div class=" col-md-11 col-sm-10 social-icons">
-				<ul class="list-inline">
-				    <?php if($data->stock>0){ ?>
-				    <li><i class="fa fa-file"></i> <?=\yii\helpers\Html::a($data->online?Yii::t('app','online'):Yii::t('app','not online'),['#'])?></li>
-				    <li><i class="fa fa-map-marker"></i> <?=\yii\helpers\Html::a($data->cod?Yii::t('app','cash on delivery'):Yii::t('app','not cod'),['#'])?></li>
-				    <li><i class="fa fa-umbrella"></i> <?=\yii\helpers\Html::a($data->dropshier?Yii::t('app','dropshier'):Yii::t('app','not dropshier'),['#'])?></li>
-				    <?php } else { ?>
-				    <li><i class="fa fa-time"></i> <?=Yii::t('app','in stock').' '.Yii::$app->formatter->asDate($data->arrival_date,'php:d M Y');?> </li>
-				    <?php } ?>
-				</ul><!-- /.social-icons -->
-				</div>
-			</div><!-- /.row -->
 	    </div><!-- /.product-info -->
 		
 	</div><!-- /.col-sm-6 -->

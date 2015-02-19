@@ -10,7 +10,6 @@ class Product extends \yii\db\ActiveRecord  {
     public $category_name;
     public $price_down;
     public $price_high;
-    //public $category_id;
     public $sort_by;
     public $cost=0;
     
@@ -70,7 +69,8 @@ class Product extends \yii\db\ActiveRecord  {
             [['sort_by'], 'safe','on'=>['search']],
             
             //save/update information required
-            [['sku','name','weight','category_id','brand_id','short_description','long_description'],'required','on'=>['save_information','update_information']],
+            [['sku','name','weight','category_id','brand_id'],'required','on'=>['save_information','update_information']],
+            [['short_description','long_description'],'safe','on'=>['save_information','update_information']],
             //save/update options required
             [['stock','price','status','online','cod','dropshier'],'required','on'=>['update_options']],
             [['arrival_date'],'safe','on'=>['update_options']],
@@ -178,7 +178,10 @@ class Product extends \yii\db\ActiveRecord  {
     }
 
     public function getActiveDataProviderProduct($params){
-        $query = static::find();
+        $query = static::find()
+        ->joinWith('category')
+        ->select(['product.id AS id','product.image','product.sku','product.name','product.price','product.stock',
+                  'category.name AS category_name','product.status']);
         $dataProvider = new \yii\data\ActiveDataProvider([
             'query' => $query,
             'sort'=> ['defaultOrder' => ['id'=> SORT_ASC]],
@@ -190,12 +193,13 @@ class Product extends \yii\db\ActiveRecord  {
         if ((!$this->load($params)) && ($this->validate()))
             return $dataProvider;
         
-        $this->sku?$query->andFilterWhere(['like','sku',$this->sku]):'';
-        $this->name?$query->andFilterWhere(['like','name',$this->name]):'';
-        $this->status?$query->andFilterWhere(['status'=>$this->status]):'';
-        $this->weight?$query->andFilterWhere(['weight'=>$this->weight]):'';
-        $this->price?$query->andFilterWhere(['price'=>$this->price]):'';
-        $this->stock?$query->andFilterWhere(['stock'=>$this->stock]):'';
+        $this->sku?$query->andFilterWhere(['like','product.sku',$this->sku]):'';
+        $this->name?$query->andFilterWhere(['like','product.name',$this->name]):'';
+        $this->category_id?$query->andFilterWhere(['product.category_id'=>$this->category_id]):'';
+        $this->status?$query->andFilterWhere(['product.status'=>$this->status]):'';
+        $this->weight?$query->andFilterWhere(['product.weight'=>$this->weight]):'';
+        $this->price?$query->andFilterWhere(['product.price'=>$this->price]):'';
+        $this->stock?$query->andFilterWhere(['product.stock'=>$this->stock]):'';
         return $dataProvider;
     }
     
@@ -211,7 +215,10 @@ class Product extends \yii\db\ActiveRecord  {
             $model->brand_id = $this->brand_id;
             $model->short_description = $this->short_description;
             $model->long_description = $this->long_description;
-            $model->update();
+            if($id)
+                $model->update();
+            else
+                $model->insert();
             return $model->id;
         }
         return false;

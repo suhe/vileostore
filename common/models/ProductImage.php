@@ -21,8 +21,10 @@ class ProductImage extends \yii\db\ActiveRecord  {
         ->all();
     }
     
-    public static function DropdownList(){
+    public static function DropdownList($All=true){
         $result = [];
+        if($All==true)
+            $result[0] = Yii::t('app','choose image');
         $query = static::find()
         ->where(['product_id' => Yii::$app->request->QueryParams['id']])
         ->all();
