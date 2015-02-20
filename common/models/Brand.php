@@ -18,6 +18,7 @@ class Brand extends \yii\db\ActiveRecord {
         $data = [];
         if($All) $data[0] = Yii::t('app','all brand');
         $query = static::find()
+        ->orderBy(['name' => SORT_ASC])
         ->all();
         
         foreach($query as $row){

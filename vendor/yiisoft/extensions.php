@@ -75,13 +75,13 @@ return array (
       '@himiklab/thumbnail' => $vendorDir . '/himiklab/yii2-easy-thumbnail-image-helper',
     ),
   ),
-  'omnilight/yii2-shopping-cart' => 
+  'vileosoft/shopping-cart' => 
   array (
     'name' => 'omnilight/yii2-shopping-cart',
     'version' => '1.1.0.0',
     'alias' => 
     array (
-      '@yz/shoppingcart' => $vendorDir . '/omnilight/yii2-shopping-cart',
+      '@yz/shoppingcart' => $vendorDir . '/vileosoft/shopping-cart',
     ),
   ),
   '2amigos/yii2-gallery-widget' => 
@@ -109,6 +109,24 @@ return array (
     'alias' => 
     array (
       '@dosamigos/tinymce' => $vendorDir . '/2amigos/yii2-tinymce-widget',
+    ),
+  ),
+  'kartik-v/yii2-krajee-base' => 
+  array (
+    'name' => 'kartik-v/yii2-krajee-base',
+    'version' => '1.7.4.0',
+    'alias' => 
+    array (
+      '@kartik/base' => $vendorDir . '/kartik-v/yii2-krajee-base',
+    ),
+  ),
+  'kartik-v/yii2-widget-fileinput' => 
+  array (
+    'name' => 'kartik-v/yii2-widget-fileinput',
+    'version' => '1.0.0.0',
+    'alias' => 
+    array (
+      '@kartik/file' => $vendorDir . '/kartik-v/yii2-widget-fileinput',
     ),
   ),
 );

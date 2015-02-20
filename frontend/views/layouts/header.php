@@ -9,9 +9,9 @@ $cart = new Cart();
     <div class="container">
 	<div class="header-top-inner">
 	    <div class="cnt-account">
-		<ul class="list-unstyled">
+		<!--<ul class="list-unstyled">
 		    <li><a href="<?=\yii\helpers\Url::to(['user/profile'])?>"><i class="icon fa fa-user"></i><?=Yii::t('app','my account')?></a></li>
-		</ul>
+		</ul>-->
 	    </div><!-- /.cnt-account -->
 
 	    <div class="cnt-block">
@@ -63,7 +63,8 @@ $cart = new Cart();
 	    <div class="col-xs-12 col-sm-12 col-md-6 top-search-holder">
 		<div class="contact-row">
 		    <div class="phone inline"><i class="icon fa fa-phone"></i> <?=Yii::$app->setting->Variable('Hunting Phone')->content?></div>
-		    <div class="contact inline"><i class="icon fa fa-envelope"></i> <?=Yii::$app->setting->Variable('Email')->content?></div>
+		    <div class="phone inline"><i class="icon fa fa-whatsapp"></i> <?=Yii::$app->setting->Variable('Hunting Phone')->content?></div>
+		    <div class="contact inline"><i class="icon fa fa-wechat"></i> <?=Yii::$app->setting->Variable('BBM Pin')->content?></div>
 		</div><!-- /.contact-row -->
 		<!-- ============================================================= SEARCH AREA ============================================================= -->
 		<div class="search-area">

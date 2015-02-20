@@ -20,6 +20,7 @@ return [
     'awb' => 'AWB',
     /** Abjad B **/
     'bank transfer' => 'Bank Transfer',
+    'banner' => 'Banner',
     'basic information' => 'Informasi User',
     'brand' => 'Brand',
     /** Abjad C **/
@@ -69,6 +70,7 @@ return [
     'grid' => 'Grid',
     /** Abjad H **/
     'hai' => 'Hallo',
+    'height' => 'Tinggi',
     'history transaction' => 'Histori Transaksi',
     'home page' => 'Home Page',
     /** Abjad I **/
@@ -119,6 +121,7 @@ return [
     'payment accepted' => 'Pembayaran Telah diterima',
     'payment not accepted' => 'Pembayaran Belum kami terima',
     'payment confirmation' => 'Konfirmasi Pembayaran',
+    'position' => 'Posisi',
     'price' => 'Harga',
     'price down' => 'Harga Terendah',
     'price high' => 'Harga Tertinggi',
@@ -190,4 +193,5 @@ return [
     'waiting payment' => 'Menunggu Pembayaran',
     'weight' => 'Berat',
     'welcome back' => 'Selamat Datang Kembali silahkan Login',
+    'width' =>'Lebar',
  ];

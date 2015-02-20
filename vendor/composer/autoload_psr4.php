@@ -16,7 +16,12 @@ return array(
     'yii\\codeception\\' => array($vendorDir . '/yiisoft/yii2-codeception'),
     'yii\\bootstrap\\' => array($vendorDir . '/yiisoft/yii2-bootstrap'),
     'yii\\' => array($vendorDir . '/yiisoft/yii2'),
+    'kartik\\plugins\\fileinput\\' => array($vendorDir . '/kartik-v/bootstrap-fileinput'),
+    'kartik\\file\\' => array($vendorDir . '/kartik-v/yii2-widget-fileinput'),
+    'kartik\\base\\' => array($vendorDir . '/kartik-v/yii2-krajee-base'),
     'himiklab\\thumbnail\\' => array($vendorDir . '/himiklab/yii2-easy-thumbnail-image-helper'),
     'dosamigos\\tinymce\\' => array($vendorDir . '/2amigos/yii2-tinymce-widget'),
+    'dosamigos\\gallery\\' => array($vendorDir . '/2amigos/yii2-gallery-widget'),
+    'dosamigos\\fileupload\\' => array($vendorDir . '/2amigos/yii2-file-upload-widget'),
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),
 );

@@ -77,7 +77,7 @@ class Order extends \yii\db\ActiveRecord {
     
     public static function dropdownStatus($all=true){
         $data = [];
-        if($all=true)
+        if($all==true)
             $data[0] = Yii::t('app','all');
         $data[1] = Yii::t('app','completed');
         $data[2] = Yii::t('app','shipping');
