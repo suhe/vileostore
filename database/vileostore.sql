@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2015 at 08:17 AM
+-- Generation Time: Feb 20, 2015 at 10:42 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `brand` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `brand`
@@ -124,7 +124,9 @@ INSERT INTO `brand` (`id`, `name`, `logo`, `status`, `created_by`, `created_date
 (18, 'Huawei', 'brand18.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
 (19, 'M-COM', 'brand19.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
 (20, 'EGO', 'brand20.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
-(21, 'Lain-Lain', 'brand21.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL);
+(21, 'Lain-Lain', 'brand21.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(22, 'Apple', 'brand22.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(23, 'KexTech', 'brand23.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -141,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `status` tinyint(1) DEFAULT '1' COMMENT '1=active ,2 = deactive',
   `parent_id` int(11) DEFAULT '0',
   `order` int(11) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=42 ;
 
 --
 -- Dumping data for table `category`
@@ -156,14 +158,14 @@ INSERT INTO `category` (`id`, `name`, `slug`, `image`, `icon`, `status`, `parent
 (6, 'Perdana Internet Three', 'perdana-internet-three', NULL, NULL, 1, 1, NULL),
 (7, 'Handphone & Part', 'handphone', 'banner-side.png', 'phone', 1, 0, NULL),
 (8, 'Kabel USB & Micro HDMI', 'keitai-jepang', NULL, NULL, 1, 7, NULL),
-(9, 'Game Controller', 'game-controller', NULL, NULL, 1, 7, NULL),
+(9, 'Earphone & Headset', 'earphone-headset', NULL, NULL, 1, 7, NULL),
 (10, 'Baterai Handphone', 'baterai', NULL, NULL, 1, 7, NULL),
 (11, 'Power Bank', 'powerbank', NULL, NULL, 1, 7, NULL),
 (12, 'Sim Adapter', 'sim-adapter', NULL, NULL, 1, 7, NULL),
 (13, 'Networking & Part', 'networking', 'banner-side.png', NULL, 1, 0, NULL),
 (14, 'Modem MIFI Router GSM & CDMA', 'modem-mifi-4g', NULL, NULL, 1, 13, NULL),
 (15, 'Modem Dongle USB GSM & CDMA', 'modem-usb-gsm', NULL, NULL, 1, 13, NULL),
-(16, 'Modem Dongle USB CDMA', 'modem-dongle-cdma', NULL, NULL, 0, 13, NULL),
+(16, 'Wifi Receiver', 'wifi-receiver', NULL, NULL, 1, 13, NULL),
 (17, 'Pigtail Modem', 'pigtail-modem', NULL, NULL, 1, 13, NULL),
 (18, 'Antena Modem', 'antena-modem', NULL, NULL, 1, 13, NULL),
 (19, 'Baterai Modem MIFI', 'baterai-modem-mifi', NULL, NULL, 1, 13, NULL),
@@ -949,7 +951,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
 
 --
 -- Dumping data for table `product`
@@ -988,6 +990,15 @@ INSERT INTO `product` (`id`, `name`, `sku`, `slug`, `category_id`, `brand_id`, `
 (30, 'USB OTG Smartphone Micro ke Standar ', 'OTG-0001', 'usb-otg-smartphone-micro-ke-standar', 8, 1, 1, 10000, 'usb-otg-cable1.jpg', '100', '<p>USB OTG cable ini memungkinkan Anda untuk menghubungkan USB Flashdisk, USB card reader, atau keyboard untuk Gadget Anda (beberapa perangkat USB mungkin tidak berfungsi jika mereka mengkonsumsi terlalu banyak daya, seperti hard disk eksternal)</p>', '<p>USB OTG cable ini memungkinkan Anda untuk menghubungkan USB Flashdisk, USB card reader, atau keyboard untuk Gadget Anda (beberapa perangkat USB mungkin tidak berfungsi jika mereka mengkonsumsi terlalu banyak daya, seperti hard disk eksternal)<br /><br /><br />Keuntungan menggunakan USB OTG :<br />&bull; Tidak perlu menggunakan PC untuk mengunduh video dan foto dari Gadget ke flasdisk.<br />&bull; Hubungkan ke keyboard untuk kontrol yang lebih mudah terhadap gadget anda.<br />&bull; Jika menggunaka aplikasi DSLR Controller for Android, maka Android Anda bisa jadi panel kontrol buat kamera DSLR<br />&bull; Kalo dibuat mouse, muncul cursor juga, jadi kayak di PC.<br />&bull; Warna: Hitam<br /><br />Jadikan smartphone Anda lebih bermanfaat dengan konektor murah ini.<br /><br />BISA UNTUK SEMUA SMARTPHONE/TABLET YANG MENGGUNAKAN OS ANDROID ICS (Samsung, LG, Sony, China, Lokal pasti bisa, asal mendukung Fungsi OTG)<br />Untuk Samsung, mungkin perlu diroot, tapi tablet lokal/china/Sony tidak perlu diroot</p>', 0, 1, 1, 1, 4, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (31, 'Converter USB ke Micro USB Cable High Quality', 'CUSB-0001', 'converter-usb-ke-micro-usb-cable-high-quality', 8, 21, 1, 10000, 'sku_162930_2.jpg', '50', '<p>Converter dari Micro USB ke Lightning untuk iPad iPhone Bisa untuk transfer data / charging menggunakan kabel USB / micro Usb yang umum di gunakan oleh beragam merek HP</p>', '<p>Converter dari Micro USB ke Lightning untuk iPad iPhone Bisa untuk transfer data / charging menggunakan kabel USB / micro Usb yang umum di gunakan oleh beragam merek HP</p>', 0, 1, 1, 1, 4, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (32, 'Dual Micro USB Splitter Sync and Charge Cable', 'USPL-0001', 'dual-micro-usb-splitter-sync-and-charge-cable', 8, 21, 1, 19400, 'micro-usb-charging-cable-splitter-p34398-300.jpg', '50', '<p>Micro USB untuk charging dan sync data ke smartphone. Anda dapat melakukan charging dan sync secara bersamaan dengan 2 Micro USB diantaranya Charging dan sync data dapat dilakukan secara bersamaan, Micro USB yang 30 cm untuk charging baterai dan sync data, Micro USB yang 25 cm untuk charging baterai, Menggunakan USB 2.0</p>', '<p>Micro USB untuk charging dan sync data ke smartphone. Anda dapat melakukan charging dan sync secara bersamaan dengan 2 Micro USB diantaranya Charging dan sync data dapat dilakukan secara bersamaan, Micro USB yang 30 cm untuk charging baterai dan sync data, Micro USB yang 25 cm untuk charging baterai, Menggunakan USB 2.0</p>', 0, 1, 1, 1, 5, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL);
+INSERT INTO `product` (`id`, `name`, `sku`, `slug`, `category_id`, `brand_id`, `status`, `price`, `image`, `weight`, `short_description`, `long_description`, `latest_discussion`, `online`, `cod`, `dropshier`, `stock`, `review`, `counter`, `best_seller`, `total_sell`, `arrival_date`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
+(33, 'Sim Adapter Noosy 3 in 1 Micro Nano ke Standar SIM Warna Hitam', 'SA-0002', 'sim-adapter-noosy-3-in-1-micro-nano-ke-standar-sim-warna-hitam', 12, 4, 1, 10000, 'For_Iphone_4G_Micro_Sim_Adapter_Noosy.jpg', '50', '<p><span id="result_box" lang="id"><span class="hps">im</span> <span class="hps">Nano</span> <span class="hps">Anda</span> <span class="hps">dapat mengubah ukuran</span> <span class="hps">Micro</span> <span class="hps">sim atau Nano sim</span> <span class="hps">ke</span> <span class="hps">sim</span> <span class="hps">standar melalui</span> <span class="hps">NOOSY</span> <span class="hps">nano</span> <span class="hps">sim</span> <span class="hps">adapter</span>, <span class="hps">cocok dengan semua</span> <span class="hps">perangkat mobile</span>.</span><span id="result_box" lang="id"><span class="hps">Nano</span> <span class="hps">sim</span> <span class="hps">lebih kecil dari</span> <span class="hps">Micro</span> <span class="hps">sim</span>, ukuran <span class="hps">hanya</span> <span class="hps">12,3</span> <span class="hps">*</span> <span class="hps">8.8mm dengan&nbsp;</span> <span class="hps">sim</span> <span class="hps">adapter</span> <span class="hps">NOOSY</span> <span class="hps">Nano</span>, <span class="hps">memungkinkan</span> <span class="hps">Nano</span> <span class="hps">SIM</span> <span class="hps">dkembalikan</span> <span class="hps">Micro</span> <span class="hps">sim ataupun ke</span> <span class="hps">Standard</span> <span class="hps">sim</span>.</span></p>', '<p><span id="result_box" lang="id"><span class="hps">Sim</span> <span class="hps">Nano</span> <span class="hps">Anda</span> <span class="hps">dapat mengubah ukuran</span> <span class="hps">Micro</span> <span class="hps">sim atau Nano sim</span> <span class="hps">ke</span> <span class="hps">sim</span> <span class="hps">standar melalui</span> <span class="hps">NOOSY</span> <span class="hps">nano</span> <span class="hps">sim</span> <span class="hps">adapter</span>, <span class="hps">cocok dengan semua</span> <span class="hps">perangkat mobile</span>.</span><span id="result_box" lang="id"><span class="hps">Nano</span> <span class="hps">sim</span> <span class="hps">lebih kecil dari</span> <span class="hps">Micro</span> <span class="hps">sim</span>, ukuran <span class="hps">hanya</span> <span class="hps">12,3</span> <span class="hps">*</span> <span class="hps">8.8mm dengan&nbsp;</span> <span class="hps">sim</span> <span class="hps">adapter</span> <span class="hps">NOOSY</span> <span class="hps">Nano</span>, <span class="hps">memungkinkan</span> <span class="hps">Nano</span> <span class="hps">SIM</span> <span class="hps">dkembalikan</span> <span class="hps">Micro</span> <span class="hps">sim ataupun ke</span> <span class="hps">Standard</span> <span class="hps">sim</span>.<br /><span class="hps">Nano</span> <span class="hps">adaptor</span> <span class="hps">sim</span> <span class="hps">servicelife</span> mempunyai <span class="hps">kekuatan tinggi, </span><span class="hps">The</span> <span class="hps">Nano</span> <span class="hps">dibuat </span><span class="hps">dengan</span> <span class="hps">cetakan</span> <span class="hps">presisi</span>.</span></p>\r\n<ul style="list-style-type: undefined;">\r\n<li><span lang="id"><span id="result_box" lang="id"><span class="hps">Dapat</span> <span class="hps">ribuan</span> <span class="hps">kali</span> <span class="hps">tanpa ada&nbsp;</span> <span class="hps">yang rusak</span> <span class="hps">atau distorsi</span>.</span></span></li>\r\n<li><span lang="id"><span id="result_box" lang="id"><span class="hps">Dibuat dengan</span> <span class="hps">cetakan</span> <span class="hps">presisi</span>, <span class="hps">ukuran</span> <span class="hps">yang akurat</span> <span class="hps">tidak akan membuat</span> <span class="hps">drop</span> <span class="hps">sim</span> <span class="hps">Nano</span> <span class="hps">dari</span> <span class="hps">adaptor</span>.</span></span></li>\r\n<li><span lang="id"><span id="result_box" lang="id"><span class="hps">Cocok untuk</span> <span class="hps">semua perangkat</span> <span class="hps">mobile.</span></span></span></li>\r\n<li><span lang="id"><span id="result_box" lang="id">Dikemas <span class="hps">dengan</span> <span class="hps">Nano</span> <span class="hps">untuk sim</span> <span class="hps">adaptor</span> <span class="hps">&amp;</span> <span class="hps">Nano</span> <span class="hps">ke</span> <span class="hps">Adaptor</span> <span class="hps">mikro</span>.</span></span></li>\r\n</ul>', 0, 1, 1, 1, 5, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(34, 'Apple Earphones High Quality for iPhone 5 OEM', 'AEH-0001', 'apple-earphones-high-quality-for-iphone-5-oem', 9, 22, 1, 35000, 'irphone.png', '100', '<p>Earphones High Quality for iPhone 5 Kompatibel dengan semua Apple iPod dan pemutar digital. Earphone dirancang untuk kenyamanan. Aksesori yang universal ini memiliki desain ramping dan memberikan kualitas suara dan bass yang jernih.</p>', '<p>Earphones High Quality for iPhone 5 Kompatibel dengan semua Apple iPod dan pemutar digital. Earphone dirancang untuk kenyamanan. Aksesori yang universal ini memiliki desain ramping dan memberikan kualitas suara dan bass yang jernih, apakah Anda sedang mendengarkan lagu favorit Anda saat bekerja di meja Anda, berjalan di atas treadmill, atau bersantai di rumah. Kompak dan ultra-portabel, earphone ini cocok dengan mudah dalam saku atau tas sehingga Anda dapat mengambil mereka dan pergi.</p>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(35, 'Apple iPod Earphones (OEM)', 'AEH-0002', 'apple-ipod-earphones-oem', 9, 22, 1, 36000, 'apple-ipod-1.png', '100', '<p>Earphones Untuk Ipod Kompatibel dengan semua Apple iPod dan pemutar digital. Earphone dirancang untuk kenyamanan. Aksesori yang universal ini memiliki desain ramping dan memberikan kualitas suara dan bass yang jernih.</p>', '<p>Earphones Untuk Ipod&nbsp;Kompatibel dengan semua Apple iPod dan pemutar digital. Earphone dirancang untuk kenyamanan. Aksesori yang universal ini memiliki desain ramping dan memberikan kualitas suara dan bass yang jernih, apakah Anda sedang mendengarkan lagu favorit Anda saat bekerja di meja Anda, berjalan di atas treadmill, atau bersantai di rumah. Kompak dan ultra-portabel, earphone ini cocok dengan mudah dalam saku atau tas sehingga Anda dapat mengambil mereka dan pergi.</p>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(36, 'KexTech USB Wireless Adapter 150Mbps', 'WRK-0001', 'kextech-usb-wireless-adapter-150mbps', 2, 1, 1, 57000, 'ketek-001.gif', '200', '<p>Produk ini merupakan USB Wireless Adapter yang mendukung koneksg/n. Walaupun adaptor ini kecil, namun perangkat sudah mampu mendukung WiFi 802.11n dengan speed maximal 150mb/s, 3 kali lebih cepat daripada koneksi 802.11g.</p>', '<p><strong>Features</strong><br /> <br /> Mendukung WiFi 802.11n<br /> WiFi 802.11n merupakan koneksi wireless dengan kecepatan dan jangkuan yang maximal. Kecepatan maximal hingga 150mb/s.<br /> <br /> Design Portable<br /> Bentuk yang sangat kecil membuat USB Wireless Adapter ini dapat di bawa kemana-mana.<br /> <br /> Plug and Play<br /> Tidak perlu menginstal driver dari cd untuk menjalankan prangkat ini. Cukup mencolokkan USB Wireless Adapater ini ke Laptop atau PC Anda dan device ini akan otomatis melakukan instaling.<br /> <br /> Kompatible<br /> Dapat digunakan untuk semua Laptop dan PC yang memiliki USB Port dan OS Windows2000/XP/2003/Vista/win7, MAC OS,Linux</p>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(37, 'Pigtail Modem Huawei E5372-S SLIM, MAX - ZTE MF825A Dual Channel FME Male', 'PMM-0001', 'pigtail-modem-huawei-e5372-s-slim-max-zte-mf825a-dual-channel-fme-male', 17, 21, 1, 93000, 'pigtail-1.png', '100', '<p>Support dan cocok untuk tipe-tipe modem 4G LTE yang memiliki PORT ANTENA 2 (dua) buah, yang memiliki dual POLARISASI Vertikal dan Horizontal dengan teknologi MIMO (Multi In Multi Out) terutama Huawei SLIM , MAX dan ZTE MF825A yang mempunyai dua slot antena.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>Support dan cocok untuk tipe-tipe modem 4G LTE yang memiliki PORT ANTENA 2 (dua) buah, yang memiliki dual POLARISASI Vertikal dan Horizontal dengan teknologi MIMO (Multi In Multi Out)</p>\r\n<p><strong>Spesifikasi :</strong></p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Pigtail Adapter Tipe PLUG-IN (Colok) Cabang dua / Dual Port</li>\r\n<li>Impedance: 50 ohm</li>\r\n<li>Pigtail tidak longgar (tidak mudah lepas)</li>\r\n<li>Tipe Konektor: FME Male</li>\r\n<li>Tipe Kabel: RG174</li>\r\n<li>Finishing : Pabrikasi (bukan handmade)</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(38, 'FlashDisk Kingston DataTraveler 100 16GB USB 3.0', 'FDK-0001', 'flashdisk-kingston-datatraveler-100-16gb-usb-30', 22, 12, 1, 111000, '28937_2.jpg', '108000', '<p>Kingston DataTraveler&reg; 100 G3 (DT100G3) USB Flash drive kompatibel dengan generasi USB 3.0 spesifikasi untuk mengambil keuntungan dari teknologi dalam notebook baru, PC desktop dan perangkat digital.</p>', '<p>Kingston DataTraveler&reg; 100 G3 (DT100G3) USB Flash drive kompatibel dengan generasi USB 3.0 spesifikasi untuk mengambil keuntungan dari teknologi dalam notebook baru, PC desktop dan perangkat digital. Dengan DT100G3, menyimpan dan mentransfer dokumen, presentasi, musik, video, dan banyak lagi lebih cepat dan lebih mudah dari sebelumnya.<br /><br />DT100G3 memiliki ramping, desain hemat biaya untuk membuat transisi memuaskan ke USB 3.0 pengalaman investasi minimal. Tersedia dalam kapasitas 8GB dari-64GB, DT100G3 kompatibel dengan USB 2.0 dan memiliki garansi lima tahun. Masa depan-bukti penyimpanan portabel Anda sekarang</p>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(39, 'Kingston DataTraveler Generation 4 16GB USB 3.0', 'FDK-0002', 'kingston-datatraveler-generation-4-16gb-usb-30', 22, 1, 1, 108400, 'kingston-datatraveler-generation-4-dtig4-16gb-blue-1.jpg', '200', '<p>Kingston DataTraveler&reg; G3USB Flash drive kompatibel dengan generasi USB 3.0 spesifikasi untuk mengambil keuntungan dari teknologi dalam notebook baru, PC desktop dan perangkat digital.</p>', '<p>Kingston DataTraveler&reg; G3USB Flash drive kompatibel dengan generasi USB 3.0 spesifikasi untuk mengambil keuntungan dari teknologi dalam notebook baru, PC desktop dan perangkat digital.memiliki ramping, desain hemat biaya untuk membuat transisi memuaskan ke USB 3.0 pengalaman investasi minimal.</p>', 0, 1, 0, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(40, 'Kingston DataTraveler Generation 4 8GB USB 3.0', 'FDK-003', 'kingston-datatraveler-generation-4-8gb-usb-30', 22, 1, 1, 78700, 'kingston-datatraveler-generation-4-dtig4-8gb-yellow-2.jpg', '200', '<p>Kingston DataTraveler&reg; G3USB Flash drive kompatibel dengan generasi USB 3.0 spesifikasi untuk mengambil keuntungan dari teknologi dalam notebook baru, PC desktop dan perangkat digital.</p>', '<p>Kingston DataTraveler&reg; G3USB Flash drive kompatibel dengan generasi USB 3.0 spesifikasi untuk mengambil keuntungan dari teknologi dalam notebook baru, PC desktop dan perangkat digital.memiliki ramping, desain hemat biaya untuk membuat transisi memuaskan ke USB 3.0 pengalaman investasi minimal.</p>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1001,7 +1012,7 @@ CREATE TABLE IF NOT EXISTS `product_category` (
   `category_id` int(11) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=54 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=62 ;
 
 --
 -- Dumping data for table `product_category`
@@ -1043,7 +1054,15 @@ INSERT INTO `product_category` (`id`, `product_id`, `category_id`, `created_by`,
 (50, 29, 30, NULL, NULL),
 (51, 30, 8, NULL, NULL),
 (52, 31, 8, NULL, NULL),
-(53, 32, 8, NULL, NULL);
+(53, 32, 8, NULL, NULL),
+(54, 33, 12, NULL, NULL),
+(55, 34, 9, NULL, NULL),
+(56, 35, 9, NULL, NULL),
+(57, 36, 16, NULL, NULL),
+(58, 37, 17, NULL, NULL),
+(59, 38, 22, NULL, NULL),
+(60, 39, 22, NULL, NULL),
+(61, 40, 22, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1057,7 +1076,7 @@ CREATE TABLE IF NOT EXISTS `product_image` (
   `name` varchar(255) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=81 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=95 ;
 
 --
 -- Dumping data for table `product_image`
@@ -1128,7 +1147,19 @@ INSERT INTO `product_image` (`id`, `product_id`, `name`, `created_by`, `created_
 (77, 31, 'sku_162930_2.jpg', 9, '2015-02-20 14:11:31'),
 (78, 32, 'thumb_212192dual-micro-usb-splitter-sync-and-charge-cable-black-1.gif', 9, '2015-02-20 14:13:58'),
 (79, 32, 'micro-usb-charging-cable-splitter-p34398-300.jpg', 9, '2015-02-20 14:14:51'),
-(80, 30, 'usb-otg-cable1.jpg', 9, '2015-02-20 14:15:58');
+(80, 30, 'usb-otg-cable1.jpg', 9, '2015-02-20 14:15:58'),
+(81, 33, 'For_Iphone_4G_Micro_Sim_Adapter_Noosy.jpg', 9, '2015-02-20 15:31:01'),
+(82, 33, '3-in-1-nano-sim-adapter--sim-card-tray-holder-3.jpg', 9, '2015-02-20 15:31:03'),
+(83, 34, 'irphone.png', 9, '2015-02-20 15:38:51'),
+(84, 34, 'irphone-2.png', 9, '2015-02-20 15:38:53'),
+(87, 35, 'apple-ipod-1.png', 9, '2015-02-20 15:45:54'),
+(88, 35, 'apple-ipod-2.png', 9, '2015-02-20 15:45:55'),
+(89, 36, 'ketek-001.gif', 9, '2015-02-20 15:51:07'),
+(90, 36, 'ketek-02.jpg', 9, '2015-02-20 15:51:12'),
+(91, 37, 'pigtail-1.png', 9, '2015-02-20 16:00:31'),
+(92, 38, '28937_2.jpg', 9, '2015-02-20 16:19:20'),
+(93, 39, 'kingston-datatraveler-generation-4-dtig4-16gb-blue-1.jpg', 9, '2015-02-20 16:33:36'),
+(94, 40, 'kingston-datatraveler-generation-4-dtig4-8gb-yellow-2.jpg', 9, '2015-02-20 16:42:01');
 
 -- --------------------------------------------------------
 
@@ -13315,12 +13346,12 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 -- AUTO_INCREMENT for table `brand`
 --
 ALTER TABLE `brand`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=41;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT for table `city`
 --
@@ -13365,17 +13396,17 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT for table `product_category`
 --
 ALTER TABLE `product_category`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=54;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=62;
 --
 -- AUTO_INCREMENT for table `product_image`
 --
 ALTER TABLE `product_image`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=81;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=95;
 --
 -- AUTO_INCREMENT for table `province`
 --
