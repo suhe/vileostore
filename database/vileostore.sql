@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.2.7.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2015 at 02:00 AM
--- Server version: 5.6.21
--- PHP Version: 5.5.19
+-- Generation Time: Feb 20, 2015 at 08:17 AM
+-- Server version: 5.6.20
+-- PHP Version: 5.5.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `bank` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `bank`
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `banner` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `banner`
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `brand` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `brand`
@@ -119,7 +119,12 @@ INSERT INTO `brand` (`id`, `name`, `logo`, `status`, `created_by`, `created_date
 (13, 'Sandisk', 'brand13.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
 (14, 'Powerbank Bolt', 'brand14.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
 (15, 'Samsung', 'brand15.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
-(16, 'OEM', 'brand16.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL);
+(16, 'OEM', 'brand16.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(17, 'ZTE', 'brand17.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(18, 'Huawei', 'brand18.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(19, 'M-COM', 'brand19.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(20, 'EGO', 'brand20.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(21, 'Lain-Lain', 'brand21.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -136,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `status` tinyint(1) DEFAULT '1' COMMENT '1=active ,2 = deactive',
   `parent_id` int(11) DEFAULT '0',
   `order` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
 
 --
 -- Dumping data for table `category`
@@ -150,7 +155,7 @@ INSERT INTO `category` (`id`, `name`, `slug`, `image`, `icon`, `status`, `parent
 (5, 'Perdana Internet XL & AXIS', 'perdana-internet-xl', NULL, NULL, 1, 1, NULL),
 (6, 'Perdana Internet Three', 'perdana-internet-three', NULL, NULL, 1, 1, NULL),
 (7, 'Handphone & Part', 'handphone', 'banner-side.png', 'phone', 1, 0, NULL),
-(8, 'Keitai Jepang', 'keitai-jepang', NULL, NULL, 1, 7, NULL),
+(8, 'Kabel USB & Micro HDMI', 'keitai-jepang', NULL, NULL, 1, 7, NULL),
 (9, 'Game Controller', 'game-controller', NULL, NULL, 1, 7, NULL),
 (10, 'Baterai Handphone', 'baterai', NULL, NULL, 1, 7, NULL),
 (11, 'Power Bank', 'powerbank', NULL, NULL, 1, 7, NULL),
@@ -163,16 +168,16 @@ INSERT INTO `category` (`id`, `name`, `slug`, `image`, `icon`, `status`, `parent
 (18, 'Antena Modem', 'antena-modem', NULL, NULL, 1, 13, NULL),
 (19, 'Baterai Modem MIFI', 'baterai-modem-mifi', NULL, NULL, 1, 13, NULL),
 (20, 'Memory & Storage', 'memory-storage', 'banner-side.png', NULL, 1, 0, NULL),
-(21, 'Microsd', 'micro-sd', NULL, NULL, 1, 20, NULL),
+(21, 'Micro & SD Card', 'micro-sd', NULL, NULL, 1, 20, NULL),
 (22, 'Flashdisk', 'flashdisk', NULL, NULL, 1, 20, NULL),
 (23, 'Card Reader', 'card-reader', NULL, NULL, 1, 20, NULL),
-(24, 'Card Reader', 'card-reader', NULL, NULL, 1, 20, NULL),
+(24, 'SSD', 'ssd', NULL, NULL, 1, 20, NULL),
 (25, 'Peripheral & Aksesoris', 'peripheral-aksesoris', 'banner-side.png', NULL, 1, 0, NULL),
 (26, 'Mouse', 'mouse', NULL, NULL, 1, 25, NULL),
 (27, 'Keyboard', 'keyboard', NULL, NULL, 1, 25, NULL),
 (28, 'Mouse Pad', 'mouse-pad', NULL, NULL, 1, 25, NULL),
 (29, 'Game Controller', 'game-controller', NULL, NULL, 1, 25, NULL),
-(30, 'Kabel VGA', 'kabel-vga', NULL, NULL, 1, 25, NULL),
+(30, 'Kabel VGA & HDMI', 'kabel-vga-hdmi', NULL, NULL, 1, 25, NULL),
 (31, 'Vaporizer', 'vaporizer', 'banner-side.png', NULL, 1, 0, NULL),
 (32, 'Rokok Elekrik', 'ecigarete-device', NULL, NULL, 1, 31, NULL),
 (33, 'Isi Ulang Rokok Elekrik', 'refill-cigarete', NULL, NULL, 1, 31, NULL),
@@ -194,7 +199,7 @@ CREATE TABLE IF NOT EXISTS `city` (
 `id` int(4) NOT NULL,
   `province_id` int(11) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9472 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9472 ;
 
 --
 -- Dumping data for table `city`
@@ -715,7 +720,7 @@ CREATE TABLE IF NOT EXISTS `courier` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `courier`
@@ -738,7 +743,7 @@ CREATE TABLE IF NOT EXISTS `discussion` (
   `description` text,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `discussion`
@@ -758,7 +763,7 @@ CREATE TABLE IF NOT EXISTS `newsletter` (
 `id` int(11) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `newsletter`
@@ -802,7 +807,7 @@ CREATE TABLE IF NOT EXISTS `order` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `order`
@@ -833,7 +838,7 @@ CREATE TABLE IF NOT EXISTS `order_history` (
   `description` varchar(255) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `order_history`
@@ -858,7 +863,7 @@ CREATE TABLE IF NOT EXISTS `order_product` (
   `product_weight` decimal(10,0) DEFAULT NULL,
   `qty` int(11) DEFAULT NULL,
   `subtotal` double DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `order_product`
@@ -895,7 +900,7 @@ CREATE TABLE IF NOT EXISTS `page` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `page`
@@ -944,7 +949,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
 
 --
 -- Dumping data for table `product`
@@ -960,7 +965,7 @@ INSERT INTO `product` (`id`, `name`, `sku`, `slug`, `category_id`, `brand_id`, `
 (7, 'BOLT Huawei E5372s Slim Mobile Hotspot Wifi Unlock All GSM', 'BO-0001', 'bolt-huawei-e5372s-slim-mobile-hotspot-wifi-unlock-all-gsm', 14, 3, 1, 399000, 'huawei-modem-slim-max.png', '350', '<p>MIFI Router Portable Huawei Slim E5372-S&nbsp;Tanpa Perdana Bolt dan sudah unlock All GSM dengan Kecepatan download yang tinggi BOLT! Super 4G LTE memanjakanmu dengan video High Definition yang jernih dan kerja aplikasi yang optimal. Browsing, main games, dan video chat dengan teman atau keluarga melalui tablet atau smartphone terasa lebih menyenangkan. Rasakan kehebatannya sekarang.</p>', '<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah total.Kemudahan akses internet lebih seru karena harganya yang super dahsyat. Mulai dari IDR 6000/GB, kamu bisa menikmati serunya internetan dengan kecepatan tinggi.</p>\r\n<p>Share koneksi 4G LTE-mu melalui BOLT! Mobile Wi-Fi. Smartphone, tablet, laptop, game console, apapun yang bisa terhubung melalui Wi-Fi dapat ikut berpesta kuota. BOLT! adalah jaringan 4G LTE pertama yang hadir di wilayah Jabodetabek dan Banten. cek daerah mu kesini sudah tercover atau belum http://www.boltsuper4g.com/jaringan-bolt.html</p>', NULL, 1, 1, 1, 5, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (8, 'BOLT Huawei E5372s MAX Mobile Hotspot Wifi Unlock All GSM', 'BO-0002', 'bolt-huawei-e5372s-max-mobile-hotspot-wifi-unlock-all-gsm', 14, 3, 1, 499000, 'huawei-modem-slim-max.png', '500', '<p>MIFI Router Portable Huawei MAX E5372-S Tanpa Perdana Bolt dan sudah unlock All GSM dengan Kecepatan download yang tinggi BOLT dan Baterai yang Besar Super 4G LTE memanjakanmu dengan video High Definition yang jernih dan kerja aplikasi yang optimal. Browsing, main games, dan video chat dengan teman atau keluarga melalui tablet atau smartphone terasa lebih menyenangkan. Rasakan kehebatannya sekarang.</p>', '<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah total.Kemudahan akses internet lebih seru karena harganya yang super dahsyat. Mulai dari IDR 6000/GB, kamu bisa menikmati serunya internetan dengan kecepatan tinggi.</p>\r\n<p>Share koneksi 4G LTE-mu melalui BOLT! Mobile Wi-Fi. Smartphone, tablet, laptop, game console, apapun yang bisa terhubung melalui Wi-Fi dapat ikut berpesta kuota. BOLT! adalah jaringan 4G LTE pertama yang hadir di wilayah Jabodetabek dan Banten. cek daerah mu kesini sudah tercover atau belum http://www.boltsuper4g.com/jaringan-bolt.html</p>', NULL, 1, 1, 1, 3, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (9, 'BOLT ZTE MF90 Mobile Hotspot Wifi Unlock All GSM', 'BO-0003', 'bolt-zte-mf90-mobile-hotspot-wifi-unlock-all-gsm', 14, 3, 1, 415000, 'mf90-1.png', '350', '<p>MIFI Router Portable ZTE MF90 Tanpa Perdana Bolt dan sudah unlock All GSM dengan Kecepatan download yang tinggi BOLT! Super 4G LTE memanjakanmu dengan video High Definition yang jernih dan kerja aplikasi yang optimal. Browsing, main games, dan video chat dengan teman atau keluarga melalui tablet atau smartphone terasa lebih menyenangkan. Rasakan kehebatannya sekarang.</p>', '<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah total.Kemudahan akses internet lebih seru karena harganya yang super dahsyat. Mulai dari IDR 6000/GB, kamu bisa menikmati serunya internetan dengan kecepatan tinggi.</p>\r\n<p>Share koneksi 4G LTE-mu melalui BOLT! Mobile Wi-Fi. Smartphone, tablet, laptop, game console, apapun yang bisa terhubung melalui Wi-Fi dapat ikut berpesta kuota. BOLT! adalah jaringan 4G LTE pertama yang hadir di wilayah Jabodetabek dan Banten. cek daerah mu kesini sudah tercover atau belum http://www.boltsuper4g.com/jaringan-bolt.html</p>', NULL, 1, 1, 1, 3, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
-(10, 'Modem USB & MIFI Portable Sierra AirCard 320U LTE 4G ', 'SA-0001', 'modem-usb-mifi-portable-sierra-aircard-320u-lte-4g', 2, 1, 1, 345000, 'siera-negera.jpg', '500', '<p>Sierra 320u adalah pelanjut dari sierra 312u yang telah mendukung jaringan 4G LTE FDD 1800 dan 2600. modem ini berukuran cukup mungil dan enteng.Modem ini mempunyai 2 LED indicator yang satu menunjukkan deteksi modem dan led kedua menunjukkan sinyal. Apabila biru artinya 3g dan apabila 4g warnanya hijau, modem ini support dial dan mdma</p>', '<p>Sierra 320u adalah pelanjut dari sierra 312u yang telah mendukung jaringan 4G LTE FDD 1800 dan 2600. modem ini berukuran cukup mungil dan enteng.Modem ini mempunyai 2 LED indicator yang satu menunjukkan deteksi modem dan led kedua menunjukkan sinyal. Apabila biru artinya 3g dan apabila 4g warnanya hijau, modem ini support dial dan mdma Pastinya bagi yang suka ssh dan oprek modem, modem ini support dial dan mdma </p>', NULL, 1, 1, 1, 4, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(10, 'Modem USB & MIFI Portable Sierra AirCard 320U LTE 4G ', 'SA-0001', 'modem-usb-mifi-portable-sierra-aircard-320u-lte-4g', 14, 1, 1, 345000, 'siera-negera.jpg', '500', '<p>Sierra 320u adalah pelanjut dari sierra 312u yang telah mendukung jaringan 4G LTE FDD 1800 dan 2600. modem ini berukuran cukup mungil dan enteng.Modem ini mempunyai 2 LED indicator yang satu menunjukkan deteksi modem dan led kedua menunjukkan sinyal. Apabila biru artinya 3g dan apabila 4g warnanya hijau, modem ini support dial dan mdma</p>', '<p>Sierra 320u adalah pelanjut dari sierra 312u yang telah mendukung jaringan 4G LTE FDD 1800 dan 2600. modem ini berukuran cukup mungil dan enteng.Modem ini mempunyai 2 LED indicator yang satu menunjukkan deteksi modem dan led kedua menunjukkan sinyal. Apabila biru artinya 3g dan apabila 4g warnanya hijau, modem ini support dial dan mdma Pastinya bagi yang suka ssh dan oprek modem, modem ini support dial dan mdma</p>', NULL, 1, 1, 1, 4, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (11, 'Huawei E3276 - 4G LTE 150 Mbps Support BOLT 4G ', 'HUSB-0001', 'huawei-e3276-4g-lte-150-mbps-support-bolt-4g', 15, 3, 1, 259000, 'STC(1).jpg', '300', '<p>Modem Huawei E3276 LTE 150 Mbps adalah modem usb&nbsp; LTE TDD yang berada di jaringan 2300/2600 and dapat berjalan 3G network, and 2G, modem dapat dirotasi dan dibengkokan sesuai kebutuhan, plus dua external antenna slot untuk menambah kecepatan</p>', '<p>Modem Huawei E3276 LTE 150 Mbps adalah modem usb&nbsp; LTE TDD yang berada di jaringan 2300/2600 and dapat berjalan 3G network, and 2G, modem dapat dirotasi dan dibengkokan sesuai kebutuhan, plus dua external antenna slot untuk menambah kecepatan</p>\r\n<p>Modem Huawei E3276 LTE 150 Mbps adalah untuk pangsa Arab, Australia and dan beberapa negara Eropa, berikut spesifikasi Huawei E3276s-920&nbsp; :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>4G band 38/40 (TDD 22300/2600)</li>\r\n<li>3G DC-hspa+ 2100mHz</li>\r\n<li>GSM 850/900/1800/1900mHz</li>\r\n<li>TE cat4 DL up to 150Mbps</li>\r\n<li>LTE UL 50Mbps</li>\r\n<li>External antena interface, receive disersity</li>\r\n<li>USB 2.0 High speed</li>\r\n<li>Unlocked</li>\r\n<li>Micro SD slot</li>\r\n<li>supported OS win 7, win 8, XP SP3, Mac OS X1.05 with latest upgrades</li>\r\n</ul>\r\n<p>&nbsp;</p>', NULL, 1, 1, 1, 3, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (12, 'ZTE MF825A - 4G LTE 150 Mbps Support BOLT 4G ', 'ZUSB-0001', 'zte-mf825a-4g-lte-150-mbps-support-bolt-4g', 15, 3, 1, 269000, 'zmf825a-1.gif', '300', '<p>USB Modem MF825A Tanpa Perdana Bolt dan sudah unlock All GSM dengan Kecepatan download yang tinggi BOLT 4G LTE memanjakanmu dengan video High Definition yang jernih dan kerja aplikasi yang optimal. Browsing, main games, dan video chat dengan teman atau keluarga melalui tablet atau smartphone terasa lebih menyenangkan. Rasakan kehebatannya sekarang.</p>', '<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah total.Kemudahan akses internet lebih seru karena harganya yang super dahsyat. Mulai dari IDR 6000/GB, kamu bisa menikmati serunya internetan dengan kecepatan tinggi.</p>\r\n<p>Share koneksi 4G LTE-mu melalui BOLT! Mobile Wi-Fi. Smartphone, tablet, laptop, game console, apapun yang bisa terhubung melalui Wi-Fi dapat ikut berpesta kuota. BOLT! adalah jaringan 4G LTE pertama yang hadir di wilayah Jabodetabek dan Banten. cek daerah mu kesini sudah tercover atau belum http://www.boltsuper4g.com/jaringan-bolt.html</p>', 0, 1, 1, 1, 0, NULL, 0, 0, 0, '2015-12-30', 1, NULL, NULL, NULL),
 (13, 'Mouse AUE Wireless Optical 2.4G - M012 - Black', 'AUE-0001', 'mouse-aue-wireless-optical-24g-m012-black', 26, 8, 1, 69900, 'optical-mouse-wireless-2.4g-model-m012-black-3.jpg', '400', '<p>Mouse Wirelles dengan kecepatan 2.4Ghz , penggunaan dan instalasi sangat mudah cukup masukan usb receiver ke usb komputer dan akan terdeteksi otomatis , dengan frekuensi radio 2.4Ghz , mouse dapat dijangkau dengan 10 meter dari receiver dan device komputer.</p>', '<p>Mouse Wirelles dengan kecepatan 2.4Ghz , penggunaan dan instalasi sangat mudah cukup masukan usb receiver ke usb komputer dan akan terdeteksi otomatis , dengan frekuensi radio 2.4Ghz , mouse dapat dijangkau dengan 10 meter dari receiver dan device komputer.</p>\r\n<p>Spesifikasi Dasar :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>USB 2.0</li>\r\n<li>Connection Adjustable 400-1600 CPI</li>\r\n<li>Mouse Acceleration 14 inch / sec</li>\r\n<li>Battery Type 2 x AAA battery</li>\r\n<li>Dimension 95 x 65 x 37 mm</li>\r\n</ul>', 0, 1, 1, 1, 3, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
@@ -971,7 +976,18 @@ INSERT INTO `product` (`id`, `name`, `sku`, `slug`, `category_id`, `brand_id`, `
 (18, 'BOLT Crystal 7000mAh', 'BBO-0001', 'bolt-crystal-7000mah', 11, 14, 1, 185000, 'bolt-7000-mah.jpg', '500', '<p>Merupakan Power Bank 7000mAh terkecil saat ini. Dengan output 2.1 ampere, sangat sesuai jika digunakan untuk menambah daya baterai perangkat tablet. Dilengkapi dengan lampu LED yang bisa digunakan sebagai penerangan dalam keadaan darurat.</p>', '<p>Merupakan Power Bank 7000mAh terkecil saat ini. Dengan output 2.1 ampere, sangat sesuai jika digunakan untuk menambah daya baterai perangkat tablet. Dilengkapi dengan lampu LED yang bisa digunakan sebagai penerangan dalam keadaan darurat.</p>\r\n<p>BOLT Crystall dilindungi dengan dual IC yang berfungsi sebagai pelindung (protection)</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Over-charge protection</li>\r\n<li>Over-discharge protection</li>\r\n<li>Over-current protection.</li>\r\n<li>Over-voltage protection</li>\r\n<li>Short circuit protection.</li>\r\n<li>High-temp tested operation.</li>\r\n</ul>', 0, 1, 1, 1, 1, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (19, 'Sandisk Micro SDHC 16GB  Mobile Ultra Class 10', 'SDS-0001', 'sandisk-micro-sdhc-16gb-mobile-ultra-class-10', 21, 13, 1, 110000, 'sandisk-16gb-1.jpg', '200', '<p>SanDisk Ultra microSDHC UHS -I Card . Dengan kecepatan class 10 membuatnya ideal untuk mengambil video Full HD . Peningkatan kecepatan transfer hingga 30MB / s untuk membuat waktu loading aplikasi atau file pada perangkat mobile Anda . Anda juga mendapatkan Adapter SD kompatibel dengan berbagai perangkat yang tidak memiliki slot microSD tetapi memiliki slot SD . Dengan berbagai pilihan kapasitas , Anda dapat memilih sesuai dengan kebutuhan.</p>', '<p>Menambah kapasitas memori pada Anda Android perangkat , smartphone , tablet atau kamera Anda dengan SanDisk Ultra microSDHC UHS -I Card . Dengan kecepatan class 10 membuatnya ideal untuk mengambil video Full HD . Peningkatan kecepatan transfer hingga 30MB / s untuk membuat waktu loading aplikasi atau file pada perangkat mobile Anda . Anda juga mendapatkan Adapter SD kompatibel dengan berbagai perangkat yang tidak memiliki slot microSD tetapi memiliki slot SD . Dengan berbagai pilihan kapasitas , Anda dapat memilih sesuai dengan kebutuhan . Mengambil Ideal untuk Full HD Video SanDisk Ultra microSDHC UHS -I Card adalah kartu memori dengan kelas kecepatan UHS - I 10 yang dapat digunakan untuk menangkap HD kualitas video Full pada perangkat smartphone atau tablet Anda . Dengan kecepatan transfer hingga 30MB / s , kartu memori ini menawarkan kecepatan transfer file cepat untuk memindahkan data antara PC dan smartphone atau tablet . Mentransfer Dengan Kemudahan Dalam kemasan SanDisk Ultra microSDHC UHS -I SD Card termasuk adaptor yang memungkinkan Anda untuk saat ini akan memindahkan file dari PC ke smartphone atau tablet . Untuk mentransfer file , Anda hanya perlu masuk ke dalam SD adapter microSDXC kemudian masukan ke dalam slot kartu SD pada PC Anda . Resilient kartu memori SanDisk microSDHC Daya Tahan merancang ini untuk berbagai kondisi . Kartu memori ini tahan air dan telah diuji dan dapat bertahan hingga 72 jam dalam air garam dan air tawar di kedalaman 1 meter . Tidak hanya itu, kartu memori ini juga anti -shock dan dapat menahan guncangan hingga 500Gs . Anda juga dapat mengambil SanDisk Ultra microSDHC UHS -I Card di berbagai kondisi cuaca seperti tahan dari -13 sampai 185 derajat Fahrenheit suhu . Memory Zona Aplikasi Dikemas dengan aplikasi Memory Zona yang memberi Anda mudah untuk mengakses , back up data digital seluruh memori telepon dan memasukkannya ke dalam layanan awan .</p>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (20, 'Samsung MicroSDHC EVO UHS-I - 16GB - Class 10', 'SDSM-0001', 'samsung-microsdhc-evo-uhs-i-16gb-class-10', 21, 15, 1, 112000, 'samsung-evo-1.jpg', '200', '<p>Ultra-cepat, Video Capture dan Foto 2x Lebih cepat dari Kartu Memori Khas, dan Transfer hingga 360 Foto / Menit. Maksimalkan Kapasitas Penyimpanan Advanced Devices dan Toko Anda Semuanya dari Foto &amp; Lagu untuk HD Video. U1 dan Class 10, 16GB, Samsung kartu memori dapat bertahan suhu dari -25 &deg; hingga 85 &deg; Celcius.</p>', '<p>Ultra-cepat, Video Capture dan Foto 2x Lebih cepat dari Kartu Memori Khas, dan Transfer hingga 360 Foto / Menit. Maksimalkan Kapasitas Penyimpanan Advanced Devices dan Toko Anda Semuanya dari Foto &amp; Lagu untuk HD Video. U1 dan Class 10, 16GB. Simpan berharga kenangan-cepat Anda. Kecepatan kartu memori Ultra High Ini adalah UHS-1 diaktifkan, yang berarti menangkap foto dan video yang dua kali lebih cepat dari microSD khas Anda.Transfer hingga 360 foto per menit. Dengan kecepatan transfer hingga 48 MB per detik, Anda dapat menghabiskan waktu kurang mentransfer kenangan, dan lebih banyak waktu membuat mereka.Dapatkan hasil maksimal dari terbaru ponsel pintar, tablet dan kamera. Kartu memori ini bekerja sempurna bahkan dengan perangkat yang paling canggih untuk melindungi kenangan Anda untuk hidup.Save up to 37.270 foto, 1.110 menit video, dan 14.990 lagu. Men-download lebih file media dan aplikasi untuk ponsel pintar atau tablet. Dan selalu tahu bahwa Anda punya banyak ruang.Menangkap momen yang penting sejelas Anda ingat mereka. Tembak indah, Full HD video yang menjaga setiap memori aman dan sehat - dan segar sebagai hari itu terjadi.Dapatkan hasil maksimal dari terbaru ponsel pintar, tablet dan kamera. Kartu memori ini bekerja sempurna bahkan dengan perangkat yang paling canggih untuk melindungi kenangan Anda untuk hidup.amsung kartu memori dapat bertahan suhu dari -25 &deg; hingga 85 &deg; Celcius. Kartu Memori Samsung melindungi data berharga Anda dari kerusakan yang disebabkan oleh bandara mesin X-ray, serta Kartu Memori Samsung bahkan bisa menahan hingga 13 kali gaya magnet dari speaker home theater.</p>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
-(21, 'Sandisk Micro SDHC 32GB Mobile Ultra Class 10', 'SDS-0002', 'sandisk-micro-sdhc-32gb-mobile-ultra-class-10', 21, 13, 1, 220000, 'sandisk-32-1.jpg', '200', '<p>SanDisk Ultra microSDHC UHS -I Card . Dengan kecepatan class 10 membuatnya ideal untuk mengambil video Full HD . Peningkatan kecepatan transfer hingga 30MB / s untuk membuat waktu loading aplikasi atau file pada perangkat mobile Anda . Anda juga mendapatkan Adapter SD kompatibel dengan berbagai perangkat yang tidak memiliki slot microSD tetapi memiliki slot SD . Dengan berbagai pilihan kapasitas , Anda dapat memilih sesuai dengan kebutuhan.</p>', '<p>Menambah kapasitas memori pada Anda Android perangkat , smartphone , tablet atau kamera Anda dengan SanDisk Ultra microSDHC UHS -I Card . Dengan kecepatan class 10 membuatnya ideal untuk mengambil video Full HD . Peningkatan kecepatan transfer hingga 30MB / s untuk membuat waktu loading aplikasi atau file pada perangkat mobile Anda . Anda juga mendapatkan Adapter SD kompatibel dengan berbagai perangkat yang tidak memiliki slot microSD tetapi memiliki slot SD . Dengan berbagai pilihan kapasitas , Anda dapat memilih sesuai dengan kebutuhan . Mengambil Ideal untuk Full HD Video SanDisk Ultra microSDHC UHS -I Card adalah kartu memori dengan kelas kecepatan UHS - I 10 yang dapat digunakan untuk menangkap HD kualitas video Full pada perangkat smartphone atau tablet Anda . Dengan kecepatan transfer hingga 30MB / s , kartu memori ini menawarkan kecepatan transfer file cepat untuk memindahkan data antara PC dan smartphone atau tablet . Mentransfer Dengan Kemudahan Dalam kemasan SanDisk Ultra microSDHC UHS -I SD Card termasuk adaptor yang memungkinkan Anda untuk saat ini akan memindahkan file dari PC ke smartphone atau tablet . Untuk mentransfer file , Anda hanya perlu masuk ke dalam SD adapter microSDXC kemudian masukan ke dalam slot kartu SD pada PC Anda . Resilient kartu memori SanDisk microSDHC Daya Tahan merancang ini untuk berbagai kondisi . Kartu memori ini tahan air dan telah diuji dan dapat bertahan hingga 72 jam dalam air garam dan air tawar di kedalaman 1 meter . Tidak hanya itu, kartu memori ini juga anti -shock dan dapat menahan guncangan hingga 500Gs . Anda juga dapat mengambil SanDisk Ultra microSDHC UHS -I Card di berbagai kondisi cuaca seperti tahan dari -13 sampai 185 derajat Fahrenheit suhu . Memory Zona Aplikasi Dikemas dengan aplikasi Memory Zona yang memberi Anda mudah untuk mengakses , back up data digital seluruh memori telepon dan memasukkannya ke dalam layanan awan .</p>', 0, 1, 1, 1, 1, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL);
+(21, 'Sandisk Micro SDHC 32GB Mobile Ultra Class 10', 'SDS-0002', 'sandisk-micro-sdhc-32gb-mobile-ultra-class-10', 21, 13, 1, 220000, 'sandisk-32-1.jpg', '200', '<p>SanDisk Ultra microSDHC UHS -I Card . Dengan kecepatan class 10 membuatnya ideal untuk mengambil video Full HD . Peningkatan kecepatan transfer hingga 30MB / s untuk membuat waktu loading aplikasi atau file pada perangkat mobile Anda . Anda juga mendapatkan Adapter SD kompatibel dengan berbagai perangkat yang tidak memiliki slot microSD tetapi memiliki slot SD . Dengan berbagai pilihan kapasitas , Anda dapat memilih sesuai dengan kebutuhan.</p>', '<p>Menambah kapasitas memori pada Anda Android perangkat , smartphone , tablet atau kamera Anda dengan SanDisk Ultra microSDHC UHS -I Card . Dengan kecepatan class 10 membuatnya ideal untuk mengambil video Full HD . Peningkatan kecepatan transfer hingga 30MB / s untuk membuat waktu loading aplikasi atau file pada perangkat mobile Anda . Anda juga mendapatkan Adapter SD kompatibel dengan berbagai perangkat yang tidak memiliki slot microSD tetapi memiliki slot SD . Dengan berbagai pilihan kapasitas , Anda dapat memilih sesuai dengan kebutuhan . Mengambil Ideal untuk Full HD Video SanDisk Ultra microSDHC UHS -I Card adalah kartu memori dengan kelas kecepatan UHS - I 10 yang dapat digunakan untuk menangkap HD kualitas video Full pada perangkat smartphone atau tablet Anda . Dengan kecepatan transfer hingga 30MB / s , kartu memori ini menawarkan kecepatan transfer file cepat untuk memindahkan data antara PC dan smartphone atau tablet . Mentransfer Dengan Kemudahan Dalam kemasan SanDisk Ultra microSDHC UHS -I SD Card termasuk adaptor yang memungkinkan Anda untuk saat ini akan memindahkan file dari PC ke smartphone atau tablet . Untuk mentransfer file , Anda hanya perlu masuk ke dalam SD adapter microSDXC kemudian masukan ke dalam slot kartu SD pada PC Anda . Resilient kartu memori SanDisk microSDHC Daya Tahan merancang ini untuk berbagai kondisi . Kartu memori ini tahan air dan telah diuji dan dapat bertahan hingga 72 jam dalam air garam dan air tawar di kedalaman 1 meter . Tidak hanya itu, kartu memori ini juga anti -shock dan dapat menahan guncangan hingga 500Gs . Anda juga dapat mengambil SanDisk Ultra microSDHC UHS -I Card di berbagai kondisi cuaca seperti tahan dari -13 sampai 185 derajat Fahrenheit suhu . Memory Zona Aplikasi Dikemas dengan aplikasi Memory Zona yang memberi Anda mudah untuk mengakses , back up data digital seluruh memori telepon dan memasukkannya ke dalam layanan awan .</p>', 0, 1, 1, 1, 1, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(22, 'Baterai OEM MF90 Kapasitas 2300MAh', 'BMF90-0001', 'baterai-oem-mf90-kapasitas-2300mah', 19, 3, 1, 68000, 'oem-baterai-mf90-1.gif', '100', '<p>Baterai untuk Bolt ZTE MF90, bisa digunakan untuk mengganti baterai Anda yang rusak atau sebagai baterai cadangan jika low battery, dengan kapasitas sesuai dengan bawaannya sebesar 2300mAh dipastikan anda dapat baterai sesuai dengan aslinya.</p>', '<p>Baterai untuk Bolt ZTE MF90, bisa digunakan untuk mengganti baterai Anda yang rusak atau sebagai baterai cadangan jika low battery, dengan kapasitas sesuai dengan bawaannya sebesar 2300mAh dipastikan anda dapat baterai sesuai dengan aslinya.</p>', 0, 1, 1, 1, 5, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(23, 'Baterai Double Power Bolt MF90 Kapasitas 3800mAh', 'BMF90-0002', 'baterai-double-power-bolt-mf90-kapasitas-3800mah', 19, 3, 1, 89000, 'MCOM_BOLT_ZTE copy.png', '100', '<p>Buat Anda pengguna MF90 Bolt sudah tidak asing dengan Baterai Bawaan Bolt yang berkisar 2300 Mah , dengan munculnya Ke khawatiran orang-orang dengan sparepart Baterei apabila ada kerusakan atau sudah hamil duluan , beberapa orang mulai membeli Batterai Dummy (Kapasitor) yang sangat berbahaya tanpa IC , kini Hadir dengan Merk Vcom Double Power 3800 Mah </p>', '<p>Buat Anda pengguna MF90 Bolt sudah tidak asing dengan Baterai Bawaan Bolt yang berkisar 2300 Mah , dengan munculnya Ke khawatiran orang-orang dengan sparepart Baterei apabila ada kerusakan atau sudah hamil duluan , beberapa orang mulai membeli Batterai Dummy (Kapasitor) yang sangat berbahaya tanpa IC , kini Hadir dengan Merk Vcom Double Power 3800 Mah </p>', 0, 1, 1, 1, 5, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(24, 'Personal Vaporizer CE-5 Single Kit Plus Refill ', 'VEG-0001', 'personal-vaporizer-ce-5-single-kit-plus-refill', 32, 19, 1, 63000, 'black-ego-t-ce5-starter-kit-900mah-3.jpg', '250', '<p>EGO Vaporizer CE5 adalah Rokok elektrik yang telah disempurnakan Fungsi utama-nya adalah sebagai Pengganti Rokok Konvensional. Sekaligus sebagai terapi untuk berhenti merokok.</p>', '<p>EGO Vaporizer CE5 adalah Rokok elektrik yang telah disempurnakan Fungsi utama-nya adalah sebagai Pengganti Rokok Konvensional. Sekaligus sebagai terapi untuk berhenti merokok, Karena rokok elektrik ini memiliki Kelebihan-kelebihan sbb :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Tidak menggunakan tembakau</li>\r\n<li>Rokok elektrik ini tidak menggunakan api</li>\r\n<li>Tidak mengandung zat adiktif/ beracun ( nikotin/ tar)</li>\r\n<li>Asap nya lebih banyak daripada rokok elektrik biasa yg mirip rokok Konvensional beredar</li>\r\n<li>battery nya lebih tahan lama daripada rokok elektrik biasa yg lain banyak beredar</li>\r\n<li>Isi ulang praktis tinggal tetes</li>\r\n<li>yang dikeluarkan adalah uap " Netral " bukan asap yg Berbahaya Bagi kesehatan Paru2 dan Asapnya Aman Pula saat terhirup Anak atau Bayi, anda bisa praktekkan dengan menghembuskan uap nya pada telapak tangan, terlihat seperti embun bukan Nikotin.! ! ! dan tidak bau ditangan dan baju seperti rokok biasa.</li>\r\n</ul>\r\n<p><br /> Segeralah berhenti Merokok Tembakau/ Konvensional Sekarang dan Beralihlah Ke Era Baru Merokok Sehat dan Nikmati Sensasi aromanya. INGAT " Rokok " biasa " membunuhmu " Rokok electrik Ego baik untuk kesehatan.<br /> coba sekarang juga karna kami sudah membuktikan.</p>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(25, 'Perdana Bolt 8 GB Segel Expired 1 Tahun (Imei Modem disertakan)', 'PIB-0001', 'perdana-bolt-8-gb-segel-expired-1-tahun-imei-modem-disertakan', 2, 3, 1, 50000, 'perdana-bolt-1.jpg', '100', '<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah Total. isi Ulang akan lebih murah dengan ganti Perdana ini</p>\r\n<p>Syarat Syarat Perdana Bolt</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Untuk saat ini hanya khusus wilayah JABODETABEK &amp; Medan Kota Sumatera Utara</li>\r\n<li>Pastikan modem anda 4G LTE Dengan Frequency TDD Mhz</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 0, NULL, 0, 0, 0, '2015-03-31', 1, NULL, NULL, NULL),
+(26, 'Perdana Bolt Non Kuota Aktif 1 Tahun', 'PIB-0002', 'perdana-bolt-non-kuota-aktif-1-tahun', 2, 3, 1, 10000, 'perdana-bolt-2.jpg', '100', '<p>Perdana Bolt untuk Isi Ulang tidak ada kuota bagi anda yang kehilangan kartu bolt dan tidak memerlukan kuota hanya memerlukan kertu nya saja , BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah Total. isi Ulang akan lebih murah dengan ganti Perdana ini</p>\r\n<p>Syarat Syarat Perdana Bolt</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Untuk saat ini hanya khusus wilayah JABODETABEK &amp; Medan Kota Sumatera Utara</li>\r\n<li>Pastikan modem anda 4G LTE Dengan Frequency TDD Mhz</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(27, 'Memory Card Reader Mobile Mate Micro SDHC & M2', 'CRM-0001', 'memory-card-reader-mobile-mate-micro-sdhc-m2', 23, 19, 1, 19400, 'mobile-mate-micro-sd-and-m2-memory-card-reader-black-1.jpg', '100', '<div id="tab-description" class="tab-content" style="display: block;">\r\n<p><span id="result_box" lang="id"><span class="hps">Simpan dan</span> <span class="hps">transfer musik</span>, <span class="hps">video,</span> <span class="hps">foto dan</span> <span class="hps">data pribadi</span> <span class="hps">antara ponsel</span> <span class="hps">dan</span> <span class="hps">komputer Anda dengan</span> </span>Memory Card Reader Mobile Mate Micro SDHC &amp; M2 ini<span lang="id">.</span><span lang="id"><span class="hps">Alat</span> <span class="hps">ini</span> <span class="hps">akan membaca</span> <span class="hps">M2</span> <span class="hps atn">(</span>Memory Stick <span class="hps">Micro</span>), <span class="hps">TF</span> <span class="hps atn">(</span>T<span class="atn">-</span>Flash, <span class="hps">MicroSDHC</span>, <span class="hps">MicroSD</span>) <span class="hps">hingga 64GB</span></span></p>\r\n</div>', '<div id="tab-description" class="tab-content" style="display: block;">\r\n<p><span id="result_box" lang="id"><span class="hps">Simpan dan</span> <span class="hps">transfer musik</span>, <span class="hps">video,</span> <span class="hps">foto dan</span> <span class="hps">data pribadi</span> <span class="hps">antara ponsel</span> <span class="hps">dan</span> <span class="hps">komputer Anda dengan</span> </span>Memory Card Reader Mobile Mate Micro SDHC &amp; M2 ini<span lang="id">.</span><span lang="id"><span class="hps">Alat</span> <span class="hps">ini</span> <span class="hps">akan membaca</span> <span class="hps">M2</span> <span class="hps atn">(</span>Memory Stick <span class="hps">Micro</span>), <span class="hps">TF</span> <span class="hps atn">(</span>T<span class="atn">-</span>Flash, <span class="hps">MicroSDHC</span>, <span class="hps">MicroSD</span>) <span class="hps">hingga 64GB</span>, <span class="hps">Adapter</span> <span class="hps">tidak diperlukan</span>.<br /> <span class="hps">Dengan</span> <span class="hps">antarmuka USB 2.0</span>, <span class="hps">perangkat</span> <span class="hps">mungil ini</span> <span class="hps">dapat colok langsung ke</span> <span class="hps">port</span> <span class="hps">USB</span> <span class="hps">pada komputer Anda</span>, <span class="hps">seperti</span><strong> <span class="hps">flash drive</span></strong>.<span class="hps">Kompak dan</span> <span class="hps">portabel</span>, </span>Memory Card Reader Mobile Mate Micro SDHC &amp; M2 ini<span lang="id"> <span class="hps">pas di saku Anda</span> <span class="hps">untuk memudahkan</span> <span class="hps">transportasi</span> <span class="hps">data</span> <span class="hps">dan file</span> <span class="hps">multimedia</span>.</span></p>\r\n<p>&nbsp;</p>\r\n</div>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(28, 'Mouse Pad Gel Wrist Rest Mouse Pad', 'MMPD-0001', 'mouse-pad-gel-wrist-rest-mouse-pad', 26, 21, 1, 27800, 'thumb_212192gel-wrist-rest-mouse-pad-black-1.jpg', '100', '<p>Mouse Pad ini memiliki bantalan yang terbuat dari gel. Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>Mouse Pad ini memiliki bantalan yang terbuat dari gel. Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse.</p>\r\n<div class="h3" style="text-align: left;"><strong>Wrist Rest</strong></div>\r\n<div class="h3" style="text-align: left;">Terdapat bantalan untuk tempat bersender pergelangan tangan. Bantalan ini terbuat dari gel, sehingga empuk dan lebih nyaman saat digunakan.</div>\r\n<div class="h3" style="text-align: left;">&nbsp;</div>\r\n<div class="h3" style="text-align: left;"><strong>High Quality Material</strong></div>\r\n<div class="h3" style="text-align: left;">Material mouse pad ini terbuat dari lycra cloth yang halus dan soft, mouse Anda menjadi lebih presisi dan cepat saat digunakan di atas mouse pad ini.</div>\r\n<div class="h3" style="text-align: left;">&nbsp;</div>\r\n<div class="h3" style="text-align: left;"><strong>Anti Slip Backing</strong></div>\r\n<div class="h3" style="text-align: left;">Bagian bawah mouse pad terbuat dari material karet yang anti slip. Mouse pad akan tetap stabil tertempel di meja meskipun mouse Anda bergerak dengan cepat.</div>\r\n</div>', 0, 1, 1, 1, 1, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(29, 'Gold Plated HDMI to 19 Pin HDMI Support 3D', 'HDMI-0001', 'gold-plated-hdmi-to-19-pin-hdmi-support-3d', 30, 21, 1, 44900, 'thumb_21219214-version-gold-plated-hdmi-to-19-pin-hdmi-cable-support-3d-or-hd-tv-or-xbox-360-or-ps3-or-projector-or-dvd-player-etc-length-15m-gold-plated-black-3.jpg', '300', '<p>Untuk Menyambungkan Periperheril VGA Card , Playstation , XBOX yang sudah mensupport HDMI , jangkauan sekitar 1.5M dapat membaca Film maupun Game 3D dan blueray</p>', '<p>Untuk Menyambungkan Periperheril VGA Card , Playstation , XBOX yang sudah mensupport HDMI , jangkauan sekitar 1.5M dapat membaca Film maupun Game 3D dan blueray</p>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(30, 'USB OTG Smartphone Micro ke Standar ', 'OTG-0001', 'usb-otg-smartphone-micro-ke-standar', 8, 1, 1, 10000, 'usb-otg-cable1.jpg', '100', '<p>USB OTG cable ini memungkinkan Anda untuk menghubungkan USB Flashdisk, USB card reader, atau keyboard untuk Gadget Anda (beberapa perangkat USB mungkin tidak berfungsi jika mereka mengkonsumsi terlalu banyak daya, seperti hard disk eksternal)</p>', '<p>USB OTG cable ini memungkinkan Anda untuk menghubungkan USB Flashdisk, USB card reader, atau keyboard untuk Gadget Anda (beberapa perangkat USB mungkin tidak berfungsi jika mereka mengkonsumsi terlalu banyak daya, seperti hard disk eksternal)<br /><br /><br />Keuntungan menggunakan USB OTG :<br />&bull; Tidak perlu menggunakan PC untuk mengunduh video dan foto dari Gadget ke flasdisk.<br />&bull; Hubungkan ke keyboard untuk kontrol yang lebih mudah terhadap gadget anda.<br />&bull; Jika menggunaka aplikasi DSLR Controller for Android, maka Android Anda bisa jadi panel kontrol buat kamera DSLR<br />&bull; Kalo dibuat mouse, muncul cursor juga, jadi kayak di PC.<br />&bull; Warna: Hitam<br /><br />Jadikan smartphone Anda lebih bermanfaat dengan konektor murah ini.<br /><br />BISA UNTUK SEMUA SMARTPHONE/TABLET YANG MENGGUNAKAN OS ANDROID ICS (Samsung, LG, Sony, China, Lokal pasti bisa, asal mendukung Fungsi OTG)<br />Untuk Samsung, mungkin perlu diroot, tapi tablet lokal/china/Sony tidak perlu diroot</p>', 0, 1, 1, 1, 4, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(31, 'Converter USB ke Micro USB Cable High Quality', 'CUSB-0001', 'converter-usb-ke-micro-usb-cable-high-quality', 8, 21, 1, 10000, 'sku_162930_2.jpg', '50', '<p>Converter dari Micro USB ke Lightning untuk iPad iPhone Bisa untuk transfer data / charging menggunakan kabel USB / micro Usb yang umum di gunakan oleh beragam merek HP</p>', '<p>Converter dari Micro USB ke Lightning untuk iPad iPhone Bisa untuk transfer data / charging menggunakan kabel USB / micro Usb yang umum di gunakan oleh beragam merek HP</p>', 0, 1, 1, 1, 4, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(32, 'Dual Micro USB Splitter Sync and Charge Cable', 'USPL-0001', 'dual-micro-usb-splitter-sync-and-charge-cable', 8, 21, 1, 19400, 'micro-usb-charging-cable-splitter-p34398-300.jpg', '50', '<p>Micro USB untuk charging dan sync data ke smartphone. Anda dapat melakukan charging dan sync secara bersamaan dengan 2 Micro USB diantaranya Charging dan sync data dapat dilakukan secara bersamaan, Micro USB yang 30 cm untuk charging baterai dan sync data, Micro USB yang 25 cm untuk charging baterai, Menggunakan USB 2.0</p>', '<p>Micro USB untuk charging dan sync data ke smartphone. Anda dapat melakukan charging dan sync secara bersamaan dengan 2 Micro USB diantaranya Charging dan sync data dapat dilakukan secara bersamaan, Micro USB yang 30 cm untuk charging baterai dan sync data, Micro USB yang 25 cm untuk charging baterai, Menggunakan USB 2.0</p>', 0, 1, 1, 1, 5, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -985,7 +1001,7 @@ CREATE TABLE IF NOT EXISTS `product_category` (
   `category_id` int(11) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=54 ;
 
 --
 -- Dumping data for table `product_category`
@@ -1016,7 +1032,18 @@ INSERT INTO `product_category` (`id`, `product_id`, `category_id`, `created_by`,
 (39, 18, 11, NULL, NULL),
 (40, 19, 21, NULL, NULL),
 (41, 20, 21, NULL, NULL),
-(42, 21, 21, NULL, NULL);
+(42, 21, 21, NULL, NULL),
+(43, 22, 19, NULL, NULL),
+(44, 23, 19, NULL, NULL),
+(45, 24, 32, NULL, NULL),
+(46, 25, 2, NULL, NULL),
+(47, 26, 2, NULL, NULL),
+(48, 27, 23, NULL, NULL),
+(49, 28, 26, NULL, NULL),
+(50, 29, 30, NULL, NULL),
+(51, 30, 8, NULL, NULL),
+(52, 31, 8, NULL, NULL),
+(53, 32, 8, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1030,7 +1057,7 @@ CREATE TABLE IF NOT EXISTS `product_image` (
   `name` varchar(255) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=81 ;
 
 --
 -- Dumping data for table `product_image`
@@ -1083,7 +1110,25 @@ INSERT INTO `product_image` (`id`, `product_id`, `name`, `created_by`, `created_
 (56, 20, 'samsung-evo-1.jpg', 9, '2015-02-20 07:46:02'),
 (57, 20, '$_35.JPG', 9, '2015-02-20 07:46:40'),
 (58, 21, 'sandisk-32-1.jpg', 9, '2015-02-20 07:55:52'),
-(59, 21, 'sandisk-16gb-1.jpg', 9, '2015-02-20 07:55:54');
+(59, 21, 'sandisk-16gb-1.jpg', 9, '2015-02-20 07:55:54'),
+(60, 22, 'oem-baterai-mf90-1.gif', 9, '2015-02-20 09:45:26'),
+(61, 23, 'MCOM_BOLT_ZTE copy.png', 9, '2015-02-20 10:14:15'),
+(62, 24, 'black-ego-t-ce5-starter-kit-900mah-3.jpg', 9, '2015-02-20 10:27:31'),
+(63, 24, 'white-ego-t-ce5-starter-kit-900mah-4.jpg', 9, '2015-02-20 10:27:33'),
+(64, 25, 'perdana-bolt-1.jpg', 9, '2015-02-20 13:40:22'),
+(65, 25, 'perdana-bolt-2.jpg', 9, '2015-02-20 13:40:24'),
+(66, 26, 'perdana-bolt-2.jpg', 9, '2015-02-20 13:44:52'),
+(67, 26, 'perdana-bolt-1.jpg', 9, '2015-02-20 13:44:54'),
+(70, 27, 'mobile-mate-micro-sd-and-m2-memory-card-reader-black-1.jpg', 9, '2015-02-20 13:53:29'),
+(71, 27, 'mobile-mate-micro-sd-and-m2-memory-card-reader-black-2.jpg', 9, '2015-02-20 13:53:31'),
+(72, 28, 'thumb_212192gel-wrist-rest-mouse-pad-black-1.jpg', 9, '2015-02-20 13:57:08'),
+(73, 29, 'thumb_21219214-version-gold-plated-hdmi-to-19-pin-hdmi-cable-support-3d-or-hd-tv-or-xbox-360-or-ps3-or-projector-or-dvd-player-etc-length-15m-gold-plated-black-3.jpg', 9, '2015-02-20 14:03:26'),
+(74, 30, 'thumb_212192otg_micro.jpg', 9, '2015-02-20 14:08:05'),
+(75, 31, 'thumb_212192usb-20-to-micro-usb-cable-length-15m-black-1.gif', 9, '2015-02-20 14:10:12'),
+(77, 31, 'sku_162930_2.jpg', 9, '2015-02-20 14:11:31'),
+(78, 32, 'thumb_212192dual-micro-usb-splitter-sync-and-charge-cable-black-1.gif', 9, '2015-02-20 14:13:58'),
+(79, 32, 'micro-usb-charging-cable-splitter-p34398-300.jpg', 9, '2015-02-20 14:14:51'),
+(80, 30, 'usb-otg-cable1.jpg', 9, '2015-02-20 14:15:58');
 
 -- --------------------------------------------------------
 
@@ -1094,7 +1139,7 @@ INSERT INTO `product_image` (`id`, `product_id`, `name`, `created_by`, `created_
 CREATE TABLE IF NOT EXISTS `province` (
 `id` int(2) NOT NULL,
   `name` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=95 ;
 
 --
 -- Dumping data for table `province`
@@ -1148,7 +1193,7 @@ CREATE TABLE IF NOT EXISTS `setting` (
   `content` longtext,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `setting`
@@ -1185,7 +1230,7 @@ CREATE TABLE IF NOT EXISTS `shipping` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4845 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4845 ;
 
 --
 -- Dumping data for table `shipping`
@@ -6057,7 +6102,7 @@ CREATE TABLE IF NOT EXISTS `tag` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `tag`
@@ -6082,7 +6127,7 @@ CREATE TABLE IF NOT EXISTS `town` (
 `id` int(7) NOT NULL,
   `city_id` int(11) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9471041 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9471041 ;
 
 --
 -- Dumping data for table `town`
@@ -12993,7 +13038,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `user`
@@ -13036,7 +13081,7 @@ CREATE TABLE IF NOT EXISTS `user_address` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `user_address`
@@ -13071,7 +13116,7 @@ CREATE TABLE IF NOT EXISTS `user_dropship` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `user_dropship`
@@ -13094,7 +13139,7 @@ CREATE TABLE IF NOT EXISTS `user_group` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `user_group`
@@ -13270,7 +13315,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 -- AUTO_INCREMENT for table `brand`
 --
 ALTER TABLE `brand`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `category`
 --
@@ -13320,17 +13365,17 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `product_category`
 --
 ALTER TABLE `product_category`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=43;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=54;
 --
 -- AUTO_INCREMENT for table `product_image`
 --
 ALTER TABLE `product_image`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=60;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=81;
 --
 -- AUTO_INCREMENT for table `province`
 --
