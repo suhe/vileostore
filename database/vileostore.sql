@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2015 at 06:17 PM
+-- Generation Time: Feb 20, 2015 at 02:00 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.5.19
 
@@ -97,19 +97,29 @@ CREATE TABLE IF NOT EXISTS `brand` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `brand`
 --
 
 INSERT INTO `brand` (`id`, `name`, `logo`, `status`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
-(1, 'Nokia', 'brand1.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
-(2, 'Canon', 'brand2.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
-(3, 'Samsung', 'brand3.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
-(4, 'Apple', 'brand4.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
-(5, 'HTC', 'brand5.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
-(6, 'LG', 'brand6.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL);
+(1, 'Sierra Wirelles', 'brand1.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(2, 'Xiaomi', 'brand2.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(3, 'Bolt Indonesia', 'brand3.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(4, 'Nossy', 'brand4.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(5, 'XL Indonesia', 'brand5.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(6, 'Three Indonesia', 'brand6.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(7, 'Huawei', 'brand7.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(8, 'AUE', 'brand8.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(9, 'Esia', 'brand9.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(10, 'Vivan', 'brand10.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(11, 'Taff', 'brand11.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(12, 'Kingston', 'brand12.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(13, 'Sandisk', 'brand13.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(14, 'Powerbank Bolt', 'brand14.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(15, 'Samsung', 'brand15.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(16, 'OEM', 'brand16.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -146,9 +156,9 @@ INSERT INTO `category` (`id`, `name`, `slug`, `image`, `icon`, `status`, `parent
 (11, 'Power Bank', 'powerbank', NULL, NULL, 1, 7, NULL),
 (12, 'Sim Adapter', 'sim-adapter', NULL, NULL, 1, 7, NULL),
 (13, 'Networking & Part', 'networking', 'banner-side.png', NULL, 1, 0, NULL),
-(14, 'Modem MIFI GSM', 'modem-mifi-4g', NULL, NULL, 1, 13, NULL),
-(15, 'Modem Dongle USB GSM', 'modem-usb-gsm', NULL, NULL, 1, 13, NULL),
-(16, 'Modem Dongle USB CDMA', 'modem-dongle-cdma', NULL, NULL, 1, 13, NULL),
+(14, 'Modem MIFI Router GSM & CDMA', 'modem-mifi-4g', NULL, NULL, 1, 13, NULL),
+(15, 'Modem Dongle USB GSM & CDMA', 'modem-usb-gsm', NULL, NULL, 1, 13, NULL),
+(16, 'Modem Dongle USB CDMA', 'modem-dongle-cdma', NULL, NULL, 0, 13, NULL),
 (17, 'Pigtail Modem', 'pigtail-modem', NULL, NULL, 1, 13, NULL),
 (18, 'Antena Modem', 'antena-modem', NULL, NULL, 1, 13, NULL),
 (19, 'Baterai Modem MIFI', 'baterai-modem-mifi', NULL, NULL, 1, 13, NULL),
@@ -813,6 +823,30 @@ INSERT INTO `order` (`id`, `invoice_no`, `type`, `status`, `user_id`, `courier_i
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `order_history`
+--
+
+CREATE TABLE IF NOT EXISTS `order_history` (
+`id` int(11) NOT NULL,
+  `order_id` int(11) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `order_history`
+--
+
+INSERT INTO `order_history` (`id`, `order_id`, `type`, `description`, `created_by`, `created_date`) VALUES
+(1, 24, 'Buy', 'Beli Produk', 9, '2015-02-18 19:48:27'),
+(2, 24, NULL, NULL, NULL, '2015-02-18 21:18:03'),
+(3, 24, NULL, NULL, NULL, '2015-02-18 21:19:38');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `order_product`
 --
 
@@ -894,9 +928,9 @@ CREATE TABLE IF NOT EXISTS `product` (
   `price` double DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `weight` decimal(10,0) DEFAULT NULL,
-  `short_description` tinytext,
+  `short_description` text,
   `long_description` longtext,
-  `latest_discussion` int(11) DEFAULT NULL,
+  `latest_discussion` int(11) DEFAULT '0',
   `online` tinyint(1) DEFAULT '1',
   `cod` tinyint(1) DEFAULT '0',
   `dropshier` tinyint(1) DEFAULT '1',
@@ -910,18 +944,34 @@ CREATE TABLE IF NOT EXISTS `product` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`id`, `name`, `sku`, `slug`, `category_id`, `brand_id`, `status`, `price`, `image`, `weight`, `short_description`, `long_description`, `latest_discussion`, `online`, `cod`, `dropshier`, `stock`, `review`, `counter`, `best_seller`, `total_sell`, `arrival_date`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
-(1, 'THREE - Always On AON 12 Bulan 10GB', 'SKU001', 'three-always-on-aon-12-bulan-kuota-10gb', 6, 1, 1, 89000, 'c1.jpg', '100', 'Free internet 1 tahun, fair quota 10GB. Setelah Kuota habis hanya bisa akses ke 11 situs populer tertentu selama setahun dari pertama kali kartu di aktifkan. Kartu ini sudah aktif dari Januari 2015 sampai dengan Januari 2016. Kartu yang sudah di gunakan t', 'Kapan terakhir kali kamu mencicipi kebebasan berinternet tanpa banyak syarat? Mulai dari adanya batasan waktu, masa pakai yang singkat, hingga kuota yang selalu hangus jika tidak digunakan ketika masa pakai telah berakhir.\r\nPada akhirnya, kebebasan menjadi batasan yang membuat kamu menjadi lebih boros. Apalagi dengan adanya ketentuan "pemakaian wajar" yang membuat kecepatan internetmu berkurang, atau bahkan bisa terjebak membayar lebih mahal setelah kuota yang ditentukan habis.\r\nJika kamu merasa kebebasan itu omong kosong.', 9, 1, 0, 1, 0, 1, 0, 1, NULL, '2015-02-26', 1, NULL, NULL, NULL),
-(2, 'THREE - Internet Sepuasnya 3 Bulan (1GB)', 'SKU002', 'three-always-on-aon-12-bulan-kuota-1gb', 6, 2, 1, 23000, 'three1.gif', '100', 'Kartu Perdana THREE 3 UNLIMITED GRATIS 3 BULAN. Bisa dipakai di seluruh indonesia selama masih ada sinyal Three 3 dengan koneksi super ngebut tanpa putus. Speed Up to 3.6 Mbps Quota 1 GB per bulan. Setelah 3 Bulan, per bulannya Rp. 35.000,- (Belum termasu', 'Perdana Three unlimited , free 3 bulan internet, iuran bulanan selanjutnya (bulan ke-4 dst) @Rp 35.000,- (BELUM TERMASUK PPN)\r\n\r\nPenjelasan :\r\nTri, operator jaringan GSM milik PT Hutchison CP Telecommunication kini ambil bagian dalam meningkatkan penggunaan internet masyarakat Indonesia. Mereka menghadirkan layanan mobile broadband berbasis HSPA (High Speed Packet Access). Yang dilengkapi dgn paket berlangganan data & modem mulai 18 Februari 2010.\r\n\r\nSetelah 3 bulan, pelanggan dikenakan tarif akses Rp 35.000/bulan (belum termasuk PPN). Pelanggan bisa mengisi ulang pulsa internet ini dgn pulsa regular Tri.\r\n\r\nLayanan ini didukung oleh teknologi HSPA Tri yng menawarkan kecepatan sampai dgn 1,8 Mbps utk HSDPA (High Speed Downlink Packet Access) & 1,4 Mbps utk HSUPA (High Speed Uplink Packet Access).', 1, 1, 0, 1, 11, 0, 1, 1, NULL, NULL, 1, NULL, NULL, NULL),
-(3, 'THREE - Internet Sepuasnya 3 Bulan (1GB)', 'SKU003', 'three-always-on-aon-12-bulan-kuota-1gb', 6, 3, 1, 23000, 'three1.gif', '100', 'Kartu Perdana THREE 3 UNLIMITED GRATIS 3 BULAN. Bisa dipakai di seluruh indonesia selama masih ada sinyal Three 3 dengan koneksi super ngebut tanpa putus. Speed Up to 3.6 Mbps Quota 1 GB per bulan. Setelah 3 Bulan, per bulannya Rp. 35.000,- (Belum termasu', 'Perdana Three unlimited , free 3 bulan internet, iuran bulanan selanjutnya (bulan ke-4 dst) @Rp 35.000,- (BELUM TERMASUK PPN)\r\n\r\nPenjelasan :\r\nTri, operator jaringan GSM milik PT Hutchison CP Telecommunication kini ambil bagian dalam meningkatkan penggunaan internet masyarakat Indonesia. Mereka menghadirkan layanan mobile broadband berbasis HSPA (High Speed Packet Access). Yang dilengkapi dgn paket berlangganan data & modem mulai 18 Februari 2010.\r\n\r\nSetelah 3 bulan, pelanggan dikenakan tarif akses Rp 35.000/bulan (belum termasuk PPN). Pelanggan bisa mengisi ulang pulsa internet ini dgn pulsa regular Tri.\r\n\r\nLayanan ini didukung oleh teknologi HSPA Tri yng menawarkan kecepatan sampai dgn 1,8 Mbps utk HSDPA (High Speed Downlink Packet Access) & 1,4 Mbps utk HSUPA (High Speed Uplink Packet Access).', 1, 1, 0, 1, 11, 0, 1, 1, NULL, NULL, 1, NULL, NULL, NULL),
-(4, 'THREE - Internet Sepuasnya 3 Bulan (1GB)', 'SKU004', 'three-always-on-aon-12-bulan-kuota-1gb', 6, 4, 1, 23000, 'three1.gif', '100', 'Kartu Perdana THREE 3 UNLIMITED GRATIS 3 BULAN. Bisa dipakai di seluruh indonesia selama masih ada sinyal Three 3 dengan koneksi super ngebut tanpa putus. Speed Up to 3.6 Mbps Quota 1 GB per bulan. Setelah 3 Bulan, per bulannya Rp. 35.000,- (Belum termasu', 'Perdana Three unlimited , free 3 bulan internet, iuran bulanan selanjutnya (bulan ke-4 dst) @Rp 35.000,- (BELUM TERMASUK PPN)\r\n\r\nPenjelasan :\r\nTri, operator jaringan GSM milik PT Hutchison CP Telecommunication kini ambil bagian dalam meningkatkan penggunaan internet masyarakat Indonesia. Mereka menghadirkan layanan mobile broadband berbasis HSPA (High Speed Packet Access). Yang dilengkapi dgn paket berlangganan data & modem mulai 18 Februari 2010.\r\n\r\nSetelah 3 bulan, pelanggan dikenakan tarif akses Rp 35.000/bulan (belum termasuk PPN). Pelanggan bisa mengisi ulang pulsa internet ini dgn pulsa regular Tri.\r\n\r\nLayanan ini didukung oleh teknologi HSPA Tri yng menawarkan kecepatan sampai dgn 1,8 Mbps utk HSDPA (High Speed Downlink Packet Access) & 1,4 Mbps utk HSUPA (High Speed Uplink Packet Access).', 1, 1, 0, 1, 11, 0, 1, 1, NULL, NULL, 1, NULL, NULL, NULL),
-(5, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, 1, 1, 0, 1, NULL, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL);
+(1, 'THREE- AON Kuota Regular 5GB  Aktif 1 Tahun ', 'TR-0001', 'three-aon-kuota-regular-5gb-aktif-1-tahun', 6, 1, 1, 55000, 'three-5gb-aon.png', '100', '<p>Free internet 1 tahun, Dengan Kuota Kurang lebih 5GB. Setelah Kuota habis hanya bisa akses ke 11 situs populer tertentu selama setahun dari pertama kali kartu di aktifkan. Kartu ini sudah aktif dari selama 1 Tahun Kurang. Kartu yang sudah di gunakan bisa digunakan kembali.</p>', '<p>Pada akhirnya, kebebasan menjadi batasan yang membuat kamu menjadi lebih boros. Apalagi dengan adanya ketentuan "pemakaian wajar" yang membuat kecepatan internetmu berkurang, atau bahkan bisa terjebak membayar lebih mahal setelah kuota yang ditentukan habis.Jika kamu merasa kebebasan itu omong kosong Think again.</p>\r\n<p>Kini dengan AlwaysOn, rasakan kebebasan berinternet tanpa syarat.Bebas internet sepuasnya tanpa kuota/pulsa. Bebas akses 11 situs populer, FULL SPEED, tanpa pake kuota/pulsa selama masa pakai internet masih berlaku.</p>\r\n<p>Berikut ini 11 situs yang dapat kamu akses secara bebas:</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Facebook</li>\r\n<li>Google</li>\r\n<li>Detik</li>\r\n<li>Klik BCA</li>\r\n<li>Twitter</li>\r\n<li>Mobile Kompas</li>\r\n<li>Toko Bagus</li>\r\n<li>Oke Zone</li>\r\n<li>Viva News</li>\r\n<li>Chatting (FB Messenger, YM Messenger, AOL, ICQ, GTalk, MSN)</li>\r\n<li>Kaskus</li>\r\n</ul>\r\n<p>&nbsp;</p>\r\n<p>Asiknya lagi, setiap bulannya kamu akan mendapat bonus kuota 50MB/bulan dan terus terakumulasi setiap kamu isi ulang, yang bisa kamu gunakan untuk akses ke situs lainnya berikut adalah spesifikasi three aon :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Kartu perdana Internet bisa telpon dan sms</li>\r\n<li>Always On selama 12 bulan ( masa aktif internet 12 bulan )</li>\r\n<li>Masa aktif kartu februari-maret 2015 - Kuota 5GB + bonus 600Mb ( 600Mb diakumulasi 50 Mb per bulan selama 12 bulan )</li>\r\n<li>Gratis akses 11 situs terkenal seuai diatas tanpa dikenakan kuota</li>\r\n<li>Pilihan nomor acak - GRATIS BBM 1 TAHUN apabila di gunakan/dipakai pada handphone BlackBerry tipe Z10 ( untuk info lebih lengkap silahkan hub TRI di 123 ).</li>\r\n</ul>', 9, 1, 1, 1, 10, 1, 0, 1, NULL, '2015-02-26', 1, NULL, NULL, NULL),
+(2, 'THREE- AON Kuota Regular 8GB Aktif 1 Tahun ', 'TR-0002', 'three-aon-kuota-regular-8gb-aktif-1-tahun', 6, 6, 1, 73000, 'three-8gb-aon.png', '100', '<p>Free internet 1 tahun, Dengan Kuota Kurang lebih 8GB. Setelah Kuota habis hanya bisa akses ke 11 situs populer tertentu selama setahun dari pertama kali kartu di aktifkan. Kartu ini sudah aktif dari selama 1 Tahun Kurang. Kartu yang sudah di gunakan bisa digunakan kembali.</p>', '<p>Pada akhirnya, kebebasan menjadi batasan yang membuat kamu menjadi lebih boros. Apalagi dengan adanya ketentuan "pemakaian wajar" yang membuat kecepatan internetmu berkurang, atau bahkan bisa terjebak membayar lebih mahal setelah kuota yang ditentukan habis.Jika kamu merasa kebebasan itu omong kosong Think again.</p>\r\n<p>Kini dengan AlwaysOn, rasakan kebebasan berinternet tanpa syarat.Bebas internet sepuasnya tanpa kuota/pulsa. Bebas akses 11 situs populer, FULL SPEED, tanpa pake kuota/pulsa selama masa pakai internet masih berlaku.</p>\r\n<p>Berikut ini 11 situs yang dapat kamu akses secara bebas:</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Facebook</li>\r\n<li>Google</li>\r\n<li>Detik</li>\r\n<li>Klik BCA</li>\r\n<li>Twitter</li>\r\n<li>Mobile Kompas</li>\r\n<li>Toko Bagus</li>\r\n<li>Oke Zone</li>\r\n<li>Viva News</li>\r\n<li>Chatting (FB Messenger, YM Messenger, AOL, ICQ, GTalk, MSN)</li>\r\n<li>Kaskus</li>\r\n</ul>\r\n<p>&nbsp;</p>\r\n<p>Asiknya lagi, setiap bulannya kamu akan mendapat bonus kuota 50MB/bulan dan terus terakumulasi setiap kamu isi ulang, yang bisa kamu gunakan untuk akses ke situs lainnya berikut adalah spesifikasi three aon :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Kartu perdana Internet bisa telpon dan sms</li>\r\n<li>Always On selama 12 bulan ( masa aktif internet 12 bulan )</li>\r\n<li>Masa aktif kartu februari-maret 2015 - Kuota 5GB + bonus 600Mb ( 600Mb diakumulasi 50 Mb per bulan selama 12 bulan )</li>\r\n<li>Gratis akses 11 situs terkenal seuai diatas tanpa dikenakan kuota</li>\r\n<li>Pilihan nomor acak - GRATIS BBM 1 TAHUN apabila di gunakan/dipakai pada handphone BlackBerry tipe Z10 ( untuk info lebih lengkap silahkan hub TRI di 123 ).</li>\r\n</ul>', 1, 1, 1, 1, 11, 0, 1, 1, NULL, NULL, 1, NULL, NULL, NULL),
+(3, 'THREE- AON Kuota Regular 10GB Aktif 1 Tahun ', 'TR-0003', 'three-aon-kuota-regular-10gb-aktif-1-tahun', 6, 6, 1, 89000, '10GB.png', '100', '<p>Free internet 1 tahun, Dengan Kuota Kurang lebih 10GB. Setelah Kuota habis hanya bisa akses ke 11 situs populer tertentu selama setahun dari pertama kali kartu di aktifkan. Kartu ini sudah aktif dari selama 1 Tahun Kurang. Kartu yang sudah di gunakan bisa digunakan kembali.</p>', '<p>Pada akhirnya, kebebasan menjadi batasan yang membuat kamu menjadi lebih boros. Apalagi dengan adanya ketentuan "pemakaian wajar" yang membuat kecepatan internetmu berkurang, atau bahkan bisa terjebak membayar lebih mahal setelah kuota yang ditentukan habis.Jika kamu merasa kebebasan itu omong kosong Think again.</p>\r\n<p>Kini dengan AlwaysOn, rasakan kebebasan berinternet tanpa syarat.Bebas internet sepuasnya tanpa kuota/pulsa. Bebas akses 11 situs populer, FULL SPEED, tanpa pake kuota/pulsa selama masa pakai internet masih berlaku.</p>\r\n<p>Berikut ini 11 situs yang dapat kamu akses secara bebas:</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Facebook</li>\r\n<li>Google</li>\r\n<li>Detik</li>\r\n<li>Klik BCA</li>\r\n<li>Twitter</li>\r\n<li>Mobile Kompas</li>\r\n<li>Toko Bagus</li>\r\n<li>Oke Zone</li>\r\n<li>Viva News</li>\r\n<li>Chatting (FB Messenger, YM Messenger, AOL, ICQ, GTalk, MSN)</li>\r\n<li>Kaskus</li>\r\n</ul>\r\n<p>&nbsp;</p>\r\n<p>Asiknya lagi, setiap bulannya kamu akan mendapat bonus kuota 50MB/bulan dan terus terakumulasi setiap kamu isi ulang, yang bisa kamu gunakan untuk akses ke situs lainnya berikut adalah spesifikasi three aon :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Kartu perdana Internet bisa telpon dan sms</li>\r\n<li>Always On selama 12 bulan ( masa aktif internet 12 bulan )</li>\r\n<li>Masa aktif kartu februari-maret 2015 - Kuota 5GB + bonus 600Mb ( 600Mb diakumulasi 50 Mb per bulan selama 12 bulan )</li>\r\n<li>Gratis akses 11 situs terkenal seuai diatas tanpa dikenakan kuota</li>\r\n<li>Pilihan nomor acak - GRATIS BBM 1 TAHUN apabila di gunakan/dipakai pada handphone BlackBerry tipe Z10 ( untuk info lebih lengkap silahkan hub TRI di 123 ).</li>\r\n</ul>', 1, 1, 1, 1, 10, 0, 1, 1, NULL, NULL, 1, NULL, NULL, NULL),
+(4, 'Voucher Fisik XL Nominal 25.000 Expired 01/03/2016', 'XL-0001', 'voucher-fisik-xl-nominal-25000-expired-01032016', 5, 5, 1, 28200, 'xl-25.png', '50', '<p>Vileo.co.id menyediakan beberapa voucher fisik&nbsp; XL dengan nominal <em><strong>25.000</strong></em>&nbsp; atau voucher gesek dengan sistem transaksi sama seperti transaksi pengisian pulsa elektrik, namun hanya berbeda dalam cara memasukan pulsa ke No HP user/konsumen</p>', '<p>Vileo.co.id menyediakan beberapa voucher fisik&nbsp; XL dengan nominal 25.000&nbsp; atau voucher gesek dengan sistem transaksi sama seperti transaksi pengisian pulsa elektrik, namun hanya berbeda dalam cara memasukan pulsa ke No HP user/konsumen.Meskipun demikian, cara mengisi ulang pulsa menggunakan voucher fisik juga perlu kita diketahui karena siapa tahu nanti kita akan mengalami situasi dimana kita mendapati konter yang tidak menjual voucher elektrik (kehabisan) ataupun gagal masuk pulsa</p>', 1, 1, 1, 1, 11, 0, 1, 1, NULL, NULL, 1, NULL, NULL, NULL),
+(5, 'Sim Adapter Noosy 3 in 1 Micro Nano ke Standar SIM', 'SA-0001', 'sim-adapter-noosy-3-in-1-micro-nano-ke-standar-sim', 12, 4, 1, 10000, '61b8ys1VVVL._SL1000_.jpg', '50', '<p><span id="result_box" lang="id"><span class="hps">Sim</span> <span class="hps">Nano</span> <span class="hps">Anda</span> <span class="hps">dapat mengubah ukuran</span> <span class="hps">Micro</span> <span class="hps">sim atau Nano sim</span> <span class="hps">ke</span> <span class="hps">sim</span> <span class="hps">standar melalui</span> <span class="hps">NOOSY</span> <span class="hps">nano</span> <span class="hps">sim</span> <span class="hps">adapter</span>, <span class="hps">cocok dengan semua</span> <span class="hps">perangkat mobile</span>.</span><span id="result_box" lang="id"><span class="hps">Nano</span> <span class="hps">sim</span> <span class="hps">lebih kecil dari</span> <span class="hps">Micro</span> <span class="hps">sim</span>, ukuran <span class="hps">hanya</span> <span class="hps">12,3</span> <span class="hps">*</span> <span class="hps">8.8mm dengan&nbsp;</span> <span class="hps">sim</span> <span class="hps">adapter</span> <span class="hps">NOOSY</span> <span class="hps">Nano</span>, <span class="hps">memungkinkan</span> <span class="hps">Nano</span> <span class="hps">SIM</span> <span class="hps">dkembalikan</span> <span class="hps">Micro</span> <span class="hps">sim ataupun ke</span> <span class="hps">Standard</span> <span class="hps">sim</span>.<br /></span></p>', '<p><span id="result_box" lang="id"><span class="hps">Sim</span> <span class="hps">Nano</span> <span class="hps">Anda</span> <span class="hps">dapat mengubah ukuran</span> <span class="hps">Micro</span> <span class="hps">sim atau Nano sim</span> <span class="hps">ke</span> <span class="hps">sim</span> <span class="hps">standar melalui</span> <span class="hps">NOOSY</span> <span class="hps">nano</span> <span class="hps">sim</span> <span class="hps">adapter</span>, <span class="hps">cocok dengan semua</span> <span class="hps">perangkat mobile</span>.</span><span id="result_box" lang="id"><span class="hps">Nano</span> <span class="hps">sim</span> <span class="hps">lebih kecil dari</span> <span class="hps">Micro</span> <span class="hps">sim</span>, ukuran <span class="hps">hanya</span> <span class="hps">12,3</span> <span class="hps">*</span> <span class="hps">8.8mm dengan&nbsp;</span> <span class="hps">sim</span> <span class="hps">adapter</span> <span class="hps">NOOSY</span> <span class="hps">Nano</span>, <span class="hps">memungkinkan</span> <span class="hps">Nano</span> <span class="hps">SIM</span> <span class="hps">dkembalikan</span> <span class="hps">Micro</span> <span class="hps">sim ataupun ke</span> <span class="hps">Standard</span> <span class="hps">sim</span>.<br /><span class="hps">Nano</span> <span class="hps">adaptor</span> <span class="hps">sim</span> <span class="hps">servicelife</span> mempunyai <span class="hps">kekuatan tinggi, </span><span class="hps">The</span> <span class="hps">Nano</span> <span class="hps">dibuat </span><span class="hps">dengan</span> <span class="hps">cetakan</span> <span class="hps">presisi</span>.</span></p>\r\n<ul style="list-style-type: undefined;">\r\n<li><span lang="id"><span id="result_box" lang="id"><span class="hps">Dapat</span> <span class="hps">ribuan</span> <span class="hps">kali</span> <span class="hps">tanpa ada&nbsp;</span> <span class="hps">yang rusak</span> <span class="hps">atau distorsi</span>.</span></span></li>\r\n<li><span lang="id"><span id="result_box" lang="id"><span class="hps">Dibuat dengan</span> <span class="hps">cetakan</span> <span class="hps">presisi</span>, <span class="hps">ukuran</span> <span class="hps">yang akurat</span> <span class="hps">tidak akan membuat</span> <span class="hps">drop</span> <span class="hps">sim</span> <span class="hps">Nano</span> <span class="hps">dari</span> <span class="hps">adaptor</span>.</span></span></li>\r\n<li><span lang="id"><span id="result_box" lang="id"><span class="hps">Cocok untuk</span> <span class="hps">semua perangkat</span> <span class="hps">mobile.</span></span></span></li>\r\n<li><span lang="id"><span id="result_box" lang="id">Dikemas <span class="hps">dengan</span> <span class="hps">Nano</span> <span class="hps">untuk sim</span> <span class="hps">adaptor</span> <span class="hps">&amp;</span> <span class="hps">Nano</span> <span class="hps">ke</span> <span class="hps">Adaptor</span> <span class="hps">mikro</span>.</span></span></li>\r\n</ul>', NULL, 1, 1, 1, 10, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(6, 'Baterai Xiaomi Redmi 1S/2S 2000mAh OEM', 'BXI-0001', 'baterai-xiaomi-redmi-1s2s-2000mah-oem', 10, 2, 1, 66500, 'baterai-xaiopmi.png', '300', '<p>Baterai Lithium 2000 mAH OEM dari Xiaomi (tipe: BM41) khusus untuk hp Redmi 1S dan 2S. Sangat praktis untuk dipakai sebagai baterai cadangan kalau HP low batt, sebagai pengganti powerbank yang berat dan kurang praktis.</p>', '<p>Baterai Lithium 2000 mAH OEM dari Xiaomi (tipe: BM41) khusus untuk hp Redmi 1S dan 2S. Sangat praktis untuk dipakai sebagai baterai cadangan kalau HP low batt, sebagai pengganti powerbank yang berat dan kurang praktis.Baterai untuk Xiaomi Redmi 1S dengan kapasitas 2000mAh. Anda dapat menggunakan baterai ini sebagai baterai cadangan sehingga tidak perlu cemas Xiaomi Anda kehabisan tenaga.</p>', NULL, 1, 1, 1, 5, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(7, 'BOLT Huawei E5372s Slim Mobile Hotspot Wifi Unlock All GSM', 'BO-0001', 'bolt-huawei-e5372s-slim-mobile-hotspot-wifi-unlock-all-gsm', 14, 3, 1, 399000, 'huawei-modem-slim-max.png', '350', '<p>MIFI Router Portable Huawei Slim E5372-S&nbsp;Tanpa Perdana Bolt dan sudah unlock All GSM dengan Kecepatan download yang tinggi BOLT! Super 4G LTE memanjakanmu dengan video High Definition yang jernih dan kerja aplikasi yang optimal. Browsing, main games, dan video chat dengan teman atau keluarga melalui tablet atau smartphone terasa lebih menyenangkan. Rasakan kehebatannya sekarang.</p>', '<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah total.Kemudahan akses internet lebih seru karena harganya yang super dahsyat. Mulai dari IDR 6000/GB, kamu bisa menikmati serunya internetan dengan kecepatan tinggi.</p>\r\n<p>Share koneksi 4G LTE-mu melalui BOLT! Mobile Wi-Fi. Smartphone, tablet, laptop, game console, apapun yang bisa terhubung melalui Wi-Fi dapat ikut berpesta kuota. BOLT! adalah jaringan 4G LTE pertama yang hadir di wilayah Jabodetabek dan Banten. cek daerah mu kesini sudah tercover atau belum http://www.boltsuper4g.com/jaringan-bolt.html</p>', NULL, 1, 1, 1, 5, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(8, 'BOLT Huawei E5372s MAX Mobile Hotspot Wifi Unlock All GSM', 'BO-0002', 'bolt-huawei-e5372s-max-mobile-hotspot-wifi-unlock-all-gsm', 14, 3, 1, 499000, 'huawei-modem-slim-max.png', '500', '<p>MIFI Router Portable Huawei MAX E5372-S Tanpa Perdana Bolt dan sudah unlock All GSM dengan Kecepatan download yang tinggi BOLT dan Baterai yang Besar Super 4G LTE memanjakanmu dengan video High Definition yang jernih dan kerja aplikasi yang optimal. Browsing, main games, dan video chat dengan teman atau keluarga melalui tablet atau smartphone terasa lebih menyenangkan. Rasakan kehebatannya sekarang.</p>', '<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah total.Kemudahan akses internet lebih seru karena harganya yang super dahsyat. Mulai dari IDR 6000/GB, kamu bisa menikmati serunya internetan dengan kecepatan tinggi.</p>\r\n<p>Share koneksi 4G LTE-mu melalui BOLT! Mobile Wi-Fi. Smartphone, tablet, laptop, game console, apapun yang bisa terhubung melalui Wi-Fi dapat ikut berpesta kuota. BOLT! adalah jaringan 4G LTE pertama yang hadir di wilayah Jabodetabek dan Banten. cek daerah mu kesini sudah tercover atau belum http://www.boltsuper4g.com/jaringan-bolt.html</p>', NULL, 1, 1, 1, 3, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(9, 'BOLT ZTE MF90 Mobile Hotspot Wifi Unlock All GSM', 'BO-0003', 'bolt-zte-mf90-mobile-hotspot-wifi-unlock-all-gsm', 14, 3, 1, 415000, 'mf90-1.png', '350', '<p>MIFI Router Portable ZTE MF90 Tanpa Perdana Bolt dan sudah unlock All GSM dengan Kecepatan download yang tinggi BOLT! Super 4G LTE memanjakanmu dengan video High Definition yang jernih dan kerja aplikasi yang optimal. Browsing, main games, dan video chat dengan teman atau keluarga melalui tablet atau smartphone terasa lebih menyenangkan. Rasakan kehebatannya sekarang.</p>', '<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah total.Kemudahan akses internet lebih seru karena harganya yang super dahsyat. Mulai dari IDR 6000/GB, kamu bisa menikmati serunya internetan dengan kecepatan tinggi.</p>\r\n<p>Share koneksi 4G LTE-mu melalui BOLT! Mobile Wi-Fi. Smartphone, tablet, laptop, game console, apapun yang bisa terhubung melalui Wi-Fi dapat ikut berpesta kuota. BOLT! adalah jaringan 4G LTE pertama yang hadir di wilayah Jabodetabek dan Banten. cek daerah mu kesini sudah tercover atau belum http://www.boltsuper4g.com/jaringan-bolt.html</p>', NULL, 1, 1, 1, 3, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(10, 'Modem USB & MIFI Portable Sierra AirCard 320U LTE 4G ', 'SA-0001', 'modem-usb-mifi-portable-sierra-aircard-320u-lte-4g', 2, 1, 1, 345000, 'siera-negera.jpg', '500', '<p>Sierra 320u adalah pelanjut dari sierra 312u yang telah mendukung jaringan 4G LTE FDD 1800 dan 2600. modem ini berukuran cukup mungil dan enteng.Modem ini mempunyai 2 LED indicator yang satu menunjukkan deteksi modem dan led kedua menunjukkan sinyal. Apabila biru artinya 3g dan apabila 4g warnanya hijau, modem ini support dial dan mdma</p>', '<p>Sierra 320u adalah pelanjut dari sierra 312u yang telah mendukung jaringan 4G LTE FDD 1800 dan 2600. modem ini berukuran cukup mungil dan enteng.Modem ini mempunyai 2 LED indicator yang satu menunjukkan deteksi modem dan led kedua menunjukkan sinyal. Apabila biru artinya 3g dan apabila 4g warnanya hijau, modem ini support dial dan mdma Pastinya bagi yang suka ssh dan oprek modem, modem ini support dial dan mdma </p>', NULL, 1, 1, 1, 4, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(11, 'Huawei E3276 - 4G LTE 150 Mbps Support BOLT 4G ', 'HUSB-0001', 'huawei-e3276-4g-lte-150-mbps-support-bolt-4g', 15, 3, 1, 259000, 'STC(1).jpg', '300', '<p>Modem Huawei E3276 LTE 150 Mbps adalah modem usb&nbsp; LTE TDD yang berada di jaringan 2300/2600 and dapat berjalan 3G network, and 2G, modem dapat dirotasi dan dibengkokan sesuai kebutuhan, plus dua external antenna slot untuk menambah kecepatan</p>', '<p>Modem Huawei E3276 LTE 150 Mbps adalah modem usb&nbsp; LTE TDD yang berada di jaringan 2300/2600 and dapat berjalan 3G network, and 2G, modem dapat dirotasi dan dibengkokan sesuai kebutuhan, plus dua external antenna slot untuk menambah kecepatan</p>\r\n<p>Modem Huawei E3276 LTE 150 Mbps adalah untuk pangsa Arab, Australia and dan beberapa negara Eropa, berikut spesifikasi Huawei E3276s-920&nbsp; :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>4G band 38/40 (TDD 22300/2600)</li>\r\n<li>3G DC-hspa+ 2100mHz</li>\r\n<li>GSM 850/900/1800/1900mHz</li>\r\n<li>TE cat4 DL up to 150Mbps</li>\r\n<li>LTE UL 50Mbps</li>\r\n<li>External antena interface, receive disersity</li>\r\n<li>USB 2.0 High speed</li>\r\n<li>Unlocked</li>\r\n<li>Micro SD slot</li>\r\n<li>supported OS win 7, win 8, XP SP3, Mac OS X1.05 with latest upgrades</li>\r\n</ul>\r\n<p>&nbsp;</p>', NULL, 1, 1, 1, 3, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(12, 'ZTE MF825A - 4G LTE 150 Mbps Support BOLT 4G ', 'ZUSB-0001', 'zte-mf825a-4g-lte-150-mbps-support-bolt-4g', 15, 3, 1, 269000, 'zmf825a-1.gif', '300', '<p>USB Modem MF825A Tanpa Perdana Bolt dan sudah unlock All GSM dengan Kecepatan download yang tinggi BOLT 4G LTE memanjakanmu dengan video High Definition yang jernih dan kerja aplikasi yang optimal. Browsing, main games, dan video chat dengan teman atau keluarga melalui tablet atau smartphone terasa lebih menyenangkan. Rasakan kehebatannya sekarang.</p>', '<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah total.Kemudahan akses internet lebih seru karena harganya yang super dahsyat. Mulai dari IDR 6000/GB, kamu bisa menikmati serunya internetan dengan kecepatan tinggi.</p>\r\n<p>Share koneksi 4G LTE-mu melalui BOLT! Mobile Wi-Fi. Smartphone, tablet, laptop, game console, apapun yang bisa terhubung melalui Wi-Fi dapat ikut berpesta kuota. BOLT! adalah jaringan 4G LTE pertama yang hadir di wilayah Jabodetabek dan Banten. cek daerah mu kesini sudah tercover atau belum http://www.boltsuper4g.com/jaringan-bolt.html</p>', 0, 1, 1, 1, 0, NULL, 0, 0, 0, '2015-12-30', 1, NULL, NULL, NULL),
+(13, 'Mouse AUE Wireless Optical 2.4G - M012 - Black', 'AUE-0001', 'mouse-aue-wireless-optical-24g-m012-black', 26, 8, 1, 69900, 'optical-mouse-wireless-2.4g-model-m012-black-3.jpg', '400', '<p>Mouse Wirelles dengan kecepatan 2.4Ghz , penggunaan dan instalasi sangat mudah cukup masukan usb receiver ke usb komputer dan akan terdeteksi otomatis , dengan frekuensi radio 2.4Ghz , mouse dapat dijangkau dengan 10 meter dari receiver dan device komputer.</p>', '<p>Mouse Wirelles dengan kecepatan 2.4Ghz , penggunaan dan instalasi sangat mudah cukup masukan usb receiver ke usb komputer dan akan terdeteksi otomatis , dengan frekuensi radio 2.4Ghz , mouse dapat dijangkau dengan 10 meter dari receiver dan device komputer.</p>\r\n<p>Spesifikasi Dasar :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>USB 2.0</li>\r\n<li>Connection Adjustable 400-1600 CPI</li>\r\n<li>Mouse Acceleration 14 inch / sec</li>\r\n<li>Battery Type 2 x AAA battery</li>\r\n<li>Dimension 95 x 65 x 37 mm</li>\r\n</ul>', 0, 1, 1, 1, 3, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(14, 'Modem USB Esia Cyrus MAX-D', 'ESI-0001', 'modem-usb-esia-cyrus-max-d', 15, 9, 1, 63000, '286_1_4-Photo.jpg', '200', '<p>Koneksi internet kamu masih labil? Pakai Esia Max-D dengan modem dari Cyrus, koneksi internet jadi wuzzzzzzzzzz dan stabil! Didukung dengan jaringan CDMA 1x EVDO Rev-A yaitu akses internet berkecepatan tinggi yang memiliki jalur data khusus yang terpisah dari telepon dan sms.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>Koneksi internet kamu masih labil? Pakai Esia Max-D dengan modem dari Cyrus, koneksi internet jadi wuzzzzzzzzzz dan stabil! Didukung dengan jaringan CDMA 1x EVDO Rev-A yaitu akses internet berkecepatan tinggi yang memiliki jalur data khusus yang terpisah dari telepon dan sms.</p>\r\n<p>Dengan Cyrus Modem kamu akan mendapatkan banyak keuntungan:</p>\r\n<ul>\r\n<li>Modem MC-400</li>\r\n<li>Kecepatan internet 3.1 Mbps.</li>\r\n<li>GRATIS Internet Unlimited selama 2 bulan!</li>\r\n<li>Garansi 3 tahun Full Swap.</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 1, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(15, 'Power Bank 2400mAh Taff Model Gantungan Kunci Hitam', 'TFF-0001', 'power-bank-2400mah-taff-model-gantungan-kunci-hitam', 11, 11, 1, 49900, 'black-taff-2400mah.jpg', '300', '<p>Taff Powerbank Warna Hitam Dengan Kapasitas Power Bank 2400mAh dapat menyimpan setidaknya 1X Charger , serta bentuk uniknya dapat digunakan sebagai Gantungan Kunci untuk Rumah maupun kunci.</p>', '<p>Taff Powerbank Warna Hitam Dengan Kapasitas Power Bank 2400mAh dapat menyimpan setidaknya 1X Charger , serta bentuk uniknya dapat digunakan sebagai Gantungan Kunci untuk Rumah maupun kunci.</p>\r\n<p>Produk yang disupport</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Apple (iPod, iPhone, iPad)</li>\r\n<li>Mini USB (BB Bold, BB Curve, Hp Esia, Dkk)</li>\r\n<li>Micro USB (Hampir rata2 gadget keluaran baru udah pakai Micro USB)</li>\r\n<li>PSP Biasa (Bukan PSP GO!)</li>\r\n<li>Nokia 2.0 (Nokia Kecil)</li>\r\n</ul>', 0, 1, 1, 1, 3, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(16, 'Power Bank 2400mAh Taff Model Gantungan Kunci Putih', 'TFF-0002', 'power-bank-2400mah-taff-model-gantungan-kunci-putih', 11, 11, 1, 49900, 'white-taff.jpg', '300', '<p>Taff Powerbank Warna Putih Dengan Kapasitas Power Bank 2400mAh dapat menyimpan setidaknya 1X Charger , serta bentuk uniknya dapat digunakan sebagai Gantungan Kunci untuk Rumah maupun kunci.</p>', '<p>Taff Powerbank Warna Putih Dengan Kapasitas Power Bank 2400mAh dapat menyimpan setidaknya 1X Charger , serta bentuk uniknya dapat digunakan sebagai Gantungan Kunci untuk Rumah maupun kunci.</p>\r\n<p>Produk yang disupport</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Apple (iPod, iPhone, iPad)</li>\r\n<li>Mini USB (BB Bold, BB Curve, Hp Esia, Dkk)</li>\r\n<li>Micro USB (Hampir rata2 gadget keluaran baru udah pakai Micro USB)</li>\r\n<li>PSP Biasa (Bukan PSP GO!)</li>\r\n<li>Nokia 2.0 (Nokia Kecil)</li>\r\n</ul>', 0, 1, 1, 1, 3, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(17, ' Power Bank VIVAN 4400mAH S04', 'VIV-0001', 'power-bank-vivan-4400mah-s04', 11, 10, 1, 165000, 'power-bank-vivan-h04-4400mah-1.jpg', '500', '<p>Portable charger atau baterai isi ulang 4400mAh yang akan mengisi smartphone ,&nbsp;Powerbank Vivan menggunakan chip khusus dan sel baterai merk Samsung yang menjamin tidak akan merusak device anda. Hasil pengujian Kami membuktikan bahwa portable charger Vivan memberikan daya dengan tegangan standar USB yaitu antara 4.75 - 5.25 volt yang sangat aman untuk gadget anda.</p>', '<p>Powerbank Vivan menggunakan chip khusus dan sel baterai merk Samsung yang menjamin tidak akan merusak device anda. Hasil pengujian Kami membuktikan bahwa portable charger Vivan memberikan daya dengan tegangan standar USB yaitu antara 4.75 - 5.25 volt yang sangat aman untuk gadget anda.</p>\r\n<p><strong>Spesifikasi</strong></p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Capacity : 4400 mAh</li>\r\n<li>Input : DC 5V / 1A max</li>\r\n<li>Output 1 : DC 5V / 1A max</li>\r\n<li>Input Charging Time e : 5 hours</li>\r\n<li>Output Charging Time : 1.5 - 2 jam</li>\r\n<li>Weight : 110g</li>\r\n<li>Recycling : diatas 500 X<br /><br /><strong>Isi dalam kemasan :</strong></li>\r\n<li>Portable charger</li>\r\n<li>Built in charger</li>\r\n<li>Konektor : Micro 5P, Mini 5P, iPhone/iPad, Nokia DC2.0, PSP, Samsung 20P, LG, Sony Ericsson</li>\r\n<li>Kabel extension USB panjang dan pendek</li>\r\n<li>Pouch</li>\r\n<li>Warranty Card</li>\r\n</ul>', 0, 1, 1, 1, 1, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(18, 'BOLT Crystal 7000mAh', 'BBO-0001', 'bolt-crystal-7000mah', 11, 14, 1, 185000, 'bolt-7000-mah.jpg', '500', '<p>Merupakan Power Bank 7000mAh terkecil saat ini. Dengan output 2.1 ampere, sangat sesuai jika digunakan untuk menambah daya baterai perangkat tablet. Dilengkapi dengan lampu LED yang bisa digunakan sebagai penerangan dalam keadaan darurat.</p>', '<p>Merupakan Power Bank 7000mAh terkecil saat ini. Dengan output 2.1 ampere, sangat sesuai jika digunakan untuk menambah daya baterai perangkat tablet. Dilengkapi dengan lampu LED yang bisa digunakan sebagai penerangan dalam keadaan darurat.</p>\r\n<p>BOLT Crystall dilindungi dengan dual IC yang berfungsi sebagai pelindung (protection)</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Over-charge protection</li>\r\n<li>Over-discharge protection</li>\r\n<li>Over-current protection.</li>\r\n<li>Over-voltage protection</li>\r\n<li>Short circuit protection.</li>\r\n<li>High-temp tested operation.</li>\r\n</ul>', 0, 1, 1, 1, 1, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(19, 'Sandisk Micro SDHC 16GB  Mobile Ultra Class 10', 'SDS-0001', 'sandisk-micro-sdhc-16gb-mobile-ultra-class-10', 21, 13, 1, 110000, 'sandisk-16gb-1.jpg', '200', '<p>SanDisk Ultra microSDHC UHS -I Card . Dengan kecepatan class 10 membuatnya ideal untuk mengambil video Full HD . Peningkatan kecepatan transfer hingga 30MB / s untuk membuat waktu loading aplikasi atau file pada perangkat mobile Anda . Anda juga mendapatkan Adapter SD kompatibel dengan berbagai perangkat yang tidak memiliki slot microSD tetapi memiliki slot SD . Dengan berbagai pilihan kapasitas , Anda dapat memilih sesuai dengan kebutuhan.</p>', '<p>Menambah kapasitas memori pada Anda Android perangkat , smartphone , tablet atau kamera Anda dengan SanDisk Ultra microSDHC UHS -I Card . Dengan kecepatan class 10 membuatnya ideal untuk mengambil video Full HD . Peningkatan kecepatan transfer hingga 30MB / s untuk membuat waktu loading aplikasi atau file pada perangkat mobile Anda . Anda juga mendapatkan Adapter SD kompatibel dengan berbagai perangkat yang tidak memiliki slot microSD tetapi memiliki slot SD . Dengan berbagai pilihan kapasitas , Anda dapat memilih sesuai dengan kebutuhan . Mengambil Ideal untuk Full HD Video SanDisk Ultra microSDHC UHS -I Card adalah kartu memori dengan kelas kecepatan UHS - I 10 yang dapat digunakan untuk menangkap HD kualitas video Full pada perangkat smartphone atau tablet Anda . Dengan kecepatan transfer hingga 30MB / s , kartu memori ini menawarkan kecepatan transfer file cepat untuk memindahkan data antara PC dan smartphone atau tablet . Mentransfer Dengan Kemudahan Dalam kemasan SanDisk Ultra microSDHC UHS -I SD Card termasuk adaptor yang memungkinkan Anda untuk saat ini akan memindahkan file dari PC ke smartphone atau tablet . Untuk mentransfer file , Anda hanya perlu masuk ke dalam SD adapter microSDXC kemudian masukan ke dalam slot kartu SD pada PC Anda . Resilient kartu memori SanDisk microSDHC Daya Tahan merancang ini untuk berbagai kondisi . Kartu memori ini tahan air dan telah diuji dan dapat bertahan hingga 72 jam dalam air garam dan air tawar di kedalaman 1 meter . Tidak hanya itu, kartu memori ini juga anti -shock dan dapat menahan guncangan hingga 500Gs . Anda juga dapat mengambil SanDisk Ultra microSDHC UHS -I Card di berbagai kondisi cuaca seperti tahan dari -13 sampai 185 derajat Fahrenheit suhu . Memory Zona Aplikasi Dikemas dengan aplikasi Memory Zona yang memberi Anda mudah untuk mengakses , back up data digital seluruh memori telepon dan memasukkannya ke dalam layanan awan .</p>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(20, 'Samsung MicroSDHC EVO UHS-I - 16GB - Class 10', 'SDSM-0001', 'samsung-microsdhc-evo-uhs-i-16gb-class-10', 21, 15, 1, 112000, 'samsung-evo-1.jpg', '200', '<p>Ultra-cepat, Video Capture dan Foto 2x Lebih cepat dari Kartu Memori Khas, dan Transfer hingga 360 Foto / Menit. Maksimalkan Kapasitas Penyimpanan Advanced Devices dan Toko Anda Semuanya dari Foto &amp; Lagu untuk HD Video. U1 dan Class 10, 16GB, Samsung kartu memori dapat bertahan suhu dari -25 &deg; hingga 85 &deg; Celcius.</p>', '<p>Ultra-cepat, Video Capture dan Foto 2x Lebih cepat dari Kartu Memori Khas, dan Transfer hingga 360 Foto / Menit. Maksimalkan Kapasitas Penyimpanan Advanced Devices dan Toko Anda Semuanya dari Foto &amp; Lagu untuk HD Video. U1 dan Class 10, 16GB. Simpan berharga kenangan-cepat Anda. Kecepatan kartu memori Ultra High Ini adalah UHS-1 diaktifkan, yang berarti menangkap foto dan video yang dua kali lebih cepat dari microSD khas Anda.Transfer hingga 360 foto per menit. Dengan kecepatan transfer hingga 48 MB per detik, Anda dapat menghabiskan waktu kurang mentransfer kenangan, dan lebih banyak waktu membuat mereka.Dapatkan hasil maksimal dari terbaru ponsel pintar, tablet dan kamera. Kartu memori ini bekerja sempurna bahkan dengan perangkat yang paling canggih untuk melindungi kenangan Anda untuk hidup.Save up to 37.270 foto, 1.110 menit video, dan 14.990 lagu. Men-download lebih file media dan aplikasi untuk ponsel pintar atau tablet. Dan selalu tahu bahwa Anda punya banyak ruang.Menangkap momen yang penting sejelas Anda ingat mereka. Tembak indah, Full HD video yang menjaga setiap memori aman dan sehat - dan segar sebagai hari itu terjadi.Dapatkan hasil maksimal dari terbaru ponsel pintar, tablet dan kamera. Kartu memori ini bekerja sempurna bahkan dengan perangkat yang paling canggih untuk melindungi kenangan Anda untuk hidup.amsung kartu memori dapat bertahan suhu dari -25 &deg; hingga 85 &deg; Celcius. Kartu Memori Samsung melindungi data berharga Anda dari kerusakan yang disebabkan oleh bandara mesin X-ray, serta Kartu Memori Samsung bahkan bisa menahan hingga 13 kali gaya magnet dari speaker home theater.</p>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(21, 'Sandisk Micro SDHC 32GB Mobile Ultra Class 10', 'SDS-0002', 'sandisk-micro-sdhc-32gb-mobile-ultra-class-10', 21, 13, 1, 220000, 'sandisk-32-1.jpg', '200', '<p>SanDisk Ultra microSDHC UHS -I Card . Dengan kecepatan class 10 membuatnya ideal untuk mengambil video Full HD . Peningkatan kecepatan transfer hingga 30MB / s untuk membuat waktu loading aplikasi atau file pada perangkat mobile Anda . Anda juga mendapatkan Adapter SD kompatibel dengan berbagai perangkat yang tidak memiliki slot microSD tetapi memiliki slot SD . Dengan berbagai pilihan kapasitas , Anda dapat memilih sesuai dengan kebutuhan.</p>', '<p>Menambah kapasitas memori pada Anda Android perangkat , smartphone , tablet atau kamera Anda dengan SanDisk Ultra microSDHC UHS -I Card . Dengan kecepatan class 10 membuatnya ideal untuk mengambil video Full HD . Peningkatan kecepatan transfer hingga 30MB / s untuk membuat waktu loading aplikasi atau file pada perangkat mobile Anda . Anda juga mendapatkan Adapter SD kompatibel dengan berbagai perangkat yang tidak memiliki slot microSD tetapi memiliki slot SD . Dengan berbagai pilihan kapasitas , Anda dapat memilih sesuai dengan kebutuhan . Mengambil Ideal untuk Full HD Video SanDisk Ultra microSDHC UHS -I Card adalah kartu memori dengan kelas kecepatan UHS - I 10 yang dapat digunakan untuk menangkap HD kualitas video Full pada perangkat smartphone atau tablet Anda . Dengan kecepatan transfer hingga 30MB / s , kartu memori ini menawarkan kecepatan transfer file cepat untuk memindahkan data antara PC dan smartphone atau tablet . Mentransfer Dengan Kemudahan Dalam kemasan SanDisk Ultra microSDHC UHS -I SD Card termasuk adaptor yang memungkinkan Anda untuk saat ini akan memindahkan file dari PC ke smartphone atau tablet . Untuk mentransfer file , Anda hanya perlu masuk ke dalam SD adapter microSDXC kemudian masukan ke dalam slot kartu SD pada PC Anda . Resilient kartu memori SanDisk microSDHC Daya Tahan merancang ini untuk berbagai kondisi . Kartu memori ini tahan air dan telah diuji dan dapat bertahan hingga 72 jam dalam air garam dan air tawar di kedalaman 1 meter . Tidak hanya itu, kartu memori ini juga anti -shock dan dapat menahan guncangan hingga 500Gs . Anda juga dapat mengambil SanDisk Ultra microSDHC UHS -I Card di berbagai kondisi cuaca seperti tahan dari -13 sampai 185 derajat Fahrenheit suhu . Memory Zona Aplikasi Dikemas dengan aplikasi Memory Zona yang memberi Anda mudah untuk mengakses , back up data digital seluruh memori telepon dan memasukkannya ke dalam layanan awan .</p>', 0, 1, 1, 1, 1, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -935,21 +985,38 @@ CREATE TABLE IF NOT EXISTS `product_category` (
   `category_id` int(11) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product_category`
 --
 
 INSERT INTO `product_category` (`id`, `product_id`, `category_id`, `created_by`, `created_date`) VALUES
-(1, 1, 6, NULL, NULL),
 (2, 2, 6, NULL, NULL),
-(3, 1, 39, NULL, NULL),
 (4, 2, 39, NULL, NULL),
-(5, 1, 40, NULL, NULL),
 (6, 2, 40, NULL, NULL),
-(7, 1, 36, NULL, NULL),
-(8, 2, 36, NULL, NULL);
+(8, 2, 36, NULL, NULL),
+(22, 1, 6, NULL, NULL),
+(23, 3, 6, NULL, NULL),
+(24, 4, 5, NULL, NULL),
+(25, 5, 12, NULL, NULL),
+(26, 6, 10, NULL, NULL),
+(27, 7, 14, NULL, NULL),
+(28, 8, 14, NULL, NULL),
+(29, 9, 14, NULL, NULL),
+(30, 10, 14, NULL, NULL),
+(31, 10, 15, NULL, NULL),
+(32, 11, 15, NULL, NULL),
+(33, 12, 15, NULL, NULL),
+(34, 13, 26, NULL, NULL),
+(35, 14, 15, NULL, NULL),
+(36, 15, 11, NULL, NULL),
+(37, 16, 11, NULL, NULL),
+(38, 17, 11, NULL, NULL),
+(39, 18, 11, NULL, NULL),
+(40, 19, 21, NULL, NULL),
+(41, 20, 21, NULL, NULL),
+(42, 21, 21, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -963,18 +1030,60 @@ CREATE TABLE IF NOT EXISTS `product_image` (
   `name` varchar(255) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product_image`
 --
 
 INSERT INTO `product_image` (`id`, `product_id`, `name`, `created_by`, `created_date`) VALUES
-(1, 1, 'c1.jpg', NULL, NULL),
-(2, 1, 'c2.jpg', NULL, NULL),
-(3, 1, 'c3.jpg', NULL, NULL),
-(4, 2, 'three1.gif', NULL, NULL),
-(5, 2, 'three2.jpg', NULL, NULL);
+(7, 1, 'three-5gb-aon.png', 9, '2015-02-18 23:19:09'),
+(10, 1, '76aon.png', 9, '2015-02-18 23:26:25'),
+(11, 1, '76aon2.png', 9, '2015-02-18 23:30:17'),
+(12, 2, 'three-8gb-aon.png', 9, '2015-02-18 23:37:36'),
+(13, 2, '76aon.png', 9, '2015-02-18 23:38:49'),
+(14, 2, '76aon2.png', 9, '2015-02-18 23:38:59'),
+(15, 3, '10GB.png', 9, '2015-02-19 00:40:24'),
+(16, 3, '76aon.png', 9, '2015-02-19 00:40:26'),
+(17, 3, '76aon2.png', 9, '2015-02-19 00:40:30'),
+(18, 4, 'xl-25.png', 9, '2015-02-19 01:11:39'),
+(19, 4, 'xl26.png', 9, '2015-02-19 01:12:20'),
+(20, 5, '61b8ys1VVVL._SL1000_.jpg', 9, '2015-02-19 08:48:30'),
+(21, 5, '1019301-3.jpg', 9, '2015-02-19 08:50:14'),
+(23, 6, 'baterai-xiaomi-note-oem-orange-3.jpg', 9, '2015-02-19 09:14:35'),
+(25, 6, 'baterai-xaiopmi.png', 9, '2015-02-19 09:16:46'),
+(26, 7, 'huawei-modem-slim-max.png', 9, '2015-02-19 09:24:24'),
+(27, 7, 'slim-max3.png', 9, '2015-02-19 09:28:31'),
+(28, 8, 'huawei-modem-slim-max.png', 9, '2015-02-19 09:33:56'),
+(29, 8, 'slim-max3.png', 9, '2015-02-19 09:34:03'),
+(32, 9, 'mf90-1.png', 9, '2015-02-19 10:03:02'),
+(33, 9, 'Bolt-Wifi-MF90.jpg', 9, '2015-02-19 10:03:11'),
+(34, 10, 'siera-negera.jpg', 9, '2015-02-19 10:11:49'),
+(35, 10, 'sierra_320u_4g_lte_stick_testra_optus_4g_usb_aircard_320u_2_.jpg', 9, '2015-02-19 10:12:22'),
+(36, 11, 'STC(1).jpg', 9, '2015-02-19 10:24:54'),
+(37, 11, 'huawei-e3276-4g-lte-100-mbps-logo-stc-white-2.JPG', 9, '2015-02-19 10:25:00'),
+(38, 12, 'zmf825a-1.gif', 9, '2015-02-19 10:59:06'),
+(39, 12, 'zmf825a-2.gif', 9, '2015-02-19 10:59:11'),
+(40, 13, 'optical-mouse-wireless-2.4g-model-m012-black-3.jpg', 9, '2015-02-19 11:10:30'),
+(41, 13, 'optical-mouse-wireless-2.4g-model-m012-black-4.jpg', 9, '2015-02-19 11:10:36'),
+(42, 14, '286_1_4-Photo.jpg', 9, '2015-02-19 11:31:23'),
+(43, 14, 'cyrus-3852-502341-1-zoom.jpg', 9, '2015-02-19 11:31:31'),
+(44, 15, 'black-taff-2400mah.jpg', 9, '2015-02-19 14:55:54'),
+(45, 15, 'white-taff.jpg', 9, '2015-02-19 14:56:00'),
+(46, 15, 'ping taff.jpg', 9, '2015-02-19 14:56:05'),
+(47, 16, 'white-taff.jpg', 9, '2015-02-19 15:23:58'),
+(48, 16, 'black-taff-2400mah.jpg', 9, '2015-02-19 15:24:03'),
+(49, 16, 'ping taff.jpg', 9, '2015-02-19 15:24:08'),
+(50, 17, 'power-bank-vivan-h04-4400mah-1.jpg', 9, '2015-02-20 00:11:31'),
+(51, 17, 'pb-vivan-h-04-1.jpg', 9, '2015-02-20 00:12:47'),
+(52, 18, 'bolt-7000-mah.jpg', 9, '2015-02-20 07:24:19'),
+(53, 18, 'prod-bolt-PB-crystall_05-300x300.jpg', 9, '2015-02-20 07:24:21'),
+(54, 19, 'sandisk-16gb-1.jpg', 9, '2015-02-20 07:37:31'),
+(55, 19, 'sandisk-16gb-2.jpg', 9, '2015-02-20 07:37:34'),
+(56, 20, 'samsung-evo-1.jpg', 9, '2015-02-20 07:46:02'),
+(57, 20, '$_35.JPG', 9, '2015-02-20 07:46:40'),
+(58, 21, 'sandisk-32-1.jpg', 9, '2015-02-20 07:55:52'),
+(59, 21, 'sandisk-16gb-1.jpg', 9, '2015-02-20 07:55:54');
 
 -- --------------------------------------------------------
 
@@ -1039,7 +1148,7 @@ CREATE TABLE IF NOT EXISTS `setting` (
   `content` longtext,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `setting`
@@ -1058,7 +1167,8 @@ INSERT INTO `setting` (`id`, `name`, `content`, `updated_by`, `updated_date`) VA
 (10, 'Store Pos Code', '12091', 1, '2015-02-10 10:01:46'),
 (11, 'Store Slogan', 'Memberikan yang terbaik bagi para Pembeli Online , dan menjadi Toko Online yang dapat \r\nmemenuhi kebutuhan terhadap komputer & Gadget serta Kebutuhan Elektronik', 1, '2015-02-14 11:50:16'),
 (12, 'BBM Pin', 'Pin BBM : 25850002', 1, '2015-02-14 11:50:19'),
-(13, 'Store Owner', 'Astrid Sulastri', NULL, NULL);
+(13, 'Store Owner', 'Astrid Sulastri', NULL, NULL),
+(14, 'Store About', 'Vileo adalah start up e-commerce dalam penjualan retail kami ingin menawarkan \r\npengalaman belanja online yang nyaman aman dan cepat dengan produk-produk yang \r\nberkualitas tinggi dan dapat bermanfaat bagi semua orang, \r\nVileo akan selalu siap untuk memberikan pelayanan kepada pelanggan yang terbaik dan \r\nsesuai kemampuan kami, termasuk dengan menawarkan beberapa produk murah dan berkualitas, \r\nKami terus memperluas jangkauan produk kami sesuai perkembangan zaman , dan selalu nantikan\r\ndiskon dan produk dari kami', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -12870,6 +12980,7 @@ INSERT INTO `town` (`id`, `city_id`, `name`) VALUES
 
 CREATE TABLE IF NOT EXISTS `user` (
 `id` int(11) NOT NULL,
+  `group_id` int(11) DEFAULT '1',
   `first_name` varchar(255) NOT NULL,
   `middle_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
@@ -12888,21 +12999,21 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `first_name`, `middle_name`, `last_name`, `status`, `email`, `password`, `auth_key`, `auth_key_expired`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
-(1, 'Suhendar', '', '', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'Naomi', '', '', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(9, 'Suhendar', 'Suhendar', '123', 1, 'hendarsyahss@gmail.com', '$2y$13$oWrszpO.9mJdYWFuxwq4s.lHLmMBYPOZJ1LpdzrAhJxA4OXFmtGQW', 'sDtt5iLLk0EowgfCw078FInaNmBqgpT8VQR156zhCbDFRx9nF9G7mtm8MtL7iDZkKVCrsNKHifZOAIqZbaDYq6JY9tjHIKsnXTKJ', '2015-02-15', NULL, '2015-02-09 16:19:17', NULL, NULL),
-(10, 'Hendarsyah', '', 'Suhendar', 1, 'hendarsyahss4@gmail.com', '$2y$13$Y9acV4bwi7Ch76OeYHKAz.GAysmc2CU6HUcADTqccLa0EPGEPdFfa', NULL, NULL, NULL, '2015-02-12 19:54:53', NULL, NULL),
-(11, 'Hendarsyah', 'Suhendar', '', 1, 'hendarsyahss12@gmail.com', '$2y$13$xh9zTOWdn85odvT3/2DKdO9Qg7jYf1fuwJeeSoVYxnikQU5584E2m', NULL, NULL, NULL, '2015-02-12 20:02:45', NULL, NULL),
-(12, 'Hendarsyah', '', 'Suhendar', 1, 'demo2@presthemes.com', '$2y$13$irlGFfTlUTZZhYotRSpQVOWzsBeoQbnO6wPDHxukVbKCQvNNg7Z..', NULL, NULL, NULL, '2015-02-12 20:04:11', NULL, NULL),
-(13, 'Hendarsyah', 'das', '', 1, 'ssad22@co.id', '$2y$13$dZVwF7zPrLUYlG1WicQR8u9ubCuSA89vc15zX9HKzvOPQqL24tQLG', NULL, NULL, NULL, '2015-02-12 20:05:00', NULL, NULL),
-(14, 'Hendarsyah', 'das', 'Suhendar', 1, 'dem2o@presthemes.com', '$2y$13$EW8sXwXtv5S/W.iMCdwv4O7O4DmhWtEpMdEsQJ2yHGXP17/WGa7Si', NULL, NULL, NULL, '2015-02-12 20:06:14', NULL, NULL),
-(15, 'Hendarsyah', 'Suhendar', '', 1, 'hendarsyahss24@gmail.com', '$2y$13$lHIolmttd4ylNK.fbsKgBuwNfeth4j2T8n.YxtOxsV2.KiW6W7iza', NULL, NULL, NULL, '2015-02-12 20:07:06', NULL, NULL),
-(16, 'Hendarsyah', 'Suhendar', 'Suhendar', 1, 'demo25888@presthemes.com', '$2y$13$8fvDU1dJZtRcSP/lzEtDF.qA44z7PM0lD2FAiosPN5SH2C2LCCuGa', NULL, NULL, NULL, '2015-02-12 20:10:29', NULL, NULL),
-(17, 'Hendarsyah', 'Suhendar', 'Suhendar', 1, 'hendarsyahss89@gmail.com', '$2y$13$VXFN7AiUS5CvWGdgvOuiEOuhDFSH/TJ0rbkrqM1/PAH535sWxSnqC', NULL, NULL, NULL, '2015-02-12 20:12:39', NULL, NULL),
-(18, 'Hendarsyah', 'Suhendar', 'Suhendar', 1, 'hendarsyahss8999@gmail.com', '$2y$13$o3jcVTWhzSg1ri06DHLLa.T9VrlxPa.AI2lXHomeSLxARq3DROag2', NULL, NULL, NULL, '2015-02-12 20:25:46', NULL, NULL),
-(19, 'Hendarsyah', '', 'Suhendar', 1, 'hendarsyahss88@gmail.com', '$2y$13$kUq/KGeWG8E/cBaQTmWY3eN6hEtYsTpscro72av3RUweg4OQpM8ka', NULL, NULL, NULL, '2015-02-12 20:27:10', NULL, NULL),
-(20, 'Hendarsyah', '', '', 1, 'hendarsyahss77@gmail.com', '$2y$13$GA1Zc97RfWQLk7xwiEGLh.5fQBV1AMKm/pUyRGnI3IQFw05SW7sx.', NULL, NULL, NULL, '2015-02-12 20:31:25', NULL, NULL);
+INSERT INTO `user` (`id`, `group_id`, `first_name`, `middle_name`, `last_name`, `status`, `email`, `password`, `auth_key`, `auth_key_expired`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
+(1, 1, 'Suhendar', '', '', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 1, 'Naomi', '', '', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 1, 'Suhendar', 'Suhendar', '123', 1, 'hendarsyahss@gmail.com', '$2y$13$oWrszpO.9mJdYWFuxwq4s.lHLmMBYPOZJ1LpdzrAhJxA4OXFmtGQW', 'sDtt5iLLk0EowgfCw078FInaNmBqgpT8VQR156zhCbDFRx9nF9G7mtm8MtL7iDZkKVCrsNKHifZOAIqZbaDYq6JY9tjHIKsnXTKJ', '2015-02-15', NULL, '2015-02-09 16:19:17', NULL, NULL),
+(10, 1, 'Hendarsyah', '', 'Suhendar', 1, 'hendarsyahss4@gmail.com', '$2y$13$Y9acV4bwi7Ch76OeYHKAz.GAysmc2CU6HUcADTqccLa0EPGEPdFfa', NULL, NULL, NULL, '2015-02-12 19:54:53', NULL, NULL),
+(11, 1, 'Hendarsyah', 'Suhendar', '', 1, 'hendarsyahss12@gmail.com', '$2y$13$xh9zTOWdn85odvT3/2DKdO9Qg7jYf1fuwJeeSoVYxnikQU5584E2m', NULL, NULL, NULL, '2015-02-12 20:02:45', NULL, NULL),
+(12, 1, 'Hendarsyah', '', 'Suhendar', 1, 'demo2@presthemes.com', '$2y$13$irlGFfTlUTZZhYotRSpQVOWzsBeoQbnO6wPDHxukVbKCQvNNg7Z..', NULL, NULL, NULL, '2015-02-12 20:04:11', NULL, NULL),
+(13, 1, 'Hendarsyah', 'das', '', 1, 'ssad22@co.id', '$2y$13$dZVwF7zPrLUYlG1WicQR8u9ubCuSA89vc15zX9HKzvOPQqL24tQLG', NULL, NULL, NULL, '2015-02-12 20:05:00', NULL, NULL),
+(14, 1, 'Hendarsyah', 'das', 'Suhendar', 1, 'dem2o@presthemes.com', '$2y$13$EW8sXwXtv5S/W.iMCdwv4O7O4DmhWtEpMdEsQJ2yHGXP17/WGa7Si', NULL, NULL, NULL, '2015-02-12 20:06:14', NULL, NULL),
+(15, 1, 'Hendarsyah', 'Suhendar', '', 1, 'hendarsyahss24@gmail.com', '$2y$13$lHIolmttd4ylNK.fbsKgBuwNfeth4j2T8n.YxtOxsV2.KiW6W7iza', NULL, NULL, NULL, '2015-02-12 20:07:06', NULL, NULL),
+(16, 1, 'Hendarsyah', 'Suhendar', 'Suhendar', 1, 'demo25888@presthemes.com', '$2y$13$8fvDU1dJZtRcSP/lzEtDF.qA44z7PM0lD2FAiosPN5SH2C2LCCuGa', NULL, NULL, NULL, '2015-02-12 20:10:29', NULL, NULL),
+(17, 1, 'Hendarsyah', 'Suhendar', 'Suhendar', 1, 'hendarsyahss89@gmail.com', '$2y$13$VXFN7AiUS5CvWGdgvOuiEOuhDFSH/TJ0rbkrqM1/PAH535sWxSnqC', NULL, NULL, NULL, '2015-02-12 20:12:39', NULL, NULL),
+(18, 1, 'Hendarsyah', 'Suhendar', 'Suhendar', 1, 'hendarsyahss8999@gmail.com', '$2y$13$o3jcVTWhzSg1ri06DHLLa.T9VrlxPa.AI2lXHomeSLxARq3DROag2', NULL, NULL, NULL, '2015-02-12 20:25:46', NULL, NULL),
+(19, 1, 'Hendarsyah', '', 'Suhendar', 1, 'hendarsyahss88@gmail.com', '$2y$13$kUq/KGeWG8E/cBaQTmWY3eN6hEtYsTpscro72av3RUweg4OQpM8ka', NULL, NULL, NULL, '2015-02-12 20:27:10', NULL, NULL),
+(20, 1, 'Hendarsyah', '', '', 1, 'hendarsyahss77@gmail.com', '$2y$13$GA1Zc97RfWQLk7xwiEGLh.5fQBV1AMKm/pUyRGnI3IQFw05SW7sx.', NULL, NULL, NULL, '2015-02-12 20:31:25', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -12970,6 +13081,29 @@ INSERT INTO `user_dropship` (`id`, `user_id`, `address`, `province_id`, `city_id
 (1, 9, 'Jl. Medan Merdeka Barat 6', 31, 3173, 3173040, 'Suhendar', '08522228877', 'Sukandar', '08522205577', 9, '2015-02-15 17:06:57', 9, '2015-02-15 17:17:02'),
 (2, 9, 'Kim Ki-duk tidak hanya seorang sutradara handal yang jago membuat film-film arthouse, namun juga ahli dalam menelurkan sineas-sineas muda berbakat. Beberapa orang yang pernah menajdi ', 14, 1402, 1402030, 'Suhendar', '085222054064', 'Markus Masriso', '08522205577', 9, '2015-02-15 18:07:03', 9, '2015-02-15 18:07:29');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_group`
+--
+
+CREATE TABLE IF NOT EXISTS `user_group` (
+`id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `updated_date` datetime DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user_group`
+--
+
+INSERT INTO `user_group` (`id`, `name`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
+(1, 'User', 1, '2015-02-16 19:27:59', NULL, NULL),
+(2, 'Administrator', 1, '2015-02-16 19:28:15', NULL, NULL);
+
 --
 -- Indexes for dumped tables
 --
@@ -13026,6 +13160,12 @@ ALTER TABLE `newsletter`
 -- Indexes for table `order`
 --
 ALTER TABLE `order`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `order_history`
+--
+ALTER TABLE `order_history`
  ADD PRIMARY KEY (`id`);
 
 --
@@ -13107,6 +13247,12 @@ ALTER TABLE `user_dropship`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user_group`
+--
+ALTER TABLE `user_group`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -13124,7 +13270,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 -- AUTO_INCREMENT for table `brand`
 --
 ALTER TABLE `brand`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `category`
 --
@@ -13156,6 +13302,11 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 ALTER TABLE `order`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
+-- AUTO_INCREMENT for table `order_history`
+--
+ALTER TABLE `order_history`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `order_product`
 --
 ALTER TABLE `order_product`
@@ -13169,17 +13320,17 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `product_category`
 --
 ALTER TABLE `product_category`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT for table `product_image`
 --
 ALTER TABLE `product_image`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=60;
 --
 -- AUTO_INCREMENT for table `province`
 --
@@ -13189,7 +13340,7 @@ MODIFY `id` int(2) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=95;
 -- AUTO_INCREMENT for table `setting`
 --
 ALTER TABLE `setting`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `shipping`
 --
@@ -13219,6 +13370,11 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 -- AUTO_INCREMENT for table `user_dropship`
 --
 ALTER TABLE `user_dropship`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `user_group`
+--
+ALTER TABLE `user_group`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
