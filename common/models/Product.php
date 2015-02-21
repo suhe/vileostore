@@ -241,6 +241,26 @@ class Product extends \yii\db\ActiveRecord  {
         return false;
     }
     
+    public static function TotalOrder($condition = []){
+       return static::find()
+        ->where($condition?$condition:'')
+        ->count();
+    }
     
+    public static function getActiveDataProviderBestSeller($limit){
+        $query = static::find()
+        ->joinWith('category')
+        ->select(['product.id AS id','product.image','product.sku','product.name','product.price','product.stock',
+                  'category.name AS category_name','product.status'])
+        ->limit($limit);
+        $dataProvider = new \yii\data\ActiveDataProvider([
+            'query' => $query,
+            'sort'=> ['defaultOrder' => ['best_seller'=> SORT_DESC]],
+            'pagination' =>[
+                'pageSize' => $limit
+            ]    
+        ]);
+        return $dataProvider;
+    }
     
 }

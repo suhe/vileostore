@@ -75,15 +75,6 @@ return array (
       '@himiklab/thumbnail' => $vendorDir . '/himiklab/yii2-easy-thumbnail-image-helper',
     ),
   ),
-  'vileosoft/shopping-cart' => 
-  array (
-    'name' => 'omnilight/yii2-shopping-cart',
-    'version' => '1.1.0.0',
-    'alias' => 
-    array (
-      '@yz/shoppingcart' => $vendorDir . '/vileosoft/shopping-cart',
-    ),
-  ),
   '2amigos/yii2-gallery-widget' => 
   array (
     'name' => '2amigos/yii2-gallery-widget',
@@ -127,6 +118,15 @@ return array (
     'alias' => 
     array (
       '@kartik/file' => $vendorDir . '/kartik-v/yii2-widget-fileinput',
+    ),
+  ),
+  '2amigos/yii2-highcharts-widget' => 
+  array (
+    'name' => '2amigos/yii2-highcharts-widget',
+    'version' => '0.1.0.0',
+    'alias' => 
+    array (
+      '@dosamigos/highcharts' => $vendorDir . '/2amigos/yii2-highcharts-widget',
     ),
   ),
 );

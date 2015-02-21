@@ -18,6 +18,7 @@ AppAsset::register($this);
 </script>
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <link rel="icon" type="image/x-icon" href="<?=Yii::$app->request->baseUrl?>/assets/images/favicon.ico"/>
     <?php $this->head() ?>
 </head>
 <body class="fixed-header">

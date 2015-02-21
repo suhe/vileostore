@@ -233,4 +233,47 @@ class Order extends \yii\db\ActiveRecord {
         ->one();
     }
     
+    public static function TotalOrder($condition = []){
+       return static::find()
+        ->where($condition?$condition:'')
+        ->count();
+    }
+    
+    public static function getActiveDataProviderOrderByCondition($params=[],$limit){
+        $query = static::find()
+        ->joinWith('user')
+        ->select(['order.id id','order.invoice_no','user.first_name as customer_name','order.created_date','order.grand_total',
+                  'order.sub_total','order.shipping_cost','order.status'])
+        ->where($params?$params:'')
+        ->limit($limit);
+        $dataProvider = new \yii\data\ActiveDataProvider([
+            'query' => $query,
+            'sort'=> ['defaultOrder' => ['id'=> SORT_DESC]],
+            'pagination' =>[
+                'pageSize' => $limit
+            ]    
+        ]);
+        return $dataProvider;
+    }
+    
+    public static function getDayOfWeek(){
+        $result = [];
+        $date = date('Y-m-d');
+        for($i=0;$i<7;$i++){
+            $result[$i] =  date('d/m/y',strtotime ( '-'.$i.' day' , strtotime ($date))) ; 
+        }
+        return $result; 
+    }
+    
+    public static function getDayOfOrder(){
+        $result = [];
+        $days = static::getDayOfWeek();
+        $i=0;
+        foreach($days as $val){
+            $query = static::findOne(['date_format(created_date,\'%d/%m/%y\')' => $val]);
+            $result[$i] = count($query);
+            $i++;
+        }
+        return $result;
+    }
 }

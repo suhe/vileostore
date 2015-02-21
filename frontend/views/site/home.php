@@ -45,7 +45,7 @@ $this->title = Yii::t('app','home page')
 							<h4 class="info-box-heading green">money back</h4>
 						</div>
 					</div>	
-					<h6 class="text">30 Day Money Back Guarantee.</h6>
+					<h6 class="text text-center">Garansi Uang Kembali</h6>
 				</div>
 			</div><!-- .col -->
 
@@ -59,7 +59,7 @@ $this->title = Yii::t('app','home page')
 							<h4 class="info-box-heading orange">free shipping</h4>
 						</div>
 					</div>
-					<h6 class="text">free ship-on oder over $600.00</h6>	
+					<h6 class="text">Minimum Pembelian 6.000.000</h6>	
 				</div>
 			</div><!-- .col -->
 
@@ -73,7 +73,7 @@ $this->title = Yii::t('app','home page')
 							<h4 class="info-box-heading red">Special Sale</h4>
 						</div>
 					</div>
-					<h6 class="text">All items-sale up to 20% off </h6>	
+					<h6 class="text">All items-sale up to 10%-50% off </h6>	
 				</div>
 			</div><!-- .col -->
 		</div><!-- /.row -->

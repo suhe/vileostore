@@ -30,6 +30,8 @@ class SiteController extends \yii\web\Controller{
         if(Yii::$app->user->isGuest)
             return $this->redirect(['site/login']);
         return $this->render('index', [
+            'bestSellerdataProvider' => \common\models\Product::getActiveDataProviderBestSeller(5),
+            'salesTodaydataProvider' => \common\models\Order::getActiveDataProviderOrderByCondition(['date_format(order.created_date,\'%Y-%m-%d\')' => date('Y-m-d'),'order.status'=>1],5),
         ]);
     }
 

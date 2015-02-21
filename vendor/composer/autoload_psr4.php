@@ -6,7 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'vileosoft\\shoppingcart\\' => array($vendorDir . '/vileosoft/shopping-cart'),
     'yii\\swiftmailer\\' => array($vendorDir . '/yiisoft/yii2-swiftmailer'),
     'yii\\imagine\\' => array($vendorDir . '/yiisoft/yii2-imagine'),
     'yii\\gii\\' => array($vendorDir . '/yiisoft/yii2-gii'),
@@ -21,6 +20,7 @@ return array(
     'kartik\\base\\' => array($vendorDir . '/kartik-v/yii2-krajee-base'),
     'himiklab\\thumbnail\\' => array($vendorDir . '/himiklab/yii2-easy-thumbnail-image-helper'),
     'dosamigos\\tinymce\\' => array($vendorDir . '/2amigos/yii2-tinymce-widget'),
+    'dosamigos\\highcharts\\' => array($vendorDir . '/2amigos/yii2-highcharts-widget'),
     'dosamigos\\gallery\\' => array($vendorDir . '/2amigos/yii2-gallery-widget'),
     'dosamigos\\fileupload\\' => array($vendorDir . '/2amigos/yii2-file-upload-widget'),
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),

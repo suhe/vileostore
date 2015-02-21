@@ -252,5 +252,10 @@ class User extends ActiveRecord implements IdentityInterface{
         return false;
     }
     
+     public static function TotalUser($condition = []){
+       return static::find()
+        ->where($condition?$condition:'')
+        ->count();
+    }
     
 }

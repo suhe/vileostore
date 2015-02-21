@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2015 at 10:42 AM
--- Server version: 5.6.20
--- PHP Version: 5.5.15
+-- Generation Time: Feb 21, 2015 at 03:27 AM
+-- Server version: 5.6.21
+-- PHP Version: 5.5.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `bank` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `bank`
@@ -69,18 +69,18 @@ CREATE TABLE IF NOT EXISTS `banner` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `banner`
 --
 
 INSERT INTO `banner` (`id`, `name`, `status`, `position`, `slide`, `image`, `width`, `height`, `link_url`, `description`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
-(1, 'MAC', 1, 'home', 'slideshow', '01.jpg', NULL, NULL, 'http://apple.co.id', 'Our payment platform', 1, '2015-02-09 16:47:25', NULL, NULL),
-(2, 'HP', 1, 'home', 'slideshow', '2.jpg', NULL, NULL, NULL, 'management tools for both ', 1, '2015-02-09 16:47:25', NULL, NULL),
+(1, 'MAC', 1, 'home', 'slideshow', '01.jpg', 100, 800, 'http://apple.co.id', 'Our payment platform', 1, '2015-02-09 16:47:25', NULL, NULL),
+(2, 'HP', 1, 'home', 'slideshow', '5.jpg', 800, 900, 'http://www.suhe.co.id', 'management tools for both ', 1, '2015-02-09 16:47:25', NULL, NULL),
 (3, 'MAC OS', 1, 'home', 'slideshow', '3.jpg', NULL, NULL, NULL, 'Our payment platform provides you ', 1, '2015-02-09 16:47:25', NULL, NULL),
 (5, 'Samsung', 1, 'home', 'static', '1.jpg', 470, 146, NULL, 'with easy-to-use managemen', NULL, NULL, NULL, NULL),
-(6, 'Watch', 1, 'home', 'static', '2.jpg', 470, 146, NULL, NULL, NULL, NULL, NULL, NULL);
+(14, 'sfsaf', 0, 'home', 'static', '5.jpg', 800, 8, 'adasdas', 'adasd', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `brand` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `brand`
@@ -126,7 +126,9 @@ INSERT INTO `brand` (`id`, `name`, `logo`, `status`, `created_by`, `created_date
 (20, 'EGO', 'brand20.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
 (21, 'Lain-Lain', 'brand21.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
 (22, 'Apple', 'brand22.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
-(23, 'KexTech', 'brand23.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL);
+(23, 'KexTech', 'brand23.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(24, 'Logitecth', 'brand24.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL),
+(25, 'Telkomsel', 'brand25.png', 1, 1, '2015-02-09 10:03:51', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -143,7 +145,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `status` tinyint(1) DEFAULT '1' COMMENT '1=active ,2 = deactive',
   `parent_id` int(11) DEFAULT '0',
   `order` int(11) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=42 ;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `category`
@@ -201,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `city` (
 `id` int(4) NOT NULL,
   `province_id` int(11) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9472 ;
+) ENGINE=InnoDB AUTO_INCREMENT=9472 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `city`
@@ -722,7 +724,7 @@ CREATE TABLE IF NOT EXISTS `courier` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `courier`
@@ -745,7 +747,7 @@ CREATE TABLE IF NOT EXISTS `discussion` (
   `description` text,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `discussion`
@@ -765,7 +767,7 @@ CREATE TABLE IF NOT EXISTS `newsletter` (
 `id` int(11) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `newsletter`
@@ -809,7 +811,7 @@ CREATE TABLE IF NOT EXISTS `order` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `order`
@@ -840,7 +842,7 @@ CREATE TABLE IF NOT EXISTS `order_history` (
   `description` varchar(255) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `order_history`
@@ -865,7 +867,7 @@ CREATE TABLE IF NOT EXISTS `order_product` (
   `product_weight` decimal(10,0) DEFAULT NULL,
   `qty` int(11) DEFAULT NULL,
   `subtotal` double DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `order_product`
@@ -902,7 +904,7 @@ CREATE TABLE IF NOT EXISTS `page` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `page`
@@ -939,7 +941,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `long_description` longtext,
   `latest_discussion` int(11) DEFAULT '0',
   `online` tinyint(1) DEFAULT '1',
-  `cod` tinyint(1) DEFAULT '0',
+  `cod` tinyint(1) DEFAULT '1',
   `dropshier` tinyint(1) DEFAULT '1',
   `stock` int(11) DEFAULT NULL,
   `review` int(11) DEFAULT NULL,
@@ -951,16 +953,16 @@ CREATE TABLE IF NOT EXISTS `product` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`id`, `name`, `sku`, `slug`, `category_id`, `brand_id`, `status`, `price`, `image`, `weight`, `short_description`, `long_description`, `latest_discussion`, `online`, `cod`, `dropshier`, `stock`, `review`, `counter`, `best_seller`, `total_sell`, `arrival_date`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
-(1, 'THREE- AON Kuota Regular 5GB  Aktif 1 Tahun ', 'TR-0001', 'three-aon-kuota-regular-5gb-aktif-1-tahun', 6, 1, 1, 55000, 'three-5gb-aon.png', '100', '<p>Free internet 1 tahun, Dengan Kuota Kurang lebih 5GB. Setelah Kuota habis hanya bisa akses ke 11 situs populer tertentu selama setahun dari pertama kali kartu di aktifkan. Kartu ini sudah aktif dari selama 1 Tahun Kurang. Kartu yang sudah di gunakan bisa digunakan kembali.</p>', '<p>Pada akhirnya, kebebasan menjadi batasan yang membuat kamu menjadi lebih boros. Apalagi dengan adanya ketentuan "pemakaian wajar" yang membuat kecepatan internetmu berkurang, atau bahkan bisa terjebak membayar lebih mahal setelah kuota yang ditentukan habis.Jika kamu merasa kebebasan itu omong kosong Think again.</p>\r\n<p>Kini dengan AlwaysOn, rasakan kebebasan berinternet tanpa syarat.Bebas internet sepuasnya tanpa kuota/pulsa. Bebas akses 11 situs populer, FULL SPEED, tanpa pake kuota/pulsa selama masa pakai internet masih berlaku.</p>\r\n<p>Berikut ini 11 situs yang dapat kamu akses secara bebas:</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Facebook</li>\r\n<li>Google</li>\r\n<li>Detik</li>\r\n<li>Klik BCA</li>\r\n<li>Twitter</li>\r\n<li>Mobile Kompas</li>\r\n<li>Toko Bagus</li>\r\n<li>Oke Zone</li>\r\n<li>Viva News</li>\r\n<li>Chatting (FB Messenger, YM Messenger, AOL, ICQ, GTalk, MSN)</li>\r\n<li>Kaskus</li>\r\n</ul>\r\n<p>&nbsp;</p>\r\n<p>Asiknya lagi, setiap bulannya kamu akan mendapat bonus kuota 50MB/bulan dan terus terakumulasi setiap kamu isi ulang, yang bisa kamu gunakan untuk akses ke situs lainnya berikut adalah spesifikasi three aon :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Kartu perdana Internet bisa telpon dan sms</li>\r\n<li>Always On selama 12 bulan ( masa aktif internet 12 bulan )</li>\r\n<li>Masa aktif kartu februari-maret 2015 - Kuota 5GB + bonus 600Mb ( 600Mb diakumulasi 50 Mb per bulan selama 12 bulan )</li>\r\n<li>Gratis akses 11 situs terkenal seuai diatas tanpa dikenakan kuota</li>\r\n<li>Pilihan nomor acak - GRATIS BBM 1 TAHUN apabila di gunakan/dipakai pada handphone BlackBerry tipe Z10 ( untuk info lebih lengkap silahkan hub TRI di 123 ).</li>\r\n</ul>', 9, 1, 1, 1, 10, 1, 0, 1, NULL, '2015-02-26', 1, NULL, NULL, NULL),
-(2, 'THREE- AON Kuota Regular 8GB Aktif 1 Tahun ', 'TR-0002', 'three-aon-kuota-regular-8gb-aktif-1-tahun', 6, 6, 1, 73000, 'three-8gb-aon.png', '100', '<p>Free internet 1 tahun, Dengan Kuota Kurang lebih 8GB. Setelah Kuota habis hanya bisa akses ke 11 situs populer tertentu selama setahun dari pertama kali kartu di aktifkan. Kartu ini sudah aktif dari selama 1 Tahun Kurang. Kartu yang sudah di gunakan bisa digunakan kembali.</p>', '<p>Pada akhirnya, kebebasan menjadi batasan yang membuat kamu menjadi lebih boros. Apalagi dengan adanya ketentuan "pemakaian wajar" yang membuat kecepatan internetmu berkurang, atau bahkan bisa terjebak membayar lebih mahal setelah kuota yang ditentukan habis.Jika kamu merasa kebebasan itu omong kosong Think again.</p>\r\n<p>Kini dengan AlwaysOn, rasakan kebebasan berinternet tanpa syarat.Bebas internet sepuasnya tanpa kuota/pulsa. Bebas akses 11 situs populer, FULL SPEED, tanpa pake kuota/pulsa selama masa pakai internet masih berlaku.</p>\r\n<p>Berikut ini 11 situs yang dapat kamu akses secara bebas:</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Facebook</li>\r\n<li>Google</li>\r\n<li>Detik</li>\r\n<li>Klik BCA</li>\r\n<li>Twitter</li>\r\n<li>Mobile Kompas</li>\r\n<li>Toko Bagus</li>\r\n<li>Oke Zone</li>\r\n<li>Viva News</li>\r\n<li>Chatting (FB Messenger, YM Messenger, AOL, ICQ, GTalk, MSN)</li>\r\n<li>Kaskus</li>\r\n</ul>\r\n<p>&nbsp;</p>\r\n<p>Asiknya lagi, setiap bulannya kamu akan mendapat bonus kuota 50MB/bulan dan terus terakumulasi setiap kamu isi ulang, yang bisa kamu gunakan untuk akses ke situs lainnya berikut adalah spesifikasi three aon :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Kartu perdana Internet bisa telpon dan sms</li>\r\n<li>Always On selama 12 bulan ( masa aktif internet 12 bulan )</li>\r\n<li>Masa aktif kartu februari-maret 2015 - Kuota 5GB + bonus 600Mb ( 600Mb diakumulasi 50 Mb per bulan selama 12 bulan )</li>\r\n<li>Gratis akses 11 situs terkenal seuai diatas tanpa dikenakan kuota</li>\r\n<li>Pilihan nomor acak - GRATIS BBM 1 TAHUN apabila di gunakan/dipakai pada handphone BlackBerry tipe Z10 ( untuk info lebih lengkap silahkan hub TRI di 123 ).</li>\r\n</ul>', 1, 1, 1, 1, 11, 0, 1, 1, NULL, NULL, 1, NULL, NULL, NULL),
-(3, 'THREE- AON Kuota Regular 10GB Aktif 1 Tahun ', 'TR-0003', 'three-aon-kuota-regular-10gb-aktif-1-tahun', 6, 6, 1, 89000, '10GB.png', '100', '<p>Free internet 1 tahun, Dengan Kuota Kurang lebih 10GB. Setelah Kuota habis hanya bisa akses ke 11 situs populer tertentu selama setahun dari pertama kali kartu di aktifkan. Kartu ini sudah aktif dari selama 1 Tahun Kurang. Kartu yang sudah di gunakan bisa digunakan kembali.</p>', '<p>Pada akhirnya, kebebasan menjadi batasan yang membuat kamu menjadi lebih boros. Apalagi dengan adanya ketentuan "pemakaian wajar" yang membuat kecepatan internetmu berkurang, atau bahkan bisa terjebak membayar lebih mahal setelah kuota yang ditentukan habis.Jika kamu merasa kebebasan itu omong kosong Think again.</p>\r\n<p>Kini dengan AlwaysOn, rasakan kebebasan berinternet tanpa syarat.Bebas internet sepuasnya tanpa kuota/pulsa. Bebas akses 11 situs populer, FULL SPEED, tanpa pake kuota/pulsa selama masa pakai internet masih berlaku.</p>\r\n<p>Berikut ini 11 situs yang dapat kamu akses secara bebas:</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Facebook</li>\r\n<li>Google</li>\r\n<li>Detik</li>\r\n<li>Klik BCA</li>\r\n<li>Twitter</li>\r\n<li>Mobile Kompas</li>\r\n<li>Toko Bagus</li>\r\n<li>Oke Zone</li>\r\n<li>Viva News</li>\r\n<li>Chatting (FB Messenger, YM Messenger, AOL, ICQ, GTalk, MSN)</li>\r\n<li>Kaskus</li>\r\n</ul>\r\n<p>&nbsp;</p>\r\n<p>Asiknya lagi, setiap bulannya kamu akan mendapat bonus kuota 50MB/bulan dan terus terakumulasi setiap kamu isi ulang, yang bisa kamu gunakan untuk akses ke situs lainnya berikut adalah spesifikasi three aon :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Kartu perdana Internet bisa telpon dan sms</li>\r\n<li>Always On selama 12 bulan ( masa aktif internet 12 bulan )</li>\r\n<li>Masa aktif kartu februari-maret 2015 - Kuota 5GB + bonus 600Mb ( 600Mb diakumulasi 50 Mb per bulan selama 12 bulan )</li>\r\n<li>Gratis akses 11 situs terkenal seuai diatas tanpa dikenakan kuota</li>\r\n<li>Pilihan nomor acak - GRATIS BBM 1 TAHUN apabila di gunakan/dipakai pada handphone BlackBerry tipe Z10 ( untuk info lebih lengkap silahkan hub TRI di 123 ).</li>\r\n</ul>', 1, 1, 1, 1, 10, 0, 1, 1, NULL, NULL, 1, NULL, NULL, NULL),
+(1, 'THREE- AON Kuota Regular 5GB  Aktif 1 Tahun ', 'TR-0001', 'three-aon-kuota-regular-5gb-aktif-1-tahun', 6, 1, 1, 55000, 'three-5gb-aon.png', '30', '<p>Free internet 1 tahun, Dengan Kuota Kurang lebih 5GB. Setelah Kuota habis hanya bisa akses ke 11 situs populer tertentu selama setahun dari pertama kali kartu di aktifkan. Kartu ini sudah aktif dari selama 1 Tahun Kurang. Kartu yang sudah di gunakan bisa digunakan kembali.</p>', '<p>Pada akhirnya, kebebasan menjadi batasan yang membuat kamu menjadi lebih boros. Apalagi dengan adanya ketentuan "pemakaian wajar" yang membuat kecepatan internetmu berkurang, atau bahkan bisa terjebak membayar lebih mahal setelah kuota yang ditentukan habis.Jika kamu merasa kebebasan itu omong kosong Think again.</p>\r\n<p>Kini dengan AlwaysOn, rasakan kebebasan berinternet tanpa syarat.Bebas internet sepuasnya tanpa kuota/pulsa. Bebas akses 11 situs populer, FULL SPEED, tanpa pake kuota/pulsa selama masa pakai internet masih berlaku.</p>\r\n<p>Berikut ini 11 situs yang dapat kamu akses secara bebas:</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Facebook</li>\r\n<li>Google</li>\r\n<li>Detik</li>\r\n<li>Klik BCA</li>\r\n<li>Twitter</li>\r\n<li>Mobile Kompas</li>\r\n<li>Toko Bagus</li>\r\n<li>Oke Zone</li>\r\n<li>Viva News</li>\r\n<li>Chatting (FB Messenger, YM Messenger, AOL, ICQ, GTalk, MSN)</li>\r\n<li>Kaskus</li>\r\n</ul>\r\n<p>&nbsp;</p>\r\n<p>Asiknya lagi, setiap bulannya kamu akan mendapat bonus kuota 50MB/bulan dan terus terakumulasi setiap kamu isi ulang, yang bisa kamu gunakan untuk akses ke situs lainnya berikut adalah spesifikasi three aon :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Kartu perdana Internet bisa telpon dan sms</li>\r\n<li>Always On selama 12 bulan ( masa aktif internet 12 bulan )</li>\r\n<li>Masa aktif kartu februari-maret 2015 - Kuota 5GB + bonus 600Mb ( 600Mb diakumulasi 50 Mb per bulan selama 12 bulan )</li>\r\n<li>Gratis akses 11 situs terkenal seuai diatas tanpa dikenakan kuota</li>\r\n<li>Pilihan nomor acak - GRATIS BBM 1 TAHUN apabila di gunakan/dipakai pada handphone BlackBerry tipe Z10 ( untuk info lebih lengkap silahkan hub TRI di 123 ).</li>\r\n</ul>', 9, 1, 1, 1, 10, 1, 0, 1, NULL, '2015-02-26', 1, NULL, NULL, NULL),
+(2, 'THREE- AON Kuota Regular 8GB Aktif 1 Tahun ', 'TR-0002', 'three-aon-kuota-regular-8gb-aktif-1-tahun', 6, 6, 1, 73000, 'three-8gb-aon.png', '30', '<p>Free internet 1 tahun, Dengan Kuota Kurang lebih 8GB. Setelah Kuota habis hanya bisa akses ke 11 situs populer tertentu selama setahun dari pertama kali kartu di aktifkan. Kartu ini sudah aktif dari selama 1 Tahun Kurang. Kartu yang sudah di gunakan bisa digunakan kembali.</p>', '<p>Pada akhirnya, kebebasan menjadi batasan yang membuat kamu menjadi lebih boros. Apalagi dengan adanya ketentuan "pemakaian wajar" yang membuat kecepatan internetmu berkurang, atau bahkan bisa terjebak membayar lebih mahal setelah kuota yang ditentukan habis.Jika kamu merasa kebebasan itu omong kosong Think again.</p>\r\n<p>Kini dengan AlwaysOn, rasakan kebebasan berinternet tanpa syarat.Bebas internet sepuasnya tanpa kuota/pulsa. Bebas akses 11 situs populer, FULL SPEED, tanpa pake kuota/pulsa selama masa pakai internet masih berlaku.</p>\r\n<p>Berikut ini 11 situs yang dapat kamu akses secara bebas:</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Facebook</li>\r\n<li>Google</li>\r\n<li>Detik</li>\r\n<li>Klik BCA</li>\r\n<li>Twitter</li>\r\n<li>Mobile Kompas</li>\r\n<li>Toko Bagus</li>\r\n<li>Oke Zone</li>\r\n<li>Viva News</li>\r\n<li>Chatting (FB Messenger, YM Messenger, AOL, ICQ, GTalk, MSN)</li>\r\n<li>Kaskus</li>\r\n</ul>\r\n<p>&nbsp;</p>\r\n<p>Asiknya lagi, setiap bulannya kamu akan mendapat bonus kuota 50MB/bulan dan terus terakumulasi setiap kamu isi ulang, yang bisa kamu gunakan untuk akses ke situs lainnya berikut adalah spesifikasi three aon :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Kartu perdana Internet bisa telpon dan sms</li>\r\n<li>Always On selama 12 bulan ( masa aktif internet 12 bulan )</li>\r\n<li>Masa aktif kartu februari-maret 2015 - Kuota 5GB + bonus 600Mb ( 600Mb diakumulasi 50 Mb per bulan selama 12 bulan )</li>\r\n<li>Gratis akses 11 situs terkenal seuai diatas tanpa dikenakan kuota</li>\r\n<li>Pilihan nomor acak - GRATIS BBM 1 TAHUN apabila di gunakan/dipakai pada handphone BlackBerry tipe Z10 ( untuk info lebih lengkap silahkan hub TRI di 123 ).</li>\r\n</ul>', 1, 1, 1, 1, 11, 0, 1, 1, NULL, NULL, 1, NULL, NULL, NULL),
+(3, 'THREE- AON Kuota Regular 10GB Aktif 1 Tahun ', 'TR-0003', 'three-aon-kuota-regular-10gb-aktif-1-tahun', 6, 6, 1, 89000, '10GB.png', '30', '<p>Free internet 1 tahun, Dengan Kuota Kurang lebih 10GB. Setelah Kuota habis hanya bisa akses ke 11 situs populer tertentu selama setahun dari pertama kali kartu di aktifkan. Kartu ini sudah aktif dari selama 1 Tahun Kurang. Kartu yang sudah di gunakan bisa digunakan kembali.</p>', '<p>Pada akhirnya, kebebasan menjadi batasan yang membuat kamu menjadi lebih boros. Apalagi dengan adanya ketentuan "pemakaian wajar" yang membuat kecepatan internetmu berkurang, atau bahkan bisa terjebak membayar lebih mahal setelah kuota yang ditentukan habis.Jika kamu merasa kebebasan itu omong kosong Think again.</p>\r\n<p>Kini dengan AlwaysOn, rasakan kebebasan berinternet tanpa syarat.Bebas internet sepuasnya tanpa kuota/pulsa. Bebas akses 11 situs populer, FULL SPEED, tanpa pake kuota/pulsa selama masa pakai internet masih berlaku.</p>\r\n<p>Berikut ini 11 situs yang dapat kamu akses secara bebas:</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Facebook</li>\r\n<li>Google</li>\r\n<li>Detik</li>\r\n<li>Klik BCA</li>\r\n<li>Twitter</li>\r\n<li>Mobile Kompas</li>\r\n<li>Toko Bagus</li>\r\n<li>Oke Zone</li>\r\n<li>Viva News</li>\r\n<li>Chatting (FB Messenger, YM Messenger, AOL, ICQ, GTalk, MSN)</li>\r\n<li>Kaskus</li>\r\n</ul>\r\n<p>&nbsp;</p>\r\n<p>Asiknya lagi, setiap bulannya kamu akan mendapat bonus kuota 50MB/bulan dan terus terakumulasi setiap kamu isi ulang, yang bisa kamu gunakan untuk akses ke situs lainnya berikut adalah spesifikasi three aon :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Kartu perdana Internet bisa telpon dan sms</li>\r\n<li>Always On selama 12 bulan ( masa aktif internet 12 bulan )</li>\r\n<li>Masa aktif kartu februari-maret 2015 - Kuota 5GB + bonus 600Mb ( 600Mb diakumulasi 50 Mb per bulan selama 12 bulan )</li>\r\n<li>Gratis akses 11 situs terkenal seuai diatas tanpa dikenakan kuota</li>\r\n<li>Pilihan nomor acak - GRATIS BBM 1 TAHUN apabila di gunakan/dipakai pada handphone BlackBerry tipe Z10 ( untuk info lebih lengkap silahkan hub TRI di 123 ).</li>\r\n</ul>', 1, 1, 1, 1, 10, 0, 1, 1, NULL, NULL, 1, NULL, NULL, NULL),
 (4, 'Voucher Fisik XL Nominal 25.000 Expired 01/03/2016', 'XL-0001', 'voucher-fisik-xl-nominal-25000-expired-01032016', 5, 5, 1, 28200, 'xl-25.png', '50', '<p>Vileo.co.id menyediakan beberapa voucher fisik&nbsp; XL dengan nominal <em><strong>25.000</strong></em>&nbsp; atau voucher gesek dengan sistem transaksi sama seperti transaksi pengisian pulsa elektrik, namun hanya berbeda dalam cara memasukan pulsa ke No HP user/konsumen</p>', '<p>Vileo.co.id menyediakan beberapa voucher fisik&nbsp; XL dengan nominal 25.000&nbsp; atau voucher gesek dengan sistem transaksi sama seperti transaksi pengisian pulsa elektrik, namun hanya berbeda dalam cara memasukan pulsa ke No HP user/konsumen.Meskipun demikian, cara mengisi ulang pulsa menggunakan voucher fisik juga perlu kita diketahui karena siapa tahu nanti kita akan mengalami situasi dimana kita mendapati konter yang tidak menjual voucher elektrik (kehabisan) ataupun gagal masuk pulsa</p>', 1, 1, 1, 1, 11, 0, 1, 1, NULL, NULL, 1, NULL, NULL, NULL),
 (5, 'Sim Adapter Noosy 3 in 1 Micro Nano ke Standar SIM', 'SA-0001', 'sim-adapter-noosy-3-in-1-micro-nano-ke-standar-sim', 12, 4, 1, 10000, '61b8ys1VVVL._SL1000_.jpg', '50', '<p><span id="result_box" lang="id"><span class="hps">Sim</span> <span class="hps">Nano</span> <span class="hps">Anda</span> <span class="hps">dapat mengubah ukuran</span> <span class="hps">Micro</span> <span class="hps">sim atau Nano sim</span> <span class="hps">ke</span> <span class="hps">sim</span> <span class="hps">standar melalui</span> <span class="hps">NOOSY</span> <span class="hps">nano</span> <span class="hps">sim</span> <span class="hps">adapter</span>, <span class="hps">cocok dengan semua</span> <span class="hps">perangkat mobile</span>.</span><span id="result_box" lang="id"><span class="hps">Nano</span> <span class="hps">sim</span> <span class="hps">lebih kecil dari</span> <span class="hps">Micro</span> <span class="hps">sim</span>, ukuran <span class="hps">hanya</span> <span class="hps">12,3</span> <span class="hps">*</span> <span class="hps">8.8mm dengan&nbsp;</span> <span class="hps">sim</span> <span class="hps">adapter</span> <span class="hps">NOOSY</span> <span class="hps">Nano</span>, <span class="hps">memungkinkan</span> <span class="hps">Nano</span> <span class="hps">SIM</span> <span class="hps">dkembalikan</span> <span class="hps">Micro</span> <span class="hps">sim ataupun ke</span> <span class="hps">Standard</span> <span class="hps">sim</span>.<br /></span></p>', '<p><span id="result_box" lang="id"><span class="hps">Sim</span> <span class="hps">Nano</span> <span class="hps">Anda</span> <span class="hps">dapat mengubah ukuran</span> <span class="hps">Micro</span> <span class="hps">sim atau Nano sim</span> <span class="hps">ke</span> <span class="hps">sim</span> <span class="hps">standar melalui</span> <span class="hps">NOOSY</span> <span class="hps">nano</span> <span class="hps">sim</span> <span class="hps">adapter</span>, <span class="hps">cocok dengan semua</span> <span class="hps">perangkat mobile</span>.</span><span id="result_box" lang="id"><span class="hps">Nano</span> <span class="hps">sim</span> <span class="hps">lebih kecil dari</span> <span class="hps">Micro</span> <span class="hps">sim</span>, ukuran <span class="hps">hanya</span> <span class="hps">12,3</span> <span class="hps">*</span> <span class="hps">8.8mm dengan&nbsp;</span> <span class="hps">sim</span> <span class="hps">adapter</span> <span class="hps">NOOSY</span> <span class="hps">Nano</span>, <span class="hps">memungkinkan</span> <span class="hps">Nano</span> <span class="hps">SIM</span> <span class="hps">dkembalikan</span> <span class="hps">Micro</span> <span class="hps">sim ataupun ke</span> <span class="hps">Standard</span> <span class="hps">sim</span>.<br /><span class="hps">Nano</span> <span class="hps">adaptor</span> <span class="hps">sim</span> <span class="hps">servicelife</span> mempunyai <span class="hps">kekuatan tinggi, </span><span class="hps">The</span> <span class="hps">Nano</span> <span class="hps">dibuat </span><span class="hps">dengan</span> <span class="hps">cetakan</span> <span class="hps">presisi</span>.</span></p>\r\n<ul style="list-style-type: undefined;">\r\n<li><span lang="id"><span id="result_box" lang="id"><span class="hps">Dapat</span> <span class="hps">ribuan</span> <span class="hps">kali</span> <span class="hps">tanpa ada&nbsp;</span> <span class="hps">yang rusak</span> <span class="hps">atau distorsi</span>.</span></span></li>\r\n<li><span lang="id"><span id="result_box" lang="id"><span class="hps">Dibuat dengan</span> <span class="hps">cetakan</span> <span class="hps">presisi</span>, <span class="hps">ukuran</span> <span class="hps">yang akurat</span> <span class="hps">tidak akan membuat</span> <span class="hps">drop</span> <span class="hps">sim</span> <span class="hps">Nano</span> <span class="hps">dari</span> <span class="hps">adaptor</span>.</span></span></li>\r\n<li><span lang="id"><span id="result_box" lang="id"><span class="hps">Cocok untuk</span> <span class="hps">semua perangkat</span> <span class="hps">mobile.</span></span></span></li>\r\n<li><span lang="id"><span id="result_box" lang="id">Dikemas <span class="hps">dengan</span> <span class="hps">Nano</span> <span class="hps">untuk sim</span> <span class="hps">adaptor</span> <span class="hps">&amp;</span> <span class="hps">Nano</span> <span class="hps">ke</span> <span class="hps">Adaptor</span> <span class="hps">mikro</span>.</span></span></li>\r\n</ul>', NULL, 1, 1, 1, 10, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (6, 'Baterai Xiaomi Redmi 1S/2S 2000mAh OEM', 'BXI-0001', 'baterai-xiaomi-redmi-1s2s-2000mah-oem', 10, 2, 1, 66500, 'baterai-xaiopmi.png', '300', '<p>Baterai Lithium 2000 mAH OEM dari Xiaomi (tipe: BM41) khusus untuk hp Redmi 1S dan 2S. Sangat praktis untuk dipakai sebagai baterai cadangan kalau HP low batt, sebagai pengganti powerbank yang berat dan kurang praktis.</p>', '<p>Baterai Lithium 2000 mAH OEM dari Xiaomi (tipe: BM41) khusus untuk hp Redmi 1S dan 2S. Sangat praktis untuk dipakai sebagai baterai cadangan kalau HP low batt, sebagai pengganti powerbank yang berat dan kurang praktis.Baterai untuk Xiaomi Redmi 1S dengan kapasitas 2000mAh. Anda dapat menggunakan baterai ini sebagai baterai cadangan sehingga tidak perlu cemas Xiaomi Anda kehabisan tenaga.</p>', NULL, 1, 1, 1, 5, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
@@ -998,7 +1000,17 @@ INSERT INTO `product` (`id`, `name`, `sku`, `slug`, `category_id`, `brand_id`, `
 (37, 'Pigtail Modem Huawei E5372-S SLIM, MAX - ZTE MF825A Dual Channel FME Male', 'PMM-0001', 'pigtail-modem-huawei-e5372-s-slim-max-zte-mf825a-dual-channel-fme-male', 17, 21, 1, 93000, 'pigtail-1.png', '100', '<p>Support dan cocok untuk tipe-tipe modem 4G LTE yang memiliki PORT ANTENA 2 (dua) buah, yang memiliki dual POLARISASI Vertikal dan Horizontal dengan teknologi MIMO (Multi In Multi Out) terutama Huawei SLIM , MAX dan ZTE MF825A yang mempunyai dua slot antena.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>Support dan cocok untuk tipe-tipe modem 4G LTE yang memiliki PORT ANTENA 2 (dua) buah, yang memiliki dual POLARISASI Vertikal dan Horizontal dengan teknologi MIMO (Multi In Multi Out)</p>\r\n<p><strong>Spesifikasi :</strong></p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Pigtail Adapter Tipe PLUG-IN (Colok) Cabang dua / Dual Port</li>\r\n<li>Impedance: 50 ohm</li>\r\n<li>Pigtail tidak longgar (tidak mudah lepas)</li>\r\n<li>Tipe Konektor: FME Male</li>\r\n<li>Tipe Kabel: RG174</li>\r\n<li>Finishing : Pabrikasi (bukan handmade)</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (38, 'FlashDisk Kingston DataTraveler 100 16GB USB 3.0', 'FDK-0001', 'flashdisk-kingston-datatraveler-100-16gb-usb-30', 22, 12, 1, 111000, '28937_2.jpg', '108000', '<p>Kingston DataTraveler&reg; 100 G3 (DT100G3) USB Flash drive kompatibel dengan generasi USB 3.0 spesifikasi untuk mengambil keuntungan dari teknologi dalam notebook baru, PC desktop dan perangkat digital.</p>', '<p>Kingston DataTraveler&reg; 100 G3 (DT100G3) USB Flash drive kompatibel dengan generasi USB 3.0 spesifikasi untuk mengambil keuntungan dari teknologi dalam notebook baru, PC desktop dan perangkat digital. Dengan DT100G3, menyimpan dan mentransfer dokumen, presentasi, musik, video, dan banyak lagi lebih cepat dan lebih mudah dari sebelumnya.<br /><br />DT100G3 memiliki ramping, desain hemat biaya untuk membuat transisi memuaskan ke USB 3.0 pengalaman investasi minimal. Tersedia dalam kapasitas 8GB dari-64GB, DT100G3 kompatibel dengan USB 2.0 dan memiliki garansi lima tahun. Masa depan-bukti penyimpanan portabel Anda sekarang</p>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (39, 'Kingston DataTraveler Generation 4 16GB USB 3.0', 'FDK-0002', 'kingston-datatraveler-generation-4-16gb-usb-30', 22, 1, 1, 108400, 'kingston-datatraveler-generation-4-dtig4-16gb-blue-1.jpg', '200', '<p>Kingston DataTraveler&reg; G3USB Flash drive kompatibel dengan generasi USB 3.0 spesifikasi untuk mengambil keuntungan dari teknologi dalam notebook baru, PC desktop dan perangkat digital.</p>', '<p>Kingston DataTraveler&reg; G3USB Flash drive kompatibel dengan generasi USB 3.0 spesifikasi untuk mengambil keuntungan dari teknologi dalam notebook baru, PC desktop dan perangkat digital.memiliki ramping, desain hemat biaya untuk membuat transisi memuaskan ke USB 3.0 pengalaman investasi minimal.</p>', 0, 1, 0, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
-(40, 'Kingston DataTraveler Generation 4 8GB USB 3.0', 'FDK-003', 'kingston-datatraveler-generation-4-8gb-usb-30', 22, 1, 1, 78700, 'kingston-datatraveler-generation-4-dtig4-8gb-yellow-2.jpg', '200', '<p>Kingston DataTraveler&reg; G3USB Flash drive kompatibel dengan generasi USB 3.0 spesifikasi untuk mengambil keuntungan dari teknologi dalam notebook baru, PC desktop dan perangkat digital.</p>', '<p>Kingston DataTraveler&reg; G3USB Flash drive kompatibel dengan generasi USB 3.0 spesifikasi untuk mengambil keuntungan dari teknologi dalam notebook baru, PC desktop dan perangkat digital.memiliki ramping, desain hemat biaya untuk membuat transisi memuaskan ke USB 3.0 pengalaman investasi minimal.</p>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL);
+(40, 'Kingston DataTraveler Generation 4 8GB USB 3.0', 'FDK-003', 'kingston-datatraveler-generation-4-8gb-usb-30', 22, 1, 1, 78700, 'kingston-datatraveler-generation-4-dtig4-8gb-yellow-2.jpg', '200', '<p>Kingston DataTraveler&reg; G3USB Flash drive kompatibel dengan generasi USB 3.0 spesifikasi untuk mengambil keuntungan dari teknologi dalam notebook baru, PC desktop dan perangkat digital.</p>', '<p>Kingston DataTraveler&reg; G3USB Flash drive kompatibel dengan generasi USB 3.0 spesifikasi untuk mengambil keuntungan dari teknologi dalam notebook baru, PC desktop dan perangkat digital.memiliki ramping, desain hemat biaya untuk membuat transisi memuaskan ke USB 3.0 pengalaman investasi minimal.</p>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(41, 'Logitech B100 Optical Mouse', 'LGM-0001', 'logitech-b100-optical-mouse', 26, 24, 1, 49000, 'logitech-b100-optical-mouse-hitam-7391-78953-1-product.jpg', '250', '<p><span class="firstnav" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;">Logitech B100 Optical Mouse adalah mouse dengan desain ambidextrous yang nyaman dengan desain yang sederhana yang membuat Anda menikmati pekerjaan Anda dengan nyaman ketika dipakai untuk bekerja dalam waktu yang lama. Mouse keluaran Logitech ini dilengkapi sensor optik menghasilkan gerakan kursor lebih halus dan dengan akurasi serta sensitivitas yang tinggi.</span></p>', '<p>Logitech B100 Optical Mouse adalah mouse dengan desain ambidextrous yang nyaman dengan desain yang sederhana yang membuat Anda menikmati pekerjaan Anda dengan nyaman ketika dipakai untuk bekerja dalam waktu yang lama.</p>\r\n<p><span class="firstnav" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;">Mouse keluaran Logitech ini dilengkapi sensor optik menghasilkan gerakan kursor lebih halus dan dengan akurasi serta sensitivitas yang tinggi.</span><br /> <br /> <strong>Navigasi presisi</strong><br /> Optik dengan 800 dpi membuat kontrol kursor yang halus dan presisi membantu Anda dalam menavigasi web maupun mengatur dokumen dengan tepat dan terasa nyaman.<br /> <br /> <strong>Pengoprasian Sederhana</strong><br /> Tanpa menginstall apapun Anda dapat langsung mencolok pada port usb dan mulai menggunakan mouse ini dan Anda pun siap untuk menjalani hari Anda dengan mouse yang nyaman.<br /> <br /> <strong>Kualitas Logitech</strong><br /> Mouse ini dirancang oleh Logitech dengan kualitas yang telah terbukti dari milyaran mouse yang telah diproduksi oleh Logitech <br /> <br /> <strong>Kebebasan Pemakaian</strong><br /> Mouse ini dikoneksikan oleh USB dan kompatibel dengan OS: Windows&Atilde;&sbquo;&Acirc;&reg; XP, Windows Vista&Atilde;&sbquo;&Acirc;&reg; or Windows&Atilde;&sbquo;&Acirc;&reg; 7, Linux&Atilde;&sbquo;&Acirc;&reg; kernel 2.4+</p>', 0, 1, 1, 1, 4, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(42, 'Logitech Wireless Mouse M165', 'LGM-0002', 'logitech-wireless-mouse-m165', 26, 24, 1, 78000, 'mouse-optico-m165-logitech-inalambrico-usb-1000dpi-negro-15300-MLM20098389199_052014-F.jpg', '250', '<p>Mouse ini mengandalkan frekuensi 2.4 GHz agar dapat bekerja nirkabel dengan lebih lancar. Desain ergonomis pada seluruh body mouse dapat meningkatkan kenyamanan Anda selama beraksi pada Notebook atau Desktop. LOGITECH M165 dapat mengkonsumsi tenaga baterai secara efisien sehingga dapat menghemat energi baterai hingga 12 bulan.</p>', '<p>Kini Anda dapat merasakan kenyamanan dan kemudahan dalam bekerja atau browsing internet pada PC Anda dengan Mouse Wireless LOGITECH M165. Mouse ini mengandalkan frekuensi 2.4 GHz agar dapat bekerja nirkabel dengan lebih lancar. Desain ergonomis pada seluruh body mouse dapat meningkatkan kenyamanan Anda selama beraksi pada Notebook atau Desktop. LOGITECH M165 dapat mengkonsumsi tenaga baterai secara efisien sehingga dapat menghemat energi baterai hingga 12 bulan. LOGITECH menyediakan Nano Receiver berukuran mini yang dapat Anda hubungkan dengan port USB pada device PC Anda. Tidak perlu instalasi perangkat lunak tambahan, LOGITECH M165 dapat langsung bekerja setiap saat Anda butuhkan.</p>\r\n<p>Mouse Wireless LOGITECH M165 dapat bekerja secara nirkabel dengan mengandalkan koneksi 2.4 GHz. Teknologi Logitech Advanced 2.4 GHz memungkinkan Mouse dapat bekerja secara terus menerus berkat koneksi dahsyat yang dapat diandalkan tanpa jeda atau terputus-putus. Untuk dapat bekerja secara nirkabel, LOGITECH menambahkan sebuah Nano Receiver kecil yang berfungsi sebagai penangkap sinyal dari Mouse agar diteruskan ke perangkat PC. Penggunaan Mouse ini sama mudahnya dengan mouse berkabel. Anda hanya perlu memasukan Nano Receiver pada port USB dan Mouse dapat langsung digunakan tanpa instalasi tambahan yang merepotkan. Ukuran Nano Receiver sangat kecil sehingga Anda dapat membiarkannya tertancap pada port USB Notebook ketika berpergian agar tidak mudah hilang atau rusak.</p>\r\n<p>LOGITECH M165 dibekali teknologi sensor optik berdefinisi tinggi yang dapat bekerja secara akurat dan handal pada berbagai jenis permukaan. Dengan sensor 1000-dpi yang dimilikinya, Mouse ini dapat mengontrol kursor dengan lebih mulus dan responsif. LOGITECH M165 dapat digunakan pada perangkat PC Desktop atau Notebook yang bekerja dengan sistem operasi Windows 8/7/Vista dan Mac OS X atau versi terbaru di atasnya. Berkat teknologi terkini yang ditanamkan pada LOGITECH M165 membuatnya dapat bekerja secara efisien dalam konsumsi daya baterai. Wireless Mouse ini dapat menghemat daya baterai sehingga dapat bertahan hingga 12 bulan lamanya*.&nbsp; Anda dapat menggunakan baterai berjenis AAA untuk mengoperasikan Mouse ini. sebuah tombol knop ON/OFF telah disediakan untuk membantu Anda menghemat baterai.</p>', 0, 1, 1, 1, 4, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(43, 'SanDisk Ultra Fit USB 3.0 Flash Drive 16GB ', 'FSA-0001', 'sandisk-ultra-fit-usb-30-flash-drive-16gb', 22, 13, 1, 117000, 'sandisk-ultra-fit-usb-30-flash-drive-16gb-sdcz43-016g-black-2.jpg', '100', '<p>Flashdisk Berukuran Kecil , Ukuran Kecil namun sangat tinggi Kegunaannya .rasakan performa tinggi kecepatannya lebih dari USB 2.0 biasa dengan USB 3.0 anda akan lebih cepat 2x lipat dalam transfer file maupun membaca file di dalam flashdisk.</p>', '<p>Flashdisk Berukuran Kecil , Ukuran Kecil namun sangat tinggi Kegunaannya .rasakan performa tinggi kecepatannya lebih dari USB 2.0 biasa dengan USB 3.0 anda akan lebih cepat 2x lipat dalam transfer file maupun membaca file di dalam flashdisk.</p>', 0, 1, 1, 1, 1, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(44, 'Kartu Perdana simPATI Discovery Preload Kuota 2.5GB', 'PTL-0001', 'kartu-perdana-simpati-discovery-preload-kuota-25gb', 3, 22, 1, 30000, 'simpati-3g.png', '50', '<p>Nikmati kenyamanan internetan kuota Hebat dengan Harga Hemat dari <strong>kartu khusus internet simPATI Discovery!!&nbsp; </strong>dan dapatkan kuota internet hingga 2.5GB bebas akses aplikasi social media : Blackberry Messenger, LINE dan Whatsapp sepuasnya.</p>', '<p>Nikmati kenyamanan internetan kuota Hebat dengan Harga Hemat dari <strong>kartu khusus internet simPATI Discovery!!</strong><br /> dapatkan kuota internet hingga 2.5GB bebas akses aplikasi social media : Blackberry Messenger, LINE dan Whatsapp sepuasnya.<br /> Dapatkan juga Kuota Tambahan hingga 1GB setelah isi ulang pulsa Rp.20.000 Aktifkan kartu perdana simPATI bersticker khusus dengan menghubungi *363*20# simPATI Your Everyday Discoveries<br /> Promo berlaku mulai 22 Oktober 2014</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>kondisi segel belum aktif</li>\r\n<li>expired 31 oktober 2015</li>\r\n<li>quota bisa dipakai dimana aja diseluruh indonesia</li>\r\n<li>cara aktivasi kuota tertera di perdananya *363*20#</li>\r\n<li>kuota lsg di dapat tanpa perlu isi ulang</li>\r\n<li>kuota yg didapat tergantung area</li>\r\n<li>garansi 1 hari setelah pemakaian sehari tidak ada garansi dari penjual</li>\r\n</ul>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(45, 'Kartu Perdana SImpati Loop', 'PTL-0002', 'kartu-perdana-simpati-loop', 3, 25, 1, 10000, 'simpati-loop.jpg', '50', '<p>SImpati Loop menjadi sangat populer karena memberikan banyak keunggulan dari pada simpati yang lain diantaranya <strong>Paket Internet, Paket Blackberry, Paket Nelpon dan Paket SMS</strong> yang sangat murah.</p>', '<p>menjadi sangat populer karena memberikan banyak keunggulan dari pada simpati yang lain diantaranya <strong>Paket Internet, Paket Blackberry, Paket Nelpon dan Paket SMS</strong> yang sangat murah.<br /> <br /> Empat keunggulan simpati loop ini bisa menjaring semua kalangan pengguna baik dari yang hobby sms-an hingga internetan, memang ada sedikit perbedaan didalam simpati loop ini baik cara registrasi paket maupun aturan penggunaan paket, sehingga perlu pengetahuan dasar tentang kehebatan simpati loop agar bisa memanfaatkan simpati loop dengan optimal. Karena jika tidak maka bukan penghematan yang akan Anda terima namun malah merugi karena tidak menyadari aturan main yang berlaku, berikut 4 keunggulan simpati loop yang berbeda dengan simpati yang lain:<br /> <br /> <strong>(1). Internet</strong> - hanya dengan harga 50rb merupakan salah satu kelebihan simpati loop yang memiliki daya tarik yang luar biasa bagi pengguna internet yang biasanya hanya mendapatkan 2GB internet dengan harga yang sama jika menggunakan operator lain</p>\r\n<p>(<strong>2). BBM </strong>-&nbsp; juga luar biasa murah, hanya dengan 30 ribu sebulan sudah bisa mengakses blackberry lengkap mulai dari bbm, chatting, sosial network, browsing dan email, hanya saja belum bisa streaming video, namun dengan layanan yang begitu lengkap tersebut simpati loop menjadi paket blackberry termurah yang pernah ada. ditambah lagi jaringan telkomsel sudah dikenal memiliki signal terluas diseluruh indonesia.<br /> <br /> <strong>(3). SMS</strong> -&nbsp; hanya dengan menggunakan sekali sms saja bisa dapat bonus 1000 sms sampai jam 12 malam bahkan di daerah bandung, dan jogja diberikan bonus hingga 10 ribu sms setiap mengguanakan dua sms. Sekarang bagaimana dengan paket nelpon simpati loop?<br /> <br /> (<strong>4). Nelpon</strong> - memberikan bonus telpon 60 menit setelah menggunakan telp terakumulasi Rp.1000,-. Bonus nelpon 60 menit tersebut bisa digunakan untuk menelpon ke 3 nomor telkomsel. Bonus nelpon ini bisa digunakan dari jam 00.00 hingga jam 11 siang, dan jika ingin bonus lagi maka harus gunakan lagi nelpon terakumulasi 1.500 untuk bisa nelpon gratis 60 menit dari jam 11 siang sampai jam 12 malam.</p>', 0, 1, 1, 1, 0, NULL, 0, 0, 0, '0000-00-00', 1, NULL, NULL, NULL),
+(46, 'Perdana Simpati Flash Kuota 6GB  Untuk 3 Bulan (1.5GB/Bulan) ', 'PTL-0003', 'perdana-simpati-flash-kuota-6gb-untuk-3-bulan-15gbbulan', 3, 22, 1, 70000, 'telkomsel-simpati-internet-6gb-kuota-2gb-per-bulan-gratis-3-bulan.png', '50', '<p>Perdana Simpati flash telkomsel 6GB untuk 3 bulan (Kuota 2GB/Bulan) ready Simpati flash dari telkomsel&nbsp; yang bisa di gunakan untuk 3 bulan. bisa di gunakan untuk smartphone dan modem serta banyak lagi. Kartu akan diaktifkan dan dapat dipakai di Modem , Smartphone.Total Bonus perdana ini&nbsp; 6GB Data (bonus kuota berlaku untuk 3 bulan) jadi tiap bulannya bonusnya 2 Gb data (1.5gb 2G/3G + 500mb 3G) tanpa pembatasan pemakaian waktu (24jam) kecepatan up to 7,2mbps</p>', '<p>Perdana Simpati flash telkomsel 6GB untuk 3 bulan (Kuota 2GB/Bulan) ready Simpati flash dari telkomsel&nbsp; yang bisa di gunakan untuk 3 bulan. bisa di gunakan untuk smartphone dan modem serta banyak lagi. Kartu akan diaktifkan dan dapat dipakai di Modem , Smartphone.Total Bonus perdana ini&nbsp; 6GB Data (bonus kuota berlaku untuk 3 bulan) jadi tiap bulannya bonusnya 2 Gb data (1.5gb 2G/3G + 500mb 3G) tanpa pembatasan pemakaian waktu (24jam) kecepatan up to 7,2mbps</p>', 0, 1, 1, 1, 0, NULL, 0, 0, 0, '2015-03-31', 1, NULL, NULL, NULL),
+(47, 'Perdana Simpati Flash Telkomsel 3,6GB untuk 3 bulan (1,2GB/Bulan)', 'PTL-0004', 'perdana-simpati-flash-telkomsel-36gb-untuk-3-bulan-12gbbulan', 3, 25, 1, 50000, 'simpati-3.6gb.png', '50', '<p>Perdana SImpati flash telkomsel 3,6gb untuk 3 bulanready simpati flash dari telkomsel dengan kuota 3,6gb yang bisa di gunakan untuk 3 bulan.bisa di gunakan untuk samsung s3,s4,iphone ipad,tablet,android,iphone,blackberry os 10.modem dan banyak lagi.</p>', '<p>Perdana SImpati flash telkomsel 3,6gb untuk 3 bulanready simpati flash dari telkomsel dengan kuota 3,6gb yang bisa di gunakan untuk 3 bulan.bisa di gunakan untuk samsung s3,s4,iphone ipad,tablet,android,iphone,blackberry os 10.modem dan banyak lagi.</p>', 0, 1, 1, 1, 0, NULL, 0, 0, 0, '2014-03-31', 1, NULL, NULL, NULL),
+(48, 'THREE- AON Kuota Regular 1GB Aktif 1 Tahun ', 'TR-0004', 'three-aon-kuota-regular-1gb-aktif-1-tahun', 6, 6, 1, 16000, 'three-1gb-01.png', '30', '<p>Free internet 1 tahun, Dengan Kuota Kurang lebih 1GB. Setelah Kuota habis hanya bisa akses ke 11 situs populer tertentu selama setahun dari pertama kali kartu di aktifkan. Kartu ini sudah aktif dari selama 1 Tahun Kurang. Kartu yang sudah di gunakan bisa digunakan kembali.</p>', '<p>Pada akhirnya, kebebasan menjadi batasan yang membuat kamu menjadi lebih boros. Apalagi dengan adanya ketentuan "pemakaian wajar" yang membuat kecepatan internetmu berkurang, atau bahkan bisa terjebak membayar lebih mahal setelah kuota yang ditentukan habis.Jika kamu merasa kebebasan itu omong kosong Think again.</p>\r\n<p>Kini dengan AlwaysOn, rasakan kebebasan berinternet tanpa syarat.Bebas internet sepuasnya tanpa kuota/pulsa. Bebas akses 11 situs populer, FULL SPEED, tanpa pake kuota/pulsa selama masa pakai internet masih berlaku.</p>\r\n<p>Berikut ini 11 situs yang dapat kamu akses secara bebas:</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Facebook</li>\r\n<li>Google</li>\r\n<li>Detik</li>\r\n<li>Klik BCA</li>\r\n<li>Twitter</li>\r\n<li>Mobile Kompas</li>\r\n<li>Toko Bagus</li>\r\n<li>Oke Zone</li>\r\n<li>Viva News</li>\r\n<li>Chatting (FB Messenger, YM Messenger, AOL, ICQ, GTalk, MSN)</li>\r\n<li>Kaskus</li>\r\n</ul>\r\n<p>&nbsp;</p>\r\n<p>Asiknya lagi, setiap bulannya kamu akan mendapat bonus kuota 50MB/bulan dan terus terakumulasi setiap kamu isi ulang, yang bisa kamu gunakan untuk akses ke situs lainnya berikut adalah spesifikasi three aon :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Kartu perdana Internet bisa telpon dan sms</li>\r\n<li>Always On selama 12 bulan ( masa aktif internet 12 bulan )</li>\r\n<li>Masa aktif kartu februari-maret 2015 - Kuota 5GB + bonus 600Mb ( 600Mb diakumulasi 50 Mb per bulan selama 12 bulan )</li>\r\n<li>Gratis akses 11 situs terkenal seuai diatas tanpa dikenakan kuota</li>\r\n<li>Pilihan nomor acak - GRATIS BBM 1 TAHUN apabila di gunakan/dipakai pada handphone BlackBerry tipe Z10 ( untuk info lebih lengkap silahkan hub TRI di 123 ).</li>\r\n</ul>', 0, 1, 1, 1, 3, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(49, 'THREE- AON Kuota Regular 3GB Aktif 1 Tahun ', 'TR-0005', 'three-aon-kuota-regular-3gb-aktif-1-tahun', 6, 6, 1, 36000, 'three-3gb-01.png', '30', '<p>Free internet 1 tahun, Dengan Kuota Kurang lebih 3GB. Setelah Kuota habis hanya bisa akses ke 11 situs populer tertentu selama setahun dari pertama kali kartu di aktifkan. Kartu ini sudah aktif dari selama 1 Tahun Kurang. Kartu yang sudah di gunakan bisa digunakan kembali.</p>', '<p>Pada akhirnya, kebebasan menjadi batasan yang membuat kamu menjadi lebih boros. Apalagi dengan adanya ketentuan "pemakaian wajar" yang membuat kecepatan internetmu berkurang, atau bahkan bisa terjebak membayar lebih mahal setelah kuota yang ditentukan habis.Jika kamu merasa kebebasan itu omong kosong Think again.</p>\r\n<p>Kini dengan AlwaysOn, rasakan kebebasan berinternet tanpa syarat.Bebas internet sepuasnya tanpa kuota/pulsa. Bebas akses 11 situs populer, FULL SPEED, tanpa pake kuota/pulsa selama masa pakai internet masih berlaku.</p>\r\n<p>Berikut ini 11 situs yang dapat kamu akses secara bebas:</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Facebook</li>\r\n<li>Google</li>\r\n<li>Detik</li>\r\n<li>Klik BCA</li>\r\n<li>Twitter</li>\r\n<li>Mobile Kompas</li>\r\n<li>Toko Bagus</li>\r\n<li>Oke Zone</li>\r\n<li>Viva News</li>\r\n<li>Chatting (FB Messenger, YM Messenger, AOL, ICQ, GTalk, MSN)</li>\r\n<li>Kaskus</li>\r\n</ul>\r\n<p>&nbsp;</p>\r\n<p>Asiknya lagi, setiap bulannya kamu akan mendapat bonus kuota 50MB/bulan dan terus terakumulasi setiap kamu isi ulang, yang bisa kamu gunakan untuk akses ke situs lainnya berikut adalah spesifikasi three aon :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Kartu perdana Internet bisa telpon dan sms</li>\r\n<li>Always On selama 12 bulan ( masa aktif internet 12 bulan )</li>\r\n<li>Masa aktif kartu februari-maret 2015 - Kuota 5GB + bonus 600Mb ( 600Mb diakumulasi 50 Mb per bulan selama 12 bulan )</li>\r\n<li>Gratis akses 11 situs terkenal seuai diatas tanpa dikenakan kuota</li>\r\n<li>Pilihan nomor acak - GRATIS BBM 1 TAHUN apabila di gunakan/dipakai pada handphone BlackBerry tipe Z10 ( untuk info lebih lengkap silahkan hub TRI d</li>\r\n</ul>', 0, 1, 1, 1, 3, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(50, 'THREE- AON Kuota Regular 6GB Aktif 1 Tahun ', 'TR-0006', 'three-aon-kuota-regular-6gb-aktif-1-tahun', 6, 6, 1, 60000, 'three-6gb-01.png', '30', '<p>Free internet 1 tahun, Dengan Kuota Kurang lebih 6GB. Setelah Kuota habis hanya bisa akses ke 11 situs populer tertentu selama setahun dari pertama kali kartu di aktifkan. Kartu ini sudah aktif dari selama 1 Tahun Kurang. Kartu yang sudah di gunakan bisa digunakan kembali.</p>', '<p>Pada akhirnya, kebebasan menjadi batasan yang membuat kamu menjadi lebih boros. Apalagi dengan adanya ketentuan "pemakaian wajar" yang membuat kecepatan internetmu berkurang, atau bahkan bisa terjebak membayar lebih mahal setelah kuota yang ditentukan habis.Jika kamu merasa kebebasan itu omong kosong Think again.</p>\r\n<p>Kini dengan AlwaysOn, rasakan kebebasan berinternet tanpa syarat.Bebas internet sepuasnya tanpa kuota/pulsa. Bebas akses 11 situs populer, FULL SPEED, tanpa pake kuota/pulsa selama masa pakai internet masih berlaku.</p>\r\n<p>Berikut ini 11 situs yang dapat kamu akses secara bebas:</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Facebook</li>\r\n<li>Google</li>\r\n<li>Detik</li>\r\n<li>Klik BCA</li>\r\n<li>Twitter</li>\r\n<li>Mobile Kompas</li>\r\n<li>Toko Bagus</li>\r\n<li>Oke Zone</li>\r\n<li>Viva News</li>\r\n<li>Chatting (FB Messenger, YM Messenger, AOL, ICQ, GTalk, MSN)</li>\r\n<li>Kaskus</li>\r\n</ul>\r\n<p>&nbsp;</p>\r\n<p>Asiknya lagi, setiap bulannya kamu akan mendapat bonus kuota 50MB/bulan dan terus terakumulasi setiap kamu isi ulang, yang bisa kamu gunakan untuk akses ke situs lainnya berikut adalah spesifikasi three aon :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Kartu perdana Internet bisa telpon dan sms</li>\r\n<li>Always On selama 12 bulan ( masa aktif internet 12 bulan )</li>\r\n<li>Masa aktif kartu februari-maret 2015 - Kuota 5GB + bonus 600Mb ( 600Mb diakumulasi 50 Mb per bulan selama 12 bulan )</li>\r\n<li>Gratis akses 11 situs terkenal seuai diatas tanpa dikenakan kuota</li>\r\n<li>Pilihan nomor acak - GRATIS BBM 1 TAHUN apabila di gunakan/dipakai pada handphone BlackBerry tipe Z10 ( untuk info lebih lengkap silahkan hub TRI d</li>\r\n</ul>', 0, 1, 1, 1, 3, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1012,7 +1024,7 @@ CREATE TABLE IF NOT EXISTS `product_category` (
   `category_id` int(11) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=62 ;
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product_category`
@@ -1062,7 +1074,17 @@ INSERT INTO `product_category` (`id`, `product_id`, `category_id`, `created_by`,
 (58, 37, 17, NULL, NULL),
 (59, 38, 22, NULL, NULL),
 (60, 39, 22, NULL, NULL),
-(61, 40, 22, NULL, NULL);
+(61, 40, 22, NULL, NULL),
+(62, 41, 26, NULL, NULL),
+(63, 42, 26, NULL, NULL),
+(64, 43, 22, NULL, NULL),
+(65, 44, 3, NULL, NULL),
+(66, 45, 3, NULL, NULL),
+(67, 46, 3, NULL, NULL),
+(68, 47, 3, NULL, NULL),
+(69, 48, 6, NULL, NULL),
+(70, 49, 6, NULL, NULL),
+(71, 50, 6, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1076,7 +1098,7 @@ CREATE TABLE IF NOT EXISTS `product_image` (
   `name` varchar(255) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=95 ;
+) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product_image`
@@ -1159,7 +1181,22 @@ INSERT INTO `product_image` (`id`, `product_id`, `name`, `created_by`, `created_
 (91, 37, 'pigtail-1.png', 9, '2015-02-20 16:00:31'),
 (92, 38, '28937_2.jpg', 9, '2015-02-20 16:19:20'),
 (93, 39, 'kingston-datatraveler-generation-4-dtig4-16gb-blue-1.jpg', 9, '2015-02-20 16:33:36'),
-(94, 40, 'kingston-datatraveler-generation-4-dtig4-8gb-yellow-2.jpg', 9, '2015-02-20 16:42:01');
+(94, 40, 'kingston-datatraveler-generation-4-dtig4-8gb-yellow-2.jpg', 9, '2015-02-20 16:42:01'),
+(96, 41, '151849_2ba66162-0d0e-11e4-8b1c-5e482523fab8.jpg', 9, '2015-02-20 20:02:02'),
+(97, 41, 'logitech-b100-optical-mouse-hitam-7391-78953-1-product.jpg', 9, '2015-02-20 20:03:17'),
+(98, 42, 'mouse-optico-m165-logitech-inalambrico-usb-1000dpi-negro-15300-MLM20098389199_052014-F.jpg', 9, '2015-02-20 20:07:56'),
+(99, 42, 'uploads--1--2014--12--12896-wireless-mouse-m165-logitech-launching.png', 9, '2015-02-20 20:07:59'),
+(100, 43, 'sandisk-ultra-fit-usb-30-flash-drive-16gb-sdcz43-016g-black-2.jpg', 9, '2015-02-20 23:36:30'),
+(101, 43, 'sandisk-ultra-fit-usb-30-flash-drive-16gb-sdcz43-016g-black-1.gif', 9, '2015-02-20 23:36:32'),
+(102, 44, 'simpati-3g.png', 9, '2015-02-21 08:44:30'),
+(103, 45, 'simpati-loop.jpg', 9, '2015-02-21 08:52:45'),
+(104, 45, 'simpati loop.JPG', 9, '2015-02-21 08:52:47'),
+(105, 46, 'telkomsel-simpati-internet-6gb-kuota-2gb-per-bulan-gratis-3-bulan.jpg', 9, '2015-02-21 08:59:23'),
+(106, 47, 'simpati-3.6gb.png', 9, '2015-02-21 09:06:57'),
+(107, 46, 'telkomsel-simpati-internet-6gb-kuota-2gb-per-bulan-gratis-3-bulan.png', 9, '2015-02-21 09:08:57'),
+(108, 48, 'three-1gb-01.png', 9, '2015-02-21 09:15:03'),
+(109, 49, 'three-3gb-01.png', 9, '2015-02-21 09:17:25'),
+(110, 50, 'three-6gb-01.png', 9, '2015-02-21 09:20:01');
 
 -- --------------------------------------------------------
 
@@ -1170,7 +1207,7 @@ INSERT INTO `product_image` (`id`, `product_id`, `name`, `created_by`, `created_
 CREATE TABLE IF NOT EXISTS `province` (
 `id` int(2) NOT NULL,
   `name` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=95 ;
+) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `province`
@@ -1224,7 +1261,7 @@ CREATE TABLE IF NOT EXISTS `setting` (
   `content` longtext,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `setting`
@@ -1242,7 +1279,7 @@ INSERT INTO `setting` (`id`, `name`, `content`, `updated_by`, `updated_date`) VA
 (9, 'Store Province', 'DKI Jakarta Raya', 1, '2015-02-10 10:01:46'),
 (10, 'Store Pos Code', '12091', 1, '2015-02-10 10:01:46'),
 (11, 'Store Slogan', 'Memberikan yang terbaik bagi para Pembeli Online , dan menjadi Toko Online yang dapat \r\nmemenuhi kebutuhan terhadap komputer & Gadget serta Kebutuhan Elektronik', 1, '2015-02-14 11:50:16'),
-(12, 'BBM Pin', 'Pin BBM : 25850002', 1, '2015-02-14 11:50:19'),
+(12, 'BBM Pin', 'Pin BBM : 5375D39E', 1, '2015-02-14 11:50:19'),
 (13, 'Store Owner', 'Astrid Sulastri', NULL, NULL),
 (14, 'Store About', 'Vileo adalah start up e-commerce dalam penjualan retail kami ingin menawarkan \r\npengalaman belanja online yang nyaman aman dan cepat dengan produk-produk yang \r\nberkualitas tinggi dan dapat bermanfaat bagi semua orang, \r\nVileo akan selalu siap untuk memberikan pelayanan kepada pelanggan yang terbaik dan \r\nsesuai kemampuan kami, termasuk dengan menawarkan beberapa produk murah dan berkualitas, \r\nKami terus memperluas jangkauan produk kami sesuai perkembangan zaman , dan selalu nantikan\r\ndiskon dan produk dari kami', NULL, NULL);
 
@@ -1261,7 +1298,7 @@ CREATE TABLE IF NOT EXISTS `shipping` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4845 ;
+) ENGINE=InnoDB AUTO_INCREMENT=4845 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `shipping`
@@ -6133,7 +6170,7 @@ CREATE TABLE IF NOT EXISTS `tag` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tag`
@@ -6158,7 +6195,7 @@ CREATE TABLE IF NOT EXISTS `town` (
 `id` int(7) NOT NULL,
   `city_id` int(11) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9471041 ;
+) ENGINE=InnoDB AUTO_INCREMENT=9471041 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `town`
@@ -13069,7 +13106,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
@@ -13112,7 +13149,7 @@ CREATE TABLE IF NOT EXISTS `user_address` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_address`
@@ -13147,7 +13184,7 @@ CREATE TABLE IF NOT EXISTS `user_dropship` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_dropship`
@@ -13170,7 +13207,7 @@ CREATE TABLE IF NOT EXISTS `user_group` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_group`
@@ -13341,17 +13378,17 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT for table `banner`
 --
 ALTER TABLE `banner`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `brand`
 --
 ALTER TABLE `brand`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=42;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT for table `city`
 --
@@ -13396,17 +13433,17 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=41;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=51;
 --
 -- AUTO_INCREMENT for table `product_category`
 --
 ALTER TABLE `product_category`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=62;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=72;
 --
 -- AUTO_INCREMENT for table `product_image`
 --
 ALTER TABLE `product_image`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=95;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=111;
 --
 -- AUTO_INCREMENT for table `province`
 --
