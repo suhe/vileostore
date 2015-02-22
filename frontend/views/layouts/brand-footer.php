@@ -9,7 +9,7 @@
 		    <?=himiklab\thumbnail\EasyThumbnailImage::thumbnailImg(
 			'@image_brand/'.$brand->id.'/'.$brand->logo,
 			114,
-			51,
+			45,
 			\himiklab\thumbnail\EasyThumbnailImage::THUMBNAIL_OUTBOUND,
                         ['alt' => $brand->name]
                     );?>

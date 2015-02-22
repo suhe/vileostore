@@ -13,6 +13,10 @@ class CartController extends \yii\web\Controller {
     
     public function actionBasket($id){
         $product = \common\models\Product::findOne($id);
+        
+        if((!$product) || ($product->stock<1))
+            return $this->redirect(['site/index'],302);
+        
         $cart = new Cart();
         $data = [
             'id'      => $product->id,

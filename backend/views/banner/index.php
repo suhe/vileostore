@@ -1,7 +1,7 @@
 <?php
 $this->params['breadcrumbs'] = [
     ['label' => Yii::t('app','catalog'),'url' => ['#']],
-    ['label' => Yii::t('app','product'),'url' => ['banner/index']],
+    ['label' => Yii::t('app','banner'),'url' => ['banner/index']],
 ];
 $this->title = Yii::t('app','banner');
 use yii\helpers\Html;
@@ -46,7 +46,7 @@ use yii\helpers\Html;
                         'link_url' => [
                             'attribute' => 'link_url',
                             'headerOptions' => ['style'=>'width:10%'],
-                            'filter' => false,
+                            'filter' => true,
                         ],
                         
                         'position' => [
@@ -64,7 +64,7 @@ use yii\helpers\Html;
                             'headerOptions' => ['style'=>'width:8%'],
                             'value' => function($data) {return \common\models\Banner::stringStatus($data->status);},
                             'contentOptions' => ['class'=>'text-center'],
-                            'filter' => \yii\helpers\Html::activeDropDownList($model,'status',\common\models\Product::dropdownStatus(),['class' => 'form-control']),
+                            'filter' => \yii\helpers\Html::activeDropDownList($model,'status',\common\models\Banner::dropdownStatus(),['class' => 'form-control']),
                         ],
                         ['class'=>'yii\grid\ActionColumn',
                             'headerOptions' => ['style'=>'width:10%'],

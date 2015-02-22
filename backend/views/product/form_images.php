@@ -4,7 +4,7 @@ use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 
 $this->params['breadcrumbs'] = [
-    ['label' => Yii::t('app','catalog'),'url' => ['#']],
+    ['label' => Yii::t('app','catalog'),'url' => ['product/index']],
     ['label' => Yii::t('app','product'),'url' => ['product/index']],
     ['label' => Yii::t('app','product images'),'url' => ['product/update_image','id'=>Yii::$app->request->QueryParams['id']]],
 ];

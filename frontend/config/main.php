@@ -23,10 +23,16 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'controller/<page:\d+>' => 'controller/index',
-                '<id:\d+>/<title>/*' => 'category/view/id/<id>',
-                '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-                '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+                '<controller:\w+>/<action:\w+>/<id:\d+>/<slug>' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                //'product/category/<id:\d+>/<slug:[-a-zA-Z]+>' => 'product/category/',
+                //'product/read/<id:\d+>/<slug:[-a-zA-Z]+>' => 'product/read/',
+                //'controller/<page:\d+>' => 'controller/index',
+                //'<id:\d+>/<title>/*' => 'category/view/id/<id>',
+                //'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+                //'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+               //'<controller:\w+>/<id:\d+>/<slug:[-a-zA-Z]+>' => '<controller>/<action>',
+                //'<controller:\w+>/<slug:[a-zA-Z0-9-]+>'=>'<controller>/index',
             ]
         ],
         'user' => [

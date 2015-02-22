@@ -7,7 +7,7 @@
         <ul class="nav">
 	    <?php foreach(\common\models\Category::getNestedCategory(1,0) as $nav){ ?>
             <li class="dropdown menu-item">
-                <a href="<?=\yii\helpers\Url::to(['category/part/','id'=>$nav->id])?>" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-external-link fa-fw"></i><?=$nav->name?></a>
+                <a href="<?=\yii\helpers\Url::to(['product/category/','id'=>$nav->id,'slug'=>$nav->slug])?>" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-external-link fa-fw"></i><?=$nav->name?></a>
                 <!-- ================================== MEGAMENU VERTICAL ================================== -->
 		<?php if(\common\models\Category::getNestedCategory(1,$nav->id)) { ?>
 		<ul class="dropdown-menu mega-menu">
@@ -16,7 +16,7 @@
 			    <div class="col-xs-12 col-sm-12 col-lg-4">
 				<ul>
 				    <?php foreach(\common\models\Category::getNestedCategory(1,$nav->id) as $sub_nav){?>
-				    <li><a href="<?=\yii\helpers\Url::to(['product/category/','id'=>$sub_nav->id])?>"><?=$sub_nav->name?></a></li>
+				    <li><a href="<?=\yii\helpers\Url::to(['product/category/','id'=>$sub_nav->id,'slug'=>$sub_nav->slug])?>"><?=$sub_nav->name?></a></li>
 				    <?php } ?>
 				</ul>
 			    </div>

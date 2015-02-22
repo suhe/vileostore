@@ -46,6 +46,7 @@ use yii\helpers\Url;
                         <ul class="sub-menu">
                             <li class=""><a href="<?=Url::to(['product/index'])?>"><?=Yii::t('app','product')?></a><span class="icon-thumbnail">P</span></li>
                             <li class=""><a href="<?=Url::to(['banner/index'])?>"><?=Yii::t('app','banner')?></a><span class="icon-thumbnail">B</span></li>
+                            <li class=""><a href="<?=Url::to(['brand/index'])?>"><?=Yii::t('app','brand')?></a><span class="icon-thumbnail">BR</span></li>
                         </ul>
                 </li>
                 <li class="">

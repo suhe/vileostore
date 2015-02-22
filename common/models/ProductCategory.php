@@ -17,6 +17,7 @@ class ProductCategory extends \yii\db\ActiveRecord {
     public $stock;
     public $weight;
     public $pid = true;
+    public $product_slug;
     
     public static function tableName(){
         return 'product_category';
@@ -52,7 +53,7 @@ class ProductCategory extends \yii\db\ActiveRecord {
     public function getAllQueryWithPagination($id,$params){
         $query =  static::find()
         ->select(['product_category.product_id','product.name','product.price','product.image','product.short_description',
-            'product.online','product.cod','product.dropshier','product.stock','product.arrival_date','product.weight'
+            'product.online','product.cod','product.dropshier','product.stock','product.arrival_date','product.weight','product.slug as product_slug'
         ])
         ->joinWith('product')
         ->where(['product_category.category_id' => $id]);

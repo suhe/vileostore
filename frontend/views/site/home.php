@@ -87,15 +87,15 @@ $this->title = Yii::t('app','home page')
     <div class="more-info-tab clearfix ">
 	<h3 class="new-product-title pull-left"><?=Yii::t('app','new product')?></h3>
 	<ul class="nav nav-tabs nav-tab-line pull-right" id="new-products-1">
-	<?php foreach(\common\models\Category::ListCategory([6,1,3]) as $category){?>
-	    <li><a <?=($category->id==6?'style="color:#12cca7"':'')?> data-transition-type="backSlide" href="#<?=$category->id?>" data-toggle="tab"><?=$category->name?></a></li>
+	<?php foreach(\common\models\Category::ListCategory([26,14,6]) as $category){?>
+	    <li><a <?=($category->id==26?'style="color:#12cca7"':'')?> data-transition-type="backSlide" href="#<?=$category->id?>" data-toggle="tab"><?=$category->name?></a></li>
 	<?php } ?>
 	</ul><!-- /.nav-tabs -->
     </div>
 
     <div class="tab-content outer-top-xs">
-	<?php foreach(\common\models\Category::ListCategory([6,1,3]) as $category){?>
-	<div class="tab-pane in active" id="<?=$category->id?>">			
+	<?php foreach(\common\models\Category::ListCategory([26,14,6]) as $category){?>
+	<div class="tab-pane <?=$category->id==26?'in active':''?>" id="<?=$category->id?>">			
 	    <div class="product-slider">
 		<div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="4">		    	
 		    <?php foreach(\common\models\Product::NewProduct(5,$category->id) as $row){?>
@@ -105,22 +105,22 @@ $this->title = Yii::t('app','home page')
 			    <div class="product">		
 				<div class="product-image">
 				    <div class="image">
-					<a href="<?=\yii\helpers\Url::to(['product/read','id'=>$row->id])?>">
+					<a href="<?=\yii\helpers\Url::to(['product/read','id'=>$row->id,'slug'=>$row->slug])?>">
 					    <?=himiklab\thumbnail\EasyThumbnailImage::thumbnailImg(
 						'@image_product/'.$row->id.'/'.$row->image,
-						195,
-						243,
+						150,
+						170,
 						\himiklab\thumbnail\EasyThumbnailImage::THUMBNAIL_OUTBOUND,
 						['alt' => $row->name]
 					    );?>  
 					</a>
 				    </div><!-- /.image -->			
-			            <div class="tag hot"><span>hot</span></div>		   
+			            <!--<div class="tag hot"><span>hot</span></div>-->		   
 				</div><!-- /.product-image -->
 			
 				<!-- /.product-info -->
 				<div class="product-info text-left">
-				    <h3 class="name"><?=\yii\helpers\Html::a($row->name,['product/read','id'=>$row->id])?></h3>
+				    <h3 class="name"><?=\yii\helpers\Html::a($row->name,['product/read','id'=>$row->id,'slug'=>$row->slug])?></h3>
 				    <div class="rating rateit-small"></div>
 				    <div class="description"></div>
 				    <div class="product-price">	
@@ -137,9 +137,9 @@ $this->title = Yii::t('app','home page')
 						    <i class="fa <?=$row->stock>0?'fa-shopping-cart':'fa-thumbs-down'?>"></i>													
 						</button>
 						<?php if($row->stock>0){?> 
-						<?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$row->id],['class'=>'btn btn-primary'])?>
+						<?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$row->id,'slug'=>$row->slug],['class'=>'btn btn-primary'])?>
 						<?php } else { ?>
-						<?=\yii\helpers\Html::a(Yii::t('app','empty'),['product/category','id'=>$row->category_id],['class'=>'btn btn-primary'])?>
+						<?=\yii\helpers\Html::a(Yii::t('app','empty'),['product/read','id'=>$row->category_id,'slug'=>$row->slug],['class'=>'btn btn-primary'])?>
 						<?php } ?>
 					    </li>
 					</ul>
@@ -200,7 +200,7 @@ $this->title = Yii::t('app','home page')
 				<div class="col col-xs-5">
 				    <div class="product-image">
 					<div class="image">
-					    <a href="assets/images/products/sm1.jpg" data-lightbox="image-1" data-title="Nunc ullamcors">
+					    <a href="<?=Yii::$app->homeUrl?>/assets/images/products/<?=$row->id?>/<?=$row->image?>" data-lightbox="image-1" data-title="<?=$row->name?>">
 						<?=himiklab\thumbnail\EasyThumbnailImage::thumbnailImg(
 						    '@image_product/'.$row->id.'/'.$row->image,
 						    100,
@@ -216,16 +216,16 @@ $this->title = Yii::t('app','home page')
 				</div><!-- /.col -->
 				<div class="col col-xs-7">
 				    <div class="product-info">
-					<h3 class="name"><?=\yii\helpers\Html::a($row->name,['product/read','id'=>$row->id])?></h3>
+					<h3 class="name"><?=\yii\helpers\Html::a($row->name,['product/read','id'=>$row->id,'slug'=>$row->slug])?></h3>
 					<div class="rating rateit-small"></div>
 					<div class="product-price">	
 					    <span class="price"><?=Yii::$app->Formatter->asDecimal($row->price,2)?></span>
 					</div><!-- /.product-price -->
 					<div class="action">
 					    <?php if($row->stock>0){?> 
-					    <?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$row->id],['class' => 'lnk btn btn-primary'])?>
+					    <?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$row->id,'slug'=>$row->slug],['class' => 'lnk btn btn-primary'])?>
 					    <?php } else { ?>
-					    <?=\yii\helpers\Html::a(Yii::t('app','empty'),['product/category','id'=>$row->category_id],['class'=>'btn btn-primary'])?>
+					    <?=\yii\helpers\Html::a(Yii::t('app','empty'),['product/read','id'=>$row->category_id,'slug'=>$row->slug],['class'=>'btn btn-primary'])?>
 					    <?php } ?>
 					</div>
 				    </div>

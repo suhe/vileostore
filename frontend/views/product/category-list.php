@@ -19,7 +19,7 @@
 		
                 <div class="col col-sm-8 col-lg-8">
 		    <div class="product-info">
-			<h3 class="name"><?=\yii\helpers\Html::a($row->name,['product/read','id'=>$row->product_id])?></h3>
+			<h3 class="name"><?=\yii\helpers\Html::a($row->name,['product/read/','id'=>$row->product_id,'slug'=>$row->product_slug])?></h3>
 			<div class="rating rateit-small"></div>
 			<div class="reviews"><a href="#" class="lnk"><?=\Yii::t('app','weight')?> : <?=$row->weight?> <?=Yii::$app->params['weight']?></a></div>
 			<!-- product-price -->
@@ -52,9 +52,9 @@
 						    <i class="fa <?=$row->stock>0?'fa-shopping-cart':'fa-thumbs-down'?>"></i>													
 						</button>
 						<?php if($row->stock>0){?>
-						<?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$row->product_id],['class'=>'btn btn-primary'])?>
+						<?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$row->product_id,'slug'=>$row->product_slug],['class'=>'btn btn-primary'])?>
 						<?php } else { ?>
-						<?=\yii\helpers\Html::a(Yii::t('app','empty'),['product/read','id'=>$row->product_id],['class'=>'btn btn-primary'])?>
+						<?=\yii\helpers\Html::a(Yii::t('app','empty'),['product/read','id'=>$row->product_id,'slug'=>$row->product_slug],['class'=>'btn btn-primary'])?>
 						<?php } ?>
 					    </li>
 					</ul>

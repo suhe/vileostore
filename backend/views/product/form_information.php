@@ -3,7 +3,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 $this->params['breadcrumbs'] = [
-    ['label' => Yii::t('app','catalog'),'url' => ['#']],
+    ['label' => Yii::t('app','catalog'),'url' => ['product/index']],
     ['label' => Yii::t('app','product'),'url' => ['product/index']],
     ['label' => Yii::t('app','product information'),'url' => ['product/update_information','id'=>isset(Yii::$app->request->QueryParams['id'])]],
 ];

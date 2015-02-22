@@ -2,6 +2,9 @@
 $this->params['breadcrumbs'] = [
     ['label' => Yii::t('app',$category->name),'url' => ['product/category','id'=>$category->id]],
 ];
+$this->registerMetaTag(['name' => 'author', 'content' => Yii::$app->setting->Variable('Store Name')->content]);
+$this->registerMetaTag(['name' => 'keywords', 'content' => $category->name]);
+$this->registerMetaTag(['name' => 'description', 'content' => $category->name]);
 $this->title = $category->name;
 ?>
 <div class="clearfix filters-container m-t-10">

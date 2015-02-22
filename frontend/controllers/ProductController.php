@@ -36,6 +36,32 @@ class ProductController extends \yii\web\Controller {
         ]);
     }
     
+    public function actionRead($id){
+        $formModel = new \common\models\Discussion(['scenario' => 'comment']);
+        //update counter for product
+        \common\models\Product::updateAllCounters(['counter' => 1],['id'=>$id]);
+        //action request post
+        if($formModel->load(Yii::$app->request->post()) && $formModel->getSave($id)){
+            $formModel->refresh();
+            Yii::$app->response->format = 'json';
+            return ['success' => true,'name' => 'Naomi','comment' => $formModel->description,'date' => Yii::t('app','1 second ago')];
+        }
+        $model = \common\models\Product::find()
+        ->select(['*','product.id','product.name','category.name category_name'])
+        ->joinWith('category')
+        ->where(['product.id' => $id])
+        ->one();
+        
+        $this->layout = 'single';
+        return $this->render('product_detail',[
+            'formModel' => $formModel,
+            'data' => $model,
+            'category' => \common\models\Category::findOne($model->category_id),
+            'discussion' => \common\models\Discussion::getDiscusionByProduct($id),
+            'images' => \common\models\ProductImage::find()->where(['product_id' => $id])->all()
+        ]);
+    }
+    
     public function actionSearch($offset=0){
         $model = new \common\models\Product(['scenario' => 'search']);
         
@@ -59,33 +85,10 @@ class ProductController extends \yii\web\Controller {
             'model' => $model,
             'pages' => $pages,
             'query' => $query,
-            'listView' => 'category-list',
+            'listView' => 'search-list',
         ]);
     }
     
-    public function actionRead($id){
-        $formModel = new \common\models\Discussion(['scenario' => 'comment']);
-        
-        //action request post
-        if($formModel->load(Yii::$app->request->post()) && $formModel->getSave($id)){
-            $formModel->refresh();
-            Yii::$app->response->format = 'json';
-            return ['success' => true,'name' => 'Naomi','comment' => $formModel->description,'date' => Yii::t('app','1 second ago')];
-        }
-        $model = \common\models\Product::find()
-        ->select(['*','product.id','product.name','category.name category_name'])
-        ->joinWith('category')
-        ->where(['product.id' => $id])
-        ->one();
-        
-        $this->layout = 'single';
-        return $this->render('product_detail',[
-            'formModel' => $formModel,
-            'data' => $model,
-            'category' => \common\models\Category::findOne($model->category_id),
-            'discussion' => \common\models\Discussion::getDiscusionByProduct($id),
-            'images' => \common\models\ProductImage::find()->where(['product_id' => $id])->all()
-        ]);
-    }
+    
 
 }

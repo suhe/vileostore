@@ -2,7 +2,13 @@
 $this->params['breadcrumbs'] = [
     ['label' => Yii::t('app',$data->category_name),'url' => ['product/category','id'=>$data->category_id]],
     ['label' => \yii\helpers\Html::encode($data->name),'url' => ['product/read','id'=>$data->id]]   
-];?>
+];
+
+$this->registerMetaTag(['name' => 'author', 'content' => Yii::$app->setting->Variable('Store Name')->content]);
+$this->registerMetaTag(['name' => 'keywords', 'content' => str_replace(' ',',',$data->name)]);
+$this->registerMetaTag(['name' => 'description', 'content' => $data->short_description]);
+
+?>
 <?=$this->title = $data->name;?> 
 
 <div class="row  wow fadeInUp">
@@ -137,9 +143,9 @@ $this->params['breadcrumbs'] = [
 					    <i class="fa <?=$data->stock>0?'fa-shopping-cart':'fa-thumbs-down'?>"></i>													
 					</button>
 					<?php if($data->stock>0){?>
-					<?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$data->id],['class'=>'btn btn-primary'])?>
+					<?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$data->id,'slug'=>$data->slug],['class'=>'btn btn-primary'])?>
 					<?php } else { ?>
-					<?=\yii\helpers\Html::a(Yii::t('app','empty'),['product/category','id'=>$data->category_id],['class'=>'btn btn-primary'])?>
+					<?=\yii\helpers\Html::a(Yii::t('app','empty'),['product/read','id'=>$data->category_id,'slug'=>$data->slug],['class'=>'btn btn-primary'])?>
 					<?php } ?>
 					</li>
 				    </ul>	

@@ -5,7 +5,7 @@
 	    <div class="product">		
 		<div class="product-image">
 		    <div class="image">
-			<a href="<?=\yii\helpers\Url::to(['product/read','id' => $row->product_id])?>">
+			<a href="<?=\yii\helpers\Url::to(['product/read','id' => $row->product_id,'slug'=>$row->product_slug])?>">
 			    <?=himiklab\thumbnail\EasyThumbnailImage::thumbnailImg(
 				'@image_product/'.$row->product_id.'/'.$row->image,
 				347,
@@ -19,7 +19,7 @@
 		</div><!-- /.product-image -->
 		<!-- product-info -->	
 		<div class="product-info text-left">
-		    <h5 class="name text-sm"><?=\yii\helpers\Html::a($row->name,['product/read','id'=>$row->product_id])?></h5>
+		    <h5 class="name text-sm"><?=\yii\helpers\Html::a($row->name,['product/read','id' => $row->product_id,'slug'=>$row->product_slug])?></h5>
 		    <div class="rating rateit-small"></div>
 		    <div class="description"></div>
 			<!-- /.product-price -->
@@ -51,9 +51,9 @@
 				<li class="add-cart-button btn-group">
 				    <button class="btn btn-primary icon" data-toggle="dropdown" type="button"><i class="fa fa-shopping-cart"></i></button>
 				    <?php if($row->stock>0){?>
-				    <?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$row->product_id],['class'=>'btn btn-primary'])?>
+				    <?=\yii\helpers\Html::a(Yii::t('app','add to cart'),['cart/basket','id'=>$row->product_id,'slug'=>$row->product_slug],['class'=>'btn btn-primary'])?>
 				    <?php } else { ?>
-				    <?=\yii\helpers\Html::a(Yii::t('app','empty'),['product/read','id'=>$row->product_id],['class'=>'btn btn-primary'])?>
+				    <?=\yii\helpers\Html::a(Yii::t('app','empty'),['product/read','id'=>$row->product_id,'slug'=>$row->product_slug],['class'=>'btn btn-primary'])?>
 				    <?php } ?>    
 				</li>
 			    </ul>

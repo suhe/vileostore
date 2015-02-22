@@ -11,7 +11,7 @@ class Banner extends \yii\db\ActiveRecord {
     public function rules(){
         return[
             [['id'],'integer'],
-            [['name','status','position','slide','created_date','status'],'safe','on'=>['search']],
+            [['name','status','link_url','position','slide','created_date','status'],'safe','on'=>['search']],
             [['id','image'],'safe','on'=>['save','update']],
             [['image'],'file','extensions'=>'jpg, gif, png','on'=>['save','update']],
             [['name','description','status','link_url','slide','position','width','height'],'required','on'=>['save','update']]
@@ -66,6 +66,13 @@ class Banner extends \yii\db\ActiveRecord {
         $data['static'] = Yii::t('app','static');
         $data['slideshow'] = Yii::t('app','slideshow');
         return $data;
+    }
+    
+    public static function dropdownStatus($All=true){
+       if($All) $data[0] = Yii::t('app','all');
+       $data[1] = Yii::t('app','active');
+       $data[2] = Yii::t('app','non active');
+       return $data;
     }
     
     public function getActiveDataProviderBanner($params){

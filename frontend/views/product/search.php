@@ -2,6 +2,7 @@
 $this->params['breadcrumbs'] = [
     ['label' => Yii::t('app','search'),'url' => ['product/search']],
 ];
+
 $this->title = Yii::t('app','search');
 //search
 $this->params['product_name']= isset(Yii::$app->request->QueryParams['Product']['name'])?Yii::$app->request->QueryParams['Product']['name']:'';
