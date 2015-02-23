@@ -48,6 +48,8 @@ use yii\helpers\Url;
                             <li class=""><a href="<?=Url::to(['product/index'])?>"><?=Yii::t('app','product')?></a><span class="icon-thumbnail">P</span></li>
                             <li class=""><a href="<?=Url::to(['banner/index'])?>"><?=Yii::t('app','banner')?></a><span class="icon-thumbnail">B</span></li>
                             <li class=""><a href="<?=Url::to(['brand/index'])?>"><?=Yii::t('app','brand')?></a><span class="icon-thumbnail">BR</span></li>
+                            <li class=""><a href="<?=Url::to(['page/index'])?>"><?=Yii::t('app','pages')?></a><span class="icon-thumbnail">BR</span></li>
+                            <li class=""><a href="<?=Url::to(['newsletter/index'])?>"><?=Yii::t('app','newsletter')?></a><span class="icon-thumbnail">N</span></li>
                         </ul>
                 </li>
                 <li class="">
@@ -55,9 +57,22 @@ use yii\helpers\Url;
                         <span class="title"><?=Yii::t('app','transactions')?></span>
                         <span class="arrow"></span>
                     </a>
-                    <span class="icon-thumbnail"><i class="pg-form"></i></span>
+                    <span class="icon-thumbnail"><i class="fa fa-exchange"></i></span>
                     <ul class="sub-menu">
                         <li class=""><a href="<?=Url::to(['order/index'])?>"><?=Yii::t('app','order')?></a><span class="icon-thumbnail">O</span></li>
+                        <li class=""><a href="<?=Url::to(['discussion/index'])?>"><?=Yii::t('app','product discussion')?></a><span class="icon-thumbnail">D</span></li>
+                    </ul>
+                </li>
+                
+                <li class="">
+                    <a href="javascript:;">
+                        <span class="title"><?=Yii::t('app','shipping')?></span>
+                        <span class="arrow"></span>
+                    </a>
+                    <span class="icon-thumbnail"><i class="fa fa-map-marker"></i></span>
+                    <ul class="sub-menu">
+                        <li class=""><a href="<?=Url::to(['area/index'])?>"><?=Yii::t('app','shipping area')?></a><span class="icon-thumbnail">A</span></li>
+                        <li class=""><a href="<?=Url::to(['courier/index'])?>"><?=Yii::t('app','shipping courier')?></a><span class="icon-thumbnail">C</span></li>
                     </ul>
                 </li>
             
@@ -68,12 +83,25 @@ use yii\helpers\Url;
                     </a>
                     <span class="icon-thumbnail "><i class="fa fa-wrench"></i></span>
                     <ul class="sub-menu">
-                        <li class="">
-                        <a href="google_map.html"><?=Yii::t('app','users')?></a>
-                        <span class="icon-thumbnail"><i class="fa fa-user"></i></span>
-                        </li>
+                        <li class=""> <a href="<?=Url::to(['user/customer'])?>"><?=Yii::t('app','customer')?></a><span class="icon-thumbnail"><i class="fa fa-user"></i></span></li>
+                        <li class=""> <a href="<?=Url::to(['user/sales'])?>"><?=Yii::t('app','sales')?></a><span class="icon-thumbnail"><i class="fa fa-user-md"></i></span></li>
+                        <li class=""> <a href="<?=Url::to(['payment/index'])?>"><?=Yii::t('app','payment method')?></a><span class="icon-thumbnail"><i class="fa fa-money"></i></span></li>
                     </ul>
                 </li>
+                
+                <li class="">
+                    <a href="javascript:;">
+                        <span class="title"><?=Yii::t('app','control panel')?></span>
+                        <span class="arrow"></span>
+                    </a>
+                    <span class="icon-thumbnail "><i class="fa fa-gear"></i></span>
+                    <ul class="sub-menu">
+                        <li class=""> <a href="<?=Url::to(['user/myprofile'])?>"><?=Yii::t('app','my profile')?></a><span class="icon-thumbnail"><i class="fa fa-user"></i></span></li>
+                        <li class=""> <a href="<?=Url::to(['setting/index'])?>"><?=Yii::t('app','store setting')?></a><span class="icon-thumbnail"><i class="fa fa-wrench"></i></span></li>
+                        <li class=""> <a href="<?=Url::to(['user/chpassword'])?>"><?=Yii::t('app','change password')?></a><span class="icon-thumbnail"><i class="fa fa-key"></i></span></li>
+                    </ul>
+                </li>
+                
             </ul>
             <div class="clearfix"></div>
         </div> 

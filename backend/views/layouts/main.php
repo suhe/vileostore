@@ -58,7 +58,9 @@ AppAsset::register($this);
                           </a>
                             
                             <ul class="dropdown-menu">
-                              <li><a href="<?=Url::to(['bpjs/form'])?>"><i class="fa fa-user"></i> <?=Yii::t('app','bpjs')?></a></li>								
+                              <li><a href="<?=Url::to(['user/myprofile'])?>"><i class="fa fa-user-md"></i> <?=Yii::t('app','my profile')?></a></li>
+                              <li><a href="<?=Url::to(['setting/index'])?>"><i class="fa fa-gear"></i> <?=Yii::t('app','store setting')?></a></li>
+                              <li><a href="<?=Url::to(['user/chpassword'])?>"><i class="fa fa-key"></i> <?=Yii::t('app','change password')?></a></li>
                               <li><a href="<?=Url::to(['site/logout'])?>"><i class="fa fa-power-off"></i> <?=Yii::t('app','logout')?></a></li>
                             </ul>
                             
