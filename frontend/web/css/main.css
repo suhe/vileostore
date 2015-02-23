@@ -5280,6 +5280,6 @@ a {
   padding-top:20px;
 }
 
-.dropdown-menu li a{
+.nav-pills .dropdown-menu li a{
   padding:10px !important;
 }
