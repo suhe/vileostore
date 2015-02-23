@@ -130,7 +130,7 @@ img[src="assets/images/blank.gif"] {
   -ms-transition: all linear 0.2s;
   -o-transition: all linear 0.2s;
   transition: all linear 0.2s;
-  background: none repeat scroll 0 0 #46aad7;
+  background: none repeat scroll 0 0 #041754;
   color: #fff;
   border: none;
   font-size: 13px;
@@ -503,7 +503,7 @@ img[src="assets/images/blank.gif"] {
   margin-top: 5px !important;
 }
 a {
-  color: #12cca7;
+  color: #041754;
 }
 .show-theme-options:hover,
 .show-theme-options:focus {
@@ -1040,7 +1040,7 @@ a {
   background: rgba(0, 0, 0, 0);
 }
 .main-header {
-  padding: 50px 0px 10px 0px;
+  padding: 5px 0px 5px 0px;
   background:#f6f6f6;
   border-bottom:1px solid #CCC;
 }
@@ -1049,12 +1049,13 @@ a {
 }
 .main-header .top-search-holder .contact-row {
   line-height: 20px;
-  color: #9b9b9b;
+  color:#222;
 }
 .main-header .top-search-holder .contact-row .phone {
-  margin: 0 23px 0 0;
-  border-right: 1px solid #E2E2E2;
-  padding-right: 35px;
+  border-right: 1px solid #e2e2e2;
+  margin: 0 5px 0 0;
+  padding-right: 22px;
+  color:#222;
 }
 .main-header .top-search-holder .contact-row .icon {
   font-size: 18px;
@@ -1074,8 +1075,8 @@ a {
   -webkit-border-radius: 5px 0 0 5px;
   -moz-border-radius: 5px 0 0 5px;
   border-radius: 5px 0 0 5px;
-  padding: 13px;
-  width: 90%;
+  padding: 14px;
+  width: 88%;
 }
 .main-header .top-search-holder .search-area .categories-filter {
   border-right: 1px solid #E0E0E0;
@@ -1144,7 +1145,7 @@ a {
   padding-top: 31px;
 }
 .top-cart-row .dropdown-cart {
-  float: right;
+  float: left;
 }
 .top-cart-row .dropdown-cart .lnk-cart {
   padding: 0px;
@@ -1153,7 +1154,8 @@ a {
   -moz-border-radius: 0;
   border-radius: 0;
   display: inline-block;
-  color: #666666;
+  background: #fff;
+  color: #333;
 }
 .top-cart-row .dropdown-cart .lnk-cart .items-cart-inner {
   position: relative;
@@ -1166,7 +1168,8 @@ a {
 }
 .top-cart-row .dropdown-cart .lnk-cart .items-cart-inner .basket {
   float: right;
-  background: #efefef;
+  color:#fff;
+  background: #041754;
   padding: 12px;
   border-left: 1px solid #e1e1e1;
   padding: 13px 15px;
@@ -1460,7 +1463,7 @@ a {
   font-family: 'FjallaOneRegular';
   padding: 15px 17px;
   text-transform: uppercase;
-  background: #333333;
+  background: #041754;
 }
 .sidebar .side-menu .head .icon {
   margin-right: 20px;
@@ -1483,7 +1486,7 @@ a {
   position: relative;
   width: 100%;
   border-bottom: 1px solid #e8e8e8;
-  background: #f7f7f7;
+  background: #fff;
 }
 .sidebar .side-menu nav .nav > li > a {
   padding: 13px 10px;
@@ -2525,7 +2528,7 @@ a {
 .product .cart .action ul li.add-cart-button .btn.btn-primary.icon {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
-  background: #575757 ;
+  background: #337ab7;
 }
 .product .cart .action ul li.lnk {
   margin: 10px 0px;
@@ -5275,4 +5278,8 @@ a {
 
 .image{
   padding-top:20px;
+}
+
+.dropdown-menu li a{
+  padding:10px !important;
 }

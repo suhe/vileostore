@@ -109,6 +109,8 @@ class Banner extends \yii\db\ActiveRecord {
             $model->width = $this->width;
             $model->height = $this->height;
             $model->link_url = $this->link_url;
+            $model->updated_by = Yii::$app->user->getId();
+            $model->updated_date  = date('Y-m-d H:i:s');
             $model->update();
             return true;
         }
@@ -126,6 +128,8 @@ class Banner extends \yii\db\ActiveRecord {
             $model->width = $this->width;
             $model->height = $this->height;
             $model->link_url = $this->link_url;
+            $model->created_by = Yii::$app->user->getId();
+            $model->created_date  = date('Y-m-d H:i:s');
             $model->insert();
             return $model->id;
         }

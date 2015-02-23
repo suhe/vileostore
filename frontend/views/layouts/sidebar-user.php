@@ -8,13 +8,13 @@
 	</div>
 	<div class="sidebar-widget-body m-t-10">
 	<ul class="list">
-            <li><a href="<?=\yii\helpers\Url::to(['user/profile'])?>"> <i class="fa fa-user"></i> <?=Yii::t('app','basic information')?></a></li>
-            <li><a href="<?=\yii\helpers\Url::to(['user/history'])?>"> <i class="fa fa-exchange"></i> <?=Yii::t('app','history transaction')?></a></li>
-            <li><a href="<?=\yii\helpers\Url::to(['user/discussion'])?>"> <i class="fa fa-envelope"></i> <?=Yii::t('app','product discussion')?></a></li>
-            <li><a href="<?=\yii\helpers\Url::to(['user/address'])?>"> <i class="fa fa-map-marker"></i> <?=Yii::t('app','addresses')?></a></li>
-	    <li><a href="<?=\yii\helpers\Url::to(['user/dropship'])?>"> <i class="fa fa-umbrella"></i> <?=Yii::t('app','dropship setting')?></a></li>
-            <li><a href="<?=\yii\helpers\Url::to(['user/chpassword'])?>"> <i class="fa fa-key"></i> <?=Yii::t('app','change password')?></a></li>
-            <li><a href="<?=\yii\helpers\Url::to(['site/logout'])?>"> <i class="fa fa-trello"></i> <?=Yii::t('app','logout')?></a></li>
+            <li><a href="<?=\yii\helpers\Url::to(['user/profile'])?>"> <i class="icon fa fa-user fa-fw"></i>  <?=Yii::t('app','my profile')?></a></li>
+				    <li><a href="<?=\yii\helpers\Url::to(['user/history'])?>"> <i class="icon fa fa-exchange fa-fw"></i>  <?=Yii::t('app','history transaction')?></a></li>
+				    <li><a href="<?=\yii\helpers\Url::to(['user/discussion'])?>"> <i class="icon fa fa-envelope fa-fw"></i>  <?=Yii::t('app','product discussion')?></a></li>
+				    <li><a href="<?=\yii\helpers\Url::to(['user/address'])?>"> <i class="icon fa fa-map-marker fa-fw"></i>  <?=Yii::t('app','addresses')?></a></li>
+				    <li><a href="<?=\yii\helpers\Url::to(['user/dropship'])?>"> <i class="icon fa fa-umbrella fa-fw"></i>  <?=Yii::t('app','dropship setting')?></a></li>
+				    <li><a href="<?=\yii\helpers\Url::to(['user/chpassword'])?>"> <i class="icon fa fa-key fa-fw"></i>  <?=Yii::t('app','change password')?></a></li>
+				    <li><a href="<?=\yii\helpers\Url::to(['site/logout'])?>"> <i class="icon fa fa-trello fa-fw"></i>  <?=Yii::t('app','exit')?></a></li>
           </ul>
         <!--<a href="#" class="lnk btn btn-primary">Show Now</a>-->
 	</div><!-- /.sidebar-widget-body -->

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.2.7.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2015 at 03:56 PM
--- Server version: 5.6.21
--- PHP Version: 5.5.19
+-- Generation Time: Feb 23, 2015 at 10:41 AM
+-- Server version: 5.6.20
+-- PHP Version: 5.5.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `bank` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `bank`
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `banner` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `banner`
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `brand` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
 
 --
 -- Dumping data for table `brand`
@@ -137,58 +137,64 @@ CREATE TABLE IF NOT EXISTS `category` (
 `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `slug` varchar(255) DEFAULT NULL,
+  `structure` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `icon` varchar(255) DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1' COMMENT '1=active ,2 = deactive',
   `parent_id` int(11) DEFAULT '0',
-  `order` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+  `order` int(11) DEFAULT '0',
+  `layout` varchar(255) DEFAULT '''category''',
+  `created_by` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `updated_date` datetime DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=47 ;
 
 --
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id`, `name`, `slug`, `image`, `icon`, `status`, `parent_id`, `order`) VALUES
-(1, 'Perdana & Voucher', 'perdana-iternet', 'banner-side.png', 'dribble', 1, 0, NULL),
-(2, 'Perdana Internet Bolt', 'perdana-internet-bolt', NULL, NULL, 1, 1, NULL),
-(3, 'Perdana & Voucher Telkomsel', 'perdana-internet-telkomsel', NULL, NULL, 1, 1, NULL),
-(4, 'Perdana & Voucher Indosat', 'perdana-internet-indosat', NULL, NULL, 1, 1, NULL),
-(5, 'Perdana & Voucher XL & AXIS', 'perdana-internet-xl', NULL, NULL, 1, 1, NULL),
-(6, 'Perdana & Voucher Three', 'perdana-internet-three', NULL, NULL, 1, 1, NULL),
-(7, 'Handphone & Part', 'handphone', 'banner-side.png', 'phone', 1, 0, NULL),
-(8, 'Kabel USB & Micro HDMI', 'keitai-jepang', NULL, NULL, 1, 7, NULL),
-(9, 'Earphone & Headset', 'earphone-headset', NULL, NULL, 1, 7, NULL),
-(10, 'Baterai Handphone', 'baterai', NULL, NULL, 1, 7, NULL),
-(11, 'Power Bank', 'powerbank', NULL, NULL, 1, 7, NULL),
-(12, 'Sim Adapter', 'sim-adapter', NULL, NULL, 1, 7, NULL),
-(13, 'Networking & Part', 'networking', 'banner-side.png', NULL, 1, 0, NULL),
-(14, 'Modem MIFI Router GSM & CDMA', 'modem-mifi-4g', NULL, NULL, 1, 13, NULL),
-(15, 'Modem Dongle USB GSM & CDMA', 'modem-usb-gsm', NULL, NULL, 1, 13, NULL),
-(16, 'Wifi Receiver', 'wifi-receiver', NULL, NULL, 1, 13, NULL),
-(17, 'Pigtail Modem', 'pigtail-modem', NULL, NULL, 1, 13, NULL),
-(18, 'Antena Modem', 'antena-modem', NULL, NULL, 1, 13, NULL),
-(19, 'Baterai Modem MIFI', 'baterai-modem-mifi', NULL, NULL, 1, 13, NULL),
-(20, 'Memory & Storage', 'memory-storage', 'banner-side.png', NULL, 1, 0, NULL),
-(21, 'Micro & SD Card', 'micro-sd', NULL, NULL, 1, 20, NULL),
-(22, 'Flashdisk', 'flashdisk', NULL, NULL, 1, 20, NULL),
-(23, 'Card Reader', 'card-reader', NULL, NULL, 1, 20, NULL),
-(24, 'SSD', 'ssd', NULL, NULL, 1, 20, NULL),
-(25, 'Peripheral & Aksesoris', 'peripheral-aksesoris', 'banner-side.png', NULL, 1, 0, NULL),
-(26, 'Mouse', 'mouse', NULL, NULL, 1, 25, NULL),
-(27, 'Keyboard', 'keyboard', NULL, NULL, 1, 25, NULL),
-(28, 'Mouse Pad', 'mouse-pad', NULL, NULL, 1, 25, NULL),
-(29, 'Game Controller', 'game-controller', NULL, NULL, 1, 25, NULL),
-(30, 'Kabel VGA & HDMI', 'kabel-vga-hdmi', NULL, NULL, 1, 25, NULL),
-(31, 'Vaporizer', 'vaporizer', 'banner-side.png', NULL, 1, 0, NULL),
-(32, 'Rokok Elekrik', 'ecigarete-device', NULL, NULL, 1, 31, NULL),
-(33, 'Isi Ulang Rokok Elekrik', 'refill-cigarete', NULL, NULL, 1, 31, NULL),
-(34, 'Isi Ulang Rokok Elekrik', 'refill-cigarete', NULL, NULL, 1, 31, NULL),
-(35, 'Promo & Deal', 'promo & deal', 'banner-side.png', NULL, 1, 0, NULL),
-(36, 'Limited Deal', 'limited-deal', NULL, NULL, 1, 35, NULL),
-(37, 'Promo Mingguan', 'weekend promo', NULL, NULL, 1, 35, NULL),
-(38, 'Promo Akhir Bulan', 'promo-akhir bulan', NULL, NULL, 1, 35, NULL),
-(39, 'Special Offer', 'special-offer', NULL, NULL, 1, 35, NULL),
-(40, 'Hot Deal', 'hot-deal', NULL, NULL, 1, 35, NULL);
+INSERT INTO `category` (`id`, `name`, `slug`, `structure`, `image`, `icon`, `status`, `parent_id`, `order`, `layout`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
+(1, 'Perdana & Voucher', 'perdana-voucher', 'Perdana & Voucher', 'banner-side.png', 'icon fa fa-signal fa-fw', 1, 0, 1, 'category.php', 9, '2015-02-23 11:34:58', NULL, NULL),
+(2, 'Perdana Internet Bolt', 'perdana-internet-bolt', 'Perdana & Voucher > Perdana Internet Bolt', NULL, NULL, 1, 1, 1, 'category.php', NULL, NULL, NULL, NULL),
+(3, 'Perdana & Voucher Telkomsel', 'perdana-internet-telkomsel', 'Perdana & Voucher > Perdana & Voucher Telkomsel', NULL, NULL, 1, 1, 1, 'category.php', NULL, NULL, NULL, NULL),
+(4, 'Perdana & Voucher Indosat', 'perdana-internet-indosat', 'Perdana & Voucher > Perdana & Voucher Indosat', NULL, NULL, 1, 1, 1, 'category.php', NULL, NULL, NULL, NULL),
+(5, 'Perdana & Voucher XL & AXIS', 'perdana-internet-xl', 'Perdana & Voucher > Perdana & Voucher XL & AXIS', NULL, NULL, 1, 1, 1, 'category.php', NULL, NULL, NULL, NULL),
+(6, 'Perdana & Voucher Three', 'perdana-internet-three', 'Perdana & Voucher > Perdana & Voucher Three', NULL, NULL, 1, 1, 1, 'category.php', NULL, NULL, NULL, NULL),
+(7, 'Handphone & Part', 'handphone-part', 'Handphone & Part', 'banner-side.png', 'icon fa fa-mobile fa-fw', 1, 0, 1, 'category.php', 9, '2015-02-23 11:36:12', NULL, NULL),
+(8, 'Kabel USB & Micro HDMI', 'keitai-jepang', 'Handphone & Part > Kabel USB & Micro HDMI', NULL, NULL, 1, 7, 1, 'category.php', NULL, NULL, NULL, NULL),
+(9, 'Earphone & Headset', 'earphone-headset', 'Handphone & Part > Earphone & Headset', NULL, NULL, 1, 7, 1, 'category.php', NULL, NULL, NULL, NULL),
+(10, 'Baterai Handphone', 'baterai', 'Handphone & Part > Baterai Handphone', NULL, NULL, 1, 7, 1, 'category.php', NULL, NULL, NULL, NULL),
+(11, 'Power Bank', 'powerbank', 'Handphone & Part > Power Bank', NULL, NULL, 1, 7, 1, 'category.php', NULL, NULL, NULL, NULL),
+(12, 'Sim Adapter', 'sim-adapter', 'Handphone & Part > Sim Adapter', NULL, NULL, 1, 7, 1, 'category.php', NULL, NULL, NULL, NULL),
+(13, 'Networking & Part', 'networking-part', 'Networking & Part', 'banner-side.png', 'icon fa fa-wifi fa-fw', 1, 0, 1, 'category.php', 9, '2015-02-23 11:39:01', NULL, NULL),
+(14, 'Modem MIFI Router GSM & CDMA', 'modem-mifi-4g', 'Networking & Part > Modem MIFI Router GSM & CDMA  ', NULL, NULL, 1, 13, 1, 'category.php', NULL, NULL, NULL, NULL),
+(15, 'Modem Dongle USB GSM & CDMA', 'modem-usb-gsm', 'Networking & Part > Modem Dongle USB GSM & CDMA', NULL, NULL, 1, 13, 1, 'category.php', NULL, NULL, NULL, NULL),
+(16, 'Wifi Receiver', 'wifi-receiver', 'Networking & Part > Wifi Receiver', NULL, NULL, 1, 13, 1, 'category.php', NULL, NULL, NULL, NULL),
+(17, 'Pigtail Modem', 'pigtail-modem', 'Networking & Part > Pigtail Modem', NULL, NULL, 1, 13, 1, 'category.php', NULL, NULL, NULL, NULL),
+(18, 'Antena Modem', 'antena-modem', 'Networking & Part > Antena Modem', NULL, NULL, 1, 13, 1, 'category.php', NULL, NULL, NULL, NULL),
+(19, 'Baterai Modem MIFI', 'baterai-modem-mifi', 'Networking & Part > Baterai Modem MIFI', NULL, NULL, 1, 13, 1, 'category.php', NULL, NULL, NULL, NULL),
+(20, 'Memory & Storage', 'memory-storage', 'Memory & Storage', 'banner-side.png', 'icon fa fa-save fa-fw', 1, 0, 1, 'category.php', 9, '2015-02-23 11:42:21', NULL, NULL),
+(21, 'Micro & SD Card', 'micro-sd', 'Memory & Storage > Micro & SD Card', NULL, NULL, 1, 20, 1, 'category.php', NULL, NULL, NULL, NULL),
+(22, 'Flashdisk', 'flashdisk', 'Memory & Storage > Flashdisk', NULL, NULL, 1, 20, 1, 'category.php', NULL, NULL, NULL, NULL),
+(23, 'Card Reader', 'card-reader', 'Memory & Storage > Card Reader', NULL, NULL, 1, 20, 1, 'category.php', NULL, NULL, NULL, NULL),
+(24, 'SSD', 'ssd', 'Memory & Storage > SSD', NULL, NULL, 1, 20, 1, 'category.php', NULL, NULL, NULL, NULL),
+(25, 'Peripheral & Aksesoris', 'peripheral-aksesoris', 'Peripheral & Aksesoris', 'banner-side.png', 'icon fa fa-laptop fa-fw', 1, 0, 1, 'category.php', 9, '2015-02-23 11:42:37', NULL, NULL),
+(26, 'Mouse', 'mouse', 'Peripheral & Aksesoris > Mouse', NULL, NULL, 1, 25, 1, 'category.php', NULL, NULL, NULL, NULL),
+(27, 'Keyboard', 'keyboard', 'Peripheral & Aksesoris > Keyboard', NULL, NULL, 1, 25, 1, 'category.php', NULL, NULL, NULL, NULL),
+(28, 'Mouse Pad', 'mouse-pad', 'Peripheral & Aksesoris > Mouse Pad', NULL, NULL, 1, 25, 1, 'category.php', NULL, NULL, NULL, NULL),
+(29, 'Game Controller', 'game-controller', 'Peripheral & Aksesoris > Game Controller', NULL, NULL, 1, 25, 1, 'category.php', NULL, NULL, NULL, NULL),
+(30, 'Kabel VGA & HDMI', 'kabel-vga-hdmi', 'Peripheral & Aksesoris > Kabel VGA & HDMI', NULL, NULL, 1, 25, 1, 'category.php', NULL, NULL, NULL, NULL),
+(31, 'Vaporizer', 'vaporizer', 'Vaporizer', 'banner-side.png', 'icon fa fa-heart-o fa-fw', 1, 0, 1, 'category.php', 9, '2015-02-23 11:44:42', NULL, NULL),
+(32, 'Rokok Elekrik', 'ecigarete-device', 'Vaporizer > Rokok Elekrik', NULL, NULL, 1, 31, 1, 'category.php', NULL, NULL, NULL, NULL),
+(33, 'Isi Ulang Rokok Elekrik', 'refill-cigarete', 'Vaporizer > Isi Ulang Rokok Elekrik', NULL, NULL, 1, 31, 1, 'category.php', NULL, NULL, NULL, NULL),
+(34, 'Isi Ulang Rokok Elekrik', 'refill-cigarete', 'Vaporizer > Isi Ulang Rokok Elekrik', NULL, NULL, 1, 31, 1, 'category.php', NULL, NULL, NULL, NULL),
+(35, 'Promo & Deal', 'promo-deal', 'Promo & Deal', 'banner-side.png', 'icon fa fa-bolt fa-fw', 1, 0, 1, 'category.php', 9, '2015-02-23 11:43:35', NULL, NULL),
+(36, 'Limited Deal', 'limited-deal', 'Promo & Deal > Limited Deal', NULL, NULL, 1, 35, 1, 'category.php', NULL, NULL, NULL, NULL),
+(37, 'Promo Mingguan', 'weekend promo', 'Promo & Deal > Promo Mingguan', NULL, NULL, 1, 35, 1, 'category.php', NULL, NULL, NULL, NULL),
+(38, 'Promo Akhir Bulan', 'promo-akhir bulan', 'Promo & Deal > Promo Akhir Bulan', NULL, NULL, 1, 35, 1, 'category.php', NULL, NULL, NULL, NULL),
+(39, 'Special Offer', 'special-offer', 'Promo & Deal > Special Offer', NULL, NULL, 1, 35, 1, 'category.php', NULL, NULL, NULL, NULL),
+(40, 'Hot Deal', 'hot-deal', 'Promo & Deal > Hot Deal', NULL, '', 1, 35, 1, 'category.php', 9, '2015-02-23 11:28:56', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -200,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `city` (
 `id` int(4) NOT NULL,
   `province_id` int(11) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9472 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9472 ;
 
 --
 -- Dumping data for table `city`
@@ -721,7 +727,7 @@ CREATE TABLE IF NOT EXISTS `courier` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `courier`
@@ -744,7 +750,7 @@ CREATE TABLE IF NOT EXISTS `discussion` (
   `description` text,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `discussion`
@@ -764,7 +770,7 @@ CREATE TABLE IF NOT EXISTS `newsletter` (
 `id` int(11) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `newsletter`
@@ -808,7 +814,7 @@ CREATE TABLE IF NOT EXISTS `order` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `order`
@@ -839,7 +845,7 @@ CREATE TABLE IF NOT EXISTS `order_history` (
   `description` varchar(255) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `order_history`
@@ -864,7 +870,7 @@ CREATE TABLE IF NOT EXISTS `order_product` (
   `product_weight` decimal(10,0) DEFAULT NULL,
   `qty` int(11) DEFAULT NULL,
   `subtotal` double DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `order_product`
@@ -901,7 +907,7 @@ CREATE TABLE IF NOT EXISTS `page` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `page`
@@ -950,7 +956,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=56 ;
 
 --
 -- Dumping data for table `product`
@@ -969,7 +975,7 @@ INSERT INTO `product` (`id`, `name`, `sku`, `slug`, `category_id`, `brand_id`, `
 (10, 'Modem USB & MIFI Portable Sierra AirCard 320U LTE 4G ', 'SA-0001', 'modem-usb-mifi-portable-sierra-aircard-320u-lte-4g', 14, 1, 1, 345000, 'siera-negera.jpg', '500', '<p>Sierra 320u adalah pelanjut dari sierra 312u yang telah mendukung jaringan 4G LTE FDD 1800 dan 2600. modem ini berukuran cukup mungil dan enteng.Modem ini mempunyai 2 LED indicator yang satu menunjukkan deteksi modem dan led kedua menunjukkan sinyal. Apabila biru artinya 3g dan apabila 4g warnanya hijau, modem ini support dial dan mdma</p>', '<p>Sierra 320u adalah pelanjut dari sierra 312u yang telah mendukung jaringan 4G LTE FDD 1800 dan 2600. modem ini berukuran cukup mungil dan enteng.Modem ini mempunyai 2 LED indicator yang satu menunjukkan deteksi modem dan led kedua menunjukkan sinyal. Apabila biru artinya 3g dan apabila 4g warnanya hijau, modem ini support dial dan mdma Pastinya bagi yang suka ssh dan oprek modem, modem ini support dial dan mdma</p>', NULL, 1, 1, 1, 4, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (11, 'Huawei E3276 - 4G LTE 150 Mbps Support BOLT 4G ', 'HUSB-0001', 'huawei-e3276-4g-lte-150-mbps-support-bolt-4g', 15, 3, 1, 259000, 'STC(1).jpg', '300', '<p>Modem Huawei E3276 LTE 150 Mbps adalah modem usb&nbsp; LTE TDD yang berada di jaringan 2300/2600 and dapat berjalan 3G network, and 2G, modem dapat dirotasi dan dibengkokan sesuai kebutuhan, plus dua external antenna slot untuk menambah kecepatan</p>', '<p>Modem Huawei E3276 LTE 150 Mbps adalah modem usb&nbsp; LTE TDD yang berada di jaringan 2300/2600 and dapat berjalan 3G network, and 2G, modem dapat dirotasi dan dibengkokan sesuai kebutuhan, plus dua external antenna slot untuk menambah kecepatan</p>\r\n<p>Modem Huawei E3276 LTE 150 Mbps adalah untuk pangsa Arab, Australia and dan beberapa negara Eropa, berikut spesifikasi Huawei E3276s-920&nbsp; :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>4G band 38/40 (TDD 22300/2600)</li>\r\n<li>3G DC-hspa+ 2100mHz</li>\r\n<li>GSM 850/900/1800/1900mHz</li>\r\n<li>TE cat4 DL up to 150Mbps</li>\r\n<li>LTE UL 50Mbps</li>\r\n<li>External antena interface, receive disersity</li>\r\n<li>USB 2.0 High speed</li>\r\n<li>Unlocked</li>\r\n<li>Micro SD slot</li>\r\n<li>supported OS win 7, win 8, XP SP3, Mac OS X1.05 with latest upgrades</li>\r\n</ul>\r\n<p>&nbsp;</p>', NULL, 1, 1, 1, 3, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (12, 'ZTE MF825A - 4G LTE 150 Mbps Support BOLT 4G ', 'ZUSB-0001', 'zte-mf825a-4g-lte-150-mbps-support-bolt-4g', 15, 3, 1, 269000, 'zmf825a-1.gif', '300', '<p>USB Modem MF825A Tanpa Perdana Bolt dan sudah unlock All GSM dengan Kecepatan download yang tinggi BOLT 4G LTE memanjakanmu dengan video High Definition yang jernih dan kerja aplikasi yang optimal. Browsing, main games, dan video chat dengan teman atau keluarga melalui tablet atau smartphone terasa lebih menyenangkan. Rasakan kehebatannya sekarang.</p>', '<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah total.Kemudahan akses internet lebih seru karena harganya yang super dahsyat. Mulai dari IDR 6000/GB, kamu bisa menikmati serunya internetan dengan kecepatan tinggi.</p>\r\n<p>Share koneksi 4G LTE-mu melalui BOLT! Mobile Wi-Fi. Smartphone, tablet, laptop, game console, apapun yang bisa terhubung melalui Wi-Fi dapat ikut berpesta kuota. BOLT! adalah jaringan 4G LTE pertama yang hadir di wilayah Jabodetabek dan Banten. cek daerah mu kesini sudah tercover atau belum http://www.boltsuper4g.com/jaringan-bolt.html</p>', 0, 1, 1, 1, 0, NULL, 0, 1, 0, '2015-12-30', 1, NULL, NULL, NULL),
-(13, 'Mouse AUE Wireless Optical 2.4G - M012 - Black', 'AUE-0001', 'mouse-aue-wireless-optical-24g-m012-black', 26, 8, 1, 69900, 'optical-mouse-wireless-2.4g-model-m012-black-3.jpg', '400', '<p>Mouse Wirelles dengan kecepatan 2.4Ghz , penggunaan dan instalasi sangat mudah cukup masukan usb receiver ke usb komputer dan akan terdeteksi otomatis , dengan frekuensi radio 2.4Ghz , mouse dapat dijangkau dengan 10 meter dari receiver dan device komputer.</p>', '<p>Mouse Wirelles dengan kecepatan 2.4Ghz , penggunaan dan instalasi sangat mudah cukup masukan usb receiver ke usb komputer dan akan terdeteksi otomatis , dengan frekuensi radio 2.4Ghz , mouse dapat dijangkau dengan 10 meter dari receiver dan device komputer.</p>\r\n<p>Spesifikasi Dasar :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>USB 2.0</li>\r\n<li>Connection Adjustable 400-1600 CPI</li>\r\n<li>Mouse Acceleration 14 inch / sec</li>\r\n<li>Battery Type 2 x AAA battery</li>\r\n<li>Dimension 95 x 65 x 37 mm</li>\r\n</ul>', 0, 1, 1, 1, 3, NULL, 3, 1, 0, NULL, 1, NULL, NULL, NULL),
+(13, 'Mouse AUE Wireless Optical 2.4G - M012', 'AUE-0001', 'mouse-aue-wireless-optical-24g-m012', 26, 8, 1, 69900, 'optical-mouse-wireless-2.4g-model-m012-black-3.jpg', '400', '<p>Mouse Wirelles dengan kecepatan 2.4Ghz , penggunaan dan instalasi sangat mudah cukup masukan usb receiver ke usb komputer dan akan terdeteksi otomatis , dengan frekuensi radio 2.4Ghz , mouse dapat dijangkau dengan 10 meter dari receiver dan device komputer.</p>', '<p>Mouse Wirelles dengan kecepatan 2.4Ghz , penggunaan dan instalasi sangat mudah cukup masukan usb receiver ke usb komputer dan akan terdeteksi otomatis , dengan frekuensi radio 2.4Ghz , mouse dapat dijangkau dengan 10 meter dari receiver dan device komputer.</p>\r\n<p>Spesifikasi Dasar :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>USB 2.0</li>\r\n<li>Connection Adjustable 400-1600 CPI</li>\r\n<li>Mouse Acceleration 14 inch / sec</li>\r\n<li>Battery Type 2 x AAA battery</li>\r\n<li>Dimension 95 x 65 x 37 mm</li>\r\n</ul>', 0, 1, 1, 1, 3, NULL, 3, 1, 0, NULL, 1, NULL, NULL, NULL),
 (14, 'Modem USB Esia Cyrus MAX-D', 'ESI-0001', 'modem-usb-esia-cyrus-max-d', 15, 9, 1, 63000, '286_1_4-Photo.jpg', '200', '<p>Koneksi internet kamu masih labil? Pakai Esia Max-D dengan modem dari Cyrus, koneksi internet jadi wuzzzzzzzzzz dan stabil! Didukung dengan jaringan CDMA 1x EVDO Rev-A yaitu akses internet berkecepatan tinggi yang memiliki jalur data khusus yang terpisah dari telepon dan sms.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>Koneksi internet kamu masih labil? Pakai Esia Max-D dengan modem dari Cyrus, koneksi internet jadi wuzzzzzzzzzz dan stabil! Didukung dengan jaringan CDMA 1x EVDO Rev-A yaitu akses internet berkecepatan tinggi yang memiliki jalur data khusus yang terpisah dari telepon dan sms.</p>\r\n<p>Dengan Cyrus Modem kamu akan mendapatkan banyak keuntungan:</p>\r\n<ul>\r\n<li>Modem MC-400</li>\r\n<li>Kecepatan internet 3.1 Mbps.</li>\r\n<li>GRATIS Internet Unlimited selama 2 bulan!</li>\r\n<li>Garansi 3 tahun Full Swap.</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 1, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (15, 'Power Bank 2400mAh Taff Model Gantungan Kunci Hitam', 'TFF-0001', 'power-bank-2400mah-taff-model-gantungan-kunci-hitam', 11, 11, 1, 49900, 'black-taff-2400mah.jpg', '300', '<p>Taff Powerbank Warna Hitam Dengan Kapasitas Power Bank 2400mAh dapat menyimpan setidaknya 1X Charger , serta bentuk uniknya dapat digunakan sebagai Gantungan Kunci untuk Rumah maupun kunci.</p>', '<p>Taff Powerbank Warna Hitam Dengan Kapasitas Power Bank 2400mAh dapat menyimpan setidaknya 1X Charger , serta bentuk uniknya dapat digunakan sebagai Gantungan Kunci untuk Rumah maupun kunci.</p>\r\n<p>Produk yang disupport</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Apple (iPod, iPhone, iPad)</li>\r\n<li>Mini USB (BB Bold, BB Curve, Hp Esia, Dkk)</li>\r\n<li>Micro USB (Hampir rata2 gadget keluaran baru udah pakai Micro USB)</li>\r\n<li>PSP Biasa (Bukan PSP GO!)</li>\r\n<li>Nokia 2.0 (Nokia Kecil)</li>\r\n</ul>', 0, 1, 1, 1, 3, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (16, 'Power Bank 2400mAh Taff Model Gantungan Kunci Putih', 'TFF-0002', 'power-bank-2400mah-taff-model-gantungan-kunci-putih', 11, 11, 1, 49900, 'white-taff.jpg', '300', '<p>Taff Powerbank Warna Putih Dengan Kapasitas Power Bank 2400mAh dapat menyimpan setidaknya 1X Charger , serta bentuk uniknya dapat digunakan sebagai Gantungan Kunci untuk Rumah maupun kunci.</p>', '<p>Taff Powerbank Warna Putih Dengan Kapasitas Power Bank 2400mAh dapat menyimpan setidaknya 1X Charger , serta bentuk uniknya dapat digunakan sebagai Gantungan Kunci untuk Rumah maupun kunci.</p>\r\n<p>Produk yang disupport</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Apple (iPod, iPhone, iPad)</li>\r\n<li>Mini USB (BB Bold, BB Curve, Hp Esia, Dkk)</li>\r\n<li>Micro USB (Hampir rata2 gadget keluaran baru udah pakai Micro USB)</li>\r\n<li>PSP Biasa (Bukan PSP GO!)</li>\r\n<li>Nokia 2.0 (Nokia Kecil)</li>\r\n</ul>', 0, 1, 1, 1, 3, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
@@ -981,8 +987,8 @@ INSERT INTO `product` (`id`, `name`, `sku`, `slug`, `category_id`, `brand_id`, `
 (22, 'Baterai OEM MF90 Kapasitas 2300MAh', 'BMF90-0001', 'baterai-oem-mf90-kapasitas-2300mah', 19, 3, 1, 68000, 'oem-baterai-mf90-1.gif', '100', '<p>Baterai untuk Bolt ZTE MF90, bisa digunakan untuk mengganti baterai Anda yang rusak atau sebagai baterai cadangan jika low battery, dengan kapasitas sesuai dengan bawaannya sebesar 2300mAh dipastikan anda dapat baterai sesuai dengan aslinya.</p>', '<p>Baterai untuk Bolt ZTE MF90, bisa digunakan untuk mengganti baterai Anda yang rusak atau sebagai baterai cadangan jika low battery, dengan kapasitas sesuai dengan bawaannya sebesar 2300mAh dipastikan anda dapat baterai sesuai dengan aslinya.</p>', 0, 1, 1, 1, 5, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (23, 'Baterai Double Power Bolt MF90 Kapasitas 3800mAh', 'BMF90-0002', 'baterai-double-power-bolt-mf90-kapasitas-3800mah', 19, 3, 1, 89000, 'MCOM_BOLT_ZTE copy.png', '100', '<p>Buat Anda pengguna MF90 Bolt sudah tidak asing dengan Baterai Bawaan Bolt yang berkisar 2300 Mah , dengan munculnya Ke khawatiran orang-orang dengan sparepart Baterei apabila ada kerusakan atau sudah hamil duluan , beberapa orang mulai membeli Batterai Dummy (Kapasitor) yang sangat berbahaya tanpa IC , kini Hadir dengan Merk Vcom Double Power 3800 Mah </p>', '<p>Buat Anda pengguna MF90 Bolt sudah tidak asing dengan Baterai Bawaan Bolt yang berkisar 2300 Mah , dengan munculnya Ke khawatiran orang-orang dengan sparepart Baterei apabila ada kerusakan atau sudah hamil duluan , beberapa orang mulai membeli Batterai Dummy (Kapasitor) yang sangat berbahaya tanpa IC , kini Hadir dengan Merk Vcom Double Power 3800 Mah </p>', 0, 1, 1, 1, 5, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (24, 'Personal Vaporizer CE-5 Single Kit Plus Refill ', 'VEG-0001', 'personal-vaporizer-ce-5-single-kit-plus-refill', 32, 19, 1, 63000, 'black-ego-t-ce5-starter-kit-900mah-3.jpg', '250', '<p>EGO Vaporizer CE5 adalah Rokok elektrik yang telah disempurnakan Fungsi utama-nya adalah sebagai Pengganti Rokok Konvensional. Sekaligus sebagai terapi untuk berhenti merokok.</p>', '<p>EGO Vaporizer CE5 adalah Rokok elektrik yang telah disempurnakan Fungsi utama-nya adalah sebagai Pengganti Rokok Konvensional. Sekaligus sebagai terapi untuk berhenti merokok, Karena rokok elektrik ini memiliki Kelebihan-kelebihan sbb :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Tidak menggunakan tembakau</li>\r\n<li>Rokok elektrik ini tidak menggunakan api</li>\r\n<li>Tidak mengandung zat adiktif/ beracun ( nikotin/ tar)</li>\r\n<li>Asap nya lebih banyak daripada rokok elektrik biasa yg mirip rokok Konvensional beredar</li>\r\n<li>battery nya lebih tahan lama daripada rokok elektrik biasa yg lain banyak beredar</li>\r\n<li>Isi ulang praktis tinggal tetes</li>\r\n<li>yang dikeluarkan adalah uap " Netral " bukan asap yg Berbahaya Bagi kesehatan Paru2 dan Asapnya Aman Pula saat terhirup Anak atau Bayi, anda bisa praktekkan dengan menghembuskan uap nya pada telapak tangan, terlihat seperti embun bukan Nikotin.! ! ! dan tidak bau ditangan dan baju seperti rokok biasa.</li>\r\n</ul>\r\n<p><br /> Segeralah berhenti Merokok Tembakau/ Konvensional Sekarang dan Beralihlah Ke Era Baru Merokok Sehat dan Nikmati Sensasi aromanya. INGAT " Rokok " biasa " membunuhmu " Rokok electrik Ego baik untuk kesehatan.<br /> coba sekarang juga karna kami sudah membuktikan.</p>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
-(25, 'Perdana Bolt 8 GB Segel Expired 1 Tahun (Imei Modem disertakan)', 'PIB-0001', 'perdana-bolt-8-gb-segel-expired-1-tahun-imei-modem-disertakan', 2, 3, 1, 50000, 'perdana-bolt-1.jpg', '100', '<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah Total. isi Ulang akan lebih murah dengan ganti Perdana ini</p>\r\n<p>Syarat Syarat Perdana Bolt</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Untuk saat ini hanya khusus wilayah JABODETABEK &amp; Medan Kota Sumatera Utara</li>\r\n<li>Pastikan modem anda 4G LTE Dengan Frequency TDD Mhz</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 0, NULL, 11, 0, 0, '2015-03-31', 1, NULL, NULL, NULL),
-(26, 'Perdana Bolt Non Kuota Aktif Expired 1 Tahun', 'PIB-0002', 'perdana-bolt-non-kuota-aktif-1-tahun', 2, 3, 1, 10000, 'perdana-bolt-2.jpg', '100', '<p>Perdana Bolt untuk Isi Ulang tidak ada kuota bagi anda yang kehilangan kartu bolt dan tidak memerlukan kuota hanya memerlukan kertu nya saja , BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah Total. isi Ulang akan lebih murah dengan ganti Perdana ini</p>\r\n<p>Syarat Syarat Perdana Bolt</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Untuk saat ini hanya khusus wilayah JABODETABEK &amp; Medan Kota Sumatera Utara</li>\r\n<li>Pastikan modem anda 4G LTE Dengan Frequency TDD Mhz</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 2, NULL, 2, 0, 0, NULL, 1, NULL, NULL, NULL),
+(25, 'Perdana Bolt 8 GB Segel Expired 1 Tahun', 'PIB-0001', 'perdana-bolt-8-gb-segel-expired-1-tahun', 2, 3, 1, 50000, 'perdana-bolt-1.jpg', '100', '<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah Total. isi Ulang akan lebih murah dengan ganti Perdana ini</p>\r\n<p>Syarat Syarat Perdana Bolt</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Untuk saat ini hanya khusus wilayah JABODETABEK &amp; Medan Kota Sumatera Utara</li>\r\n<li>Pastikan modem anda 4G LTE Dengan Frequency TDD Mhz</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 0, NULL, 11, 0, 0, '2015-03-31', 1, NULL, NULL, NULL),
+(26, 'Perdana Bolt Non Kuota Exp 1 Tahun', 'PIB-0002', 'perdana-bolt-non-kuota-exp-1-tahun', 2, 3, 1, 10000, 'perdana-bolt-2.jpg', '100', '<p>Perdana Bolt untuk Isi Ulang tidak ada kuota bagi anda yang kehilangan kartu bolt dan tidak memerlukan kuota hanya memerlukan kertu nya saja , BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah Total. isi Ulang akan lebih murah dengan ganti Perdana ini</p>\r\n<p>Syarat Syarat Perdana Bolt</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Untuk saat ini hanya khusus wilayah JABODETABEK &amp; Medan Kota Sumatera Utara</li>\r\n<li>Pastikan modem anda 4G LTE Dengan Frequency TDD Mhz</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 2, NULL, 2, 0, 0, NULL, 1, NULL, NULL, NULL),
 (27, 'Memory Card Reader Mobile Mate Micro SDHC & M2', 'CRM-0001', 'memory-card-reader-mobile-mate-micro-sdhc-m2', 23, 19, 1, 19400, 'mobile-mate-micro-sd-and-m2-memory-card-reader-black-1.jpg', '100', '<div id="tab-description" class="tab-content" style="display: block;">\r\n<p><span id="result_box" lang="id"><span class="hps">Simpan dan</span> <span class="hps">transfer musik</span>, <span class="hps">video,</span> <span class="hps">foto dan</span> <span class="hps">data pribadi</span> <span class="hps">antara ponsel</span> <span class="hps">dan</span> <span class="hps">komputer Anda dengan</span> </span>Memory Card Reader Mobile Mate Micro SDHC &amp; M2 ini<span lang="id">.</span><span lang="id"><span class="hps">Alat</span> <span class="hps">ini</span> <span class="hps">akan membaca</span> <span class="hps">M2</span> <span class="hps atn">(</span>Memory Stick <span class="hps">Micro</span>), <span class="hps">TF</span> <span class="hps atn">(</span>T<span class="atn">-</span>Flash, <span class="hps">MicroSDHC</span>, <span class="hps">MicroSD</span>) <span class="hps">hingga 64GB</span></span></p>\r\n</div>', '<div id="tab-description" class="tab-content" style="display: block;">\r\n<p><span id="result_box" lang="id"><span class="hps">Simpan dan</span> <span class="hps">transfer musik</span>, <span class="hps">video,</span> <span class="hps">foto dan</span> <span class="hps">data pribadi</span> <span class="hps">antara ponsel</span> <span class="hps">dan</span> <span class="hps">komputer Anda dengan</span> </span>Memory Card Reader Mobile Mate Micro SDHC &amp; M2 ini<span lang="id">.</span><span lang="id"><span class="hps">Alat</span> <span class="hps">ini</span> <span class="hps">akan membaca</span> <span class="hps">M2</span> <span class="hps atn">(</span>Memory Stick <span class="hps">Micro</span>), <span class="hps">TF</span> <span class="hps atn">(</span>T<span class="atn">-</span>Flash, <span class="hps">MicroSDHC</span>, <span class="hps">MicroSD</span>) <span class="hps">hingga 64GB</span>, <span class="hps">Adapter</span> <span class="hps">tidak diperlukan</span>.<br /> <span class="hps">Dengan</span> <span class="hps">antarmuka USB 2.0</span>, <span class="hps">perangkat</span> <span class="hps">mungil ini</span> <span class="hps">dapat colok langsung ke</span> <span class="hps">port</span> <span class="hps">USB</span> <span class="hps">pada komputer Anda</span>, <span class="hps">seperti</span><strong> <span class="hps">flash drive</span></strong>.<span class="hps">Kompak dan</span> <span class="hps">portabel</span>, </span>Memory Card Reader Mobile Mate Micro SDHC &amp; M2 ini<span lang="id"> <span class="hps">pas di saku Anda</span> <span class="hps">untuk memudahkan</span> <span class="hps">transportasi</span> <span class="hps">data</span> <span class="hps">dan file</span> <span class="hps">multimedia</span>.</span></p>\r\n<p>&nbsp;</p>\r\n</div>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (28, 'Mouse Pad Gel Wrist Rest Mouse Pad', 'MMPD-0001', 'mouse-pad-gel-wrist-rest-mouse-pad', 26, 21, 1, 27800, 'thumb_212192gel-wrist-rest-mouse-pad-black-1.jpg', '100', '<p>Mouse Pad ini memiliki bantalan yang terbuat dari gel. Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>Mouse Pad ini memiliki bantalan yang terbuat dari gel. Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse.</p>\r\n<div class="h3" style="text-align: left;"><strong>Wrist Rest</strong></div>\r\n<div class="h3" style="text-align: left;">Terdapat bantalan untuk tempat bersender pergelangan tangan. Bantalan ini terbuat dari gel, sehingga empuk dan lebih nyaman saat digunakan.</div>\r\n<div class="h3" style="text-align: left;">&nbsp;</div>\r\n<div class="h3" style="text-align: left;"><strong>High Quality Material</strong></div>\r\n<div class="h3" style="text-align: left;">Material mouse pad ini terbuat dari lycra cloth yang halus dan soft, mouse Anda menjadi lebih presisi dan cepat saat digunakan di atas mouse pad ini.</div>\r\n<div class="h3" style="text-align: left;">&nbsp;</div>\r\n<div class="h3" style="text-align: left;"><strong>Anti Slip Backing</strong></div>\r\n<div class="h3" style="text-align: left;">Bagian bawah mouse pad terbuat dari material karet yang anti slip. Mouse pad akan tetap stabil tertempel di meja meskipun mouse Anda bergerak dengan cepat.</div>\r\n</div>', 0, 1, 1, 1, 1, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (29, 'Gold Plated HDMI to 19 Pin HDMI Support 3D', 'HDMI-0001', 'gold-plated-hdmi-to-19-pin-hdmi-support-3d', 30, 21, 1, 44900, 'thumb_21219214-version-gold-plated-hdmi-to-19-pin-hdmi-cable-support-3d-or-hd-tv-or-xbox-360-or-ps3-or-projector-or-dvd-player-etc-length-15m-gold-plated-black-3.jpg', '300', '<p>Untuk Menyambungkan Periperheril VGA Card , Playstation , XBOX yang sudah mensupport HDMI , jangkauan sekitar 1.5M dapat membaca Film maupun Game 3D dan blueray</p>', '<p>Untuk Menyambungkan Periperheril VGA Card , Playstation , XBOX yang sudah mensupport HDMI , jangkauan sekitar 1.5M dapat membaca Film maupun Game 3D dan blueray</p>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
@@ -1001,9 +1007,9 @@ INSERT INTO `product` (`id`, `name`, `sku`, `slug`, `category_id`, `brand_id`, `
 (41, 'Logitech B100 Optical Mouse', 'LGM-0001', 'logitech-b100-optical-mouse', 26, 24, 1, 49000, 'logitech-b100-optical-mouse-hitam-7391-78953-1-product.jpg', '250', '<p><span class="firstnav" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;">Logitech B100 Optical Mouse adalah mouse dengan desain ambidextrous yang nyaman dengan desain yang sederhana yang membuat Anda menikmati pekerjaan Anda dengan nyaman ketika dipakai untuk bekerja dalam waktu yang lama. Mouse keluaran Logitech ini dilengkapi sensor optik menghasilkan gerakan kursor lebih halus dan dengan akurasi serta sensitivitas yang tinggi.</span></p>', '<p>Logitech B100 Optical Mouse adalah mouse dengan desain ambidextrous yang nyaman dengan desain yang sederhana yang membuat Anda menikmati pekerjaan Anda dengan nyaman ketika dipakai untuk bekerja dalam waktu yang lama.</p>\r\n<p><span class="firstnav" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;">Mouse keluaran Logitech ini dilengkapi sensor optik menghasilkan gerakan kursor lebih halus dan dengan akurasi serta sensitivitas yang tinggi.</span><br /> <br /> <strong>Navigasi presisi</strong><br /> Optik dengan 800 dpi membuat kontrol kursor yang halus dan presisi membantu Anda dalam menavigasi web maupun mengatur dokumen dengan tepat dan terasa nyaman.<br /> <br /> <strong>Pengoprasian Sederhana</strong><br /> Tanpa menginstall apapun Anda dapat langsung mencolok pada port usb dan mulai menggunakan mouse ini dan Anda pun siap untuk menjalani hari Anda dengan mouse yang nyaman.<br /> <br /> <strong>Kualitas Logitech</strong><br /> Mouse ini dirancang oleh Logitech dengan kualitas yang telah terbukti dari milyaran mouse yang telah diproduksi oleh Logitech <br /> <br /> <strong>Kebebasan Pemakaian</strong><br /> Mouse ini dikoneksikan oleh USB dan kompatibel dengan OS: Windows&Atilde;&sbquo;&Acirc;&reg; XP, Windows Vista&Atilde;&sbquo;&Acirc;&reg; or Windows&Atilde;&sbquo;&Acirc;&reg; 7, Linux&Atilde;&sbquo;&Acirc;&reg; kernel 2.4+</p>', 0, 1, 1, 1, 4, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (42, 'Logitech Wireless Mouse M165', 'LGM-0002', 'logitech-wireless-mouse-m165', 26, 24, 1, 78000, 'mouse-optico-m165-logitech-inalambrico-usb-1000dpi-negro-15300-MLM20098389199_052014-F.jpg', '250', '<p>Mouse ini mengandalkan frekuensi 2.4 GHz agar dapat bekerja nirkabel dengan lebih lancar. Desain ergonomis pada seluruh body mouse dapat meningkatkan kenyamanan Anda selama beraksi pada Notebook atau Desktop. LOGITECH M165 dapat mengkonsumsi tenaga baterai secara efisien sehingga dapat menghemat energi baterai hingga 12 bulan.</p>', '<p>Kini Anda dapat merasakan kenyamanan dan kemudahan dalam bekerja atau browsing internet pada PC Anda dengan Mouse Wireless LOGITECH M165. Mouse ini mengandalkan frekuensi 2.4 GHz agar dapat bekerja nirkabel dengan lebih lancar. Desain ergonomis pada seluruh body mouse dapat meningkatkan kenyamanan Anda selama beraksi pada Notebook atau Desktop. LOGITECH M165 dapat mengkonsumsi tenaga baterai secara efisien sehingga dapat menghemat energi baterai hingga 12 bulan. LOGITECH menyediakan Nano Receiver berukuran mini yang dapat Anda hubungkan dengan port USB pada device PC Anda. Tidak perlu instalasi perangkat lunak tambahan, LOGITECH M165 dapat langsung bekerja setiap saat Anda butuhkan.</p>\r\n<p>Mouse Wireless LOGITECH M165 dapat bekerja secara nirkabel dengan mengandalkan koneksi 2.4 GHz. Teknologi Logitech Advanced 2.4 GHz memungkinkan Mouse dapat bekerja secara terus menerus berkat koneksi dahsyat yang dapat diandalkan tanpa jeda atau terputus-putus. Untuk dapat bekerja secara nirkabel, LOGITECH menambahkan sebuah Nano Receiver kecil yang berfungsi sebagai penangkap sinyal dari Mouse agar diteruskan ke perangkat PC. Penggunaan Mouse ini sama mudahnya dengan mouse berkabel. Anda hanya perlu memasukan Nano Receiver pada port USB dan Mouse dapat langsung digunakan tanpa instalasi tambahan yang merepotkan. Ukuran Nano Receiver sangat kecil sehingga Anda dapat membiarkannya tertancap pada port USB Notebook ketika berpergian agar tidak mudah hilang atau rusak.</p>\r\n<p>LOGITECH M165 dibekali teknologi sensor optik berdefinisi tinggi yang dapat bekerja secara akurat dan handal pada berbagai jenis permukaan. Dengan sensor 1000-dpi yang dimilikinya, Mouse ini dapat mengontrol kursor dengan lebih mulus dan responsif. LOGITECH M165 dapat digunakan pada perangkat PC Desktop atau Notebook yang bekerja dengan sistem operasi Windows 8/7/Vista dan Mac OS X atau versi terbaru di atasnya. Berkat teknologi terkini yang ditanamkan pada LOGITECH M165 membuatnya dapat bekerja secara efisien dalam konsumsi daya baterai. Wireless Mouse ini dapat menghemat daya baterai sehingga dapat bertahan hingga 12 bulan lamanya*.&nbsp; Anda dapat menggunakan baterai berjenis AAA untuk mengoperasikan Mouse ini. sebuah tombol knop ON/OFF telah disediakan untuk membantu Anda menghemat baterai.</p>', 0, 1, 1, 1, 4, NULL, 5, 0, 0, NULL, 1, NULL, NULL, NULL),
 (43, 'SanDisk Ultra Fit USB 3.0 Flash Drive 16GB ', 'FSA-0001', 'sandisk-ultra-fit-usb-30-flash-drive-16gb', 22, 13, 1, 117000, 'sandisk-ultra-fit-usb-30-flash-drive-16gb-sdcz43-016g-black-2.jpg', '100', '<p>Flashdisk Berukuran Kecil , Ukuran Kecil namun sangat tinggi Kegunaannya .rasakan performa tinggi kecepatannya lebih dari USB 2.0 biasa dengan USB 3.0 anda akan lebih cepat 2x lipat dalam transfer file maupun membaca file di dalam flashdisk.</p>', '<p>Flashdisk Berukuran Kecil , Ukuran Kecil namun sangat tinggi Kegunaannya .rasakan performa tinggi kecepatannya lebih dari USB 2.0 biasa dengan USB 3.0 anda akan lebih cepat 2x lipat dalam transfer file maupun membaca file di dalam flashdisk.</p>', 0, 1, 1, 1, 1, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
-(44, 'Kartu Perdana simPATI Discovery Preload Kuota 2.5GB', 'PTL-0001', 'kartu-perdana-simpati-discovery-preload-kuota-25gb', 3, 22, 1, 30000, 'simpati-3g.png', '50', '<p>Nikmati kenyamanan internetan kuota Hebat dengan Harga Hemat dari <strong>kartu khusus internet simPATI Discovery!!&nbsp; </strong>dan dapatkan kuota internet hingga 2.5GB bebas akses aplikasi social media : Blackberry Messenger, LINE dan Whatsapp sepuasnya.</p>', '<p>Nikmati kenyamanan internetan kuota Hebat dengan Harga Hemat dari <strong>kartu khusus internet simPATI Discovery!!</strong><br /> dapatkan kuota internet hingga 2.5GB bebas akses aplikasi social media : Blackberry Messenger, LINE dan Whatsapp sepuasnya.<br /> Dapatkan juga Kuota Tambahan hingga 1GB setelah isi ulang pulsa Rp.20.000 Aktifkan kartu perdana simPATI bersticker khusus dengan menghubungi *363*20# simPATI Your Everyday Discoveries<br /> Promo berlaku mulai 22 Oktober 2014</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>kondisi segel belum aktif</li>\r\n<li>expired 31 oktober 2015</li>\r\n<li>quota bisa dipakai dimana aja diseluruh indonesia</li>\r\n<li>cara aktivasi kuota tertera di perdananya *363*20#</li>\r\n<li>kuota lsg di dapat tanpa perlu isi ulang</li>\r\n<li>kuota yg didapat tergantung area</li>\r\n<li>garansi 1 hari setelah pemakaian sehari tidak ada garansi dari penjual</li>\r\n</ul>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(44, 'Perdana simPATI Preload Kuota 2.5GB', 'PTL-0001', 'perdana-simpati-preload-kuota-25gb', 3, 22, 1, 30000, 'simpati-3g.png', '50', '<p>Nikmati kenyamanan internetan kuota Hebat dengan Harga Hemat dari <strong>kartu khusus internet simPATI Discovery!!&nbsp; </strong>dan dapatkan kuota internet hingga 2.5GB bebas akses aplikasi social media : Blackberry Messenger, LINE dan Whatsapp sepuasnya.</p>', '<p>Nikmati kenyamanan internetan kuota Hebat dengan Harga Hemat dari <strong>kartu khusus internet simPATI Discovery!!</strong><br /> dapatkan kuota internet hingga 2.5GB bebas akses aplikasi social media : Blackberry Messenger, LINE dan Whatsapp sepuasnya.<br /> Dapatkan juga Kuota Tambahan hingga 1GB setelah isi ulang pulsa Rp.20.000 Aktifkan kartu perdana simPATI bersticker khusus dengan menghubungi *363*20# simPATI Your Everyday Discoveries<br /> Promo berlaku mulai 22 Oktober 2014</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>kondisi segel belum aktif</li>\r\n<li>expired 31 oktober 2015</li>\r\n<li>quota bisa dipakai dimana aja diseluruh indonesia</li>\r\n<li>cara aktivasi kuota tertera di perdananya *363*20#</li>\r\n<li>kuota lsg di dapat tanpa perlu isi ulang</li>\r\n<li>kuota yg didapat tergantung area</li>\r\n<li>garansi 1 hari setelah pemakaian sehari tidak ada garansi dari penjual</li>\r\n</ul>', 0, 1, 1, 1, 2, NULL, 1, 0, 0, NULL, 1, NULL, NULL, NULL),
 (45, 'Kartu Perdana SImpati Loop', 'PTL-0002', 'kartu-perdana-simpati-loop', 3, 25, 1, 10000, 'simpati-loop.jpg', '50', '<p>SImpati Loop menjadi sangat populer karena memberikan banyak keunggulan dari pada simpati yang lain diantaranya <strong>Paket Internet, Paket Blackberry, Paket Nelpon dan Paket SMS</strong> yang sangat murah.</p>', '<p>menjadi sangat populer karena memberikan banyak keunggulan dari pada simpati yang lain diantaranya <strong>Paket Internet, Paket Blackberry, Paket Nelpon dan Paket SMS</strong> yang sangat murah.<br /> <br /> Empat keunggulan simpati loop ini bisa menjaring semua kalangan pengguna baik dari yang hobby sms-an hingga internetan, memang ada sedikit perbedaan didalam simpati loop ini baik cara registrasi paket maupun aturan penggunaan paket, sehingga perlu pengetahuan dasar tentang kehebatan simpati loop agar bisa memanfaatkan simpati loop dengan optimal. Karena jika tidak maka bukan penghematan yang akan Anda terima namun malah merugi karena tidak menyadari aturan main yang berlaku, berikut 4 keunggulan simpati loop yang berbeda dengan simpati yang lain:<br /> <br /> <strong>(1). Internet</strong> - hanya dengan harga 50rb merupakan salah satu kelebihan simpati loop yang memiliki daya tarik yang luar biasa bagi pengguna internet yang biasanya hanya mendapatkan 2GB internet dengan harga yang sama jika menggunakan operator lain</p>\r\n<p>(<strong>2). BBM </strong>-&nbsp; juga luar biasa murah, hanya dengan 30 ribu sebulan sudah bisa mengakses blackberry lengkap mulai dari bbm, chatting, sosial network, browsing dan email, hanya saja belum bisa streaming video, namun dengan layanan yang begitu lengkap tersebut simpati loop menjadi paket blackberry termurah yang pernah ada. ditambah lagi jaringan telkomsel sudah dikenal memiliki signal terluas diseluruh indonesia.<br /> <br /> <strong>(3). SMS</strong> -&nbsp; hanya dengan menggunakan sekali sms saja bisa dapat bonus 1000 sms sampai jam 12 malam bahkan di daerah bandung, dan jogja diberikan bonus hingga 10 ribu sms setiap mengguanakan dua sms. Sekarang bagaimana dengan paket nelpon simpati loop?<br /> <br /> (<strong>4). Nelpon</strong> - memberikan bonus telpon 60 menit setelah menggunakan telp terakumulasi Rp.1000,-. Bonus nelpon 60 menit tersebut bisa digunakan untuk menelpon ke 3 nomor telkomsel. Bonus nelpon ini bisa digunakan dari jam 00.00 hingga jam 11 siang, dan jika ingin bonus lagi maka harus gunakan lagi nelpon terakumulasi 1.500 untuk bisa nelpon gratis 60 menit dari jam 11 siang sampai jam 12 malam.</p>', 0, 1, 1, 1, 0, NULL, 1, 0, 0, '0000-00-00', 1, NULL, NULL, NULL),
-(46, 'Perdana Simpati Flash Kuota 6GB  Untuk 3 Bulan (1.5GB/Bulan) ', 'PTL-0003', 'perdana-simpati-flash-kuota-6gb-untuk-3-bulan-15gbbulan', 3, 22, 1, 70000, 'telkomsel-simpati-internet-6gb-kuota-2gb-per-bulan-gratis-3-bulan.png', '50', '<p>Perdana Simpati flash telkomsel 6GB untuk 3 bulan (Kuota 2GB/Bulan) ready Simpati flash dari telkomsel&nbsp; yang bisa di gunakan untuk 3 bulan. bisa di gunakan untuk smartphone dan modem serta banyak lagi. Kartu akan diaktifkan dan dapat dipakai di Modem , Smartphone.Total Bonus perdana ini&nbsp; 6GB Data (bonus kuota berlaku untuk 3 bulan) jadi tiap bulannya bonusnya 2 Gb data (1.5gb 2G/3G + 500mb 3G) tanpa pembatasan pemakaian waktu (24jam) kecepatan up to 7,2mbps</p>', '<p>Perdana Simpati flash telkomsel 6GB untuk 3 bulan (Kuota 2GB/Bulan) ready Simpati flash dari telkomsel&nbsp; yang bisa di gunakan untuk 3 bulan. bisa di gunakan untuk smartphone dan modem serta banyak lagi. Kartu akan diaktifkan dan dapat dipakai di Modem , Smartphone.Total Bonus perdana ini&nbsp; 6GB Data (bonus kuota berlaku untuk 3 bulan) jadi tiap bulannya bonusnya 2 Gb data (1.5gb 2G/3G + 500mb 3G) tanpa pembatasan pemakaian waktu (24jam) kecepatan up to 7,2mbps</p>', 0, 1, 1, 1, 0, NULL, 0, 0, 0, '2015-03-31', 1, NULL, NULL, NULL),
+(46, 'Perdana Simpati 6GB 3 Bln (1.5GB/Bulan) ', 'PTL-0003', 'perdana-simpati-6gb-3-bln-15gbbulan', 3, 22, 1, 70000, 'telkomsel-simpati-internet-6gb-kuota-2gb-per-bulan-gratis-3-bulan.png', '50', '<p>Perdana Simpati flash telkomsel 6GB untuk 3 bulan (Kuota 2GB/Bulan) ready Simpati flash dari telkomsel&nbsp; yang bisa di gunakan untuk 3 bulan. bisa di gunakan untuk smartphone dan modem serta banyak lagi. Kartu akan diaktifkan dan dapat dipakai di Modem , Smartphone.Total Bonus perdana ini&nbsp; 6GB Data (bonus kuota berlaku untuk 3 bulan) jadi tiap bulannya bonusnya 2 Gb data (1.5gb 2G/3G + 500mb 3G) tanpa pembatasan pemakaian waktu (24jam) kecepatan up to 7,2mbps</p>', '<p>Perdana Simpati flash telkomsel 6GB untuk 3 bulan (Kuota 2GB/Bulan) ready Simpati flash dari telkomsel&nbsp; yang bisa di gunakan untuk 3 bulan. bisa di gunakan untuk smartphone dan modem serta banyak lagi. Kartu akan diaktifkan dan dapat dipakai di Modem , Smartphone.Total Bonus perdana ini&nbsp; 6GB Data (bonus kuota berlaku untuk 3 bulan) jadi tiap bulannya bonusnya 2 Gb data (1.5gb 2G/3G + 500mb 3G) tanpa pembatasan pemakaian waktu (24jam) kecepatan up to 7,2mbps</p>', 0, 1, 1, 1, 0, NULL, 0, 0, 0, '2015-03-31', 1, NULL, NULL, NULL),
 (47, 'Perdana Simpati Flash Telkomsel 3,6GB untuk 3 bulan (1,2GB/Bulan)', 'PTL-0004', 'perdana-simpati-flash-telkomsel-36gb-untuk-3-bulan-12gbbulan', 3, 25, 1, 50000, 'simpati-3.6gb.png', '50', '<p>Perdana SImpati flash telkomsel 3,6gb untuk 3 bulanready simpati flash dari telkomsel dengan kuota 3,6gb yang bisa di gunakan untuk 3 bulan.bisa di gunakan untuk samsung s3,s4,iphone ipad,tablet,android,iphone,blackberry os 10.modem dan banyak lagi.</p>', '<p>Perdana SImpati flash telkomsel 3,6gb untuk 3 bulanready simpati flash dari telkomsel dengan kuota 3,6gb yang bisa di gunakan untuk 3 bulan.bisa di gunakan untuk samsung s3,s4,iphone ipad,tablet,android,iphone,blackberry os 10.modem dan banyak lagi.</p>', 0, 1, 1, 1, 0, NULL, 0, 0, 0, '2014-03-31', 1, NULL, NULL, NULL),
 (48, 'THREE- AON Kuota Regular 1GB Aktif 1 Tahun ', 'TR-0004', 'three-aon-kuota-regular-1gb-aktif-1-tahun', 6, 6, 1, 16000, 'three-1gb-01.png', '30', '<p>Free internet 1 tahun, Dengan Kuota Kurang lebih 1GB. Setelah Kuota habis hanya bisa akses ke 11 situs populer tertentu selama setahun dari pertama kali kartu di aktifkan. Kartu ini sudah aktif dari selama 1 Tahun Kurang. Kartu yang sudah di gunakan bisa digunakan kembali.</p>', '<p>Pada akhirnya, kebebasan menjadi batasan yang membuat kamu menjadi lebih boros. Apalagi dengan adanya ketentuan "pemakaian wajar" yang membuat kecepatan internetmu berkurang, atau bahkan bisa terjebak membayar lebih mahal setelah kuota yang ditentukan habis.Jika kamu merasa kebebasan itu omong kosong Think again.</p>\r\n<p>Kini dengan AlwaysOn, rasakan kebebasan berinternet tanpa syarat.Bebas internet sepuasnya tanpa kuota/pulsa. Bebas akses 11 situs populer, FULL SPEED, tanpa pake kuota/pulsa selama masa pakai internet masih berlaku.</p>\r\n<p>Berikut ini 11 situs yang dapat kamu akses secara bebas:</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Facebook</li>\r\n<li>Google</li>\r\n<li>Detik</li>\r\n<li>Klik BCA</li>\r\n<li>Twitter</li>\r\n<li>Mobile Kompas</li>\r\n<li>Toko Bagus</li>\r\n<li>Oke Zone</li>\r\n<li>Viva News</li>\r\n<li>Chatting (FB Messenger, YM Messenger, AOL, ICQ, GTalk, MSN)</li>\r\n<li>Kaskus</li>\r\n</ul>\r\n<p>&nbsp;</p>\r\n<p>Asiknya lagi, setiap bulannya kamu akan mendapat bonus kuota 50MB/bulan dan terus terakumulasi setiap kamu isi ulang, yang bisa kamu gunakan untuk akses ke situs lainnya berikut adalah spesifikasi three aon :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Kartu perdana Internet bisa telpon dan sms</li>\r\n<li>Always On selama 12 bulan ( masa aktif internet 12 bulan )</li>\r\n<li>Masa aktif kartu februari-maret 2015 - Kuota 5GB + bonus 600Mb ( 600Mb diakumulasi 50 Mb per bulan selama 12 bulan )</li>\r\n<li>Gratis akses 11 situs terkenal seuai diatas tanpa dikenakan kuota</li>\r\n<li>Pilihan nomor acak - GRATIS BBM 1 TAHUN apabila di gunakan/dipakai pada handphone BlackBerry tipe Z10 ( untuk info lebih lengkap silahkan hub TRI di 123 ).</li>\r\n</ul>', 0, 1, 1, 1, 3, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (49, 'THREE- AON Kuota Regular 3GB Aktif 1 Tahun ', 'TR-0005', 'three-aon-kuota-regular-3gb-aktif-1-tahun', 6, 6, 1, 36000, 'three-3gb-01.png', '30', '<p>Free internet 1 tahun, Dengan Kuota Kurang lebih 3GB. Setelah Kuota habis hanya bisa akses ke 11 situs populer tertentu selama setahun dari pertama kali kartu di aktifkan. Kartu ini sudah aktif dari selama 1 Tahun Kurang. Kartu yang sudah di gunakan bisa digunakan kembali.</p>', '<p>Pada akhirnya, kebebasan menjadi batasan yang membuat kamu menjadi lebih boros. Apalagi dengan adanya ketentuan "pemakaian wajar" yang membuat kecepatan internetmu berkurang, atau bahkan bisa terjebak membayar lebih mahal setelah kuota yang ditentukan habis.Jika kamu merasa kebebasan itu omong kosong Think again.</p>\r\n<p>Kini dengan AlwaysOn, rasakan kebebasan berinternet tanpa syarat.Bebas internet sepuasnya tanpa kuota/pulsa. Bebas akses 11 situs populer, FULL SPEED, tanpa pake kuota/pulsa selama masa pakai internet masih berlaku.</p>\r\n<p>Berikut ini 11 situs yang dapat kamu akses secara bebas:</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Facebook</li>\r\n<li>Google</li>\r\n<li>Detik</li>\r\n<li>Klik BCA</li>\r\n<li>Twitter</li>\r\n<li>Mobile Kompas</li>\r\n<li>Toko Bagus</li>\r\n<li>Oke Zone</li>\r\n<li>Viva News</li>\r\n<li>Chatting (FB Messenger, YM Messenger, AOL, ICQ, GTalk, MSN)</li>\r\n<li>Kaskus</li>\r\n</ul>\r\n<p>&nbsp;</p>\r\n<p>Asiknya lagi, setiap bulannya kamu akan mendapat bonus kuota 50MB/bulan dan terus terakumulasi setiap kamu isi ulang, yang bisa kamu gunakan untuk akses ke situs lainnya berikut adalah spesifikasi three aon :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Kartu perdana Internet bisa telpon dan sms</li>\r\n<li>Always On selama 12 bulan ( masa aktif internet 12 bulan )</li>\r\n<li>Masa aktif kartu februari-maret 2015 - Kuota 5GB + bonus 600Mb ( 600Mb diakumulasi 50 Mb per bulan selama 12 bulan )</li>\r\n<li>Gratis akses 11 situs terkenal seuai diatas tanpa dikenakan kuota</li>\r\n<li>Pilihan nomor acak - GRATIS BBM 1 TAHUN apabila di gunakan/dipakai pada handphone BlackBerry tipe Z10 ( untuk info lebih lengkap silahkan hub TRI d</li>\r\n</ul>', 0, 1, 1, 1, 3, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
@@ -1011,8 +1017,8 @@ INSERT INTO `product` (`id`, `name`, `sku`, `slug`, `category_id`, `brand_id`, `
 (51, 'Voucher Fisik Telkomsel Pulsa 25.000', 'VTL-0001', 'voucher-fisik-telkomsel-pulsa-25000', 3, 25, 1, 28000, 'voucer-fisik-25rb.png', '50', '<p>Voucher Fisik Telkomsel senilai 25.000 , dapat dipakai untuk SMS/Telepon ataupun Paket Data , untuk mengaktifkan nya bacalah petunjuk di bagian belakang voucher fisik pada saat akan melakukan isi pulsa , ikuti petunjuknya sampai pulsa masuk ke handphone anda.</p>', '<p>Voucher Fisik Telkomsel senilai 25.000 , dapat dipakai untuk SMS/Telepon ataupun Paket Data , untuk mengaktifkan nya bacalah petunjuk di bagian belakang voucher fisik pada saat akan melakukan isi pulsa , ikuti petunjuknya sampai pulsa masuk ke handphone anda.</p>\r\n<p style="text-align: justify;">Sebagian besar dari kita yang telah terbiasa menggunakan produk pulsa elektrik, akan canggung dan menemui kebingungan ketika dihadapkan pada kondisi dimana hanya tersedia pulsa gesek/fisik dalam kondisi yang mendesak. Jangan hanya karena kita kurang informasi tentang pengisian pulsa gesek/fisik, bisnis atau urusan kita bisa terbengkalai dan terganggu. Selain itu, bagi kita yang tidak ingin privasi keamanan no HP kita terganggu oleh pihak lain, menggunakan voucher gesek merupakan pilihan yang tepat. Oleh karena itu kami ingin membagikan cara transaksi/pengisian pulsa gesek/fisik dari seluruh operator telepon seluler di Indonesia.</p>\r\n<p style="text-align: justify;">Setelah kita membeli pulsa fisik, langkah awal adalah mengesek kartu dengan uang logam atau sejenisnya agar dapat mengetahui berapa kode voucher pulsa tersebut. Selain itu, saat ini telah ada voucher gesek yang bisa kita dapatkan secara elektrik, yaitu dari counter pulsa terdekat. Untuk gesek elektrik ini, kita tidak perlu menggesek agar mengetahui kode voucher yang akan kita isikan.</p>\r\n<p style="text-align: justify;">Langkah selanjutnya adalah cara pengisian voucher melalui HP kita dengan cara sebagai berikut :</p>\r\n<p>untuk pengisian voucher fisik kartu Telkomsel (Kartu AS dan Simpati)<br /> *133*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 116 atau 08071-811-811 atau (021) 52-919-811</p>\r\n<p>untuk pengisian voucher fisik kartu Indosat<br /> Mentari/IM3<br /> *556*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 505</p>\r\n<p>untuk pengisian voucher fisik kartu IM3<br /> *151*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 100</p>\r\n<p>untuk pengisian voucher fisik kartu StarOne<br /> *556*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 111</p>\r\n<p>untuk pengisian voucher fisik kartu XL<br /> *123*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 817, 818</p>\r\n<p>untuk pengisian voucher fisik kartu Three<br /> *111*Kode Voucher# OK/Yes<br /> Customer Service: 089644000123</p>\r\n<p>untuk pengisian voucher fisik kartu Esia<br /> ketik TOPUP16 digit kode voucher kirim ke 555<br /> Customer Service: *999 (dari Esia) atau (021) 9288-9288, (022) 9110-9288</p>\r\n<p>untuk pengisian voucher fisik kartu Flexi<br /> *99*Kode Voucher# OK/Yes<br /> Customer Service: 147</p>\r\n<p>untuk pengisian voucher fisik kartu Axis<br /> *888#14 kode voucher# and tombol call (tombol hijau)</p>\r\n<p>untuk pengisian voucher fisik kartu Ceria<br /> *888#14 kode voucher# and tombol call (tombol hijau)<br /> atau<br /> ketik ISIkode voucher kirim ke 888</p>', 0, 1, 1, 1, 5, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (52, 'Voucher Fisik Telkomsel Pulsa 50.000', 'VTL-0002', 'voucher-fisik-telkomsel-pulsa-50000', 3, 25, 1, 53000, 'voucer-fisik-50rb.png', '50', '<p>Voucher Fisik Telkomsel senilai 50.000 , dapat dipakai untuk SMS/Telepon ataupun Paket Data , untuk mengaktifkan nya bacalah petunjuk di bagian belakang voucher fisik pada saat akan melakukan isi pulsa , ikuti petunjuknya sampai pulsa masuk ke handphone anda.</p>', '<p>Voucher Fisik Telkomsel senilai 25.000 , dapat dipakai untuk SMS/Telepon ataupun Paket Data , untuk mengaktifkan nya bacalah petunjuk di bagian belakang voucher fisik pada saat akan melakukan isi pulsa , ikuti petunjuknya sampai pulsa masuk ke handphone anda.</p>\r\n<p style="text-align: justify;">Sebagian besar dari kita yang telah terbiasa menggunakan produk pulsa elektrik, akan canggung dan menemui kebingungan ketika dihadapkan pada kondisi dimana hanya tersedia pulsa gesek/fisik dalam kondisi yang mendesak. Jangan hanya karena kita kurang informasi tentang pengisian pulsa gesek/fisik, bisnis atau urusan kita bisa terbengkalai dan terganggu. Selain itu, bagi kita yang tidak ingin privasi keamanan no HP kita terganggu oleh pihak lain, menggunakan voucher gesek merupakan pilihan yang tepat. Oleh karena itu kami ingin membagikan cara transaksi/pengisian pulsa gesek/fisik dari seluruh operator telepon seluler di Indonesia.</p>\r\n<p style="text-align: justify;">Setelah kita membeli pulsa fisik, langkah awal adalah mengesek kartu dengan uang logam atau sejenisnya agar dapat mengetahui berapa kode voucher pulsa tersebut. Selain itu, saat ini telah ada voucher gesek yang bisa kita dapatkan secara elektrik, yaitu dari counter pulsa terdekat. Untuk gesek elektrik ini, kita tidak perlu menggesek agar mengetahui kode voucher yang akan kita isikan.</p>\r\n<p style="text-align: justify;">Langkah selanjutnya adalah cara pengisian voucher melalui HP kita dengan cara sebagai berikut :</p>\r\n<p>untuk pengisian voucher fisik kartu Telkomsel (Kartu AS dan Simpati)<br /> *133*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 116 atau 08071-811-811 atau (021) 52-919-811</p>\r\n<p>untuk pengisian voucher fisik kartu Indosat<br /> Mentari/IM3<br /> *556*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 505</p>\r\n<p>untuk pengisian voucher fisik kartu IM3<br /> *151*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 100</p>\r\n<p>untuk pengisian voucher fisik kartu StarOne<br /> *556*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 111</p>\r\n<p>untuk pengisian voucher fisik kartu XL<br /> *123*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 817, 818</p>\r\n<p>untuk pengisian voucher fisik kartu Three<br /> *111*Kode Voucher# OK/Yes<br /> Customer Service: 089644000123</p>\r\n<p>untuk pengisian voucher fisik kartu Esia<br /> ketik TOPUP16 digit kode voucher kirim ke 555<br /> Customer Service: *999 (dari Esia) atau (021) 9288-9288, (022) 9110-9288</p>\r\n<p>untuk pengisian voucher fisik kartu Flexi<br /> *99*Kode Voucher# OK/Yes<br /> Customer Service: 147</p>\r\n<p>untuk pengisian voucher fisik kartu Axis<br /> *888#14 kode voucher# and tombol call (tombol hijau)</p>\r\n<p>untuk pengisian voucher fisik kartu Ceria<br /> *888#14 kode voucher# and tombol call (tombol hijau)<br /> atau<br /> ketik ISIkode voucher kirim ke 888</p>', 0, 1, 1, 1, 0, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (53, 'Voucher Fisik Telkomsel Pulsa 100.000', 'VTL-0003', 'voucher-fisik-telkomsel-pulsa-100000', 3, 25, 1, 103000, 'voucer-fisik-100rb.png', '50', '<p>Voucher Fisik Telkomsel senilai 100.000 , dapat dipakai untuk SMS/Telepon ataupun Paket Data , untuk mengaktifkan nya bacalah petunjuk di bagian belakang voucher fisik pada saat akan melakukan isi pulsa , ikuti petunjuknya sampai pulsa masuk ke handphone anda.</p>', '<p>Voucher Fisik Telkomsel senilai 25.000 , dapat dipakai untuk SMS/Telepon ataupun Paket Data , untuk mengaktifkan nya bacalah petunjuk di bagian belakang voucher fisik pada saat akan melakukan isi pulsa , ikuti petunjuknya sampai pulsa masuk ke handphone anda.</p>\r\n<p style="text-align: justify;">Sebagian besar dari kita yang telah terbiasa menggunakan produk pulsa elektrik, akan canggung dan menemui kebingungan ketika dihadapkan pada kondisi dimana hanya tersedia pulsa gesek/fisik dalam kondisi yang mendesak. Jangan hanya karena kita kurang informasi tentang pengisian pulsa gesek/fisik, bisnis atau urusan kita bisa terbengkalai dan terganggu. Selain itu, bagi kita yang tidak ingin privasi keamanan no HP kita terganggu oleh pihak lain, menggunakan voucher gesek merupakan pilihan yang tepat. Oleh karena itu kami ingin membagikan cara transaksi/pengisian pulsa gesek/fisik dari seluruh operator telepon seluler di Indonesia.</p>\r\n<p style="text-align: justify;">Setelah kita membeli pulsa fisik, langkah awal adalah mengesek kartu dengan uang logam atau sejenisnya agar dapat mengetahui berapa kode voucher pulsa tersebut. Selain itu, saat ini telah ada voucher gesek yang bisa kita dapatkan secara elektrik, yaitu dari counter pulsa terdekat. Untuk gesek elektrik ini, kita tidak perlu menggesek agar mengetahui kode voucher yang akan kita isikan.</p>\r\n<p style="text-align: justify;">Langkah selanjutnya adalah cara pengisian voucher melalui HP kita dengan cara sebagai berikut :</p>\r\n<p>untuk pengisian voucher fisik kartu Telkomsel (Kartu AS dan Simpati)<br /> *133*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 116 atau 08071-811-811 atau (021) 52-919-811</p>\r\n<p>untuk pengisian voucher fisik kartu Indosat<br /> Mentari/IM3<br /> *556*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 505</p>\r\n<p>untuk pengisian voucher fisik kartu IM3<br /> *151*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 100</p>\r\n<p>untuk pengisian voucher fisik kartu StarOne<br /> *556*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 111</p>\r\n<p>untuk pengisian voucher fisik kartu XL<br /> *123*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 817, 818</p>\r\n<p>untuk pengisian voucher fisik kartu Three<br /> *111*Kode Voucher# OK/Yes<br /> Customer Service: 089644000123</p>\r\n<p>untuk pengisian voucher fisik kartu Esia<br /> ketik TOPUP16 digit kode voucher kirim ke 555<br /> Customer Service: *999 (dari Esia) atau (021) 9288-9288, (022) 9110-9288</p>\r\n<p>untuk pengisian voucher fisik kartu Flexi<br /> *99*Kode Voucher# OK/Yes<br /> Customer Service: 147</p>\r\n<p>untuk pengisian voucher fisik kartu Axis<br /> *888#14 kode voucher# and tombol call (tombol hijau)</p>\r\n<p>untuk pengisian voucher fisik kartu Ceria<br /> *888#14 kode voucher# and tombol call (tombol hijau)<br /> atau<br /> ketik ISIkode voucher kirim ke 888</p>', 0, 1, 1, 1, 0, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
-(54, 'Mouse AUE Wireless Optical 2.4G - M013 - Black', 'AUE-0002', 'mouse-aue-wireless-optical-24g-m013-black', 26, 8, 1, 76500, 'optical-mouse-wireless-24g-model-m013-black-2.jpg', '200', '<p>Mouse Wirelles dengan kecepatan 2.4Ghz , penggunaan dan instalasi sangat mudah cukup masukan usb receiver ke usb komputer dan akan terdeteksi otomatis , dengan frekuensi radio 2.4Ghz , mouse dapat dijangkau dengan 10 meter dari receiver dan device komputer.</p>', '<p>Mouse Wirelles dengan kecepatan 2.4Ghz , penggunaan dan instalasi sangat mudah cukup masukan usb receiver ke usb komputer dan akan terdeteksi otomatis , dengan frekuensi radio 2.4Ghz , mouse dapat dijangkau dengan 10 meter dari receiver dan device komputer.</p>\r\n<p>Spesifikasi Dasar :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>USB 2.0</li>\r\n<li>Connection Adjustable 400-1600 CPI</li>\r\n<li>Mouse Acceleration 14 inch / sec</li>\r\n<li>Battery Type 2 x AAA battery</li>\r\n<li>Dimension 95 x 65 x 37 mm</li>\r\n</ul>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
-(55, 'Perdana Bolt  Kuota Aktif 8GB Expired 01 Maret 2015', 'PIB-0003', 'perdana-bolt-kuota-aktif-8gb-expired-01-maret-2015', 2, 3, 1, 47500, 'bolt.jpg', '50', '<p>Perdana Bolt untuk Isi Ulang tidak ada kuota bagi anda yang kehilangan kartu bolt dan tidak memerlukan kuota hanya memerlukan kertu nya saja , BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>Perdana Bolt untuk Isi Ulang tidak ada kuota bagi anda yang kehilangan kartu bolt dan tidak memerlukan kuota hanya memerlukan kertu nya saja , BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.</p>\r\n<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah Total. isi Ulang akan lebih murah dengan ganti Perdana ini</p>\r\n<p>Syarat Syarat Perdana Bolt</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Untuk saat ini hanya khusus wilayah JABODETABEK &amp; Medan Kota Sumatera Utara</li>\r\n<li>Pastikan modem anda 4G LTE Dengan Frequency TDD Mhz</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 20, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL);
+(54, 'Mouse AUE Wireless Optical 2.4G - M013', 'AUE-0002', 'mouse-aue-wireless-optical-24g-m013', 26, 8, 1, 76500, 'optical-mouse-wireless-24g-model-m013-black-2.jpg', '200', '<p>Mouse Wirelles dengan kecepatan 2.4Ghz , penggunaan dan instalasi sangat mudah cukup masukan usb receiver ke usb komputer dan akan terdeteksi otomatis , dengan frekuensi radio 2.4Ghz , mouse dapat dijangkau dengan 10 meter dari receiver dan device komputer.</p>', '<p>Mouse Wirelles dengan kecepatan 2.4Ghz , penggunaan dan instalasi sangat mudah cukup masukan usb receiver ke usb komputer dan akan terdeteksi otomatis , dengan frekuensi radio 2.4Ghz , mouse dapat dijangkau dengan 10 meter dari receiver dan device komputer.</p>\r\n<p>Spesifikasi Dasar :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>USB 2.0</li>\r\n<li>Connection Adjustable 400-1600 CPI</li>\r\n<li>Mouse Acceleration 14 inch / sec</li>\r\n<li>Battery Type 2 x AAA battery</li>\r\n<li>Dimension 95 x 65 x 37 mm</li>\r\n</ul>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(55, 'Perdana Bolt Aktif 8GB Exp 07 Apr 15', 'PIB-0003', 'perdana-bolt-aktif-8gb-exp-07-apr-15', 2, 3, 1, 47500, 'bolt.jpg', '50', '<p>Perdana Bolt untuk Isi Ulang tidak ada kuota bagi anda yang kehilangan kartu bolt dan tidak memerlukan kuota hanya memerlukan kertu nya saja , BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>Perdana Bolt untuk Isi Ulang tidak ada kuota bagi anda yang kehilangan kartu bolt dan tidak memerlukan kuota hanya memerlukan kertu nya saja , BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.</p>\r\n<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah Total. isi Ulang akan lebih murah dengan ganti Perdana ini</p>\r\n<p>Syarat Syarat Perdana Bolt</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Untuk saat ini hanya khusus wilayah JABODETABEK &amp; Medan Kota Sumatera Utara</li>\r\n<li>Pastikan modem anda 4G LTE Dengan Frequency TDD Mhz</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 20, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1026,7 +1032,7 @@ CREATE TABLE IF NOT EXISTS `product_category` (
   `category_id` int(11) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=86 ;
 
 --
 -- Dumping data for table `product_category`
@@ -1109,7 +1115,7 @@ CREATE TABLE IF NOT EXISTS `product_image` (
   `name` varchar(255) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=117 ;
 
 --
 -- Dumping data for table `product_image`
@@ -1224,7 +1230,7 @@ INSERT INTO `product_image` (`id`, `product_id`, `name`, `created_by`, `created_
 CREATE TABLE IF NOT EXISTS `province` (
 `id` int(2) NOT NULL,
   `name` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=95 ;
 
 --
 -- Dumping data for table `province`
@@ -1278,7 +1284,7 @@ CREATE TABLE IF NOT EXISTS `setting` (
   `content` longtext,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `setting`
@@ -1315,7 +1321,7 @@ CREATE TABLE IF NOT EXISTS `shipping` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4845 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4845 ;
 
 --
 -- Dumping data for table `shipping`
@@ -6187,7 +6193,7 @@ CREATE TABLE IF NOT EXISTS `tag` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `tag`
@@ -6212,7 +6218,7 @@ CREATE TABLE IF NOT EXISTS `town` (
 `id` int(7) NOT NULL,
   `city_id` int(11) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9471041 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9471041 ;
 
 --
 -- Dumping data for table `town`
@@ -13123,7 +13129,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `user`
@@ -13166,7 +13172,7 @@ CREATE TABLE IF NOT EXISTS `user_address` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `user_address`
@@ -13201,7 +13207,7 @@ CREATE TABLE IF NOT EXISTS `user_dropship` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `user_dropship`
@@ -13224,7 +13230,7 @@ CREATE TABLE IF NOT EXISTS `user_group` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `user_group`
@@ -13405,7 +13411,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=41;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=47;
 --
 -- AUTO_INCREMENT for table `city`
 --

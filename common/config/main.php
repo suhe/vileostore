@@ -47,6 +47,7 @@ return [
     ],
     'aliases' => [
         '@assets' =>  realpath(dirname(__FILE__).'/../../').'/assets/',
+        '@image_category' => '@assets/images/categories/',
         '@image_product' => '@assets/images/products/',
         '@image_brand'   => '@assets/images/brands/',
         '@image_banner'  => '@assets/images/banners/',

@@ -78,6 +78,8 @@ class Brand extends \yii\db\ActiveRecord {
             $model->name = $this->name;
             $model->slug = Yii::$app->store->slug($this->name);
             $model->status = $this->status;
+            $model->updated_by = Yii::$app->user->getId();
+            $model->updated_date  = date('Y-m-d H:i:s');
             $model->update();
             return true;
         }
@@ -90,6 +92,8 @@ class Brand extends \yii\db\ActiveRecord {
             $model->name = $this->name;
             $model->slug = Yii::$app->store->slug($this->name);
             $model->status = $this->status;
+            $model->created_by = Yii::$app->user->getId();
+            $model->created_date  = date('Y-m-d H:i:s');
             $model->insert();
             return $model->id;
         }
