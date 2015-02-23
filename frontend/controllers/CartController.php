@@ -27,6 +27,7 @@ class CartController extends \yii\web\Controller {
             'options' => [
                 'image' =>  $product->image,
                 'sku'   =>  $product->sku,
+                'slug'  =>  $product->slug,
             ]
         ];
         
@@ -44,13 +45,15 @@ class CartController extends \yii\web\Controller {
         $formModel = new \frontend\models\CartForm();
         $cart = new Cart();
         if($formModel->load(Yii::$app->request->post()) && $formModel->validate()){
-            $rowid  = $formModel->rowid;
+            //$rowid  = $formModel->rowid;
             $qty = $formModel->qty;
+            //$weight = $formModel->weight;
             $cart = new Cart();
             foreach($cart->contents() as $items){
                 $data = [
-                    'rowid'   => $rowid[$items['rowid']],
+                    'rowid'   => $items['rowid'],
                     'qty'     => $qty[$items['rowid']],
+                    'weight'  => $items['weight'],
                 ];
                 $cart->update($data);
             }

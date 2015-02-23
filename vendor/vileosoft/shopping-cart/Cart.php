@@ -179,6 +179,8 @@ class Cart extends Component
 
 		// Prep the quantity. It can only be a number.  Duh... also trim any leading zeros
 		$items['qty'] = (float) $items['qty'];
+		$items['weight_qty'] = (float) ($items['weight'] * $items['qty']);
+		
 
 		// If the quantity is zero or blank there's nothing for us to do
 		if ($items['qty'] == 0)
@@ -215,6 +217,7 @@ class Cart extends Component
 		// Prep the price. Remove leading zeros and anything that isn't a number or decimal point.
 		$items['price'] = (float) $items['price'];
 		$items['weight'] = (float) $items['weight'];
+		$items['weight_qty'] = (float) $items['weight_qty'];
 
 		// We now need to create a unique identifier for the item being inserted into the cart.
 		// Every time something is added to the cart it is stored in the master cart array.
@@ -249,6 +252,7 @@ class Cart extends Component
 		// Re-create the entry, just to make sure our index contains only the data from this submission
 		$items['rowid'] = $rowid;
 		$items['qty'] += $old_quantity;
+		$items['weight_qty'] = ($items['qty'] * $items['weight']);
 		$this->_cart_contents[$rowid] = $items;
 
 		return $rowid;
@@ -327,7 +331,7 @@ class Cart extends Component
 	{
 		
 		// Without these array indexes there is nothing we can do
-		if ( ! isset($items['qty']) OR ! isset($items['rowid']) OR ! isset($this->_cart_contents[$items['rowid']]))
+		if ( ! isset($items['qty']) OR ! isset($items['weight']) OR ! isset($items['rowid']) OR ! isset($this->_cart_contents[$items['rowid']]))
 		{
 			return FALSE;
 		}
@@ -342,6 +346,8 @@ class Cart extends Component
 		if (isset($items['qty']))
 		{
 			$items['qty'] = (float) $items['qty'];
+			$items['weight'] = (float) $items['weight'];
+			$items['weight_qty'] = (float) ($items['weight'] * $items['qty']);
 			// Is the quantity zero?  If so we will remove the item from the cart.
 			// If the quantity is greater than zero we are updating
 			if ($items['qty'] == 0)
@@ -384,7 +390,7 @@ class Cart extends Component
 	protected function _save_cart()
 	{
 		// Let's add up the individual prices and set the cart sub-total
-		$this->_cart_contents['total_items'] = $this->_cart_contents['cart_total'] = 0;
+		$this->_cart_contents['total_items'] = $this->_cart_contents['cart_total'] =  $this->_cart_contents['total_weight'] = 0;
 		foreach ($this->_cart_contents as $key => $val)
 		{
 			// We make sure the array contains the proper indexes
@@ -395,7 +401,7 @@ class Cart extends Component
 
 			$this->_cart_contents['cart_total'] += ($val['price'] * $val['qty']);
 			$this->_cart_contents['total_items'] += $val['qty'];
-			$this->_cart_contents['total_weight'] += $val['qty'] * $val['weight'];
+			$this->_cart_contents['total_weight'] += ($val['weight'] * $val['qty']);
 			$this->_cart_contents[$key]['subtotal'] = ($this->_cart_contents[$key]['price'] * $this->_cart_contents[$key]['qty']);
 		}
 
@@ -473,6 +479,7 @@ class Cart extends Component
 	public function total_weight()
 	{
 		return $this->_cart_contents['total_weight'];
+		//return '200';
 	}
 	
 	/**

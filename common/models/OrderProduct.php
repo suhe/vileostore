@@ -6,6 +6,7 @@ class OrderProduct extends \yii\db\ActiveRecord {
     public $sku;
     public $product_name;
     public $product_image;
+    public $product_slug;
    
     
     public static function tableName(){
@@ -48,7 +49,7 @@ class OrderProduct extends \yii\db\ActiveRecord {
     
     public function getMyOrderProductTransaction($id,$params){
         $query = static::find()
-        ->select(['product.sku','product.name as product_name','order_product.product_price','order_product.qty',
+        ->select(['product.sku','product.name as product_name','order_product.product_price','order_product.qty','product.slug as product_slug',
                   'subtotal','order_product.product_id'])
         ->joinWith('order')
         ->joinWith('product')

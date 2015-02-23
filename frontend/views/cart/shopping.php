@@ -23,7 +23,7 @@ $this->title = Yii::t('app','shopping cart');
 			<th class="cart-romove item"><?=Yii::t('app','remove')?></th>
 			<th class="cart-description item"><?=Yii::t('app','image')?></th>
 			<th class="cart-product-name item"><?=Yii::t('app','product name')?></th>
-			<th class="cart-edit item"><?=Yii::t('app','view')?></th>
+			<th class="cart-edit item"><?=Yii::t('app','weight')?></th>
 			<th class="cart-qty item"><?=Yii::t('app','quantity')?></th>
 			<th class="cart-sub-total item"><?=Yii::t('app','price')?></th>
 			<th class="cart-total last-item"><?=Yii::t('app','sub total')?></th>
@@ -56,7 +56,7 @@ $this->title = Yii::t('app','shopping cart');
 			    </a>
 			</td>
 			<td class="cart-product-name-info">
-			    <h4 class='cart-product-description'><?=\yii\helpers\Html::a($items['name'],['product/read','id'=>$items['id']])?></h4>
+			    <h4 class='cart-product-description'><?=\yii\helpers\Html::a($items['name'],['product/read','id'=>$items['id'],'slug' => $items['options']['slug']])?></h4>
 			    <div class="row">
 				<div class="col-sm-4">
 				    <div class="rating rateit-small"></div>
@@ -73,10 +73,10 @@ $this->title = Yii::t('app','shopping cart');
 				<span class="product-color"><?=Yii::t('app','weight')?>:<span><?=$items['weight']?> <?=Yii::$app->params['weight']?></span></span>
 			    </div>
 			</td>
-			<td class="cart-product-edit"><?=\yii\helpers\Html::a(Yii::t('app','view'),['product/read','id'=>$items['id']])?></td>
+			<td class="cart-product-edit"><?=Yii::$app->Formatter->asDecimal($items['weight_qty'],0)?> <?=Yii::$app->params['weight']?></td>
 			<td class="cart-product-quantity">
 			    <div class="quant-input">
-				<?=$form->field($formModel,"rowid[$i]")->textInput(['value' => $items["rowid"],'class' => 'form-control text-right qty-cart'])?>
+				<?php // $form->field($formModel,"rowid[$i]")->textInput(['value' => $items["rowid"],'class' => 'form-control text-right qty-cart'])?>
 				<?=$form->field($formModel,"qty[$i]")->textInput(['value' => $items["qty"],'class' => 'form-control text-right qty-cart'])?>
 			    </div>
 		        </td>

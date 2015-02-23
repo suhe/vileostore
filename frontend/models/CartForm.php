@@ -9,13 +9,14 @@ use yii\base\Model;
  */
 class CartForm extends Model{
     public $qty = [];
-    public $rowid = [];
+    //public $rowid = [];
+    
     /**
      * @inheritdoc
      */
     public function rules(){
         return [
-            [['qty','rowid'], 'required'],
+            [['qty'],'required'],
         ];
     }
 

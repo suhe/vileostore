@@ -33,7 +33,7 @@ $this->title = Yii::t('app','history transaction');
 		],
 		'name' => [
 		    'attribute' => 'product_name',
-		    'value' => function($data){ return \yii\helpers\Html::a($data->product_name,['product/read','id'=>$data->product_id]); },
+		    'value' => function($data){ return \yii\helpers\Html::a($data->product_name,['product/read','id'=>$data->product_id,'slug' => $data->product_slug ]); },
 		    'format' => 'raw',
 		],
 		'price' => [

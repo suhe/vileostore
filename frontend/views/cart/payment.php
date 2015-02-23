@@ -83,7 +83,7 @@ $this->title = Yii::t('app','payment');
 				</div>
 				<div class="col-sm-8">
 				    <div class="reviews">
-					<?=Yii::$app->formatter->asDecimal($cart->total_weight(),0)?> <?=Yii::$app->params['weight']?> 
+					<?=Yii::$app->formatter->asDecimal($cart->total_weight(),0)?> <?=Yii::$app->params['weight']?>
 				    </div>
 				</div>
 			    </div><!-- /.row -->
