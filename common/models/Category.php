@@ -147,7 +147,7 @@ class Category extends \yii\db\ActiveRecord {
             return $dataProvider;
         
         $this->structure?$query->andFilterWhere(['like','structure',$this->structure]):'';
-        $this->slug?$query->andFilterWhere(['slug'=>$this->slug]):'';
+        $this->slug?$query->andFilterWhere(['like','slug',$this->slug]):'';
         $this->status?$query->andFilterWhere(['status'=>$this->status]):'';
         return $dataProvider;
     }
