@@ -20,6 +20,7 @@ class UserAddress extends \yii\db\ActiveRecord  {
             [['province_id'],'integer','tooSmall'=>Yii::t('app/message','msg fill province'),'min'=>1,'on'=>['register']],
             [['city_id'],'integer','tooSmall'=>Yii::t('app/message','msg fill city'),'min'=>1,'on'=>['register']],
             [['town_id'],'integer','tooSmall'=>Yii::t('app/message','msg fill town'),'min'=>1,'on'=>['register']],
+            [['address','province_id','city_id'],'safe','on'=>['search']]
         ];
     }
     
@@ -135,5 +136,29 @@ class UserAddress extends \yii\db\ActiveRecord  {
         ->orderBy(['ABS(user_address.id)' => SORT_ASC]);
         return $query;
     }
+    
+    public function getActiveDataProviderUserAddress($user_id,$params){
+        $query = static::find()
+        ->joinWith(['city','province'])
+        ->where(['user_id' => $user_id])
+        ->select(['user_address.id','user_address.address','province.name as province','city.name as city']);
+        
+        $dataProvider = new \yii\data\ActiveDataProvider([
+            'query' => $query,
+            'sort'=> ['defaultOrder' => ['id'=> SORT_DESC]],
+            'pagination' =>[
+                'pageSize' => Yii::$app->params['show_page']
+            ]    
+        ]);
+        
+        if ((!$this->load($params)) && ($this->validate()))
+            return $dataProvider;
+        
+        $this->address?$query->andFilterWhere(['like','CONCAT(address)',$this->username]):'';
+        $this->province_id?$query->andFilterWhere(['user_address.province_id'=>$this->province_id]):'';
+        $this->city_id?$query->andFilterWhere(['user_address.city_id'=>$this->city_id]):'';
+        return $dataProvider;
+    }
+    
     
 }

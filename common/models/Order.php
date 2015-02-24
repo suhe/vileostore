@@ -276,4 +276,28 @@ class Order extends \yii\db\ActiveRecord {
         }
         return $result;
     }
+    
+    public function getActiveDataProviderOrderByUser($user,$params){
+        $query = static::find()
+        ->joinWith('courier')
+        ->select(['order.id id','order.invoice_no','order.created_date','order.grand_total',
+                  'order.sub_total','order.shipping_cost','order.status','courier.name as courier_name'])
+        ->where(['user_id' => $user ]);
+        $dataProvider = new \yii\data\ActiveDataProvider([
+            'query' => $query,
+            'sort'=> ['defaultOrder' => ['id'=> SORT_DESC]],
+            'pagination' =>[
+                'pageSize' => Yii::$app->params['show_page']
+            ]    
+        ]);
+        
+        if ((!$this->load($params)) && ($this->validate()))
+            return $dataProvider;
+        
+        $this->invoice_no?$query->andFilterWhere(['like','invoice_no',$this->invoice_no]):'';
+        $this->created_date?$query->andFilterWhere(['<=','order.created_date', Yii::$app->store->MySQLDate($this->created_date)]):'';
+        $this->status?$query->andFilterWhere(['order.status'=>$this->status]):'';
+        return $dataProvider;
+    }
+    
 }

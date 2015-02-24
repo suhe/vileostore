@@ -9,6 +9,7 @@ return [
     'add city' => 'Tambah Kota/Kab',
     'add province' => 'Tambah Provinsi',
     'administration' =>'Administrasi',
+    'administrator' => 'Administrator',
     'add to cart' => 'Beli Online',
     'add new' => 'Tambah Baru',
     'add dropship' => 'Tambah Dropship',
@@ -47,7 +48,9 @@ return [
     'control panel' =>'Control Panel',
     'cost' => 'Harga',
     'courier' => 'Kurir',
+    'courier information' => 'Informasi Kurir',
     'create a new account' => 'Pendaftaran Akun Baru',
+    'courier shipping' => 'Kurir Pengiriman',
     'customer' => 'Pelanggan',
     /** Abjad D **/
     'dashboard' =>'Dashboard',
@@ -71,6 +74,7 @@ return [
     'exit' => 'Keluar',
     /** Abjad F **/
     'finish' => 'Selesai',
+    'first name' => 'Nama Depan',
     'forgot password' => 'Lupa Password ?',
     'form area' => 'Form Area',
     'form city' => 'Form Kota',
@@ -98,6 +102,7 @@ return [
     /** Abjad J **/
     /** Abjad K **/
     /** Abjad L **/
+    'last name' => 'Nama Terakhir',
     'latest by' => 'Update Terakhir oleh',
     'latest date' => 'Update Terakhir Tanggal',
     'link history transaction' => 'Link Histori Transaksi',
@@ -109,6 +114,7 @@ return [
     'login & register' => 'Login & Register',
     'long description' => 'Keterangan Lengkap',
     /** Abjad M **/
+    'middle name' => 'Nama Tengah',
     'my account' => 'My Account',
     'my profile' => 'My Profile',
     'monday-friday' => 'Senin s/d Jumat',
@@ -221,6 +227,9 @@ return [
     'update profile' => 'Update Profile',
     'users' =>'User & Pelanggan',
     'user' =>'User',
+    'user address' => 'Alamat User',
+    'user information' => 'Informasi User',
+    'user transaction' => 'Transaksi User',
     /** Abjad V**/
     'verify payment' => 'Verifikasi Pembayaran',
     'verification invoice payment' => 'Verifikasi Konfirmasi Pembayaran',

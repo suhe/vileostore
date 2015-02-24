@@ -84,7 +84,7 @@ use yii\helpers\Url;
                     <span class="icon-thumbnail "><i class="fa fa-wrench"></i></span>
                     <ul class="sub-menu">
                         <li class=""> <a href="<?=Url::to(['user/customer'])?>"><?=Yii::t('app','customer')?></a><span class="icon-thumbnail"><i class="fa fa-user"></i></span></li>
-                        <li class=""> <a href="<?=Url::to(['user/sales'])?>"><?=Yii::t('app','sales')?></a><span class="icon-thumbnail"><i class="fa fa-user-md"></i></span></li>
+                        <li class=""> <a href="<?=Url::to(['user/admin'])?>"><?=Yii::t('app','administrator')?></a><span class="icon-thumbnail"><i class="fa fa-user-md"></i></span></li>
                         <li class=""> <a href="<?=Url::to(['payment/index'])?>"><?=Yii::t('app','payment method')?></a><span class="icon-thumbnail"><i class="fa fa-money"></i></span></li>
                     </ul>
                 </li>

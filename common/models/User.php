@@ -48,15 +48,18 @@ class User extends ActiveRecord implements IdentityInterface{
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
             [['id'],'safe','on'=>['register']],
-            [['first_name'],'required','on'=>['register','update_profile']],
-            [['middle_name'],'safe','on'=>['register','update_profile']],
-            [['last_name'],'safe','on'=>['register','update_profile']],
-            [['email'],'required','on'=>['register']],
-            [['password'],'required','on'=>['register']],
-            [['email'],'email','on'=>['register']],
-            [['email'],'validateEmailRegistered','on' =>'register'],
+            [['first_name'],'required','on'=>['register','update_profile','update','save']],
+            [['middle_name'],'safe','on'=>['register','update_profile','update','save']],
+            [['last_name'],'safe','on'=>['register','update_profile','update','save']],
+            [['email'],'required','on'=>['register','update','save']],
+            [['group_id'],'required','on'=>['update','save']],
+            [['status'],'required','on'=>['update','save']],
+            [['password'],'required','on'=>['register','save']],
+            [['email'],'email','on'=>['register','update','save']],
+            [['email'],'validateEmailRegistered','on' =>['register','save']],
             [['new_password','confirm_password'],'required','on'=>['update_password']],
             [['confirm_password'],'validateNewPassword','on' =>'update_password'],
+            [['username','email','status'],'safe','on'=>['search']],
         ];
     }
     
@@ -64,6 +67,11 @@ class User extends ActiveRecord implements IdentityInterface{
         return [
             'new_password' => Yii::t('app','new password'),
             'confirm_password' => Yii::t('app','confirm'),
+            'username' => Yii::t('app','name'),
+            'group_id' => Yii::t('app','group'),
+            'first_name' => Yii::t('app','first name'),
+            'middle_name' => Yii::t('app','middle name'),
+            'last_name' => Yii::t('app','last name'),
         ];
     }
     
@@ -261,6 +269,95 @@ class User extends ActiveRecord implements IdentityInterface{
        return static::find()
         ->where($condition?$condition:'')
         ->count();
+    }
+    
+    public function getActiveDataProviderUser($group=1,$params){
+        $query = static::find()
+        ->where(['group_id' => $group])
+        ->select(['user.id','CONCAT(first_name,\' \',middle_name,\' \',last_name) AS username','email','DATE_FORMAT(last_login,\'%d/%m/%Y %H:%i:%s\') as last_login','status']);
+        
+        $dataProvider = new \yii\data\ActiveDataProvider([
+            'query' => $query,
+            'sort'=> ['defaultOrder' => ['id'=> SORT_DESC]],
+            'pagination' =>[
+                'pageSize' => Yii::$app->params['show_page']
+            ]    
+        ]);
+        
+        if ((!$this->load($params)) && ($this->validate()))
+            return $dataProvider;
+        
+        $this->username?$query->andFilterWhere(['like','CONCAT(first_name,\' \',middle_name,\' \',last_name)',$this->username]):'';
+        $this->email?$query->andFilterWhere(['like','slug',$this->slug]):'';
+        $this->status?$query->andFilterWhere(['status'=>$this->status]):'';
+        return $dataProvider;
+    }
+    
+    public static function dropdownStatus($All=true){
+       if($All) $data[0] = Yii::t('app','all');
+       $data[1] = Yii::t('app','active');
+       $data[2] = Yii::t('app','non active');
+       return $data;
+    }
+    
+    public static function stringStatus($status){
+        switch($status){
+            case 1 : $str = Yii::t('app','active');break;
+            default: $str = Yii::t('app','non active');break;   
+        }
+        return $str;
+    }
+    
+    public static function dropdownGroup($All=true){
+       if($All) $data[0] = Yii::t('app','all');
+       $data[1] = Yii::t('app','customer');
+       $data[2] = Yii::t('app','administrator');
+       return $data;
+    }
+    
+    public static function stringGroup($status){
+        switch($status){
+            case 1 : $str = Yii::t('app','customer');break;
+            default: $str = Yii::t('app','administrator');break;   
+        }
+        return $str;
+    }
+    
+    public function getSave(){
+        if($this->validate()){
+            $model = new User();
+            $model->first_name = $this->first_name;
+            $model->middle_name = $this->middle_name;
+            $model->last_name = $this->last_name;
+            $model->email = $this->email;
+            $model->group_id = $this->group_id;
+            $model->password = Yii::$app->security->generatePasswordHash($this->password);
+            $model->password_hint = $this->password;
+            $model->status = $this->status;
+            $model->created_by = Yii::$app->user->getId();
+            $model->created_date = date('Y-m-d H:i:s');
+            $model->insert();
+            return true;
+        }
+        return false;
+    }
+    
+    public function getUpdate($id){
+        if($this->validate()){
+            $model = new User();
+            $model = $model->findOne($id);
+            $model->first_name = $this->first_name;
+            $model->middle_name = $this->middle_name;
+            $model->last_name = $this->last_name;
+            $model->email = $this->email;
+            $model->group_id = $this->group_id;
+            $model->status = $this->status;
+            $model->updated_by = Yii::$app->user->getId();
+            $model->updated_date = date('Y-m-d H:i:s');
+            $model->update();
+            return true;
+        }
+        return false;
     }
     
 }
