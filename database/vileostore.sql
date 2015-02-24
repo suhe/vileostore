@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2015 at 10:45 AM
--- Server version: 5.6.20
--- PHP Version: 5.5.15
+-- Generation Time: Feb 24, 2015 at 06:00 PM
+-- Server version: 5.6.21
+-- PHP Version: 5.5.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `bank` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `bank`
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `banner` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `banner`
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `brand` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `brand`
@@ -151,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `category`
@@ -213,7 +213,7 @@ CREATE TABLE IF NOT EXISTS `city` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9474 ;
+) ENGINE=InnoDB AUTO_INCREMENT=9474 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `city`
@@ -730,19 +730,21 @@ CREATE TABLE IF NOT EXISTS `courier` (
 `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `icon` varchar(255) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT '1',
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `courier`
 --
 
-INSERT INTO `courier` (`id`, `name`, `icon`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
-(1, 'JNE REG', 'jne-reg.jpeg', 1, '2015-02-13 21:48:17', NULL, NULL),
-(2, 'JNE YES', 'jne-yes.jpg', 1, '2015-02-13 21:48:17', NULL, NULL);
+INSERT INTO `courier` (`id`, `name`, `icon`, `status`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
+(1, 'TIKI JNE REG', 'jne-reg.jpeg', 1, 1, '2015-02-13 21:48:17', 9, '2015-02-24 21:42:55'),
+(2, 'TIKI JNE YES', 'jne-yes.jpg', 1, 1, '2015-02-13 21:48:17', NULL, NULL),
+(7, 'Sooio', 'simpati-3g.png', 1, 9, '2015-02-24 21:51:49', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -757,7 +759,7 @@ CREATE TABLE IF NOT EXISTS `discussion` (
   `description` text,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `discussion`
@@ -777,7 +779,7 @@ CREATE TABLE IF NOT EXISTS `newsletter` (
 `id` int(11) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `newsletter`
@@ -821,7 +823,7 @@ CREATE TABLE IF NOT EXISTS `order` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `order`
@@ -852,7 +854,7 @@ CREATE TABLE IF NOT EXISTS `order_history` (
   `description` varchar(255) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `order_history`
@@ -877,7 +879,7 @@ CREATE TABLE IF NOT EXISTS `order_product` (
   `product_weight` decimal(10,0) DEFAULT NULL,
   `qty` int(11) DEFAULT NULL,
   `subtotal` double DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `order_product`
@@ -914,7 +916,7 @@ CREATE TABLE IF NOT EXISTS `page` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `page`
@@ -963,7 +965,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=56 ;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product`
@@ -1039,7 +1041,7 @@ CREATE TABLE IF NOT EXISTS `product_category` (
   `category_id` int(11) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=86 ;
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product_category`
@@ -1122,7 +1124,7 @@ CREATE TABLE IF NOT EXISTS `product_image` (
   `name` varchar(255) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=117 ;
+) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product_image`
@@ -1241,7 +1243,7 @@ CREATE TABLE IF NOT EXISTS `province` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ;
+) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `province`
@@ -1295,7 +1297,7 @@ CREATE TABLE IF NOT EXISTS `setting` (
   `content` longtext,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `setting`
@@ -1332,7 +1334,7 @@ CREATE TABLE IF NOT EXISTS `shipping` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4845 ;
+) ENGINE=InnoDB AUTO_INCREMENT=4845 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `shipping`
@@ -6204,7 +6206,7 @@ CREATE TABLE IF NOT EXISTS `tag` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tag`
@@ -6233,7 +6235,7 @@ CREATE TABLE IF NOT EXISTS `town` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9471044 ;
+) ENGINE=InnoDB AUTO_INCREMENT=9471044 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `town`
@@ -13145,18 +13147,22 @@ CREATE TABLE IF NOT EXISTS `user` (
   `auth_key` varchar(255) DEFAULT NULL,
   `auth_key_expired` date DEFAULT NULL,
   `password_hint` varchar(255) DEFAULT NULL,
+  `last_login` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `group_id`, `first_name`, `middle_name`, `last_name`, `status`, `email`, `password`, `auth_key`, `auth_key_expired`, `password_hint`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
-(9, 1, 'Suhendar', 'Suhendar', '123', 1, 'hendarsyahss@gmail.com', '$2y$13$oWrszpO.9mJdYWFuxwq4s.lHLmMBYPOZJ1LpdzrAhJxA4OXFmtGQW', 'sDtt5iLLk0EowgfCw078FInaNmBqgpT8VQR156zhCbDFRx9nF9G7mtm8MtL7iDZkKVCrsNKHifZOAIqZbaDYq6JY9tjHIKsnXTKJ', '2015-02-15', NULL, NULL, '2015-02-09 16:19:17', NULL, NULL);
+INSERT INTO `user` (`id`, `group_id`, `first_name`, `middle_name`, `last_name`, `status`, `email`, `password`, `auth_key`, `auth_key_expired`, `password_hint`, `last_login`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
+(1, 2, 'Suhendar', 'Suhendar', '123', 1, 'hendarsyahss@gmail2.com', '$2y$13$oWrszpO.9mJdYWFuxwq4s.lHLmMBYPOZJ1LpdzrAhJxA4OXFmtGQW', 'sDtt5iLLk0EowgfCw078FInaNmBqgpT8VQR156zhCbDFRx9nF9G7mtm8MtL7iDZkKVCrsNKHifZOAIqZbaDYq6JY9tjHIKsnXTKJ', '2015-02-15', '123', '2015-02-24 19:17:33', NULL, '2015-02-09 16:19:17', 9, '2015-02-24 20:00:23'),
+(9, 1, 'Suhendar', 'Suhendar', '123', 1, 'hendarsyahss@gmail.com', '$2y$13$oWrszpO.9mJdYWFuxwq4s.lHLmMBYPOZJ1LpdzrAhJxA4OXFmtGQW', 'sDtt5iLLk0EowgfCw078FInaNmBqgpT8VQR156zhCbDFRx9nF9G7mtm8MtL7iDZkKVCrsNKHifZOAIqZbaDYq6JY9tjHIKsnXTKJ', '2015-02-15', '123', '2015-02-24 19:17:33', NULL, '2015-02-09 16:19:17', 9, '2015-02-24 20:00:23'),
+(22, 2, 'sadasd', 'adasd', 'sadad', 1, 'hendarsyahss4@gmail.com', '$2y$13$qaqk6bOSyr6JK3CamVE/XeomgOhX1oVQgAaICMouGqznl0xLLRhqG', NULL, NULL, '123', NULL, 9, '2015-02-24 21:11:31', NULL, NULL),
+(23, 2, 'dasd', 'sadasd', 'sadsad', 1, 'demo@presthemes.com', '$2y$13$z5ElFbZHfNZsc08iqhwP0.6o/7McCi5.bRsreM1zKGCX.cSIlhvVC', NULL, NULL, '45454', NULL, 9, '2015-02-24 21:12:32', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -13179,7 +13185,7 @@ CREATE TABLE IF NOT EXISTS `user_address` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_address`
@@ -13214,7 +13220,7 @@ CREATE TABLE IF NOT EXISTS `user_dropship` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_dropship`
@@ -13237,7 +13243,7 @@ CREATE TABLE IF NOT EXISTS `user_group` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_group`
@@ -13428,7 +13434,7 @@ MODIFY `id` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9474;
 -- AUTO_INCREMENT for table `courier`
 --
 ALTER TABLE `courier`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `discussion`
 --
@@ -13503,7 +13509,7 @@ MODIFY `id` int(7) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9471044;
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `user_address`
 --
