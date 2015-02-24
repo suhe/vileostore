@@ -35,14 +35,12 @@ class SiteController extends Controller {
         $loginModel = new LoginForm(['scenario' => 'login']);
         $registerModel = new \common\models\User(['scenario' => 'register']);
         if ($loginModel->load(Yii::$app->request->post()) && $loginModel->login()) {
-            Yii::$app->session->setFlash('error', Yii::t('app/message','msg welcome back'));
+            Yii::$app->session->setFlash('msg', Yii::t('app/message','msg welcome back'));
             return $this->goBack();
         }
-        else if ($registerModel->load(Yii::$app->request->post()) && $registerModel->Register()) {
-            Yii::$app->session->setFlash('error', Yii::t('app/message','msg thanks for registration'));
-            $loginModel = new LoginForm();
-            Yii::$app->user->login($loginModel->getUser(), 3600 * 24 * 30);
-            return $this->goBack();
+        else if($registerModel->load(Yii::$app->request->post()) && $registerModel->Register()) {
+            Yii::$app->session->setFlash('msg', Yii::t('app/message','msg thanks for registration please login your email and password'));
+            return $this->redirect(['site/login']);
         }
         
         $this->layout = 'login-register';

@@ -52,6 +52,7 @@ return [
     /** Abjad D **/
     'dashboard' =>'Dashboard',
     'date' => 'Tanggal',
+    'date join' => 'Tanggal Bergabung',
     'description' => 'Keterangan',
     'district' => 'Kecamatan',
     'details' => 'Details',
@@ -65,6 +66,7 @@ return [
     'edit city' => 'Edit Kota',
     'edit profile' => 'Edit Profile',
     'edit province' => 'Edit Provinsi',
+    'email' => 'Email',
     'empty' => 'Kosong',
     'exit' => 'Keluar',
     /** Abjad F **/

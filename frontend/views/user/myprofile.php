@@ -1,6 +1,6 @@
 <?php
 $this->params['breadcrumbs'] = [
-    ['label' => Yii::t('app','search'),'url' => ['product/search']],
+    ['label' => Yii::t('app','home page'),'url' => ['site/index']],
     ['label' => Yii::t('app','my profile'),'url' => ['user/profile']],
 ];
 
@@ -31,6 +31,7 @@ $this->title = Yii::t('app','basic information');
     <?=$form->field($formModel,'email')->textInput(['disabled' => true])?>
     <div class="col-md-12 clearfix">
 	<?=\yii\helpers\Html::submitButton('<i class="fa fa-save icon-on-right"></i> '.Yii::t('app','update profile'), ['class' => 'btn btn-primary pull-right','name' => 'post'])?>
+        
     </div><!-- /.col action -->
     <div class="clearfix"></div>
     <?php \yii\bootstrap\ActiveForm::end()?>

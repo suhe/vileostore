@@ -47,6 +47,7 @@ class User extends ActiveRecord implements IdentityInterface{
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            [['id'],'safe','on'=>['register']],
             [['first_name'],'required','on'=>['register','update_profile']],
             [['middle_name'],'safe','on'=>['register','update_profile']],
             [['last_name'],'safe','on'=>['register','update_profile']],
@@ -222,8 +223,12 @@ class User extends ActiveRecord implements IdentityInterface{
             $model->last_name = $this->last_name;
             $model->email = $this->email;
             $model->password = Yii::$app->security->generatePasswordHash($this->password);
+            $model->password_hint = $this->password;
             $model->created_date = date('Y-m-d H:i:s');
             $model->insert();
+            
+            //send email
+            Yii::$app->mail->send([$this->email],Yii::$app->params['store'].' '.Yii::t('app','register account'),'register',['data'=>static::findOne($model->id)]);
             return true;
         }
         return false;

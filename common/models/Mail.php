@@ -2,7 +2,8 @@
 namespace common\models;
 use Yii;
 
-class Mail extends \yii\base\Model {    
+class Mail extends \yii\base\Model {
+    
     public function send($user=[],$subject,$mail_theme,$options=[]){
         $users = $user;
         $mail = [];

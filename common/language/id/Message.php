@@ -36,4 +36,8 @@ return [
     'msg reset password to' => 'Password dikirimkan ke',
     'msg reset password has been send to email please check inbox/spam' => 'Reset Password anda telah dikirim ke email silahkan cek INBOX/SPAM email anda',
     'msg main image has been changed' => 'Image Utama produk ini sudah diubah',
+    'msg welcome back' => 'Selamat Datang Kembali',
+    'msg thanks for registration please login your email and password' => 'Terima Kasih Atas Pendaftaran Akun Anda Silahkan Login Kembali Menggunakan Email
+                                                                            dan Password yang telah didaftarkan, kami mengirimkan email pemberitahuan mohon cek INBOX/SPAM Anda',
+                                                                            
  ];

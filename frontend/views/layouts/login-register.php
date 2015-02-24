@@ -26,7 +26,7 @@ AppAsset::register($this);
 <?=$this->render('header')?>
 <div class="body-content outer-top-xs" id="top-banner-and-menu">
 <div class='container'>
-<div class='row outer-bottom-sm '>
+<div class='row'>
 <!-- ============================================== CONTENT ============================================== -->
     <div class='col-md-12'>
 	<?=$content?>
