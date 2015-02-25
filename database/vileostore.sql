@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2015 at 11:29 AM
--- Server version: 5.6.20
--- PHP Version: 5.5.15
+-- Generation Time: Feb 25, 2015 at 04:57 PM
+-- Server version: 5.6.21
+-- PHP Version: 5.5.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `bank` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `bank`
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `banner` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `banner`
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `brand` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `brand`
@@ -151,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `category`
@@ -175,7 +175,7 @@ INSERT INTO `category` (`id`, `name`, `slug`, `structure`, `image`, `icon`, `sta
 (15, 'Modem Dongle USB GSM & CDMA', 'modem-usb-gsm', 'Networking & Part > Modem Dongle USB GSM & CDMA', NULL, NULL, 1, 13, 1, 'category.php', NULL, NULL, NULL, NULL),
 (16, 'Wifi Receiver', 'wifi-receiver', 'Networking & Part > Wifi Receiver', NULL, NULL, 1, 13, 1, 'category.php', NULL, NULL, NULL, NULL),
 (17, 'Pigtail Modem', 'pigtail-modem', 'Networking & Part > Pigtail Modem', NULL, NULL, 1, 13, 1, 'category.php', NULL, NULL, NULL, NULL),
-(18, 'Antena Modem', 'antena-modem', 'Networking & Part > Antena Modem', NULL, NULL, 1, 13, 1, 'category.php', NULL, NULL, NULL, NULL),
+(18, 'Touch Pen & Stylus', 'touch-pen-stylus', 'Handphone & Part > Touch Pen & Stylus', NULL, '', 1, 7, 1, 'category.php', NULL, NULL, 9, '2015-02-25 21:45:30'),
 (19, 'Baterai Modem MIFI', 'baterai-modem-mifi', 'Networking & Part > Baterai Modem MIFI', NULL, NULL, 1, 13, 1, 'category.php', NULL, NULL, NULL, NULL),
 (20, 'Memory & Storage', 'memory-storage', 'Memory & Storage', 'banner-side.png', 'icon fa fa-save fa-fw', 1, 0, 1, 'category.php', 9, '2015-02-23 11:42:21', NULL, NULL),
 (21, 'Micro & SD Card', 'micro-sd', 'Memory & Storage > Micro & SD Card', NULL, NULL, 1, 20, 1, 'category.php', NULL, NULL, NULL, NULL),
@@ -191,7 +191,7 @@ INSERT INTO `category` (`id`, `name`, `slug`, `structure`, `image`, `icon`, `sta
 (31, 'Vaporizer', 'vaporizer', 'Vaporizer', 'banner-side.png', 'icon fa fa-heart-o fa-fw', 1, 0, 1, 'category.php', 9, '2015-02-23 11:44:42', NULL, NULL),
 (32, 'Rokok Elekrik', 'ecigarete-device', 'Vaporizer > Rokok Elekrik', NULL, NULL, 1, 31, 1, 'category.php', NULL, NULL, NULL, NULL),
 (33, 'Isi Ulang Rokok Elekrik', 'refill-cigarete', 'Vaporizer > Isi Ulang Rokok Elekrik', NULL, NULL, 1, 31, 1, 'category.php', NULL, NULL, NULL, NULL),
-(34, 'Isi Ulang Rokok Elekrik', 'refill-cigarete', 'Vaporizer > Isi Ulang Rokok Elekrik', NULL, NULL, 1, 31, 1, 'category.php', NULL, NULL, NULL, NULL),
+(34, 'Stand & Docking Smartphone', 'stand-docking-smartphone', 'Handphone & Part > Stand & Docking Smartphone', NULL, '', 1, 7, 1, 'category.php', NULL, NULL, 9, '2015-02-25 21:13:15'),
 (35, 'Promo & Deal', 'promo-deal', 'Promo & Deal', 'banner-side.png', 'icon fa fa-bolt fa-fw', 1, 0, 1, 'category.php', 9, '2015-02-23 11:43:35', NULL, NULL),
 (36, 'Limited Deal', 'limited-deal', 'Promo & Deal > Limited Deal', NULL, NULL, 1, 35, 1, 'category.php', NULL, NULL, NULL, NULL),
 (37, 'Promo Mingguan', 'weekend promo', 'Promo & Deal > Promo Mingguan', NULL, NULL, 1, 35, 1, 'category.php', NULL, NULL, NULL, NULL),
@@ -213,7 +213,7 @@ CREATE TABLE IF NOT EXISTS `city` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9474 ;
+) ENGINE=InnoDB AUTO_INCREMENT=9474 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `city`
@@ -736,7 +736,7 @@ CREATE TABLE IF NOT EXISTS `courier` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `courier`
@@ -759,7 +759,7 @@ CREATE TABLE IF NOT EXISTS `discussion` (
   `description` text,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `discussion`
@@ -779,7 +779,7 @@ CREATE TABLE IF NOT EXISTS `newsletter` (
 `id` int(11) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `newsletter`
@@ -823,7 +823,7 @@ CREATE TABLE IF NOT EXISTS `order` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `order`
@@ -854,7 +854,7 @@ CREATE TABLE IF NOT EXISTS `order_history` (
   `description` varchar(255) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `order_history`
@@ -879,7 +879,7 @@ CREATE TABLE IF NOT EXISTS `order_product` (
   `product_weight` decimal(10,0) DEFAULT NULL,
   `qty` int(11) DEFAULT NULL,
   `subtotal` double DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `order_product`
@@ -916,7 +916,7 @@ CREATE TABLE IF NOT EXISTS `page` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `page`
@@ -965,7 +965,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=63 ;
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product`
@@ -996,7 +996,7 @@ INSERT INTO `product` (`id`, `name`, `sku`, `slug`, `category_id`, `brand_id`, `
 (22, 'Baterai OEM MF90 Kapasitas 2300MAh', 'BMF90-0001', 'baterai-oem-mf90-kapasitas-2300mah', 19, 3, 1, 68000, 'oem-baterai-mf90-1.gif', '100', '<p>Baterai untuk Bolt ZTE MF90, bisa digunakan untuk mengganti baterai Anda yang rusak atau sebagai baterai cadangan jika low battery, dengan kapasitas sesuai dengan bawaannya sebesar 2300mAh dipastikan anda dapat baterai sesuai dengan aslinya.</p>', '<p>Baterai untuk Bolt ZTE MF90, bisa digunakan untuk mengganti baterai Anda yang rusak atau sebagai baterai cadangan jika low battery, dengan kapasitas sesuai dengan bawaannya sebesar 2300mAh dipastikan anda dapat baterai sesuai dengan aslinya.</p>', 0, 1, 1, 1, 5, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (23, 'Baterai Double Power Bolt MF90 Kapasitas 3800mAh', 'BMF90-0002', 'baterai-double-power-bolt-mf90-kapasitas-3800mah', 19, 3, 1, 89000, 'MCOM_BOLT_ZTE copy.png', '100', '<p>Buat Anda pengguna MF90 Bolt sudah tidak asing dengan Baterai Bawaan Bolt yang berkisar 2300 Mah , dengan munculnya Ke khawatiran orang-orang dengan sparepart Baterei apabila ada kerusakan atau sudah hamil duluan , beberapa orang mulai membeli Batterai Dummy (Kapasitor) yang sangat berbahaya tanpa IC , kini Hadir dengan Merk Vcom Double Power 3800 Mah </p>', '<p>Buat Anda pengguna MF90 Bolt sudah tidak asing dengan Baterai Bawaan Bolt yang berkisar 2300 Mah , dengan munculnya Ke khawatiran orang-orang dengan sparepart Baterei apabila ada kerusakan atau sudah hamil duluan , beberapa orang mulai membeli Batterai Dummy (Kapasitor) yang sangat berbahaya tanpa IC , kini Hadir dengan Merk Vcom Double Power 3800 Mah </p>', 0, 1, 1, 1, 5, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (24, 'Personal Vaporizer CE-5 Single Kit Plus Refill ', 'VEG-0001', 'personal-vaporizer-ce-5-single-kit-plus-refill', 32, 19, 1, 63000, 'black-ego-t-ce5-starter-kit-900mah-3.jpg', '250', '<p>EGO Vaporizer CE5 adalah Rokok elektrik yang telah disempurnakan Fungsi utama-nya adalah sebagai Pengganti Rokok Konvensional. Sekaligus sebagai terapi untuk berhenti merokok.</p>', '<p>EGO Vaporizer CE5 adalah Rokok elektrik yang telah disempurnakan Fungsi utama-nya adalah sebagai Pengganti Rokok Konvensional. Sekaligus sebagai terapi untuk berhenti merokok, Karena rokok elektrik ini memiliki Kelebihan-kelebihan sbb :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Tidak menggunakan tembakau</li>\r\n<li>Rokok elektrik ini tidak menggunakan api</li>\r\n<li>Tidak mengandung zat adiktif/ beracun ( nikotin/ tar)</li>\r\n<li>Asap nya lebih banyak daripada rokok elektrik biasa yg mirip rokok Konvensional beredar</li>\r\n<li>battery nya lebih tahan lama daripada rokok elektrik biasa yg lain banyak beredar</li>\r\n<li>Isi ulang praktis tinggal tetes</li>\r\n<li>yang dikeluarkan adalah uap " Netral " bukan asap yg Berbahaya Bagi kesehatan Paru2 dan Asapnya Aman Pula saat terhirup Anak atau Bayi, anda bisa praktekkan dengan menghembuskan uap nya pada telapak tangan, terlihat seperti embun bukan Nikotin.! ! ! dan tidak bau ditangan dan baju seperti rokok biasa.</li>\r\n</ul>\r\n<p><br /> Segeralah berhenti Merokok Tembakau/ Konvensional Sekarang dan Beralihlah Ke Era Baru Merokok Sehat dan Nikmati Sensasi aromanya. INGAT " Rokok " biasa " membunuhmu " Rokok electrik Ego baik untuk kesehatan.<br /> coba sekarang juga karna kami sudah membuktikan.</p>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
-(25, 'Perdana Bolt 8 GB Segel Expired 1 Tahun', 'PIB-0001', 'perdana-bolt-8-gb-segel-expired-1-tahun', 2, 3, 1, 50000, 'perdana-bolt-1.jpg', '100', '<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah Total. isi Ulang akan lebih murah dengan ganti Perdana ini</p>\r\n<p>Syarat Syarat Perdana Bolt</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Untuk saat ini hanya khusus wilayah JABODETABEK &amp; Medan Kota Sumatera Utara</li>\r\n<li>Pastikan modem anda 4G LTE Dengan Frequency TDD Mhz</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 0, NULL, 12, 0, 0, '2015-03-31', 1, NULL, NULL, NULL),
+(25, 'Perdana Bolt 8 GB Segel Expired 1 Tahun', 'PIB-0001', 'perdana-bolt-8-gb-segel-expired-1-tahun', 2, 3, 1, 50000, 'perdana-bolt-1.jpg', '100', '<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah Total. isi Ulang akan lebih murah dengan ganti Perdana ini</p>\r\n<p>Syarat Syarat Perdana Bolt</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Untuk saat ini hanya khusus wilayah JABODETABEK &amp; Medan Kota Sumatera Utara</li>\r\n<li>Pastikan modem anda 4G LTE Dengan Frequency TDD Mhz</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 0, NULL, 15, 0, 0, '2015-03-31', 1, NULL, NULL, NULL),
 (26, 'Perdana Bolt Non Kuota Exp 1 Tahun', 'PIB-0002', 'perdana-bolt-non-kuota-exp-1-tahun', 2, 3, 1, 10000, 'perdana-bolt-2.jpg', '100', '<p>Perdana Bolt untuk Isi Ulang tidak ada kuota bagi anda yang kehilangan kartu bolt dan tidak memerlukan kuota hanya memerlukan kertu nya saja , BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah Total. isi Ulang akan lebih murah dengan ganti Perdana ini</p>\r\n<p>Syarat Syarat Perdana Bolt</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Untuk saat ini hanya khusus wilayah JABODETABEK &amp; Medan Kota Sumatera Utara</li>\r\n<li>Pastikan modem anda 4G LTE Dengan Frequency TDD Mhz</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 2, NULL, 2, 0, 0, NULL, 1, NULL, NULL, NULL),
 (27, 'Memory Card Reader Mobile Mate Micro SDHC & M2', 'CRM-0001', 'memory-card-reader-mobile-mate-micro-sdhc-m2', 23, 19, 1, 19400, 'mobile-mate-micro-sd-and-m2-memory-card-reader-black-1.jpg', '100', '<div id="tab-description" class="tab-content" style="display: block;">\r\n<p><span id="result_box" lang="id"><span class="hps">Simpan dan</span> <span class="hps">transfer musik</span>, <span class="hps">video,</span> <span class="hps">foto dan</span> <span class="hps">data pribadi</span> <span class="hps">antara ponsel</span> <span class="hps">dan</span> <span class="hps">komputer Anda dengan</span> </span>Memory Card Reader Mobile Mate Micro SDHC &amp; M2 ini<span lang="id">.</span><span lang="id"><span class="hps">Alat</span> <span class="hps">ini</span> <span class="hps">akan membaca</span> <span class="hps">M2</span> <span class="hps atn">(</span>Memory Stick <span class="hps">Micro</span>), <span class="hps">TF</span> <span class="hps atn">(</span>T<span class="atn">-</span>Flash, <span class="hps">MicroSDHC</span>, <span class="hps">MicroSD</span>) <span class="hps">hingga 64GB</span></span></p>\r\n</div>', '<div id="tab-description" class="tab-content" style="display: block;">\r\n<p><span id="result_box" lang="id"><span class="hps">Simpan dan</span> <span class="hps">transfer musik</span>, <span class="hps">video,</span> <span class="hps">foto dan</span> <span class="hps">data pribadi</span> <span class="hps">antara ponsel</span> <span class="hps">dan</span> <span class="hps">komputer Anda dengan</span> </span>Memory Card Reader Mobile Mate Micro SDHC &amp; M2 ini<span lang="id">.</span><span lang="id"><span class="hps">Alat</span> <span class="hps">ini</span> <span class="hps">akan membaca</span> <span class="hps">M2</span> <span class="hps atn">(</span>Memory Stick <span class="hps">Micro</span>), <span class="hps">TF</span> <span class="hps atn">(</span>T<span class="atn">-</span>Flash, <span class="hps">MicroSDHC</span>, <span class="hps">MicroSD</span>) <span class="hps">hingga 64GB</span>, <span class="hps">Adapter</span> <span class="hps">tidak diperlukan</span>.<br /> <span class="hps">Dengan</span> <span class="hps">antarmuka USB 2.0</span>, <span class="hps">perangkat</span> <span class="hps">mungil ini</span> <span class="hps">dapat colok langsung ke</span> <span class="hps">port</span> <span class="hps">USB</span> <span class="hps">pada komputer Anda</span>, <span class="hps">seperti</span><strong> <span class="hps">flash drive</span></strong>.<span class="hps">Kompak dan</span> <span class="hps">portabel</span>, </span>Memory Card Reader Mobile Mate Micro SDHC &amp; M2 ini<span lang="id"> <span class="hps">pas di saku Anda</span> <span class="hps">untuk memudahkan</span> <span class="hps">transportasi</span> <span class="hps">data</span> <span class="hps">dan file</span> <span class="hps">multimedia</span>.</span></p>\r\n<p>&nbsp;</p>\r\n</div>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (28, 'Mouse Pad Gel Wrist Rest Mouse Pad', 'MMPD-0001', 'mouse-pad-gel-wrist-rest-mouse-pad', 28, 22, 1, 27800, 'thumb_212192gel-wrist-rest-mouse-pad-black-1.jpg', '100', '<p>Mouse Pad ini memiliki bantalan yang terbuat dari gel. Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>Mouse Pad ini memiliki bantalan yang terbuat dari gel. Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse.</p>\r\n<div class="h3" style="text-align: left;"><strong>Wrist Rest</strong></div>\r\n<div class="h3" style="text-align: left;">Terdapat bantalan untuk tempat bersender pergelangan tangan. Bantalan ini terbuat dari gel, sehingga empuk dan lebih nyaman saat digunakan.</div>\r\n<div class="h3" style="text-align: left;">&nbsp;</div>\r\n<div class="h3" style="text-align: left;"><strong>High Quality Material</strong></div>\r\n<div class="h3" style="text-align: left;">Material mouse pad ini terbuat dari lycra cloth yang halus dan soft, mouse Anda menjadi lebih presisi dan cepat saat digunakan di atas mouse pad ini.</div>\r\n<div class="h3" style="text-align: left;">&nbsp;</div>\r\n<div class="h3" style="text-align: left;"><strong>Anti Slip Backing</strong></div>\r\n<div class="h3" style="text-align: left;">Bagian bawah mouse pad terbuat dari material karet yang anti slip. Mouse pad akan tetap stabil tertempel di meja meskipun mouse Anda bergerak dengan cepat.</div>\r\n</div>', 0, 1, 1, 1, 1, NULL, 1, 0, 0, NULL, 1, NULL, NULL, NULL),
@@ -1027,14 +1027,37 @@ INSERT INTO `product` (`id`, `name`, `sku`, `slug`, `category_id`, `brand_id`, `
 (52, 'Voucher Fisik Telkomsel Pulsa 50.000', 'VTL-0002', 'voucher-fisik-telkomsel-pulsa-50000', 3, 25, 1, 53000, 'voucer-fisik-50rb.png', '50', '<p>Voucher Fisik Telkomsel senilai 50.000 , dapat dipakai untuk SMS/Telepon ataupun Paket Data , untuk mengaktifkan nya bacalah petunjuk di bagian belakang voucher fisik pada saat akan melakukan isi pulsa , ikuti petunjuknya sampai pulsa masuk ke handphone anda.</p>', '<p>Voucher Fisik Telkomsel senilai 25.000 , dapat dipakai untuk SMS/Telepon ataupun Paket Data , untuk mengaktifkan nya bacalah petunjuk di bagian belakang voucher fisik pada saat akan melakukan isi pulsa , ikuti petunjuknya sampai pulsa masuk ke handphone anda.</p>\r\n<p style="text-align: justify;">Sebagian besar dari kita yang telah terbiasa menggunakan produk pulsa elektrik, akan canggung dan menemui kebingungan ketika dihadapkan pada kondisi dimana hanya tersedia pulsa gesek/fisik dalam kondisi yang mendesak. Jangan hanya karena kita kurang informasi tentang pengisian pulsa gesek/fisik, bisnis atau urusan kita bisa terbengkalai dan terganggu. Selain itu, bagi kita yang tidak ingin privasi keamanan no HP kita terganggu oleh pihak lain, menggunakan voucher gesek merupakan pilihan yang tepat. Oleh karena itu kami ingin membagikan cara transaksi/pengisian pulsa gesek/fisik dari seluruh operator telepon seluler di Indonesia.</p>\r\n<p style="text-align: justify;">Setelah kita membeli pulsa fisik, langkah awal adalah mengesek kartu dengan uang logam atau sejenisnya agar dapat mengetahui berapa kode voucher pulsa tersebut. Selain itu, saat ini telah ada voucher gesek yang bisa kita dapatkan secara elektrik, yaitu dari counter pulsa terdekat. Untuk gesek elektrik ini, kita tidak perlu menggesek agar mengetahui kode voucher yang akan kita isikan.</p>\r\n<p style="text-align: justify;">Langkah selanjutnya adalah cara pengisian voucher melalui HP kita dengan cara sebagai berikut :</p>\r\n<p>untuk pengisian voucher fisik kartu Telkomsel (Kartu AS dan Simpati)<br /> *133*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 116 atau 08071-811-811 atau (021) 52-919-811</p>\r\n<p>untuk pengisian voucher fisik kartu Indosat<br /> Mentari/IM3<br /> *556*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 505</p>\r\n<p>untuk pengisian voucher fisik kartu IM3<br /> *151*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 100</p>\r\n<p>untuk pengisian voucher fisik kartu StarOne<br /> *556*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 111</p>\r\n<p>untuk pengisian voucher fisik kartu XL<br /> *123*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 817, 818</p>\r\n<p>untuk pengisian voucher fisik kartu Three<br /> *111*Kode Voucher# OK/Yes<br /> Customer Service: 089644000123</p>\r\n<p>untuk pengisian voucher fisik kartu Esia<br /> ketik TOPUP16 digit kode voucher kirim ke 555<br /> Customer Service: *999 (dari Esia) atau (021) 9288-9288, (022) 9110-9288</p>\r\n<p>untuk pengisian voucher fisik kartu Flexi<br /> *99*Kode Voucher# OK/Yes<br /> Customer Service: 147</p>\r\n<p>untuk pengisian voucher fisik kartu Axis<br /> *888#14 kode voucher# and tombol call (tombol hijau)</p>\r\n<p>untuk pengisian voucher fisik kartu Ceria<br /> *888#14 kode voucher# and tombol call (tombol hijau)<br /> atau<br /> ketik ISIkode voucher kirim ke 888</p>', 0, 1, 1, 1, 0, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (53, 'Voucher Fisik Telkomsel Pulsa 100.000', 'VTL-0003', 'voucher-fisik-telkomsel-pulsa-100000', 3, 25, 1, 103000, 'voucer-fisik-100rb.png', '50', '<p>Voucher Fisik Telkomsel senilai 100.000 , dapat dipakai untuk SMS/Telepon ataupun Paket Data , untuk mengaktifkan nya bacalah petunjuk di bagian belakang voucher fisik pada saat akan melakukan isi pulsa , ikuti petunjuknya sampai pulsa masuk ke handphone anda.</p>', '<p>Voucher Fisik Telkomsel senilai 25.000 , dapat dipakai untuk SMS/Telepon ataupun Paket Data , untuk mengaktifkan nya bacalah petunjuk di bagian belakang voucher fisik pada saat akan melakukan isi pulsa , ikuti petunjuknya sampai pulsa masuk ke handphone anda.</p>\r\n<p style="text-align: justify;">Sebagian besar dari kita yang telah terbiasa menggunakan produk pulsa elektrik, akan canggung dan menemui kebingungan ketika dihadapkan pada kondisi dimana hanya tersedia pulsa gesek/fisik dalam kondisi yang mendesak. Jangan hanya karena kita kurang informasi tentang pengisian pulsa gesek/fisik, bisnis atau urusan kita bisa terbengkalai dan terganggu. Selain itu, bagi kita yang tidak ingin privasi keamanan no HP kita terganggu oleh pihak lain, menggunakan voucher gesek merupakan pilihan yang tepat. Oleh karena itu kami ingin membagikan cara transaksi/pengisian pulsa gesek/fisik dari seluruh operator telepon seluler di Indonesia.</p>\r\n<p style="text-align: justify;">Setelah kita membeli pulsa fisik, langkah awal adalah mengesek kartu dengan uang logam atau sejenisnya agar dapat mengetahui berapa kode voucher pulsa tersebut. Selain itu, saat ini telah ada voucher gesek yang bisa kita dapatkan secara elektrik, yaitu dari counter pulsa terdekat. Untuk gesek elektrik ini, kita tidak perlu menggesek agar mengetahui kode voucher yang akan kita isikan.</p>\r\n<p style="text-align: justify;">Langkah selanjutnya adalah cara pengisian voucher melalui HP kita dengan cara sebagai berikut :</p>\r\n<p>untuk pengisian voucher fisik kartu Telkomsel (Kartu AS dan Simpati)<br /> *133*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 116 atau 08071-811-811 atau (021) 52-919-811</p>\r\n<p>untuk pengisian voucher fisik kartu Indosat<br /> Mentari/IM3<br /> *556*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 505</p>\r\n<p>untuk pengisian voucher fisik kartu IM3<br /> *151*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 100</p>\r\n<p>untuk pengisian voucher fisik kartu StarOne<br /> *556*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 111</p>\r\n<p>untuk pengisian voucher fisik kartu XL<br /> *123*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 817, 818</p>\r\n<p>untuk pengisian voucher fisik kartu Three<br /> *111*Kode Voucher# OK/Yes<br /> Customer Service: 089644000123</p>\r\n<p>untuk pengisian voucher fisik kartu Esia<br /> ketik TOPUP16 digit kode voucher kirim ke 555<br /> Customer Service: *999 (dari Esia) atau (021) 9288-9288, (022) 9110-9288</p>\r\n<p>untuk pengisian voucher fisik kartu Flexi<br /> *99*Kode Voucher# OK/Yes<br /> Customer Service: 147</p>\r\n<p>untuk pengisian voucher fisik kartu Axis<br /> *888#14 kode voucher# and tombol call (tombol hijau)</p>\r\n<p>untuk pengisian voucher fisik kartu Ceria<br /> *888#14 kode voucher# and tombol call (tombol hijau)<br /> atau<br /> ketik ISIkode voucher kirim ke 888</p>', 0, 1, 1, 1, 0, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (54, 'Mouse AUE Wireless Optical 2.4G - M013', 'AUE-0002', 'mouse-aue-wireless-optical-24g-m013', 26, 8, 1, 76500, 'optical-mouse-wireless-24g-model-m013-black-2.jpg', '200', '<p>Mouse Wirelles dengan kecepatan 2.4Ghz , penggunaan dan instalasi sangat mudah cukup masukan usb receiver ke usb komputer dan akan terdeteksi otomatis , dengan frekuensi radio 2.4Ghz , mouse dapat dijangkau dengan 10 meter dari receiver dan device komputer.</p>', '<p>Mouse Wirelles dengan kecepatan 2.4Ghz , penggunaan dan instalasi sangat mudah cukup masukan usb receiver ke usb komputer dan akan terdeteksi otomatis , dengan frekuensi radio 2.4Ghz , mouse dapat dijangkau dengan 10 meter dari receiver dan device komputer.</p>\r\n<p>Spesifikasi Dasar :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>USB 2.0</li>\r\n<li>Connection Adjustable 400-1600 CPI</li>\r\n<li>Mouse Acceleration 14 inch / sec</li>\r\n<li>Battery Type 2 x AAA battery</li>\r\n<li>Dimension 95 x 65 x 37 mm</li>\r\n</ul>', 0, 1, 1, 1, 2, NULL, 1, 0, 0, NULL, 1, NULL, NULL, NULL),
-(55, 'Perdana Bolt Aktif 8GB Exp 07 Apr 15', 'PIB-0003', 'perdana-bolt-aktif-8gb-exp-07-apr-15', 2, 3, 1, 47500, 'bolt.jpg', '50', '<p>Perdana Bolt untuk Isi Ulang tidak ada kuota bagi anda yang kehilangan kartu bolt dan tidak memerlukan kuota hanya memerlukan kertu nya saja , BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>Perdana Bolt untuk Isi Ulang tidak ada kuota bagi anda yang kehilangan kartu bolt dan tidak memerlukan kuota hanya memerlukan kertu nya saja , BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.</p>\r\n<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah Total. isi Ulang akan lebih murah dengan ganti Perdana ini</p>\r\n<p>Syarat Syarat Perdana Bolt</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Untuk saat ini hanya khusus wilayah JABODETABEK &amp; Medan Kota Sumatera Utara</li>\r\n<li>Pastikan modem anda 4G LTE Dengan Frequency TDD Mhz</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 20, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(55, 'Perdana Bolt Aktif 8GB Exp 07 Apr 15', 'PIB-0003', 'perdana-bolt-aktif-8gb-exp-07-apr-15', 2, 3, 1, 47500, 'bolt.jpg', '50', '<p>Perdana Bolt Aktif Sampai 7 April 2015 , BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat.</p>', '<div class="blog-content-entry" style="text-align: justify;">Perdana Bolt Aktif Sampai 11 April 2015 , BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat.</div>\r\n<div class="blog-content-entry" style="text-align: justify;">&nbsp;</div>\r\n<div class="blog-content-entry" style="text-align: justify;">BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah Total. isi Ulang akan lebih murah dengan ganti Perdana ini\r\n<p>Syarat Syarat Perdana Bolt</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Untuk saat ini hanya khusus wilayah JABODETABEK &amp; Medan Kota Sumatera Utara</li>\r\n<li>Pastikan modem anda 4G LTE Dengan Frequency TDD Mhz</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 20, 0, 1, 0, 0, NULL, 1, NULL, NULL, NULL),
 (56, 'Mouse Wireless Optical HP Laverock', 'MHL-0001', 'mouse-wireless-optical-hp-laverock', 26, 16, 1, 76000, 'hp-laverock-02.jpg', '500', '<p>HP Laverock 2.4G Wireless Optical Mouse adalah mouse wireless dengan teknologi optical, yang akan lebih memudahkan anda dalam pengunaanya. Dengan desain yang sangat ergonomis, cocok untuk tangan kanan Anda. Desain HP Laverock 2.4G Wireless Optical Mouse terdiri dari 5 tombol yang cocok digunakan untuk Anda yang gemar bermain game online.</p>', '<p>HP Laverock 2.4G Wireless Optical Mouse adalah mouse wireless dengan teknologi optical, yang akan lebih memudahkan anda dalam pengunaanya. Dengan desain yang sangat ergonomis, cocok untuk tangan kanan Anda. Desain HP Laverock 2.4G Wireless Optical Mouse terdiri dari 5 tombol yang cocok digunakan untuk Anda yang gemar bermain game online (Terdapat sebuah tombol maju dan mundur diatur di sebelah kiri). Menggunakan 2 buah baterai AAA.</p>\r\n<p>Spesifikasi : <br /> &ndash; 2.4 Ghz Wireless Mouse<br /> &ndash; Optical Technology<br /> &ndash; Nano receiver hidden in the Mouse button<br /> &ndash; Built in energy saving system<br /> &ndash; Elegant and ergonomic Design<br /> &ndash; Scroll easily in any direction</p>', 0, 1, 1, 1, 4, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (57, 'Perdana Internet XL Xtra On 2GB Expired 30 Juni 2015', 'XL-0002', 'perdana-internet-xl-xtra-on-2gb-expired-30-juni-2015', 5, 5, 1, 30000, 'exra-on-2gb.png', '50', '<p>XL kini menghadirkan paket internet Xtra On untuk kamu pelanggan XL agar Internetan lebih puas dengan masa aktif yang panjang. Dengan paket ini, kamu juga bisa internetan dengan kuota 2GB, dan GRATIS chatting dengan BBM, Whatsapp, dan Line tiap hari selama 6 BULAN!</p>', '<p>XL kini menghadirkan paket internet Xtra On untuk kamu pelanggan XL agar Internetan lebih puas dengan masa aktif yang panjang. Dengan paket ini, kamu juga bisa internetan dengan kuota 2GB, dan GRATIS chatting dengan BBM, Whatsapp, dan Line tiap hari selama 6 BULAN!</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (58, 'Perdana XL Data Smartphone 2.1GB (700MB/Bulan)', 'XL-0003', 'perdana-xl-data-smartphone-21gb-700mbbulan', 2, 5, 1, 16000, 'xl-data-3-5gb.png', '50', '<p>Buat kamu yang hobi browsing, chatting, pakai Socmed, dan juga streaming dari smartphone kesayanganmu, kini XL menghadirkan Kartu Perdana Smartphone. Hanya dengan Rp 25rb, kamu bisa mendapatkan 2,1 GB selama 3 Bulan. Expired Juni 2015</p>', '<p>Buat kamu yang hobi browsing, chatting, pakai Socmed, dan juga streaming dari smartphone kesayanganmu, kini XL menghadirkan Kartu Perdana Smartphone.</p>\r\n<p>Hanya dengan Rp 25rb, kamu bisa mendapatkan 2,1 GB selama 3 Bulan. Ayo buruan beli Kartu Perdana Smartphone untuk Smartphone kesayanganmu.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (59, 'Powerbank Samsung 3600mAh ', 'PBS-0001', 'powerbank-samsung-3600mah', 11, 15, 1, 35000, 'samsung-3600.png', '200', '<p>Merupakan Power Bank 3600mAh Merk Samsung dan dengan Baterai Cell Samsung Menawarkan Performa dalam pengisian Baterai Smartphone anda . dengan desain elegan dan bentuk yang kecil sangat sesuai jika digunakan untuk menambah daya baterai perangkat handpone dan dapat disimpan di saku.</p>', '<p>Merupakan Power Bank 3600mAh Merk Samsung dan dengan Baterai Cell Samsung Menawarkan Performa dalam pengisian Baterai Smartphone anda . dengan desain elegan dan bentuk yang kecil sangat sesuai jika digunakan untuk menambah daya baterai perangkat handpone dan dapat disimpan di saku.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (60, 'Keyboard Protector Ukuran 14"', 'KPR-0001', 'keyboard-protector-ukuran-14', 27, 16, 1, 10000, 'keyboard-protech.png', '50', '<p>Keyboard Protector Ukuran Laptop 14 Melindungi Keyboard Laptop anda dari tumpahan Air ataupun Debu Kotoran , sehingga keyboard anda terhindar dari hal-hal yang tidak diinginkan. dengan bahan plastik polymer yang kuat , protector ini dapat melindungi serta memberikan kenyamanan dalam mengetik.</p>', '<p>Melindungi Keyboard Laptop anda dari tumpahan Air ataupun Debu Kotoran , sehingga keyboard anda terhindar dari hal-hal yang tidak diinginkan. dengan bahan plastik polymer yang kuat , protector ini dapat melindungi serta memberikan kenyamanan dalam mengetik.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (61, 'Keyboard Protector Ukuran 10"', 'KPR-0002', 'keyboard-protector-ukuran-10', 2, 16, 1, 10000, 'keyboard-protech.png', '50', '<p>Keyboard Protector Ukuran Laptop 10 Melindungi Keyboard Laptop anda dari tumpahan Air ataupun Debu Kotoran , sehingga keyboard anda terhindar dari hal-hal yang tidak diinginkan. dengan bahan plastik polymer yang kuat , protector ini dapat melindungi serta memberikan kenyamanan dalam mengetik.</p>', '<p>Melindungi Keyboard Laptop anda dari tumpahan Air ataupun Debu Kotoran , sehingga keyboard anda terhindar dari hal-hal yang tidak diinginkan. dengan bahan plastik polymer yang kuat , protector ini dapat melindungi serta memberikan kenyamanan dalam mengetik.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
-(62, 'Mouse Pad Character Girl Oranye', 'MMPD-0002', 'mouse-pad-character-girl-oranye', 28, 16, 1, 16000, 'mouse-pad-char.png', '50', '<p>Mouse Pad Unik berbentuk Kepala Kartun Wanita (Girl) ini memiliki bantalan yang terbuat dari gel. Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse.</p>', '<p>Mouse Pad Unik berbentuk Kepala Kartun Wanita (Girl) ini memiliki bantalan yang terbuat dari gel. Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL);
+(62, 'Mouse Pad Character Girl Oranye', 'MMPD-0002', 'mouse-pad-character-girl-oranye', 28, 16, 1, 16000, 'mouse-pad-char.png', '50', '<p>Mouse Pad Unik berbentuk Kepala Kartun Wanita (Girl) ini memiliki bantalan yang terbuat dari gel. Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse.</p>', '<p>Mouse Pad Unik berbentuk Kepala Kartun Wanita (Girl) ini memiliki bantalan yang terbuat dari gel. Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(63, 'Mouse Pad Character Cute Girl', 'MMPD-0003', 'mouse-pad-character-cute-girl', 28, 16, 1, 16000, 'mousepad-cute-kartun.png', '50', '<p>Mouse Pad Unik berbentuk Kartun&nbsp; ini memiliki bantalan yang terbuat dari gel. Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse.</p>', '<p>Mouse Pad Unik berbentuk Kartun&nbsp; ini memiliki bantalan yang terbuat dari gel. Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL);
+INSERT INTO `product` (`id`, `name`, `sku`, `slug`, `category_id`, `brand_id`, `status`, `price`, `image`, `weight`, `short_description`, `long_description`, `latest_discussion`, `online`, `cod`, `dropshier`, `stock`, `review`, `counter`, `best_seller`, `total_sell`, `arrival_date`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
+(64, 'MicroSD Card Winfos Reader', 'CRM-0002', 'microsd-card-winfos-reader', 23, 22, 1, 16000, 'winfos-high-speed-usb-20-microsd-card-reader-black-1.JPG', '10', '<p>Ubah Micro SDHC Anda menjadi Flash Drive USB 2.0 dengan Winfos card reader ini. Tidak memerlukan software untuk menjalankan device ini, cukup mencolok Micro SDHC ke card reader dan dalam sekejap Flash Drive akan bekerja di komputer manapun.</p>', '<p>Ubah Micro SDHC Anda menjadi Flash Drive USB 2.0 dengan Winfos card reader ini. Tidak memerlukan software untuk menjalankan device ini, cukup mencolok Micro SDHC ke card reader dan dalam sekejap Flash Drive akan bekerja di komputer manapun.</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Jika Anda memiliki Micro SDHC dan tidak memiliki Flash Drive. Cukup menggunakan winfos card reader ini dan Micro SDHC Anda akan di ubah ke Flash Drive dalam sekejap.</li>\r\n<li>Tidak membutuhkan software apapun untuk mengubah Micro SDHC menjadi Flash Drive, cukup Plug and Play.</li>\r\n<li>idak membutuhkan tenaga eksternal untuk menjalankan Flash Drive Converter ini. Power didapat dari USB Port.</li>\r\n</ul>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(65, 'MicroSD Card Reader Robot Ijo', 'CRM-0003', 'microsd-card-reader-robot-ijo', 23, 16, 1, 12000, 'android-usb.png', '50', '<p>Card Reader berbentuk Unik Robot Ijo Android , menjadikannya menjadi Card Reader Stylish Nan Unik dipadu padan dengan Micro Sd anda dapat memberikan transfer file,musik maupun foto ke device lain nya dengan mudah.</p>', '<p>Card Reader berbentuk Unik Robot Ijo Android , menjadikannya menjadi Card Reader Stylish Nan Unik dipadu padan dengan Micro Sd anda dapat memberikan transfer file,musik maupun foto ke device lain nya dengan mudah.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(66, 'Card Reader Icy Colour ', 'CRM-0004', 'card-reader-icy-colour', 23, 16, 1, 10000, 'issy-card-reeader.png', '50', '<div class="description m-t-10">\r\n<div id="tab-description" class="tab-content" style="display: block;">\r\n<p><span id="result_box" lang="id"><span class="hps">Simpan dan</span> <span class="hps">transfer musik</span>, <span class="hps">video,</span> <span class="hps">foto dan</span> <span class="hps">data pribadi</span> <span class="hps">antara ponsel</span> <span class="hps">dan</span> <span class="hps">komputer Anda dengan</span> </span>Memory Card Reader ini<span lang="id">.</span><span lang="id"><span class="hps">Alat</span> <span class="hps">ini</span> <span class="hps">akan membaca</span> <span class="hps">M2</span> <span class="hps atn">(</span>Memory Stick <span class="hps">Micro</span>), <span class="hps">TF</span> <span class="hps atn">(</span>T<span class="atn">-</span>Flash, <span class="hps">MicroSDHC</span>, <span class="hps">MicroSD</span>) <span class="hps">hingga 64GB</span></span></p>\r\n</div>\r\n</div>', '<div class="description m-t-10">\r\n<div id="tab-description" class="tab-content" style="display: block;">\r\n<p><span id="result_box" lang="id"><span class="hps">Simpan dan</span> <span class="hps">transfer musik</span>, <span class="hps">video,</span> <span class="hps">foto dan</span> <span class="hps">data pribadi</span> <span class="hps">antara ponsel</span> <span class="hps">dan</span> <span class="hps">komputer Anda dengan</span> </span>Memory Card Reader ini<span lang="id">.</span><span lang="id"><span class="hps">Alat</span> <span class="hps">ini</span> <span class="hps">akan membaca</span> <span class="hps">M2</span> <span class="hps atn">(</span>Memory Stick <span class="hps">Micro</span>), <span class="hps">TF</span> <span class="hps atn">(</span>T<span class="atn">-</span>Flash, <span class="hps">MicroSDHC</span>, <span class="hps">MicroSD</span>) <span class="hps">hingga 64GB</span></span></p>\r\n</div>\r\n</div>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(67, 'Card Reader Eag', 'CRM-0005', 'card-reader-eag', 23, 16, 1, 12000, 'Tsinghua-Unisplendour-usb-card-reader-card-tf-telur-dinosaurus-pluggabel-panas-P505.jpg_220x220.png', '50', '<p>Card Reader berbentuk Telur Dino , menjadikannya menjadi Card Reader Stylish Nan Unik dipadu padan dengan Micro Sd anda dapat memberikan transfer file,musik maupun foto ke device lain nya dengan mudah.</p>', '<p>Card Reader berbentuk Telur Dino , menjadikannya menjadi Card Reader Stylish Nan Unik dipadu padan dengan Micro Sd anda dapat memberikan transfer file,musik maupun foto ke device lain nya dengan mudah.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(68, 'Card Reader Model Gitar', 'CRM-0006', 'card-reader-model-gitar', 23, 16, 1, 12000, 'card-reader.png', '50', '<p>Card Reader berbentuk Gitar Tua , menjadikannya menjadi Card Reader Stylish Nan Unik dipadu padan dengan Micro Sd anda dapat memberikan transfer file,musik maupun foto ke device lain nya dengan mudah.</p>', '<p>Card Reader berbentuk Gitar Tua , menjadikannya menjadi Card Reader Stylish Nan Unik dipadu padan dengan Micro Sd anda dapat memberikan transfer file,musik maupun foto ke device lain nya dengan mudah.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(69, 'Card Reader Boneka ', 'CRM-0007', 'card-reader-boneka', 23, 22, 1, 12000, 'bonek.png', '50', '<p>Card Reader berbentuk Boneka , menjadikannya menjadi Card Reader Stylish Nan Unik dipadu padan dengan Micro Sd anda dapat memberikan transfer file,musik maupun foto ke device lain nya dengan mudah.</p>', '<p>Card Reader berbentuk Boneka , menjadikannya menjadi Card Reader Stylish Nan Unik dipadu padan dengan Micro Sd anda dapat memberikan transfer file,musik maupun foto ke device lain nya dengan mudah.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(70, 'Card Reader Loolipop', 'CRM-0008', 'card-reader-loolipop', 23, 16, 1, 13000, 'lolipop-card-reader.png', '50', '<p>Card Reader berbentuk Permen Loolipop , menjadikannya menjadi Card Reader Stylish Nan Unik dipadu padan dengan Micro Sd anda dapat memberikan transfer file,musik maupun foto ke device lain nya dengan mudah.</p>', '<p>Card Reader berbentuk Permen Loolipop , menjadikannya menjadi Card Reader Stylish Nan Unik dipadu padan dengan Micro Sd anda dapat memberikan transfer file,musik maupun foto ke device lain nya dengan mudah.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(71, 'Card Reader Shampoo', 'CRM-0009', 'card-reader-shampoo', 23, 16, 1, 13000, 'shamppoo.png', '50', '<p>Card Reader berbentuk Shampooo , menjadikannya menjadi Card Reader Stylish Nan Unik dipadu padan dengan Micro Sd anda dapat memberikan transfer file,musik maupun foto ke device lain nya dengan mudah.</p>', '<p>Card Reader berbentuk Shampooo , menjadikannya menjadi Card Reader Stylish Nan Unik dipadu padan dengan Micro Sd anda dapat memberikan transfer file,musik maupun foto ke device lain nya dengan mudah.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(72, 'Card Reader Mini Putar Mix ', 'CRM-0010', 'card-reader-mini-putar-mix', 23, 16, 1, 12000, 'card-reader-putar.png', '50', '<p>Card Reader berbentuk Putar MIX , menjadikannya menjadi Card Reader Stylish Nan Unik dipadu padan dengan Micro Sd anda dapat memberikan transfer file,musik maupun foto ke device lain nya dengan mudah.</p>', '<p>Card Reader berbentuk Putar MIX , menjadikannya menjadi Card Reader Stylish Nan Unik dipadu padan dengan Micro Sd anda dapat memberikan transfer file,musik maupun foto ke device lain nya dengan mudah.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(73, 'Mouse Pad Shio', 'MMPD-0004', 'mouse-pad-shio', 28, 16, 1, 12000, 'mouse-pad-shio.png', '50', '<p>Mouse Pad Unik berbentuk Mouse Pad SHIO ini memiliki bantalan yang terbuat dari gel. Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse.</p>', '<p>Mouse Pad Unik berbentuk Mouse Pad SHIO ini memiliki bantalan yang terbuat dari gel. Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(74, 'Mouse Pad Label Counter Strike', 'MMPD-0005', 'mouse-pad-label-counter-strike', 28, 16, 1, 13000, 'mouse-pad-cs.png', '50', '<p>Mouse Pad ini memiliki bantalan yang terbuat dari gel, dan bagi penyuka game Counter Strike dapat membuat bangga dalam memiliknya,&nbsp; Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse. bentuk label counter strike pada mouse pad dapat berbeda-beda tiap bentuknya </p>', '<p>Mouse Pad ini memiliki bantalan yang terbuat dari gel, dan bagi penyuka game Counter Strike dapat membuat bangga dalam memiliknya,&nbsp; Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse. bentuk label counter strike pada mouse pad dapat berbeda-beda tiap bentuknya </p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(75, 'Card Reader Bentuk Cakar', 'CRM-0011', 'card-reader-bentuk-cakar', 23, 16, 1, 12000, 'paw.png', '50', '<p>Card Reader berbentuk Cakar Binatang Purba , menjadikannya menjadi Card Reader Stylish Nan Unik dipadu padan dengan Micro Sd anda dapat memberikan transfer file,musik maupun foto ke device lain nya dengan mudah.</p>', '<p>Card Reader berbentuk Cakar Binatang Purba , menjadikannya menjadi Card Reader Stylish Nan Unik dipadu padan dengan Micro Sd anda dapat memberikan transfer file,musik maupun foto ke device lain nya dengan mudah.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(76, 'Stand Smartphone Mini', 'SDS-0001', 'stand-smartphone-mini', 34, 16, 1, 8000, 'stand-card.png', '80', '<p>Stand dengan bentuk unik dan dapat digunakan untuk berbagai jenis smartphone. Dengan stand ini Anda dapat menggunakan smartphone Anda dengan posisi yang sangat nyaman.</p>', '<p>Stand dengan bentuk unik dan dapat digunakan untuk berbagai jenis smartphone. Dengan stand ini Anda dapat menggunakan smartphone Anda dengan posisi yang sangat nyaman.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(77, 'Stand Smartphone Bentuk Android', 'SDS-0002', 'stand-smartphone-bentuk-android', 34, 22, 1, 13000, 'andrfoid-stand-holder.png', '50', '<p>Stand dengan bentuk unik dan dapat digunakan untuk berbagai jenis smartphone. Dengan stand ini Anda dapat menggunakan smartphone Anda dengan posisi yang sangat nyaman.</p>', '<p>Stand dengan bentuk unik dan dapat digunakan untuk berbagai jenis smartphone. Dengan stand ini Anda dapat menggunakan smartphone Anda dengan posisi yang sangat nyaman.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(78, 'Stand Smartphone Bentuk Dog', 'SDS-0003', 'stand-smartphone-bentuk-dog', 34, 16, 1, 13000, 'dog-ca.png', '80', '<p>Stand dengan bentuk unik dan dapat digunakan untuk berbagai jenis smartphone. Dengan stand ini Anda dapat menggunakan smartphone Anda dengan posisi yang sangat nyaman.</p>', '<p>Stand dengan bentuk unik dan dapat digunakan untuk berbagai jenis smartphone. Dengan stand ini Anda dapat menggunakan smartphone Anda dengan posisi yang sangat nyaman.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(79, 'Pulpen Stylus Seri B', 'TPS-0001', 'pulpen-stylus-seri-b', 18, 16, 1, 12000, 'pupen-stylus-b.jpg', '100', '<p>Smartphone Pen dengan design yang elegan dan memberi kesan mewah, terbuat dari bahan material aluminium pada bagian luar body. Sangat cocok untuk smartphone and Tablet PC memudahkan Anda dalam melakukan aktivitas.</p>', '<p>Smartphone Pen dengan design yang elegan dan memberi kesan mewah, terbuat dari bahan material aluminium pada bagian luar body. Sangat cocok untuk smartphone and Tablet PC memudahkan Anda dalam melakukan aktivitas.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(80, 'Pulpen Stylus Mini', 'TPS-0002', 'pulpen-stylus-mini', 18, 22, 1, 7000, 'pen.jpg', '100', '<p>Smartphone Pen Bentuk Mini dengan design yang elegan dan memberi kesan mewah, terbuat dari bahan material aluminium pada bagian luar body. Sangat cocok untuk smartphone and Tablet PC memudahkan Anda dalam melakukan aktivitas.</p>', '<p>Smartphone Pen Bentuk Mini dengan design yang elegan dan memberi kesan mewah, terbuat dari bahan material aluminium pada bagian luar body. Sangat cocok untuk smartphone and Tablet PC memudahkan Anda dalam melakukan aktivitas.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(81, 'Pulpen Stylus Gentle', 'TPS-0003', 'pulpen-stylus-gentle', 18, 16, 1, 25000, 'stylus.png', '150', '<p>Smartphone Pen dengan design yang elegan dan memberi kesan mewah, terbuat dari bahan material aluminium pada bagian luar body. Sangat cocok untuk smartphone and Tablet PC memudahkan Anda dalam melakukan aktivitas.</p>', '<p>Smartphone Pen dengan design yang elegan dan memberi kesan mewah, terbuat dari bahan material aluminium pada bagian luar body. Sangat cocok untuk smartphone and Tablet PC memudahkan Anda dalam melakukan aktivitas.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(82, 'Mouse Wired Branded HP', 'MBR-0001', 'mouse-wired-branded-hp', 26, 16, 1, 35000, 'asu.png', '350', '<p>Mouse Branded Kabel Merk HP Hewlet Packard adalah mouse wired/kabel dengan teknologi optical, yang akan lebih memudahkan anda dalam pengunaanya. Dengan desain yang sangat ergonomis, cocok untuk tangan kanan Anda.</p>', '<p>Mouse Branded Kabel Merk HP Hewlet Packard adalah mouse wired/kabel dengan teknologi optical, yang akan lebih memudahkan anda dalam pengunaanya. Dengan desain yang sangat ergonomis, cocok untuk tangan kanan Anda.</p>', 0, 1, 1, 1, 1, 0, 1, 0, 0, NULL, 1, NULL, NULL, NULL),
+(83, 'Mouse Wired Branded ASUS', 'MBR-0002', 'mouse-wired-branded-asus', 26, 16, 1, 35000, 'ASUS BX700 Bluetooth Laser Mouse.png', '350', '<p>Mouse Branded Kabel Merk ASUS adalah mouse wired/kabel dengan teknologi optical, yang akan lebih memudahkan anda dalam pengunaanya. Dengan desain yang sangat ergonomis, cocok untuk tangan kanan Anda.</p>', '<p>Mouse Branded Kabel Merk ASUS adalah mouse wired/kabel dengan teknologi optical, yang akan lebih memudahkan anda dalam pengunaanya. Dengan desain yang sangat ergonomis, cocok untuk tangan kanan Anda.</p>', 0, 1, 1, 1, 1, 0, 2, 0, 0, NULL, 1, NULL, NULL, NULL),
+(84, 'Perdana Bolt Aktif 8GB Exp 11 Apr 15', 'PIB-0004', 'perdana-bolt-aktif-8gb-exp-11-apr-15', 2, 3, 1, 47500, '16a1abf77b3fb95338b6feb93e48caa3.jpg', '50', '<p>Perdana Bolt Aktif Sampai 11 April 2015 , BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat.</p>', '<p>Perdana Bolt Aktif Sampai 11 April 2015 , BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat.</p>\r\n<div class="blog-content-entry" style="text-align: justify;">\r\n<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah Total. isi Ulang akan lebih murah dengan ganti Perdana ini</p>\r\n<p>Syarat Syarat Perdana Bolt</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Untuk saat ini hanya khusus wilayah JABODETABEK &amp; Medan Kota Sumatera Utara</li>\r\n<li>Pastikan modem anda 4G LTE Dengan Frequency TDD Mhz</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 10, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1048,7 +1071,7 @@ CREATE TABLE IF NOT EXISTS `product_category` (
   `category_id` int(11) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=94 ;
+) ENGINE=InnoDB AUTO_INCREMENT=118 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product_category`
@@ -1124,7 +1147,29 @@ INSERT INTO `product_category` (`id`, `product_id`, `category_id`, `created_by`,
 (90, 28, 28, NULL, NULL),
 (91, 60, 27, NULL, NULL),
 (92, 61, 27, NULL, NULL),
-(93, 62, 28, NULL, NULL);
+(93, 62, 28, NULL, NULL),
+(94, 63, 28, NULL, NULL),
+(95, 64, 23, NULL, NULL),
+(96, 65, 23, NULL, NULL),
+(97, 66, 23, NULL, NULL),
+(98, 67, 23, NULL, NULL),
+(99, 68, 23, NULL, NULL),
+(100, 69, 23, NULL, NULL),
+(101, 70, 23, NULL, NULL),
+(103, 71, 23, NULL, NULL),
+(104, 72, 23, NULL, NULL),
+(105, 73, 28, NULL, NULL),
+(106, 74, 28, NULL, NULL),
+(107, 75, 23, NULL, NULL),
+(108, 76, 34, NULL, NULL),
+(109, 77, 34, NULL, NULL),
+(110, 78, 34, NULL, NULL),
+(111, 79, 18, NULL, NULL),
+(113, 80, 18, NULL, NULL),
+(114, 81, 18, NULL, NULL),
+(115, 82, 26, NULL, NULL),
+(116, 83, 26, NULL, NULL),
+(117, 84, 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1138,7 +1183,7 @@ CREATE TABLE IF NOT EXISTS `product_image` (
   `name` varchar(255) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=125 ;
+) ENGINE=InnoDB AUTO_INCREMENT=154 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product_image`
@@ -1250,7 +1295,32 @@ INSERT INTO `product_image` (`id`, `product_id`, `name`, `created_by`, `created_
 (121, 59, 'samsung-3600.png', 9, '2015-02-25 17:08:42'),
 (122, 60, 'keyboard-protech.png', 9, '2015-02-25 17:20:05'),
 (123, 61, 'keyboard-protech.png', 9, '2015-02-25 17:23:42'),
-(124, 62, 'mouse-pad-char.png', 9, '2015-02-25 17:28:02');
+(124, 62, 'mouse-pad-char.png', 9, '2015-02-25 17:28:02'),
+(125, 63, 'mousepad-cute-kartun.png', 9, '2015-02-25 19:50:04'),
+(126, 64, 'winfos-high-speed-usb-20-microsd-card-reader-black-1.JPG', 9, '2015-02-25 19:54:41'),
+(127, 65, 'android-usb.png', 9, '2015-02-25 20:13:00'),
+(128, 66, 'issy-card-reeader.png', 9, '2015-02-25 20:16:04'),
+(130, 67, 'Tsinghua-Unisplendour-usb-card-reader-card-tf-telur-dinosaurus-pluggabel-panas-P505.jpg_220x220.png', 9, '2015-02-25 20:23:58'),
+(131, 68, 'card-reader.png', 9, '2015-02-25 20:26:52'),
+(132, 69, 'bonek.png', 9, '2015-02-25 20:34:29'),
+(133, 70, 'lolipop-card-reader.png', 9, '2015-02-25 20:39:06'),
+(134, 71, 'shamppoo.png', 9, '2015-02-25 20:45:57'),
+(135, 72, 'card-reader-putar.png', 9, '2015-02-25 20:56:51'),
+(136, 73, 'mouse-pad-shio.png', 9, '2015-02-25 21:05:11'),
+(137, 74, 'mouse-pad-cs.png', 9, '2015-02-25 21:10:37'),
+(138, 75, 'paw.png', 9, '2015-02-25 21:17:07'),
+(139, 76, 'stand-card.png', 9, '2015-02-25 21:20:51'),
+(140, 77, 'andrfoid-stand-holder.png', 9, '2015-02-25 21:26:12'),
+(143, 78, 'dog-ca.png', 9, '2015-02-25 21:33:47'),
+(144, 79, 'pupen-stylus-b.jpg', 9, '2015-02-25 21:49:29'),
+(145, 80, 'pen.jpg', 9, '2015-02-25 21:52:01'),
+(146, 81, 'stylus.png', 9, '2015-02-25 21:57:28'),
+(148, 83, 'asus-wired.png', 9, '2015-02-25 22:10:34'),
+(149, 82, 'asu.png', 9, '2015-02-25 22:20:21'),
+(150, 82, 'hp-wired.png', 9, '2015-02-25 22:20:24'),
+(151, 83, 'ASUS BX700 Bluetooth Laser Mouse.png', 9, '2015-02-25 22:23:28'),
+(152, 84, '16a1abf77b3fb95338b6feb93e48caa3.jpg', 9, '2015-02-25 22:27:09'),
+(153, 84, '2305e711c9475b342f449649fc6f9a90.jpg', 9, '2015-02-25 22:27:11');
 
 -- --------------------------------------------------------
 
@@ -1265,7 +1335,7 @@ CREATE TABLE IF NOT EXISTS `province` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ;
+) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `province`
@@ -1319,7 +1389,7 @@ CREATE TABLE IF NOT EXISTS `setting` (
   `content` longtext,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `setting`
@@ -1356,7 +1426,7 @@ CREATE TABLE IF NOT EXISTS `shipping` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5681 ;
+) ENGINE=InnoDB AUTO_INCREMENT=5681 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `shipping`
@@ -6457,7 +6527,7 @@ CREATE TABLE IF NOT EXISTS `tag` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tag`
@@ -6486,7 +6556,7 @@ CREATE TABLE IF NOT EXISTS `town` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9471065 ;
+) ENGINE=InnoDB AUTO_INCREMENT=9471065 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `town`
@@ -13422,7 +13492,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
@@ -13455,7 +13525,7 @@ CREATE TABLE IF NOT EXISTS `user_address` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_address`
@@ -13490,7 +13560,7 @@ CREATE TABLE IF NOT EXISTS `user_dropship` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_dropship`
@@ -13513,7 +13583,7 @@ CREATE TABLE IF NOT EXISTS `user_group` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_group`
@@ -13739,17 +13809,17 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=63;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=85;
 --
 -- AUTO_INCREMENT for table `product_category`
 --
 ALTER TABLE `product_category`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=94;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=118;
 --
 -- AUTO_INCREMENT for table `product_image`
 --
 ALTER TABLE `product_image`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=125;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=154;
 --
 -- AUTO_INCREMENT for table `province`
 --

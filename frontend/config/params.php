@@ -4,6 +4,7 @@ return [
     'baseUrl' => 'http://localhost/vileostore/',
     'show_page' => 10,
     'list_page' => [
+        '10' => '10',
         '15' => '15',
         '20' => '30',
         '25' => '25',

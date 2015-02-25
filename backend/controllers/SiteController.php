@@ -17,7 +17,7 @@ class SiteController extends \yii\web\Controller{
         //process to login
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             Yii::$app->session->setFlash('msg', Yii::t('app/message','msg welcome back'));
-            return $this->redirect(['product/index']);
+            return $this->redirect(['site/index']);
         }
         
         $this->layout = 'login';    
