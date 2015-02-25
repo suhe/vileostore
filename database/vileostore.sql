@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2015 at 09:49 AM
+-- Generation Time: Feb 25, 2015 at 11:29 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -26,7 +26,6 @@ SET time_zone = "+00:00";
 -- Table structure for table `bank`
 --
 
-DROP TABLE IF EXISTS `bank`;
 CREATE TABLE IF NOT EXISTS `bank` (
 `id` int(11) NOT NULL,
   `account` varchar(255) DEFAULT NULL,
@@ -58,7 +57,6 @@ INSERT INTO `bank` (`id`, `account`, `owner`, `name`, `branch`, `icon`, `order`,
 -- Table structure for table `banner`
 --
 
-DROP TABLE IF EXISTS `banner`;
 CREATE TABLE IF NOT EXISTS `banner` (
 `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -90,7 +88,6 @@ INSERT INTO `banner` (`id`, `name`, `status`, `position`, `slide`, `image`, `wid
 -- Table structure for table `brand`
 --
 
-DROP TABLE IF EXISTS `brand`;
 CREATE TABLE IF NOT EXISTS `brand` (
 `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -139,7 +136,6 @@ INSERT INTO `brand` (`id`, `name`, `slug`, `logo`, `status`, `created_by`, `crea
 -- Table structure for table `category`
 --
 
-DROP TABLE IF EXISTS `category`;
 CREATE TABLE IF NOT EXISTS `category` (
 `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -209,7 +205,6 @@ INSERT INTO `category` (`id`, `name`, `slug`, `structure`, `image`, `icon`, `sta
 -- Table structure for table `city`
 --
 
-DROP TABLE IF EXISTS `city`;
 CREATE TABLE IF NOT EXISTS `city` (
 `id` int(4) NOT NULL,
   `province_id` int(11) DEFAULT NULL,
@@ -731,7 +726,6 @@ INSERT INTO `city` (`id`, `province_id`, `name`, `created_by`, `created_date`, `
 -- Table structure for table `courier`
 --
 
-DROP TABLE IF EXISTS `courier`;
 CREATE TABLE IF NOT EXISTS `courier` (
 `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -758,7 +752,6 @@ INSERT INTO `courier` (`id`, `name`, `icon`, `origin`, `status`, `created_by`, `
 -- Table structure for table `discussion`
 --
 
-DROP TABLE IF EXISTS `discussion`;
 CREATE TABLE IF NOT EXISTS `discussion` (
 `id` int(11) NOT NULL,
   `product_id` int(11) DEFAULT NULL,
@@ -782,7 +775,6 @@ INSERT INTO `discussion` (`id`, `product_id`, `user_id`, `description`, `created
 -- Table structure for table `newsletter`
 --
 
-DROP TABLE IF EXISTS `newsletter`;
 CREATE TABLE IF NOT EXISTS `newsletter` (
 `id` int(11) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
@@ -802,7 +794,6 @@ INSERT INTO `newsletter` (`id`, `email`, `created_date`) VALUES
 -- Table structure for table `order`
 --
 
-DROP TABLE IF EXISTS `order`;
 CREATE TABLE IF NOT EXISTS `order` (
 `id` int(11) NOT NULL,
   `invoice_no` varchar(255) DEFAULT NULL,
@@ -856,7 +847,6 @@ INSERT INTO `order` (`id`, `invoice_no`, `type`, `status`, `user_id`, `courier_i
 -- Table structure for table `order_history`
 --
 
-DROP TABLE IF EXISTS `order_history`;
 CREATE TABLE IF NOT EXISTS `order_history` (
 `id` int(11) NOT NULL,
   `order_id` int(11) DEFAULT NULL,
@@ -881,7 +871,6 @@ INSERT INTO `order_history` (`id`, `order_id`, `type`, `description`, `created_b
 -- Table structure for table `order_product`
 --
 
-DROP TABLE IF EXISTS `order_product`;
 CREATE TABLE IF NOT EXISTS `order_product` (
 `id` int(11) NOT NULL,
   `order_id` int(11) DEFAULT NULL,
@@ -916,7 +905,6 @@ INSERT INTO `order_product` (`id`, `order_id`, `product_id`, `product_price`, `p
 -- Table structure for table `page`
 --
 
-DROP TABLE IF EXISTS `page`;
 CREATE TABLE IF NOT EXISTS `page` (
 `id` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
@@ -950,7 +938,6 @@ INSERT INTO `page` (`id`, `title`, `slug`, `type`, `status`, `content`, `created
 -- Table structure for table `product`
 --
 
-DROP TABLE IF EXISTS `product`;
 CREATE TABLE IF NOT EXISTS `product` (
 `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -978,7 +965,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=56 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=63 ;
 
 --
 -- Dumping data for table `product`
@@ -1012,7 +999,7 @@ INSERT INTO `product` (`id`, `name`, `sku`, `slug`, `category_id`, `brand_id`, `
 (25, 'Perdana Bolt 8 GB Segel Expired 1 Tahun', 'PIB-0001', 'perdana-bolt-8-gb-segel-expired-1-tahun', 2, 3, 1, 50000, 'perdana-bolt-1.jpg', '100', '<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah Total. isi Ulang akan lebih murah dengan ganti Perdana ini</p>\r\n<p>Syarat Syarat Perdana Bolt</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Untuk saat ini hanya khusus wilayah JABODETABEK &amp; Medan Kota Sumatera Utara</li>\r\n<li>Pastikan modem anda 4G LTE Dengan Frequency TDD Mhz</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 0, NULL, 12, 0, 0, '2015-03-31', 1, NULL, NULL, NULL),
 (26, 'Perdana Bolt Non Kuota Exp 1 Tahun', 'PIB-0002', 'perdana-bolt-non-kuota-exp-1-tahun', 2, 3, 1, 10000, 'perdana-bolt-2.jpg', '100', '<p>Perdana Bolt untuk Isi Ulang tidak ada kuota bagi anda yang kehilangan kartu bolt dan tidak memerlukan kuota hanya memerlukan kertu nya saja , BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah Total. isi Ulang akan lebih murah dengan ganti Perdana ini</p>\r\n<p>Syarat Syarat Perdana Bolt</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Untuk saat ini hanya khusus wilayah JABODETABEK &amp; Medan Kota Sumatera Utara</li>\r\n<li>Pastikan modem anda 4G LTE Dengan Frequency TDD Mhz</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 2, NULL, 2, 0, 0, NULL, 1, NULL, NULL, NULL),
 (27, 'Memory Card Reader Mobile Mate Micro SDHC & M2', 'CRM-0001', 'memory-card-reader-mobile-mate-micro-sdhc-m2', 23, 19, 1, 19400, 'mobile-mate-micro-sd-and-m2-memory-card-reader-black-1.jpg', '100', '<div id="tab-description" class="tab-content" style="display: block;">\r\n<p><span id="result_box" lang="id"><span class="hps">Simpan dan</span> <span class="hps">transfer musik</span>, <span class="hps">video,</span> <span class="hps">foto dan</span> <span class="hps">data pribadi</span> <span class="hps">antara ponsel</span> <span class="hps">dan</span> <span class="hps">komputer Anda dengan</span> </span>Memory Card Reader Mobile Mate Micro SDHC &amp; M2 ini<span lang="id">.</span><span lang="id"><span class="hps">Alat</span> <span class="hps">ini</span> <span class="hps">akan membaca</span> <span class="hps">M2</span> <span class="hps atn">(</span>Memory Stick <span class="hps">Micro</span>), <span class="hps">TF</span> <span class="hps atn">(</span>T<span class="atn">-</span>Flash, <span class="hps">MicroSDHC</span>, <span class="hps">MicroSD</span>) <span class="hps">hingga 64GB</span></span></p>\r\n</div>', '<div id="tab-description" class="tab-content" style="display: block;">\r\n<p><span id="result_box" lang="id"><span class="hps">Simpan dan</span> <span class="hps">transfer musik</span>, <span class="hps">video,</span> <span class="hps">foto dan</span> <span class="hps">data pribadi</span> <span class="hps">antara ponsel</span> <span class="hps">dan</span> <span class="hps">komputer Anda dengan</span> </span>Memory Card Reader Mobile Mate Micro SDHC &amp; M2 ini<span lang="id">.</span><span lang="id"><span class="hps">Alat</span> <span class="hps">ini</span> <span class="hps">akan membaca</span> <span class="hps">M2</span> <span class="hps atn">(</span>Memory Stick <span class="hps">Micro</span>), <span class="hps">TF</span> <span class="hps atn">(</span>T<span class="atn">-</span>Flash, <span class="hps">MicroSDHC</span>, <span class="hps">MicroSD</span>) <span class="hps">hingga 64GB</span>, <span class="hps">Adapter</span> <span class="hps">tidak diperlukan</span>.<br /> <span class="hps">Dengan</span> <span class="hps">antarmuka USB 2.0</span>, <span class="hps">perangkat</span> <span class="hps">mungil ini</span> <span class="hps">dapat colok langsung ke</span> <span class="hps">port</span> <span class="hps">USB</span> <span class="hps">pada komputer Anda</span>, <span class="hps">seperti</span><strong> <span class="hps">flash drive</span></strong>.<span class="hps">Kompak dan</span> <span class="hps">portabel</span>, </span>Memory Card Reader Mobile Mate Micro SDHC &amp; M2 ini<span lang="id"> <span class="hps">pas di saku Anda</span> <span class="hps">untuk memudahkan</span> <span class="hps">transportasi</span> <span class="hps">data</span> <span class="hps">dan file</span> <span class="hps">multimedia</span>.</span></p>\r\n<p>&nbsp;</p>\r\n</div>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
-(28, 'Mouse Pad Gel Wrist Rest Mouse Pad', 'MMPD-0001', 'mouse-pad-gel-wrist-rest-mouse-pad', 26, 21, 1, 27800, 'thumb_212192gel-wrist-rest-mouse-pad-black-1.jpg', '100', '<p>Mouse Pad ini memiliki bantalan yang terbuat dari gel. Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>Mouse Pad ini memiliki bantalan yang terbuat dari gel. Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse.</p>\r\n<div class="h3" style="text-align: left;"><strong>Wrist Rest</strong></div>\r\n<div class="h3" style="text-align: left;">Terdapat bantalan untuk tempat bersender pergelangan tangan. Bantalan ini terbuat dari gel, sehingga empuk dan lebih nyaman saat digunakan.</div>\r\n<div class="h3" style="text-align: left;">&nbsp;</div>\r\n<div class="h3" style="text-align: left;"><strong>High Quality Material</strong></div>\r\n<div class="h3" style="text-align: left;">Material mouse pad ini terbuat dari lycra cloth yang halus dan soft, mouse Anda menjadi lebih presisi dan cepat saat digunakan di atas mouse pad ini.</div>\r\n<div class="h3" style="text-align: left;">&nbsp;</div>\r\n<div class="h3" style="text-align: left;"><strong>Anti Slip Backing</strong></div>\r\n<div class="h3" style="text-align: left;">Bagian bawah mouse pad terbuat dari material karet yang anti slip. Mouse pad akan tetap stabil tertempel di meja meskipun mouse Anda bergerak dengan cepat.</div>\r\n</div>', 0, 1, 1, 1, 1, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(28, 'Mouse Pad Gel Wrist Rest Mouse Pad', 'MMPD-0001', 'mouse-pad-gel-wrist-rest-mouse-pad', 28, 22, 1, 27800, 'thumb_212192gel-wrist-rest-mouse-pad-black-1.jpg', '100', '<p>Mouse Pad ini memiliki bantalan yang terbuat dari gel. Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>Mouse Pad ini memiliki bantalan yang terbuat dari gel. Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse.</p>\r\n<div class="h3" style="text-align: left;"><strong>Wrist Rest</strong></div>\r\n<div class="h3" style="text-align: left;">Terdapat bantalan untuk tempat bersender pergelangan tangan. Bantalan ini terbuat dari gel, sehingga empuk dan lebih nyaman saat digunakan.</div>\r\n<div class="h3" style="text-align: left;">&nbsp;</div>\r\n<div class="h3" style="text-align: left;"><strong>High Quality Material</strong></div>\r\n<div class="h3" style="text-align: left;">Material mouse pad ini terbuat dari lycra cloth yang halus dan soft, mouse Anda menjadi lebih presisi dan cepat saat digunakan di atas mouse pad ini.</div>\r\n<div class="h3" style="text-align: left;">&nbsp;</div>\r\n<div class="h3" style="text-align: left;"><strong>Anti Slip Backing</strong></div>\r\n<div class="h3" style="text-align: left;">Bagian bawah mouse pad terbuat dari material karet yang anti slip. Mouse pad akan tetap stabil tertempel di meja meskipun mouse Anda bergerak dengan cepat.</div>\r\n</div>', 0, 1, 1, 1, 1, NULL, 1, 0, 0, NULL, 1, NULL, NULL, NULL),
 (29, 'Gold Plated HDMI to 19 Pin HDMI Support 3D', 'HDMI-0001', 'gold-plated-hdmi-to-19-pin-hdmi-support-3d', 30, 21, 1, 44900, 'thumb_21219214-version-gold-plated-hdmi-to-19-pin-hdmi-cable-support-3d-or-hd-tv-or-xbox-360-or-ps3-or-projector-or-dvd-player-etc-length-15m-gold-plated-black-3.jpg', '300', '<p>Untuk Menyambungkan Periperheril VGA Card , Playstation , XBOX yang sudah mensupport HDMI , jangkauan sekitar 1.5M dapat membaca Film maupun Game 3D dan blueray</p>', '<p>Untuk Menyambungkan Periperheril VGA Card , Playstation , XBOX yang sudah mensupport HDMI , jangkauan sekitar 1.5M dapat membaca Film maupun Game 3D dan blueray</p>', 0, 1, 1, 1, 2, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (30, 'USB OTG Smartphone Micro ke Standar ', 'OTG-0001', 'usb-otg-smartphone-micro-ke-standar', 8, 1, 1, 10000, 'usb-otg-cable1.jpg', '100', '<p>USB OTG cable ini memungkinkan Anda untuk menghubungkan USB Flashdisk, USB card reader, atau keyboard untuk Gadget Anda (beberapa perangkat USB mungkin tidak berfungsi jika mereka mengkonsumsi terlalu banyak daya, seperti hard disk eksternal)</p>', '<p>USB OTG cable ini memungkinkan Anda untuk menghubungkan USB Flashdisk, USB card reader, atau keyboard untuk Gadget Anda (beberapa perangkat USB mungkin tidak berfungsi jika mereka mengkonsumsi terlalu banyak daya, seperti hard disk eksternal)<br /><br /><br />Keuntungan menggunakan USB OTG :<br />&bull; Tidak perlu menggunakan PC untuk mengunduh video dan foto dari Gadget ke flasdisk.<br />&bull; Hubungkan ke keyboard untuk kontrol yang lebih mudah terhadap gadget anda.<br />&bull; Jika menggunaka aplikasi DSLR Controller for Android, maka Android Anda bisa jadi panel kontrol buat kamera DSLR<br />&bull; Kalo dibuat mouse, muncul cursor juga, jadi kayak di PC.<br />&bull; Warna: Hitam<br /><br />Jadikan smartphone Anda lebih bermanfaat dengan konektor murah ini.<br /><br />BISA UNTUK SEMUA SMARTPHONE/TABLET YANG MENGGUNAKAN OS ANDROID ICS (Samsung, LG, Sony, China, Lokal pasti bisa, asal mendukung Fungsi OTG)<br />Untuk Samsung, mungkin perlu diroot, tapi tablet lokal/china/Sony tidak perlu diroot</p>', 0, 1, 1, 1, 4, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (31, 'Converter USB ke Micro USB Cable High Quality', 'CUSB-0001', 'converter-usb-ke-micro-usb-cable-high-quality', 8, 21, 1, 10000, 'sku_162930_2.jpg', '50', '<p>Converter dari Micro USB ke Lightning untuk iPad iPhone Bisa untuk transfer data / charging menggunakan kabel USB / micro Usb yang umum di gunakan oleh beragam merek HP</p>', '<p>Converter dari Micro USB ke Lightning untuk iPad iPhone Bisa untuk transfer data / charging menggunakan kabel USB / micro Usb yang umum di gunakan oleh beragam merek HP</p>', 0, 1, 1, 1, 4, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
@@ -1040,7 +1027,14 @@ INSERT INTO `product` (`id`, `name`, `sku`, `slug`, `category_id`, `brand_id`, `
 (52, 'Voucher Fisik Telkomsel Pulsa 50.000', 'VTL-0002', 'voucher-fisik-telkomsel-pulsa-50000', 3, 25, 1, 53000, 'voucer-fisik-50rb.png', '50', '<p>Voucher Fisik Telkomsel senilai 50.000 , dapat dipakai untuk SMS/Telepon ataupun Paket Data , untuk mengaktifkan nya bacalah petunjuk di bagian belakang voucher fisik pada saat akan melakukan isi pulsa , ikuti petunjuknya sampai pulsa masuk ke handphone anda.</p>', '<p>Voucher Fisik Telkomsel senilai 25.000 , dapat dipakai untuk SMS/Telepon ataupun Paket Data , untuk mengaktifkan nya bacalah petunjuk di bagian belakang voucher fisik pada saat akan melakukan isi pulsa , ikuti petunjuknya sampai pulsa masuk ke handphone anda.</p>\r\n<p style="text-align: justify;">Sebagian besar dari kita yang telah terbiasa menggunakan produk pulsa elektrik, akan canggung dan menemui kebingungan ketika dihadapkan pada kondisi dimana hanya tersedia pulsa gesek/fisik dalam kondisi yang mendesak. Jangan hanya karena kita kurang informasi tentang pengisian pulsa gesek/fisik, bisnis atau urusan kita bisa terbengkalai dan terganggu. Selain itu, bagi kita yang tidak ingin privasi keamanan no HP kita terganggu oleh pihak lain, menggunakan voucher gesek merupakan pilihan yang tepat. Oleh karena itu kami ingin membagikan cara transaksi/pengisian pulsa gesek/fisik dari seluruh operator telepon seluler di Indonesia.</p>\r\n<p style="text-align: justify;">Setelah kita membeli pulsa fisik, langkah awal adalah mengesek kartu dengan uang logam atau sejenisnya agar dapat mengetahui berapa kode voucher pulsa tersebut. Selain itu, saat ini telah ada voucher gesek yang bisa kita dapatkan secara elektrik, yaitu dari counter pulsa terdekat. Untuk gesek elektrik ini, kita tidak perlu menggesek agar mengetahui kode voucher yang akan kita isikan.</p>\r\n<p style="text-align: justify;">Langkah selanjutnya adalah cara pengisian voucher melalui HP kita dengan cara sebagai berikut :</p>\r\n<p>untuk pengisian voucher fisik kartu Telkomsel (Kartu AS dan Simpati)<br /> *133*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 116 atau 08071-811-811 atau (021) 52-919-811</p>\r\n<p>untuk pengisian voucher fisik kartu Indosat<br /> Mentari/IM3<br /> *556*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 505</p>\r\n<p>untuk pengisian voucher fisik kartu IM3<br /> *151*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 100</p>\r\n<p>untuk pengisian voucher fisik kartu StarOne<br /> *556*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 111</p>\r\n<p>untuk pengisian voucher fisik kartu XL<br /> *123*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 817, 818</p>\r\n<p>untuk pengisian voucher fisik kartu Three<br /> *111*Kode Voucher# OK/Yes<br /> Customer Service: 089644000123</p>\r\n<p>untuk pengisian voucher fisik kartu Esia<br /> ketik TOPUP16 digit kode voucher kirim ke 555<br /> Customer Service: *999 (dari Esia) atau (021) 9288-9288, (022) 9110-9288</p>\r\n<p>untuk pengisian voucher fisik kartu Flexi<br /> *99*Kode Voucher# OK/Yes<br /> Customer Service: 147</p>\r\n<p>untuk pengisian voucher fisik kartu Axis<br /> *888#14 kode voucher# and tombol call (tombol hijau)</p>\r\n<p>untuk pengisian voucher fisik kartu Ceria<br /> *888#14 kode voucher# and tombol call (tombol hijau)<br /> atau<br /> ketik ISIkode voucher kirim ke 888</p>', 0, 1, 1, 1, 0, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (53, 'Voucher Fisik Telkomsel Pulsa 100.000', 'VTL-0003', 'voucher-fisik-telkomsel-pulsa-100000', 3, 25, 1, 103000, 'voucer-fisik-100rb.png', '50', '<p>Voucher Fisik Telkomsel senilai 100.000 , dapat dipakai untuk SMS/Telepon ataupun Paket Data , untuk mengaktifkan nya bacalah petunjuk di bagian belakang voucher fisik pada saat akan melakukan isi pulsa , ikuti petunjuknya sampai pulsa masuk ke handphone anda.</p>', '<p>Voucher Fisik Telkomsel senilai 25.000 , dapat dipakai untuk SMS/Telepon ataupun Paket Data , untuk mengaktifkan nya bacalah petunjuk di bagian belakang voucher fisik pada saat akan melakukan isi pulsa , ikuti petunjuknya sampai pulsa masuk ke handphone anda.</p>\r\n<p style="text-align: justify;">Sebagian besar dari kita yang telah terbiasa menggunakan produk pulsa elektrik, akan canggung dan menemui kebingungan ketika dihadapkan pada kondisi dimana hanya tersedia pulsa gesek/fisik dalam kondisi yang mendesak. Jangan hanya karena kita kurang informasi tentang pengisian pulsa gesek/fisik, bisnis atau urusan kita bisa terbengkalai dan terganggu. Selain itu, bagi kita yang tidak ingin privasi keamanan no HP kita terganggu oleh pihak lain, menggunakan voucher gesek merupakan pilihan yang tepat. Oleh karena itu kami ingin membagikan cara transaksi/pengisian pulsa gesek/fisik dari seluruh operator telepon seluler di Indonesia.</p>\r\n<p style="text-align: justify;">Setelah kita membeli pulsa fisik, langkah awal adalah mengesek kartu dengan uang logam atau sejenisnya agar dapat mengetahui berapa kode voucher pulsa tersebut. Selain itu, saat ini telah ada voucher gesek yang bisa kita dapatkan secara elektrik, yaitu dari counter pulsa terdekat. Untuk gesek elektrik ini, kita tidak perlu menggesek agar mengetahui kode voucher yang akan kita isikan.</p>\r\n<p style="text-align: justify;">Langkah selanjutnya adalah cara pengisian voucher melalui HP kita dengan cara sebagai berikut :</p>\r\n<p>untuk pengisian voucher fisik kartu Telkomsel (Kartu AS dan Simpati)<br /> *133*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 116 atau 08071-811-811 atau (021) 52-919-811</p>\r\n<p>untuk pengisian voucher fisik kartu Indosat<br /> Mentari/IM3<br /> *556*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 505</p>\r\n<p>untuk pengisian voucher fisik kartu IM3<br /> *151*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 100</p>\r\n<p>untuk pengisian voucher fisik kartu StarOne<br /> *556*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 111</p>\r\n<p>untuk pengisian voucher fisik kartu XL<br /> *123*Kode Voucher# and tombol call (tombol hijau)<br /> Customer Service: 817, 818</p>\r\n<p>untuk pengisian voucher fisik kartu Three<br /> *111*Kode Voucher# OK/Yes<br /> Customer Service: 089644000123</p>\r\n<p>untuk pengisian voucher fisik kartu Esia<br /> ketik TOPUP16 digit kode voucher kirim ke 555<br /> Customer Service: *999 (dari Esia) atau (021) 9288-9288, (022) 9110-9288</p>\r\n<p>untuk pengisian voucher fisik kartu Flexi<br /> *99*Kode Voucher# OK/Yes<br /> Customer Service: 147</p>\r\n<p>untuk pengisian voucher fisik kartu Axis<br /> *888#14 kode voucher# and tombol call (tombol hijau)</p>\r\n<p>untuk pengisian voucher fisik kartu Ceria<br /> *888#14 kode voucher# and tombol call (tombol hijau)<br /> atau<br /> ketik ISIkode voucher kirim ke 888</p>', 0, 1, 1, 1, 0, NULL, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
 (54, 'Mouse AUE Wireless Optical 2.4G - M013', 'AUE-0002', 'mouse-aue-wireless-optical-24g-m013', 26, 8, 1, 76500, 'optical-mouse-wireless-24g-model-m013-black-2.jpg', '200', '<p>Mouse Wirelles dengan kecepatan 2.4Ghz , penggunaan dan instalasi sangat mudah cukup masukan usb receiver ke usb komputer dan akan terdeteksi otomatis , dengan frekuensi radio 2.4Ghz , mouse dapat dijangkau dengan 10 meter dari receiver dan device komputer.</p>', '<p>Mouse Wirelles dengan kecepatan 2.4Ghz , penggunaan dan instalasi sangat mudah cukup masukan usb receiver ke usb komputer dan akan terdeteksi otomatis , dengan frekuensi radio 2.4Ghz , mouse dapat dijangkau dengan 10 meter dari receiver dan device komputer.</p>\r\n<p>Spesifikasi Dasar :</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>USB 2.0</li>\r\n<li>Connection Adjustable 400-1600 CPI</li>\r\n<li>Mouse Acceleration 14 inch / sec</li>\r\n<li>Battery Type 2 x AAA battery</li>\r\n<li>Dimension 95 x 65 x 37 mm</li>\r\n</ul>', 0, 1, 1, 1, 2, NULL, 1, 0, 0, NULL, 1, NULL, NULL, NULL),
-(55, 'Perdana Bolt Aktif 8GB Exp 07 Apr 15', 'PIB-0003', 'perdana-bolt-aktif-8gb-exp-07-apr-15', 2, 3, 1, 47500, 'bolt.jpg', '50', '<p>Perdana Bolt untuk Isi Ulang tidak ada kuota bagi anda yang kehilangan kartu bolt dan tidak memerlukan kuota hanya memerlukan kertu nya saja , BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>Perdana Bolt untuk Isi Ulang tidak ada kuota bagi anda yang kehilangan kartu bolt dan tidak memerlukan kuota hanya memerlukan kertu nya saja , BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.</p>\r\n<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah Total. isi Ulang akan lebih murah dengan ganti Perdana ini</p>\r\n<p>Syarat Syarat Perdana Bolt</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Untuk saat ini hanya khusus wilayah JABODETABEK &amp; Medan Kota Sumatera Utara</li>\r\n<li>Pastikan modem anda 4G LTE Dengan Frequency TDD Mhz</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 20, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL);
+(55, 'Perdana Bolt Aktif 8GB Exp 07 Apr 15', 'PIB-0003', 'perdana-bolt-aktif-8gb-exp-07-apr-15', 2, 3, 1, 47500, 'bolt.jpg', '50', '<p>Perdana Bolt untuk Isi Ulang tidak ada kuota bagi anda yang kehilangan kartu bolt dan tidak memerlukan kuota hanya memerlukan kertu nya saja , BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.</p>', '<div class="blog-content-entry" style="text-align: justify;">\r\n<p>Perdana Bolt untuk Isi Ulang tidak ada kuota bagi anda yang kehilangan kartu bolt dan tidak memerlukan kuota hanya memerlukan kertu nya saja , BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.</p>\r\n<p>BOLT! Super 4G LTE (Long Term Evolution) adalah cara baru internetan dengan koneksi broadband berkecepatan 10x dibanding provider biasa.Dengan BOLT! Super 4G LTE waktu loading super cepat, koneksi super ngebut ditambah dengan kuota yang harganya super dahsyat. Dunia internetan kamu akan berubah Total. isi Ulang akan lebih murah dengan ganti Perdana ini</p>\r\n<p>Syarat Syarat Perdana Bolt</p>\r\n<ul style="list-style-type: undefined;">\r\n<li>Untuk saat ini hanya khusus wilayah JABODETABEK &amp; Medan Kota Sumatera Utara</li>\r\n<li>Pastikan modem anda 4G LTE Dengan Frequency TDD Mhz</li>\r\n</ul>\r\n</div>', 0, 1, 1, 1, 20, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(56, 'Mouse Wireless Optical HP Laverock', 'MHL-0001', 'mouse-wireless-optical-hp-laverock', 26, 16, 1, 76000, 'hp-laverock-02.jpg', '500', '<p>HP Laverock 2.4G Wireless Optical Mouse adalah mouse wireless dengan teknologi optical, yang akan lebih memudahkan anda dalam pengunaanya. Dengan desain yang sangat ergonomis, cocok untuk tangan kanan Anda. Desain HP Laverock 2.4G Wireless Optical Mouse terdiri dari 5 tombol yang cocok digunakan untuk Anda yang gemar bermain game online.</p>', '<p>HP Laverock 2.4G Wireless Optical Mouse adalah mouse wireless dengan teknologi optical, yang akan lebih memudahkan anda dalam pengunaanya. Dengan desain yang sangat ergonomis, cocok untuk tangan kanan Anda. Desain HP Laverock 2.4G Wireless Optical Mouse terdiri dari 5 tombol yang cocok digunakan untuk Anda yang gemar bermain game online (Terdapat sebuah tombol maju dan mundur diatur di sebelah kiri). Menggunakan 2 buah baterai AAA.</p>\r\n<p>Spesifikasi : <br /> &ndash; 2.4 Ghz Wireless Mouse<br /> &ndash; Optical Technology<br /> &ndash; Nano receiver hidden in the Mouse button<br /> &ndash; Built in energy saving system<br /> &ndash; Elegant and ergonomic Design<br /> &ndash; Scroll easily in any direction</p>', 0, 1, 1, 1, 4, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(57, 'Perdana Internet XL Xtra On 2GB Expired 30 Juni 2015', 'XL-0002', 'perdana-internet-xl-xtra-on-2gb-expired-30-juni-2015', 5, 5, 1, 30000, 'exra-on-2gb.png', '50', '<p>XL kini menghadirkan paket internet Xtra On untuk kamu pelanggan XL agar Internetan lebih puas dengan masa aktif yang panjang. Dengan paket ini, kamu juga bisa internetan dengan kuota 2GB, dan GRATIS chatting dengan BBM, Whatsapp, dan Line tiap hari selama 6 BULAN!</p>', '<p>XL kini menghadirkan paket internet Xtra On untuk kamu pelanggan XL agar Internetan lebih puas dengan masa aktif yang panjang. Dengan paket ini, kamu juga bisa internetan dengan kuota 2GB, dan GRATIS chatting dengan BBM, Whatsapp, dan Line tiap hari selama 6 BULAN!</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(58, 'Perdana XL Data Smartphone 2.1GB (700MB/Bulan)', 'XL-0003', 'perdana-xl-data-smartphone-21gb-700mbbulan', 2, 5, 1, 16000, 'xl-data-3-5gb.png', '50', '<p>Buat kamu yang hobi browsing, chatting, pakai Socmed, dan juga streaming dari smartphone kesayanganmu, kini XL menghadirkan Kartu Perdana Smartphone. Hanya dengan Rp 25rb, kamu bisa mendapatkan 2,1 GB selama 3 Bulan. Expired Juni 2015</p>', '<p>Buat kamu yang hobi browsing, chatting, pakai Socmed, dan juga streaming dari smartphone kesayanganmu, kini XL menghadirkan Kartu Perdana Smartphone.</p>\r\n<p>Hanya dengan Rp 25rb, kamu bisa mendapatkan 2,1 GB selama 3 Bulan. Ayo buruan beli Kartu Perdana Smartphone untuk Smartphone kesayanganmu.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(59, 'Powerbank Samsung 3600mAh ', 'PBS-0001', 'powerbank-samsung-3600mah', 11, 15, 1, 35000, 'samsung-3600.png', '200', '<p>Merupakan Power Bank 3600mAh Merk Samsung dan dengan Baterai Cell Samsung Menawarkan Performa dalam pengisian Baterai Smartphone anda . dengan desain elegan dan bentuk yang kecil sangat sesuai jika digunakan untuk menambah daya baterai perangkat handpone dan dapat disimpan di saku.</p>', '<p>Merupakan Power Bank 3600mAh Merk Samsung dan dengan Baterai Cell Samsung Menawarkan Performa dalam pengisian Baterai Smartphone anda . dengan desain elegan dan bentuk yang kecil sangat sesuai jika digunakan untuk menambah daya baterai perangkat handpone dan dapat disimpan di saku.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(60, 'Keyboard Protector Ukuran 14"', 'KPR-0001', 'keyboard-protector-ukuran-14', 27, 16, 1, 10000, 'keyboard-protech.png', '50', '<p>Keyboard Protector Ukuran Laptop 14 Melindungi Keyboard Laptop anda dari tumpahan Air ataupun Debu Kotoran , sehingga keyboard anda terhindar dari hal-hal yang tidak diinginkan. dengan bahan plastik polymer yang kuat , protector ini dapat melindungi serta memberikan kenyamanan dalam mengetik.</p>', '<p>Melindungi Keyboard Laptop anda dari tumpahan Air ataupun Debu Kotoran , sehingga keyboard anda terhindar dari hal-hal yang tidak diinginkan. dengan bahan plastik polymer yang kuat , protector ini dapat melindungi serta memberikan kenyamanan dalam mengetik.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(61, 'Keyboard Protector Ukuran 10"', 'KPR-0002', 'keyboard-protector-ukuran-10', 2, 16, 1, 10000, 'keyboard-protech.png', '50', '<p>Keyboard Protector Ukuran Laptop 10 Melindungi Keyboard Laptop anda dari tumpahan Air ataupun Debu Kotoran , sehingga keyboard anda terhindar dari hal-hal yang tidak diinginkan. dengan bahan plastik polymer yang kuat , protector ini dapat melindungi serta memberikan kenyamanan dalam mengetik.</p>', '<p>Melindungi Keyboard Laptop anda dari tumpahan Air ataupun Debu Kotoran , sehingga keyboard anda terhindar dari hal-hal yang tidak diinginkan. dengan bahan plastik polymer yang kuat , protector ini dapat melindungi serta memberikan kenyamanan dalam mengetik.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL),
+(62, 'Mouse Pad Character Girl Oranye', 'MMPD-0002', 'mouse-pad-character-girl-oranye', 28, 16, 1, 16000, 'mouse-pad-char.png', '50', '<p>Mouse Pad Unik berbentuk Kepala Kartun Wanita (Girl) ini memiliki bantalan yang terbuat dari gel. Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse.</p>', '<p>Mouse Pad Unik berbentuk Kepala Kartun Wanita (Girl) ini memiliki bantalan yang terbuat dari gel. Bantalan ini berfungsi agar Anda dapat menyenderkan pergelangan tangan Anda dan membuat tangan Anda tidak lelah saat menggunakan mouse.</p>', 0, 1, 1, 1, 2, 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1048,14 +1042,13 @@ INSERT INTO `product` (`id`, `name`, `sku`, `slug`, `category_id`, `brand_id`, `
 -- Table structure for table `product_category`
 --
 
-DROP TABLE IF EXISTS `product_category`;
 CREATE TABLE IF NOT EXISTS `product_category` (
 `id` int(11) NOT NULL,
   `product_id` int(11) DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=86 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=94 ;
 
 --
 -- Dumping data for table `product_category`
@@ -1088,7 +1081,6 @@ INSERT INTO `product_category` (`id`, `product_id`, `category_id`, `created_by`,
 (46, 25, 2, NULL, NULL),
 (47, 26, 2, NULL, NULL),
 (48, 27, 23, NULL, NULL),
-(49, 28, 26, NULL, NULL),
 (50, 29, 30, NULL, NULL),
 (51, 30, 8, NULL, NULL),
 (52, 31, 8, NULL, NULL),
@@ -1124,7 +1116,15 @@ INSERT INTO `product_category` (`id`, `product_id`, `category_id`, `created_by`,
 (82, 14, 36, NULL, NULL),
 (83, 10, 14, NULL, NULL),
 (84, 10, 15, NULL, NULL),
-(85, 10, 36, NULL, NULL);
+(85, 10, 36, NULL, NULL),
+(86, 56, 26, NULL, NULL),
+(87, 57, 5, NULL, NULL),
+(88, 58, 5, NULL, NULL),
+(89, 59, 11, NULL, NULL),
+(90, 28, 28, NULL, NULL),
+(91, 60, 27, NULL, NULL),
+(92, 61, 27, NULL, NULL),
+(93, 62, 28, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1132,14 +1132,13 @@ INSERT INTO `product_category` (`id`, `product_id`, `category_id`, `created_by`,
 -- Table structure for table `product_image`
 --
 
-DROP TABLE IF EXISTS `product_image`;
 CREATE TABLE IF NOT EXISTS `product_image` (
 `id` int(11) NOT NULL,
   `product_id` int(11) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=117 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=125 ;
 
 --
 -- Dumping data for table `product_image`
@@ -1243,7 +1242,15 @@ INSERT INTO `product_image` (`id`, `product_id`, `name`, `created_by`, `created_
 (113, 53, 'voucer-fisik-100rb.png', 9, '2015-02-21 11:43:30'),
 (114, 54, 'optical-mouse-wireless-24g-model-m013-black-2.jpg', 9, '2015-02-21 12:00:57'),
 (115, 54, 'optical-mouse-wireless-24g-model-m013-black-1.jpg', 9, '2015-02-21 12:00:58'),
-(116, 55, 'bolt.jpg', 9, '2015-02-22 17:56:48');
+(116, 55, 'bolt.jpg', 9, '2015-02-22 17:56:48'),
+(117, 56, 'hp-laverock-02.jpg', 9, '2015-02-25 16:35:28'),
+(118, 56, 'hp-laverock-03.jpg', 9, '2015-02-25 16:35:30'),
+(119, 57, 'exra-on-2gb.png', 9, '2015-02-25 16:52:17'),
+(120, 58, 'xl-data-3-5gb.png', 9, '2015-02-25 16:59:13'),
+(121, 59, 'samsung-3600.png', 9, '2015-02-25 17:08:42'),
+(122, 60, 'keyboard-protech.png', 9, '2015-02-25 17:20:05'),
+(123, 61, 'keyboard-protech.png', 9, '2015-02-25 17:23:42'),
+(124, 62, 'mouse-pad-char.png', 9, '2015-02-25 17:28:02');
 
 -- --------------------------------------------------------
 
@@ -1251,7 +1258,6 @@ INSERT INTO `product_image` (`id`, `product_id`, `name`, `created_by`, `created_
 -- Table structure for table `province`
 --
 
-DROP TABLE IF EXISTS `province`;
 CREATE TABLE IF NOT EXISTS `province` (
 `id` int(2) NOT NULL,
   `name` varchar(100) DEFAULT NULL,
@@ -1307,7 +1313,6 @@ INSERT INTO `province` (`id`, `name`, `created_by`, `created_date`, `updated_by`
 -- Table structure for table `setting`
 --
 
-DROP TABLE IF EXISTS `setting`;
 CREATE TABLE IF NOT EXISTS `setting` (
 `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -1342,7 +1347,6 @@ INSERT INTO `setting` (`id`, `name`, `content`, `updated_by`, `updated_date`) VA
 -- Table structure for table `shipping`
 --
 
-DROP TABLE IF EXISTS `shipping`;
 CREATE TABLE IF NOT EXISTS `shipping` (
 `id` int(11) NOT NULL,
   `courier_id` int(11) DEFAULT NULL,
@@ -1352,7 +1356,7 @@ CREATE TABLE IF NOT EXISTS `shipping` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5609 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5681 ;
 
 --
 -- Dumping data for table `shipping`
@@ -6366,7 +6370,79 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (5605, 1, 3509020, 29000, 9, '2015-02-25 15:48:06', NULL, NULL),
 (5606, 1, 3509160, 29000, 9, '2015-02-25 15:48:10', NULL, NULL),
 (5607, 1, 3509170, 29000, 9, '2015-02-25 15:48:16', NULL, NULL),
-(5608, 1, 9471064, 20000, 9, '2015-02-25 15:48:56', NULL, NULL);
+(5608, 1, 9471064, 20000, 9, '2015-02-25 15:48:56', NULL, NULL),
+(5609, 1, 3511141, 29000, 9, '2015-02-25 15:51:54', NULL, NULL),
+(5610, 1, 3511080, 29000, 9, '2015-02-25 15:51:56', NULL, NULL),
+(5611, 1, 3511152, 29000, 9, '2015-02-25 15:52:00', NULL, NULL),
+(5612, 1, 3511110, 29000, 9, '2015-02-25 15:52:01', NULL, NULL),
+(5613, 1, 3511031, 29000, 9, '2015-02-25 15:52:02', NULL, NULL),
+(5614, 1, 3511061, 29000, 9, '2015-02-25 15:52:04', NULL, NULL),
+(5615, 1, 3471120, 16000, 9, '2015-02-25 15:52:26', NULL, NULL),
+(5616, 1, 3402050, 25000, 9, '2015-02-25 15:52:43', NULL, NULL),
+(5617, 1, 3402080, 25000, 9, '2015-02-25 15:52:44', NULL, NULL),
+(5618, 1, 3404070, 25000, 9, '2015-02-25 15:53:10', NULL, NULL),
+(5619, 1, 3404160, 25000, 9, '2015-02-25 15:53:11', NULL, NULL),
+(5620, 1, 3403120, 25000, 9, '2015-02-25 15:53:46', NULL, NULL),
+(5621, 1, 3403030, 25000, 9, '2015-02-25 15:53:48', NULL, NULL),
+(5622, 1, 3403090, 20000, 9, '2015-02-25 15:53:58', NULL, NULL),
+(5623, 1, 3403041, 25000, 9, '2015-02-25 15:53:59', NULL, NULL),
+(5624, 1, 7471013, 45000, 9, '2015-02-25 15:54:33', NULL, NULL),
+(5625, 1, 7471022, 45000, 9, '2015-02-25 15:54:34', NULL, NULL),
+(5626, 1, 7471031, 45000, 9, '2015-02-25 15:54:35', NULL, NULL),
+(5627, 1, 7471012, 45000, 9, '2015-02-25 15:54:36', NULL, NULL),
+(5628, 1, 7471014, 45000, 9, '2015-02-25 15:54:36', NULL, NULL),
+(5629, 1, 7472012, 62000, 9, '2015-02-25 15:54:53', NULL, NULL),
+(5630, 1, 7472041, 62000, 9, '2015-02-25 15:54:53', NULL, NULL),
+(5631, 1, 7472011, 62000, 9, '2015-02-25 15:54:54', NULL, NULL),
+(5632, 1, 7472030, 62000, 9, '2015-02-25 15:54:55', NULL, NULL),
+(5633, 1, 7404044, 78000, 9, '2015-02-25 15:55:07', NULL, NULL),
+(5634, 1, 7404043, 78000, 9, '2015-02-25 15:55:07', NULL, NULL),
+(5635, 1, 7404072, 78000, 9, '2015-02-25 15:55:09', NULL, NULL),
+(5636, 1, 7404051, 78000, 9, '2015-02-25 15:55:09', NULL, NULL),
+(5637, 1, 7404041, 78000, 9, '2015-02-25 15:55:10', NULL, NULL),
+(5638, 1, 7404052, 78000, 9, '2015-02-25 15:55:11', NULL, NULL),
+(5639, 1, 7404042, 78000, 9, '2015-02-25 15:55:12', NULL, NULL),
+(5640, 1, 7404013, 78000, 9, '2015-02-25 15:55:14', NULL, NULL),
+(5641, 1, 7404082, 78000, 9, '2015-02-25 15:55:17', NULL, NULL),
+(5642, 1, 7404012, 78000, 9, '2015-02-25 15:55:18', NULL, NULL),
+(5643, 1, 7404083, 78000, 9, '2015-02-25 15:55:18', NULL, NULL),
+(5644, 1, 7402112, 78000, 9, '2015-02-25 15:55:46', NULL, NULL),
+(5645, 1, 7402021, 78000, 9, '2015-02-25 15:55:46', NULL, NULL),
+(5646, 1, 7402072, 78000, 9, '2015-02-25 15:55:47', NULL, NULL),
+(5647, 1, 7402032, 78000, 9, '2015-02-25 15:55:50', NULL, NULL),
+(5648, 1, 7402053, 78000, 9, '2015-02-25 15:55:55', NULL, NULL),
+(5649, 1, 7402022, 78000, 9, '2015-02-25 15:55:58', NULL, NULL),
+(5650, 1, 7402082, 78000, 9, '2015-02-25 15:55:59', NULL, NULL),
+(5651, 1, 7402092, 78000, 9, '2015-02-25 15:56:00', NULL, NULL),
+(5652, 1, 7402043, 78000, 9, '2015-02-25 15:56:01', NULL, NULL),
+(5653, 1, 7402040, 78000, 9, '2015-02-25 15:56:02', NULL, NULL),
+(5654, 1, 7402044, 78000, 9, '2015-02-25 15:56:04', NULL, NULL),
+(5655, 1, 7402011, 78000, 9, '2015-02-25 15:56:04', NULL, NULL),
+(5656, 1, 7402083, 78000, 9, '2015-02-25 15:56:05', NULL, NULL),
+(5657, 1, 7403193, 78000, 9, '2015-02-25 15:56:38', NULL, NULL),
+(5658, 1, 7403100, 78000, 9, '2015-02-25 15:56:38', NULL, NULL),
+(5659, 1, 7403072, 117000, 9, '2015-02-25 15:56:45', NULL, NULL),
+(5660, 1, 7403071, 117000, 9, '2015-02-25 15:56:45', NULL, NULL),
+(5661, 1, 7403073, 117000, 9, '2015-02-25 15:56:46', NULL, NULL),
+(5662, 1, 7403074, 117000, 9, '2015-02-25 15:56:50', NULL, NULL),
+(5663, 1, 7403081, 117000, 9, '2015-02-25 15:56:51', NULL, NULL),
+(5664, 1, 7403083, 117000, 9, '2015-02-25 15:56:51', NULL, NULL),
+(5665, 1, 7403082, 117000, 9, '2015-02-25 15:56:53', NULL, NULL),
+(5666, 1, 7406051, 78000, 9, '2015-02-25 15:57:32', NULL, NULL),
+(5667, 1, 7406041, 78000, 9, '2015-02-25 15:57:33', NULL, NULL),
+(5668, 1, 7406033, 78000, 9, '2015-02-25 15:57:34', NULL, NULL),
+(5669, 1, 7406062, 78000, 9, '2015-02-25 15:57:35', NULL, NULL),
+(5670, 1, 7406013, 78000, 9, '2015-02-25 15:57:40', NULL, NULL),
+(5671, 1, 7406012, 78000, 9, '2015-02-25 15:57:41', NULL, NULL),
+(5672, 1, 7406021, 78000, 9, '2015-02-25 15:57:42', NULL, NULL),
+(5673, 1, 7406011, 78000, 9, '2015-02-25 15:57:42', NULL, NULL),
+(5674, 1, 7406032, 78000, 9, '2015-02-25 15:57:43', NULL, NULL),
+(5675, 1, 7406043, 78000, 9, '2015-02-25 15:57:44', NULL, NULL),
+(5676, 1, 7406031, 78000, 9, '2015-02-25 15:57:44', NULL, NULL),
+(5677, 1, 7406042, 78000, 9, '2015-02-25 15:57:45', NULL, NULL),
+(5678, 1, 7406052, 78000, 9, '2015-02-25 15:57:46', NULL, NULL),
+(5679, 1, 7406063, 78000, 9, '2015-02-25 15:57:46', NULL, NULL),
+(5680, 1, 7406053, 78000, 9, '2015-02-25 15:57:48', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -6374,7 +6450,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 -- Table structure for table `tag`
 --
 
-DROP TABLE IF EXISTS `tag`;
 CREATE TABLE IF NOT EXISTS `tag` (
 `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -6403,7 +6478,6 @@ INSERT INTO `tag` (`id`, `name`, `created_by`, `created_date`, `updated_by`, `up
 -- Table structure for table `town`
 --
 
-DROP TABLE IF EXISTS `town`;
 CREATE TABLE IF NOT EXISTS `town` (
 `id` int(7) NOT NULL,
   `city_id` int(11) DEFAULT NULL,
@@ -13331,7 +13405,6 @@ INSERT INTO `town` (`id`, `city_id`, `name`, `created_by`, `created_date`, `upda
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
 `id` int(11) NOT NULL,
   `group_id` int(11) DEFAULT '1',
@@ -13367,7 +13440,6 @@ INSERT INTO `user` (`id`, `group_id`, `first_name`, `middle_name`, `last_name`, 
 -- Table structure for table `user_address`
 --
 
-DROP TABLE IF EXISTS `user_address`;
 CREATE TABLE IF NOT EXISTS `user_address` (
 `id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
@@ -13403,7 +13475,6 @@ INSERT INTO `user_address` (`id`, `user_id`, `address`, `province_id`, `city_id`
 -- Table structure for table `user_dropship`
 --
 
-DROP TABLE IF EXISTS `user_dropship`;
 CREATE TABLE IF NOT EXISTS `user_dropship` (
 `id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
@@ -13435,7 +13506,6 @@ INSERT INTO `user_dropship` (`id`, `user_id`, `address`, `province_id`, `city_id
 -- Table structure for table `user_group`
 --
 
-DROP TABLE IF EXISTS `user_group`;
 CREATE TABLE IF NOT EXISTS `user_group` (
 `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -13669,17 +13739,17 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=56;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=63;
 --
 -- AUTO_INCREMENT for table `product_category`
 --
 ALTER TABLE `product_category`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=86;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=94;
 --
 -- AUTO_INCREMENT for table `product_image`
 --
 ALTER TABLE `product_image`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=117;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=125;
 --
 -- AUTO_INCREMENT for table `province`
 --
@@ -13694,7 +13764,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 -- AUTO_INCREMENT for table `shipping`
 --
 ALTER TABLE `shipping`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5609;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5681;
 --
 -- AUTO_INCREMENT for table `tag`
 --
