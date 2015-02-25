@@ -25,6 +25,7 @@ $form = ActiveForm::begin([
     ],
 ]); ?>
 <?=$form->field($model,'status')->inline()->radioList(['1'=>Yii::t('app','active'),'0'=>Yii::t('app','non active')]); ?>
+<?=$form->field($model,'best_seller')->inline()->radioList(['1'=>Yii::t('app','yes'),'0'=>Yii::t('app','no')]); ?>
 <?=$form->field($model,'online')->inline()->radioList(['1'=>Yii::t('app','yes'),'0'=>Yii::t('app','no')]); ?>
 <?=$form->field($model,'cod')->inline()->radioList(['1'=>Yii::t('app','yes'),'0'=>Yii::t('app','no')]); ?>
 <?=$form->field($model,'dropshier')->inline()->radioList(['1'=>Yii::t('app','yes'),'0'=>Yii::t('app','no')]); ?>

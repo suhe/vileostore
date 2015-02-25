@@ -40,7 +40,7 @@ $this->title = Yii::t('app','shopping cart');
 	    <div class="loading" style="display: none" ><?=Yii::t('app','please wait do not refresh .... ')?></div>
 	    <?=$form->field($formModel,'latest_address')->dropdownList(\common\models\UserAddress::dropdownList(Yii::t('app','add new'),['user_id' => Yii::$app->user->getId()]),['id' => 'select'])?>
 	    
-	    <?=$form->field($formModel,'address')->textarea(['rows' => 2])?>
+	    <?=$form->field($formModel,'address')->textarea(['rows' => 2,'placeholder' => Yii::t('app/message','msg put your address,rt,rw and kelurahan')])?>
 	    <?=$form->field($formModel,'province_id')
 	    ->dropdownList(\common\models\Province::dropdownList('-'),[
 		'onchange' => '$.post("'.Yii::$app->urlManager->createUrl('cart/province?id=').'" + $(this).val(),function(data){

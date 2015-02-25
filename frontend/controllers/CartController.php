@@ -189,6 +189,7 @@ class CartController extends \yii\web\Controller {
         if($formModel->load(Yii::$app->request->post()) && $formModel->validate()){
             Yii::$app->session->set('after_payment',TRUE);
             $formModel->getRequestOrder(Yii::$app->user->getId());
+            
             Yii::$app->session->setFlash('msg',Yii::t('app/message','msg thanks for purchase we wait confirm'));
             /**
             * Unset Session
@@ -221,6 +222,9 @@ class CartController extends \yii\web\Controller {
         $formModel->total_transfer = Yii::$app->Formatter->asDecimal($cart->grand_total,0);
         
         if($formModel->load(Yii::$app->request->post()) && $formModel->getConfirmPayment(Yii::$app->session->get('payment_id'))){
+             //put history transaction
+            \common\models\OrderHistory::Insert(Yii::$app->session->get('payment_id'),'Payment Confirmation',Yii::t('app','invoice no').' : '.$this->getId());
+            
             Yii::$app->mail->verification(Yii::$app->session->get('payment_id'),Yii::t('app','confirm payment invoice'));
             Yii::$app->session->setFlash('msg',Yii::t('app/message','msg thanks for confirmation wait for verification'));
             return $this->redirect(['user/history_details','id' => $cart->id],301);

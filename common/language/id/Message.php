@@ -11,7 +11,7 @@ return [
     'msg fill province' => 'Provinsi Harus diisi',
     'msg fill city' => 'Kota Harus diisi',
     'msg fill town' => 'Kecamatan Harus diisi untuk perhitungan Biaya Kurir Ekspedisi',
-    'msg your address / cart empty' => 'Belanjaan atau Alamat tidak diset',
+    'msg your address / cart empty' => 'Harap Belanjaan Alamat anda set terlebih dahulu sebelum melangkah selanjutnya !',
     'msg config address finish' => 'Pengaturan Alamat sudah selesai',
     'msg config dropship finish' => 'Pengaturan Dropship sudah selesai',
     'msg fill one' => 'Pilih Salah Satu',
@@ -39,5 +39,7 @@ return [
     'msg welcome back' => 'Selamat Datang Kembali',
     'msg thanks for registration please login your email and password' => 'Terima Kasih Atas Pendaftaran Akun Anda Silahkan Login Kembali Menggunakan Email
                                                                             dan Password yang telah didaftarkan, kami mengirimkan email pemberitahuan mohon cek INBOX/SPAM Anda',
+    'msg are you sure want to delete' => 'Apakah Anda yakin akan menghapusnya ! ',
+    'msg put your address,rt,rw and kelurahan' => 'Masukkan Alamat Lengkap, RT, RW Serta Kelurahan di Box ini !',
                                                                             
  ];

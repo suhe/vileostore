@@ -72,7 +72,7 @@ class Product extends \yii\db\ActiveRecord  {
             [['sku','name','weight','category_id','brand_id'],'required','on'=>['save_information','update_information']],
             [['short_description','long_description'],'safe','on'=>['save_information','update_information']],
             //save/update options required
-            [['stock','price','status','online','cod','dropshier'],'required','on'=>['update_options']],
+            [['stock','price','status','best_seller','online','cod','dropshier'],'required','on'=>['update_options']],
             [['arrival_date'],'safe','on'=>['update_options']],
         ];
     }
@@ -231,7 +231,8 @@ class Product extends \yii\db\ActiveRecord  {
             $model->price = str_replace(',','',$this->price);
             $model->stock = str_replace(',','',$this->stock);    
             $model->arrival_date = preg_replace('!(\d+)/(\d+)/(\d+)!', '\3-\2-\1',$this->arrival_date);
-            $model->status = $this->status;    
+            $model->status = $this->status;
+            $model->best_seller = $this->best_seller;  
             $model->online = $this->online;
             $model->cod = $this->cod;
             $model->dropshier = $this->dropshier;

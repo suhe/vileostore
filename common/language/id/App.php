@@ -28,6 +28,7 @@ return [
     'banner' => 'Banner',
     'basic information' => 'Informasi User',
     'brand' => 'Brand',
+    'by' => 'Oleh',
     /** Abjad C **/
     'catalog' => 'Katalog',
     'category' => 'Kategori',
@@ -224,6 +225,7 @@ return [
     'total sales this year' =>'Total Penjualan Tahun ini',
     'total sales' =>'Total Penjualan',
     'transactions' => 'Transaksi',
+    'type' => 'Tipe',
     /** Abjad U**/
     'update' => 'Update',
     'update profile' => 'Update Profile',

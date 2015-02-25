@@ -25,7 +25,8 @@ class ProductController extends \yii\web\Controller {
         ]);
         
         $query = $query->offset($pages->offset)->limit($pages->limit)->all();
-        return $this->render('category',[
+        //return template 
+        return $this->render(\common\models\Category::Layout($id),[
             'model' => $model,
             'category' => \common\models\Category::findOne($id),
             'query' => $query,

@@ -16,6 +16,15 @@ class OrderHistory extends \yii\db\ActiveRecord {
         ];
     }
     
+    public function attributeLabels(){
+        return [
+            'created_date' => Yii::t('app','date'),
+            'type' => Yii::t('app','type'),
+            'description' => Yii::t('app','description'),
+            'user_name' => Yii::t('app','by'),
+        ];
+    }
+    
     public function getUser(){
         return $this->hasOne(\common\models\User::className(), ['id' => 'created_by']);
     }
@@ -23,6 +32,7 @@ class OrderHistory extends \yii\db\ActiveRecord {
     public static function dropDownList(){
         return [
             'Buy' => 'Buy',
+            'Payment Confirmation' => 'Payment Confirmation',
             'Payment Accepted' => 'Payment Accepted',
             'Payment Rejected' => 'Payment Rejected',
             'Shipping' => 'Shipping',
@@ -74,6 +84,15 @@ class OrderHistory extends \yii\db\ActiveRecord {
         return false;
     }
     
-    
+    public static function Insert($order_id,$type,$description){
+        $history = new \common\models\OrderHistory();
+        $history->order_id = $order_id;
+        $history->type = $type;
+        $history->description = $description;
+        $history->created_by = Yii::$app->user->getId();
+        $history->created_date = date('Y-m-d H:i:s');
+        $history->insert();
+        return true;
+    }
     
 }

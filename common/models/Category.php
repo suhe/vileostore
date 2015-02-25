@@ -203,4 +203,13 @@ class Category extends \yii\db\ActiveRecord {
         }
         return $this->structcategory;
     }
+    
+    public static function Layout($id){
+        $query = self::findOne($id);
+        if(isset($query->layout))
+            $layout = $query->layout;
+        else
+            $layout = static::tableName();
+        return $layout;    
+    }
 }

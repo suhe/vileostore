@@ -60,14 +60,14 @@ class UserController extends Controller {
         //cek valid user id and order user id
         if($query->user_id!=Yii::$app->user->getId()) return $this->redirect(['user/history'],301);
         
-        
-        
         $this->layout = 'user';
-        $model = new \common\models\OrderProduct(['scenario' => 'search']);
+        $model  = new \common\models\OrderProduct(['scenario' => 'search']);
+        $model2 = new \common\models\OrderHistory();
         return $this->render('mytransaction_details',[
             'data'  => $query,
             'model' => $model,
-            'dataProvider' => $model->getMyOrderProductTransaction($id,Yii::$app->request->queryParams)
+            'dataProvider' => $model->getMyOrderProductTransaction($id,Yii::$app->request->queryParams),
+            'dataProviderHistory' => $model2->getActiveDataProviderOrderHistory($id),
         ]);
     }
     
@@ -295,19 +295,5 @@ class UserController extends Controller {
         $query->delete();
         return $this->redirect(Yii::$app->request->referrer);
     }
-    
-    /*public function actionChpassword(){
-        $this->layout = 'user';
-        $formModel = new \common\models\User(['scenario' => 'update_password']);
-        $user = $formModel->findOne(Yii::$app->user->getId());
-        if($formModel->load(Yii::$app->request->post()) && $formModel->getUpdatePassword(Yii::$app->user->getId())){
-            Yii::$app->session->setFlash('msg',Yii::t('app/message','msg your password is changed'));
-            return $this->redirect(Yii::$app->request->referrer);
-        }
-        
-        return $this->render('mypassword',[
-            'formModel' => $formModel
-        ]);
-    }*/
     
 }

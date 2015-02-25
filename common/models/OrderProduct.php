@@ -50,7 +50,7 @@ class OrderProduct extends \yii\db\ActiveRecord {
     public function getMyOrderProductTransaction($id,$params){
         $query = static::find()
         ->select(['product.sku','product.name as product_name','order_product.product_price','order_product.qty','product.slug as product_slug',
-                  'subtotal','order_product.product_id'])
+                  'subtotal','order_product.product_id','product.image as product_image'])
         ->joinWith('order')
         ->joinWith('product')
         ->andWhere(['order.user_id' => Yii::$app->user->getId()])

@@ -148,6 +148,9 @@ class Order extends \yii\db\ActiveRecord {
         }
         //send email
         Yii::$app->mail->invoice($model->id);
+        //put to history transaction
+        \common\models\OrderHistory::Insert($model->id,'Buy',Yii::t('app','invoice no').' : '.$this->getId());
+        return true;
     }
     
     public function getMyOrderTransaction($params){

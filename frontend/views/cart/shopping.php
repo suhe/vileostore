@@ -4,6 +4,11 @@ if($_POST){
     $cart->update($_POST);
     Yii::$app->controller->refresh();
 }
+
+$this->params['breadcrumbs'] = [
+    ['label' => Yii::t('app','shopping cart'),'url' => ['cart/shopping']],
+];
+
 $this->title = Yii::t('app','shopping cart');
 ?>
 <div class="shopping-cart">
@@ -42,7 +47,7 @@ $this->title = Yii::t('app','shopping cart');
 		]);			
 		 foreach ($cart->contents() as $i=>$items){ ?>
 		    <tr>
-			<td class="romove-item"><a href="<?=\yii\helpers\Url::to(['cart/remove','id'=>$items['rowid']])?>" title="cancel" class="icon"><i class="fa fa-trash-o"></i></a></td>
+			<td class="romove-item"><a href="<?=\yii\helpers\Url::to(['cart/remove','id'=>$items['rowid']])?>" title="cancel" class="icon" onclick="return confirm('<?=Yii::t('app/message','msg are you sure want to delete')?>');"><i class="fa fa-trash-o"></i></a></td>
 			<td class="cart-image">
 			    <a class="entry-thumbnail" href="<?=\yii\helpers\Url::to(['product/read','id'=>$items['id']])?>">
 				<?=himiklab\thumbnail\EasyThumbnailImage::thumbnailImg(

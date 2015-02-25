@@ -61,6 +61,7 @@ class ProductController extends \yii\web\Controller {
         $model->price = $query->price;
         $model->arrival_date = Yii::$app->formatter->asDate($query->arrival_date,'php:d/m/Y');
         $model->status = $query->status;
+        $model->best_seller = $query->best_seller;
         $model->online = $query->online;
         $model->cod = $query->cod;
         $model->dropshier = $query->dropshier;
