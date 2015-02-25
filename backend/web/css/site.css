@@ -31,3 +31,11 @@
     font-size: 13.5px;
     padding: 20px;
 }
+.loading{
+    background: url("images/loading.gif") no-repeat;
+    height: 50px;
+    margin: 0 auto;
+    width: 150px;
+    padding:5px 10px 5px 40px;
+    color: #CCC;
+}

@@ -52,6 +52,7 @@ class CourierController extends \yii\web\Controller {
         if($query){
             $model->id = $query->id;
             $model->name = $query->name;
+            $model->origin = $query->origin;
             $model->icon = $query->icon;
             $model->status = $query->status;
         }
@@ -102,29 +103,51 @@ class CourierController extends \yii\web\Controller {
         return $this->render('form_main',[
             'model' => $model,
             'form' => 'form_shipping',
-            'dataProvider' => $model->getActiveDataProviderShipping($id,$params)
+            'dataProvider' => $model->getActiveDataProviderShipping($id,Yii::$app->request->QueryParams)
         ]);
     }
     
-    public function actionBatchUpdate($id) {
-        $sourceModel = new \common\models\Shipping;
-        $dataProvider = $sourceModel->getActiveDataProviderShipping($id,Yii::$app->request->getQueryParams());
-        $models = $dataProvider->getModels();
-        if (\yii\base\Model::loadMultiple($models, Yii::$app->request->post()) && \yii\base\Model::validateMultiple($models)) {
-            $count = 0;
-            foreach ($models as $index => $model) {
-                    
-                // populate and save records for each model
-                if ($model->save()) {
-                    $count++;
-                }
-            }
-            Yii::$app->session->setFlash('msg', "Processed {$count} records successfully.");
-            return $this->redirect(['courier/shopping']); // redirect to your next desired page
+    public function actionUpdate_shipping($id){
+        $town_id = isset($_POST['town_id'])?$_POST['town_id']:0;
+        $value = isset($_POST['value'])?$_POST['value']:0;
+        $id = isset($id)?$id:0;
+        Yii::$app->response->format = 'json';
+        // update / insert model
+        $model = new \common\models\Shipping();
+        $query = $model->findOne(['courier_id'=>$id,'town_id'=>$town_id]);
+        if($query){
+            $query->cost = $value;
+            $model->updated_by = Yii::$app->user->getId();
+            $model->updated_date = date('Y-m-d H:i:s');
+            $query->update();
         }
         else {
-            return $this->redirect(['courier/shopping']); // redirect to your next desired page
+            $model->courier_id = $id;
+            $model->town_id = $town_id;
+            $model->cost = $value;
+            $model->created_by = Yii::$app->user->getId();
+            $model->created_date = date('Y-m-d H:i:s');
+            $query = $model->insert();
+        }
+        
+        if($value==0){
+            $delete = \common\models\Shipping::deleteAll('courier_id = :courier_id AND town_id > :town_id', [':courier_id' => $id, ':town_id' => $town_id]);
+        }
+        
+        if($query){
+            return [
+                'success' => true,
+                'id' => $id,
+                'town_id' => $town_id,
+                'value' => $value,
+            ];
+        } else {
+            return [
+                'success' => false
+            ];
         }
     }
+    
+    
 
 }

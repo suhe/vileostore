@@ -47,7 +47,13 @@ AppAsset::register($this);
                     </div>
                 </div>
             </div>
-            <div class=" pull-right">
+            <div class="pull-left sm-table">
+                <div class="header-inner">
+                    <div class="loading" style="display:none; "><?=Yii::t('app','please wait')?></div>
+                </div>
+            </div>
+            
+            <div class="pull-right">
                 <div class="visible-lg visible-md m-t-10">
                     <ul class="nav navbar-right">
                         <li class="dropdown">

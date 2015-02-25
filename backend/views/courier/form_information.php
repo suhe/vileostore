@@ -38,6 +38,7 @@ $form = ActiveForm::begin([
     'showUpload' => false                        ]
 ]);?>
 <?=$form->field($model,'name')->textInput()?>
+<?=$form->field($model,'origin')->textInput()?>
 <?=$form->field($model,'status')->inline()->radioList(['1'=>Yii::t('app','active'),'0'=>Yii::t('app','non active')]); ?>
 <div class="form-group" style="margin-bottom:20px">
     <?=Html::submitButton('<i class="fa fa-save icon-on-right"></i> '.Yii::t('app','save'), ['class' => 'btn btn-primary btn-md pull-right','name' => 'post'])?>

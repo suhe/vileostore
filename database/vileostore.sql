@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.2.7.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2015 at 06:00 PM
--- Server version: 5.6.21
--- PHP Version: 5.5.19
+-- Generation Time: Feb 25, 2015 at 09:49 AM
+-- Server version: 5.6.20
+-- PHP Version: 5.5.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `bank`
 --
 
+DROP TABLE IF EXISTS `bank`;
 CREATE TABLE IF NOT EXISTS `bank` (
 `id` int(11) NOT NULL,
   `account` varchar(255) DEFAULT NULL,
@@ -39,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `bank` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `bank`
@@ -57,6 +58,7 @@ INSERT INTO `bank` (`id`, `account`, `owner`, `name`, `branch`, `icon`, `order`,
 -- Table structure for table `banner`
 --
 
+DROP TABLE IF EXISTS `banner`;
 CREATE TABLE IF NOT EXISTS `banner` (
 `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -72,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `banner` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `banner`
@@ -88,6 +90,7 @@ INSERT INTO `banner` (`id`, `name`, `status`, `position`, `slide`, `image`, `wid
 -- Table structure for table `brand`
 --
 
+DROP TABLE IF EXISTS `brand`;
 CREATE TABLE IF NOT EXISTS `brand` (
 `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -98,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `brand` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
 
 --
 -- Dumping data for table `brand`
@@ -136,6 +139,7 @@ INSERT INTO `brand` (`id`, `name`, `slug`, `logo`, `status`, `created_by`, `crea
 -- Table structure for table `category`
 --
 
+DROP TABLE IF EXISTS `category`;
 CREATE TABLE IF NOT EXISTS `category` (
 `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -151,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
 
 --
 -- Dumping data for table `category`
@@ -205,6 +209,7 @@ INSERT INTO `category` (`id`, `name`, `slug`, `structure`, `image`, `icon`, `sta
 -- Table structure for table `city`
 --
 
+DROP TABLE IF EXISTS `city`;
 CREATE TABLE IF NOT EXISTS `city` (
 `id` int(4) NOT NULL,
   `province_id` int(11) DEFAULT NULL,
@@ -213,7 +218,7 @@ CREATE TABLE IF NOT EXISTS `city` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9474 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9474 ;
 
 --
 -- Dumping data for table `city`
@@ -726,25 +731,26 @@ INSERT INTO `city` (`id`, `province_id`, `name`, `created_by`, `created_date`, `
 -- Table structure for table `courier`
 --
 
+DROP TABLE IF EXISTS `courier`;
 CREATE TABLE IF NOT EXISTS `courier` (
 `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `icon` varchar(255) DEFAULT NULL,
+  `origin` varchar(255) DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `courier`
 --
 
-INSERT INTO `courier` (`id`, `name`, `icon`, `status`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
-(1, 'TIKI JNE REG', 'jne-reg.jpeg', 1, 1, '2015-02-13 21:48:17', 9, '2015-02-24 21:42:55'),
-(2, 'TIKI JNE YES', 'jne-yes.jpg', 1, 1, '2015-02-13 21:48:17', NULL, NULL),
-(7, 'Sooio', 'simpati-3g.png', 1, 9, '2015-02-24 21:51:49', NULL, NULL);
+INSERT INTO `courier` (`id`, `name`, `icon`, `origin`, `status`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
+(1, 'TIKI JNE REG', 'jne-reg.jpeg', 'DKI Jakarta', 1, 1, '2015-02-13 21:48:17', 9, '2015-02-24 21:42:55'),
+(2, 'TIKI JNE YES', 'jne-yes.jpg', 'DKI Jakarta', 1, 1, '2015-02-13 21:48:17', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -752,6 +758,7 @@ INSERT INTO `courier` (`id`, `name`, `icon`, `status`, `created_by`, `created_da
 -- Table structure for table `discussion`
 --
 
+DROP TABLE IF EXISTS `discussion`;
 CREATE TABLE IF NOT EXISTS `discussion` (
 `id` int(11) NOT NULL,
   `product_id` int(11) DEFAULT NULL,
@@ -759,7 +766,7 @@ CREATE TABLE IF NOT EXISTS `discussion` (
   `description` text,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `discussion`
@@ -775,11 +782,12 @@ INSERT INTO `discussion` (`id`, `product_id`, `user_id`, `description`, `created
 -- Table structure for table `newsletter`
 --
 
+DROP TABLE IF EXISTS `newsletter`;
 CREATE TABLE IF NOT EXISTS `newsletter` (
 `id` int(11) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `newsletter`
@@ -794,6 +802,7 @@ INSERT INTO `newsletter` (`id`, `email`, `created_date`) VALUES
 -- Table structure for table `order`
 --
 
+DROP TABLE IF EXISTS `order`;
 CREATE TABLE IF NOT EXISTS `order` (
 `id` int(11) NOT NULL,
   `invoice_no` varchar(255) DEFAULT NULL,
@@ -823,7 +832,7 @@ CREATE TABLE IF NOT EXISTS `order` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `order`
@@ -847,6 +856,7 @@ INSERT INTO `order` (`id`, `invoice_no`, `type`, `status`, `user_id`, `courier_i
 -- Table structure for table `order_history`
 --
 
+DROP TABLE IF EXISTS `order_history`;
 CREATE TABLE IF NOT EXISTS `order_history` (
 `id` int(11) NOT NULL,
   `order_id` int(11) DEFAULT NULL,
@@ -854,7 +864,7 @@ CREATE TABLE IF NOT EXISTS `order_history` (
   `description` varchar(255) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `order_history`
@@ -871,6 +881,7 @@ INSERT INTO `order_history` (`id`, `order_id`, `type`, `description`, `created_b
 -- Table structure for table `order_product`
 --
 
+DROP TABLE IF EXISTS `order_product`;
 CREATE TABLE IF NOT EXISTS `order_product` (
 `id` int(11) NOT NULL,
   `order_id` int(11) DEFAULT NULL,
@@ -879,7 +890,7 @@ CREATE TABLE IF NOT EXISTS `order_product` (
   `product_weight` decimal(10,0) DEFAULT NULL,
   `qty` int(11) DEFAULT NULL,
   `subtotal` double DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `order_product`
@@ -905,6 +916,7 @@ INSERT INTO `order_product` (`id`, `order_id`, `product_id`, `product_price`, `p
 -- Table structure for table `page`
 --
 
+DROP TABLE IF EXISTS `page`;
 CREATE TABLE IF NOT EXISTS `page` (
 `id` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
@@ -916,7 +928,7 @@ CREATE TABLE IF NOT EXISTS `page` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `page`
@@ -938,6 +950,7 @@ INSERT INTO `page` (`id`, `title`, `slug`, `type`, `status`, `content`, `created
 -- Table structure for table `product`
 --
 
+DROP TABLE IF EXISTS `product`;
 CREATE TABLE IF NOT EXISTS `product` (
 `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -965,7 +978,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=56 ;
 
 --
 -- Dumping data for table `product`
@@ -1035,13 +1048,14 @@ INSERT INTO `product` (`id`, `name`, `sku`, `slug`, `category_id`, `brand_id`, `
 -- Table structure for table `product_category`
 --
 
+DROP TABLE IF EXISTS `product_category`;
 CREATE TABLE IF NOT EXISTS `product_category` (
 `id` int(11) NOT NULL,
   `product_id` int(11) DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=86 ;
 
 --
 -- Dumping data for table `product_category`
@@ -1118,13 +1132,14 @@ INSERT INTO `product_category` (`id`, `product_id`, `category_id`, `created_by`,
 -- Table structure for table `product_image`
 --
 
+DROP TABLE IF EXISTS `product_image`;
 CREATE TABLE IF NOT EXISTS `product_image` (
 `id` int(11) NOT NULL,
   `product_id` int(11) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=117 ;
 
 --
 -- Dumping data for table `product_image`
@@ -1236,6 +1251,7 @@ INSERT INTO `product_image` (`id`, `product_id`, `name`, `created_by`, `created_
 -- Table structure for table `province`
 --
 
+DROP TABLE IF EXISTS `province`;
 CREATE TABLE IF NOT EXISTS `province` (
 `id` int(2) NOT NULL,
   `name` varchar(100) DEFAULT NULL,
@@ -1243,7 +1259,7 @@ CREATE TABLE IF NOT EXISTS `province` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=96 ;
 
 --
 -- Dumping data for table `province`
@@ -1291,13 +1307,14 @@ INSERT INTO `province` (`id`, `name`, `created_by`, `created_date`, `updated_by`
 -- Table structure for table `setting`
 --
 
+DROP TABLE IF EXISTS `setting`;
 CREATE TABLE IF NOT EXISTS `setting` (
 `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `content` longtext,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `setting`
@@ -1325,6 +1342,7 @@ INSERT INTO `setting` (`id`, `name`, `content`, `updated_by`, `updated_date`) VA
 -- Table structure for table `shipping`
 --
 
+DROP TABLE IF EXISTS `shipping`;
 CREATE TABLE IF NOT EXISTS `shipping` (
 `id` int(11) NOT NULL,
   `courier_id` int(11) DEFAULT NULL,
@@ -1334,22 +1352,17 @@ CREATE TABLE IF NOT EXISTS `shipping` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4845 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5609 ;
 
 --
 -- Dumping data for table `shipping`
 --
 
 INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
-(0, 1, 1306052, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1, 1, 1306052, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2, 1, 5107050, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3, 1, 7471021, 45000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4, 1, 9432030, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(5, 1, 9471020, 80000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (6, 1, 5103050, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (7, 1, 7403180, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(8, 1, 9109030, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (9, 1, 1806030, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (10, 1, 1806050, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (11, 1, 1806051, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1370,14 +1383,8 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (26, 1, 5318060, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (27, 1, 5318050, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (28, 1, 1224100, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(29, 1, 9415060, 108000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(30, 1, 9412040, 138000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(31, 1, 9435040, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (32, 1, 3203010, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(33, 1, 9110040, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(34, 1, 9110110, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (35, 1, 5203090, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(36, 1, 9107170, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (37, 1, 5312010, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (38, 1, 1208070, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (39, 1, 6103110, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1392,13 +1399,11 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (48, 1, 1602140, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (49, 1, 6106032, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (50, 1, 7106030, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(51, 1, 9110020, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (52, 1, 7311210, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (53, 1, 3302140, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (54, 1, 1206082, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (55, 1, 3509110, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (56, 1, 1308011, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(57, 1, 9415050, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (58, 1, 1101051, 90000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (59, 1, 5371010, 50000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (60, 1, 6304060, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1413,7 +1418,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (69, 1, 5307061, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (70, 1, 5307040, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (71, 1, 5307041, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(72, 1, 8103050, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (73, 1, 7311200, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (74, 1, 5304100, 82000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (75, 1, 5304110, 82000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1428,7 +1432,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (84, 1, 6107070, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (85, 1, 5206071, 66000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (86, 1, 3322100, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(87, 1, 9105160, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (88, 1, 3509050, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (89, 1, 3529120, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (90, 1, 5303181, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1452,24 +1455,15 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (108, 1, 7405110, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (109, 1, 6403120, 69000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (110, 1, 7316040, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(111, 1, 9105090, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(112, 1, 7505030, 67000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(113, 1, 9416030, 203000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(114, 1, 9408050, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (115, 1, 6306040, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (116, 1, 7325040, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (117, 1, 3601071, 13000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (118, 1, 3212210, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (119, 1, 6304050, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (120, 1, 6304040, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(121, 1, 7602052, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (122, 1, 6202230, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (123, 1, 3604200, 10000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(124, 1, 9432020, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(125, 1, 9410070, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (126, 1, 3212171, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(127, 1, 7603090, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(128, 1, 9104070, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (129, 1, 6303080, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (130, 1, 3273130, 10000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (131, 1, 1703060, 35000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1482,7 +1476,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (138, 1, 1107062, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (139, 1, 3526130, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (140, 1, 1203120, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(141, 1, 9420040, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (142, 1, 7304041, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (143, 1, 6201050, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (144, 1, 6201070, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1490,15 +1483,11 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (146, 1, 3512160, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (147, 1, 3578270, 17000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (148, 1, 7410050, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(149, 1, 9402180, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(150, 1, 9414050, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (151, 1, 6303060, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (152, 1, 3273050, 10000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (153, 1, 3209080, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (154, 1, 5308020, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (155, 1, 5306060, 65000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(156, 1, 7505010, 67000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(157, 1, 9415030, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (158, 1, 1106011, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (159, 1, 1375030, 34000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (160, 1, 7326180, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1506,8 +1495,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (162, 1, 7311180, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (163, 1, 6311030, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (164, 1, 3305010, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(165, 1, 9110070, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(166, 1, 9110080, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (167, 1, 6202120, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (168, 1, 3502180, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (169, 1, 1112060, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1519,13 +1506,9 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (175, 1, 1606020, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (176, 1, 3216090, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (177, 1, 6308020, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(178, 1, 9104020, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (179, 1, 1104021, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (180, 1, 6409010, 77000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (181, 1, 1104040, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(182, 1, 8204030, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(183, 1, 8204033, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(184, 1, 8204040, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (185, 1, 7372010, 49000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (186, 1, 1104050, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (187, 1, 6108200, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1554,7 +1537,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (210, 1, 7205130, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (211, 1, 6105160, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (212, 1, 6206030, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(213, 1, 7602011, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (214, 1, 7202080, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (215, 1, 3328040, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (216, 1, 3603130, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1574,12 +1556,10 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (230, 1, 3525070, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (231, 1, 3509130, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (232, 1, 7310041, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(233, 1, 7605040, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (234, 1, 1104030, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (235, 1, 7205080, 40000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (236, 1, 3322121, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (237, 1, 3523190, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(238, 1, 8103010, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (239, 1, 1105132, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (240, 1, 1171012, 33000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (241, 1, 1174030, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1599,7 +1579,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (255, 1, 3273080, 10000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (256, 1, 3273010, 10000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (257, 1, 3273200, 10000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(258, 1, 7601010, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (259, 1, 7201020, 58000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (260, 1, 3514150, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (261, 1, 3523020, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1673,7 +1652,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (329, 1, 1373030, 34000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (330, 1, 7402052, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (331, 1, 7314040, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(332, 1, 7605020, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (333, 1, 3520130, 45000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (334, 1, 7311110, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (335, 1, 3207211, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1725,7 +1703,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (381, 1, 1504020, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (382, 1, 1305020, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (383, 1, 1305021, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(384, 1, 9417060, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (385, 1, 3579010, 24000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (386, 1, 6301070, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (387, 1, 7401071, 117000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1809,12 +1786,9 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (465, 1, 6402051, 104000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (466, 1, 6106061, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (467, 1, 6212010, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(468, 1, 9428031, 203000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (469, 1, 7104040, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(470, 1, 9433070, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (471, 1, 1210031, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (472, 1, 1211100, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(473, 1, 9107110, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (474, 1, 3404080, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (475, 1, 3518030, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (476, 1, 3322140, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1828,13 +1802,7 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (484, 1, 7472010, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (485, 1, 1607020, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (486, 1, 1115030, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(487, 1, 9409100, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(488, 1, 9409050, 108000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(489, 1, 9409040, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(490, 1, 9409080, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(491, 1, 9435050, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (492, 1, 7108010, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(493, 1, 9410040, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (494, 1, 5305061, 82000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (495, 1, 5305050, 82000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (496, 1, 5305060, 82000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1859,7 +1827,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (515, 1, 1106020, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (516, 1, 6309081, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (517, 1, 7107020, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(518, 1, 9104050, 115000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (519, 1, 6305010, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (520, 1, 1105090, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (521, 1, 7371110, 32000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1895,11 +1862,10 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (551, 1, 3273040, 10000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (552, 1, 3602090, 13000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (553, 1, 3203160, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(554, 1, 3276011, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
+(554, 1, 3276011, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (555, 1, 7201011, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (556, 1, 7207030, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (557, 1, 5304101, 82000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(558, 1, 9418030, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (559, 1, 5310030, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (560, 1, 7101100, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (561, 1, 7208061, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1909,11 +1875,9 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (565, 1, 3511100, 24000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (566, 1, 7322050, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (567, 1, 7409100, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(568, 1, 7604041, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (569, 1, 6402010, 104000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (570, 1, 3212200, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (571, 1, 7318010, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(572, 1, 9419031, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (573, 1, 7502021, 67000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (574, 1, 1309070, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (575, 1, 3305081, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1932,12 +1896,10 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (588, 1, 7304021, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (589, 1, 7301030, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (590, 1, 7302040, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(591, 1, 9417030, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (592, 1, 3308020, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (593, 1, 5319010, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (594, 1, 1209200, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (595, 1, 7501042, 67000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(596, 1, 9436050, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (597, 1, 6108110, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (598, 1, 3309050, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (599, 1, 3504110, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1962,7 +1924,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (618, 1, 1107061, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (619, 1, 3522050, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (620, 1, 3578250, 17000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(621, 1, 7604050, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (622, 1, 3515120, 17000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (623, 1, 3575030, 24000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (624, 1, 7207031, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -1978,7 +1939,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (634, 1, 1303090, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (635, 1, 1104031, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (636, 1, 7201070, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(637, 1, 8107040, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (638, 1, 7201060, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (639, 1, 7201061, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (640, 1, 3578211, 17000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2037,7 +1997,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (693, 1, 1672040, 31000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (694, 1, 3214110, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (695, 1, 3203111, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(696, 1, 7602030, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (697, 1, 3527040, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (698, 1, 3515070, 17000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (699, 1, 6305090, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2145,8 +2104,7 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (801, 1, 3604080, 13000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (802, 1, 3601040, 13000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (803, 1, 3202280, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(804, 1, 3210030, 16000, 1, '2015-02-13 22:00:41', NULL, NULL);
-INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
+(804, 1, 3210030, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (805, 1, 3272050, 9000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (806, 1, 3207220, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (807, 1, 3602150, 13000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2206,7 +2164,8 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (861, 1, 3217060, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (862, 1, 3213150, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (863, 1, 3674040, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(864, 1, 3202020, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
+(864, 1, 3202020, 15000, 1, '2015-02-13 22:00:41', NULL, NULL);
+INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
 (865, 1, 3172020, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (866, 1, 3203170, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (867, 1, 3202172, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2251,7 +2210,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (906, 1, 6306090, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (907, 1, 6306100, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (908, 1, 6402060, 104000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(909, 1, 8108050, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (910, 1, 7206010, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (911, 1, 7206020, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (912, 1, 3507070, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2294,18 +2252,15 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (949, 1, 1673010, 31000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (950, 1, 1673011, 31000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (951, 1, 1673020, 31000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(952, 1, 9403200, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (953, 1, 1506020, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (954, 1, 5171030, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (955, 1, 5171010, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (956, 1, 5171020, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(957, 1, 9403210, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (958, 1, 3209141, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (959, 1, 5311062, 82000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (960, 1, 5311070, 82000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (961, 1, 1111170, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (962, 1, 7106050, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(963, 1, 9404052, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (964, 1, 3517040, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (965, 1, 3516100, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (966, 1, 3402100, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2346,7 +2301,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1001, 1, 7101021, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1002, 1, 7101023, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1003, 1, 7101022, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1004, 1, 7571011, 45000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1005, 1, 3529190, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1006, 1, 3172070, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1007, 1, 3503090, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2355,9 +2309,7 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1010, 1, 6212050, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1011, 1, 6212020, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1012, 1, 6204050, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1013, 1, 9414020, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1014, 1, 5319030, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1015, 1, 9401051, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1016, 1, 6110060, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1017, 1, 6108090, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1018, 1, 6108220, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2376,15 +2328,10 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1031, 1, 7102230, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1032, 1, 3312100, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1033, 1, 7104060, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1034, 1, 9101070, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1035, 1, 9101050, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1036, 1, 5303160, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1037, 1, 5303162, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1038, 1, 5303161, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1039, 1, 5304011, 82000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1040, 1, 9411040, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1041, 1, 9415020, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1042, 1, 9109010, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1043, 1, 3318110, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1044, 1, 3513100, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1045, 1, 1771020, 22000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2393,7 +2340,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1048, 1, 7207041, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1049, 1, 3321100, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1050, 1, 2171030, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1051, 1, 8205050, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1052, 1, 7305050, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1053, 1, 7305060, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1054, 1, 6101061, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2402,7 +2348,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1057, 1, 3173080, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1058, 1, 3510070, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1059, 1, 6303020, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1060, 1, 9430090, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1061, 1, 3506200, 24000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1062, 1, 3404050, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1063, 1, 1110100, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2410,8 +2355,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1065, 1, 3301100, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1066, 1, 1671011, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1067, 1, 3505150, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1068, 1, 8204080, 117000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1069, 1, 8204090, 117000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1070, 1, 3211061, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1071, 1, 5208030, 66000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1072, 1, 7312031, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2527,7 +2470,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1182, 1, 3506100, 24000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1183, 1, 1206050, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1184, 1, 5302080, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1185, 1, 9414040, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1186, 1, 6311060, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1187, 1, 1220060, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1188, 1, 6302140, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2549,21 +2491,16 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1204, 1, 1201130, 72000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1205, 1, 1303051, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1206, 1, 1213120, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1207, 1, 9435030, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1208, 1, 9435010, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1209, 1, 5205010, 66000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1210, 1, 9402120, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1211, 1, 6108030, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1212, 1, 1401011, 47000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1213, 1, 6106101, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1214, 1, 1221080, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1215, 1, 1221070, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1216, 1, 1209170, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1217, 1, 8201130, 117000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1218, 1, 3204070, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1219, 1, 1201060, 72000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1220, 1, 1105130, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1221, 1, 9433030, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1222, 1, 5308030, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1223, 1, 5309071, 82000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1224, 1, 5309031, 82000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2572,9 +2509,7 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1227, 1, 1705031, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1228, 1, 1671050, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1229, 1, 1671060, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1230, 1, 9411060, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1231, 1, 3402090, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1232, 1, 9106010, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1233, 1, 3278070, 13000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1234, 1, 1105161, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1235, 1, 1109160, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2589,17 +2524,12 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1244, 1, 1307050, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1245, 1, 1306100, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1246, 1, 1304080, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1247, 1, 9417010, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1248, 1, 1303100, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1249, 1, 3515050, 17000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1250, 1, 1804060, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1251, 1, 3171010, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1252, 1, 9401043, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1253, 1, 6102080, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1254, 1, 1106012, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1255, 1, 8201090, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1256, 1, 8201091, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1257, 1, 9413010, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1258, 1, 3318060, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1259, 1, 3318090, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1260, 1, 3208160, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2660,8 +2590,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1315, 1, 3215151, 12000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1316, 1, 1605060, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1317, 1, 3603131, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1318, 1, 9471030, 80000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1319, 1, 9471040, 80000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1320, 1, 3372040, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1321, 1, 1903050, 32000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1322, 1, 1602121, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2689,9 +2617,7 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1344, 1, 1112031, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1345, 1, 1110030, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1346, 1, 3316070, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1347, 1, 9412041, 138000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1348, 1, 3601130, 13000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1349, 1, 9412042, 138000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1350, 1, 3519150, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1351, 1, 3310090, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1352, 1, 3521030, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2724,7 +2650,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1379, 1, 7104010, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1380, 1, 3510130, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1381, 1, 7402030, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1382, 1, 7504020, 67000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1383, 1, 3517190, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1384, 1, 1407021, 47000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1385, 1, 7401082, 117000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2743,9 +2668,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1398, 1, 6210050, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1399, 1, 7311020, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1400, 1, 7107050, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1401, 1, 9102030, 115000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1402, 1, 8106030, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1403, 1, 9106021, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1404, 1, 7302060, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1405, 1, 3326080, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1406, 1, 3308130, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2787,7 +2709,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1442, 1, 3307040, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1443, 1, 3319010, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1444, 1, 3323070, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1445, 1, 7604030, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1446, 1, 6306080, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1447, 1, 3526010, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1448, 1, 1304050, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2805,25 +2726,18 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1460, 1, 3301121, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1461, 1, 1771011, 22000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1462, 1, 1222050, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1463, 1, 9434080, 125000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1464, 1, 9434070, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1465, 1, 9434090, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1466, 1, 9434100, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1467, 1, 6306050, 42000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1468, 1, 3212190, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1469, 1, 3506060, 24000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1470, 1, 3325101, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1471, 1, 1610031, 47000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1472, 1, 9418010, 203000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1473, 1, 3324140, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1474, 1, 3574031, 24000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1475, 1, 3505080, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1476, 1, 3522110, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1477, 1, 8205020, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1478, 1, 7326160, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1479, 1, 3522150, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1480, 1, 3209180, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1481, 1, 9436010, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1482, 1, 3512130, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1483, 1, 7401110, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1484, 1, 6203110, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2871,7 +2785,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1526, 1, 3601191, 13000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1527, 1, 3205221, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1528, 1, 3209051, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1529, 1, 9101051, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1530, 1, 6204030, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1531, 1, 3671031, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1532, 1, 3215113, 9000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2880,10 +2793,8 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1535, 1, 5302031, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1536, 1, 2101030, 63000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1537, 1, 3320120, 38000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1538, 1, 7604053, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1539, 1, 3311120, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1540, 1, 3577030, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1541, 1, 9418020, 108000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1542, 1, 1813040, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1543, 1, 3507330, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1544, 1, 3673060, 9000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2916,10 +2827,8 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1571, 1, 5208040, 66000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1572, 1, 3318020, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1573, 1, 3506191, 24000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1574, 1, 8204060, 117000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1575, 1, 1501090, 59000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1576, 1, 3313140, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1577, 1, 9105150, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1578, 1, 3302050, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1579, 1, 1106032, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1580, 1, 3171060, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2940,8 +2849,7 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1595, 1, 1809030, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1596, 1, 3574011, 24000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1597, 1, 3323090, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1598, 1, 3320010, 25000, 1, '2015-02-13 22:00:41', NULL, NULL);
-INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
+(1598, 1, 3320010, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1599, 1, 3522080, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1600, 1, 3521130, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1601, 1, 3508180, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2954,10 +2862,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1608, 1, 3326130, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1609, 1, 1701042, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1610, 1, 7313110, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1611, 1, 8102020, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1612, 1, 8102022, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1613, 1, 8102021, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1614, 1, 8102010, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1615, 1, 3307130, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1616, 1, 3274050, 10000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1617, 1, 3514070, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2971,7 +2875,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1625, 1, 6405010, 77000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1626, 1, 1402030, 47000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1627, 1, 1603094, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1628, 1, 9431030, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1629, 1, 1501030, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1630, 1, 5311053, 82000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1631, 1, 3320110, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -2992,13 +2895,11 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1646, 1, 3524060, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1647, 1, 3302220, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1648, 1, 6105180, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1649, 1, 9418040, 203000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1650, 1, 1871071, 17000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1651, 1, 3306120, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1652, 1, 3516150, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1653, 1, 5205050, 66000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1654, 1, 3302060, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1655, 1, 9403140, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1656, 1, 1403011, 71000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1657, 1, 3309170, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1658, 1, 3509010, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3010,14 +2911,12 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1664, 1, 3523010, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1665, 1, 3578210, 17000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1666, 1, 6403160, 104000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1667, 1, 9429020, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1668, 1, 5318020, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1669, 1, 1708050, 35000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1670, 1, 3507160, 24000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1671, 1, 3572020, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1672, 1, 1407060, 47000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1673, 1, 3307020, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1674, 1, 9108070, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1675, 1, 3101010, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1676, 1, 3101020, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1677, 1, 3506120, 24000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3059,9 +2958,9 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1713, 1, 1604111, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1714, 1, 1604113, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1715, 1, 1604114, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1716, 1, 1604112, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
+(1716, 1, 1604112, 39000, 1, '2015-02-13 22:00:41', NULL, NULL);
+INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
 (1717, 1, 5205040, 66000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1718, 1, 9401010, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1719, 1, 1704050, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1720, 1, 1312110, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1721, 1, 7302090, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3072,11 +2971,9 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1726, 1, 1208160, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1727, 1, 1208170, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1728, 1, 3312180, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1729, 1, 9417050, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1730, 1, 3511150, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1731, 1, 3508190, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1732, 1, 3315150, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1733, 1, 9107111, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1734, 1, 3526180, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1735, 1, 3209190, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1736, 1, 3215040, 9000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3093,18 +2990,14 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1747, 1, 1103040, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1748, 1, 5105030, 26000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1749, 1, 1904010, 32000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1750, 1, 9431010, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1751, 1, 5306040, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1752, 1, 7408030, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1753, 1, 5317020, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1754, 1, 5317010, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1755, 1, 5317030, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1756, 1, 9108021, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1757, 1, 3175040, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1758, 1, 7472021, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1759, 1, 3401080, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1760, 1, 9101080, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1761, 1, 9106020, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1762, 1, 3526150, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1763, 1, 7404060, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1764, 1, 1204050, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3116,23 +3009,17 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1770, 1, 7402061, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1771, 1, 5202050, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1772, 1, 3604110, 13000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1773, 1, 8101054, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1774, 1, 5304091, 82000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1775, 1, 1604040, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1776, 1, 1102043, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1777, 1, 7571010, 45000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1778, 1, 1571010, 42000, 1, '2015-02-13 22:00:41', NULL, NULL),
+(1778, 1, 1571010, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1779, 1, 6202110, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1780, 1, 1805061, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1781, 1, 1110061, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1782, 1, 1602060, 31000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1783, 1, 1701041, 35000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1784, 1, 8103051, 85000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1785, 1, 1702020, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1786, 1, 1222030, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1787, 1, 7571020, 45000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1788, 1, 7571021, 45000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1789, 1, 7571030, 45000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1790, 1, 3513120, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1791, 1, 5311061, 82000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1792, 1, 1806040, 35000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3147,7 +3034,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1801, 1, 1371110, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1802, 1, 1304100, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1803, 1, 1302110, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1804, 1, 9413040, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1805, 1, 3316030, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1806, 1, 3317120, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1807, 1, 3604130, 13000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3178,7 +3064,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1832, 1, 6103100, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1833, 1, 1403050, 71000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1834, 1, 1404040, 47000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1835, 1, 9412031, 138000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1836, 1, 5304061, 82000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1837, 1, 1223060, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1838, 1, 1223070, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3211,14 +3096,10 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1865, 1, 5303120, 65000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1866, 1, 5303140, 65000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1867, 1, 1304090, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1868, 1, 6310041, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
+(1868, 1, 6310041, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1869, 1, 6301030, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1870, 1, 9104030, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1871, 1, 9401030, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1872, 1, 9416010, 203000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1873, 1, 5201041, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1874, 1, 7318067, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1875, 1, 9402190, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1876, 1, 7402060, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1877, 1, 6310010, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1878, 1, 6310040, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3241,7 +3122,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1895, 1, 3305160, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1896, 1, 5315040, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1897, 1, 3521060, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1898, 1, 7505020, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1899, 1, 3526030, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1900, 1, 7309070, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1901, 1, 3526020, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3320,8 +3200,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (1974, 1, 6102050, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1975, 1, 3509250, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1976, 1, 3603060, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1977, 1, 8103110, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(1978, 1, 8171021, 52000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1979, 1, 3514230, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1980, 1, 3307050, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (1981, 1, 5310020, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3368,7 +3246,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2022, 1, 1305050, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2023, 1, 3324060, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2024, 1, 7322130, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2025, 1, 7602012, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2026, 1, 7502070, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2027, 1, 7502071, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2028, 1, 1509051, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3396,8 +3273,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2050, 1, 6306020, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2051, 1, 7101110, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2052, 1, 7101060, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2053, 1, 8201140, 117000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2054, 1, 8205060, 117000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2055, 1, 1214070, 72000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2056, 1, 6402130, 104000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2057, 1, 6402110, 104000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3439,9 +3314,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2093, 1, 5204020, 66000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2094, 1, 3208080, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2095, 1, 7202050, 58000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2096, 1, 7602031, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2097, 1, 8206040, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2098, 1, 8206010, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2099, 1, 5315050, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2100, 1, 5206021, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2101, 1, 1609050, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3468,8 +3340,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2122, 1, 7318040, 49000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2123, 1, 7318041, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2124, 1, 7318042, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2125, 1, 9107100, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2126, 1, 9404091, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2127, 1, 1110090, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2128, 1, 5306010, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2129, 1, 5306020, 82000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3479,7 +3349,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2133, 1, 7322030, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2134, 1, 7322031, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2135, 1, 3208111, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2136, 1, 8205010, 117000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2137, 1, 7402111, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2138, 1, 6210030, 93000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2139, 1, 7318054, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3490,17 +3359,9 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2144, 1, 7308070, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2145, 1, 7310050, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2146, 1, 3522210, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2147, 1, 7601040, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2148, 1, 7371020, 32000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2149, 1, 7603050, 49000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2150, 1, 9428040, 203000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2151, 1, 9428050, 203000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2152, 1, 9428060, 203000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2153, 1, 9428080, 203000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2154, 1, 7603080, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2155, 1, 5316040, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2156, 1, 7203081, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2157, 1, 7604020, 49000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2158, 1, 7501031, 67000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2159, 1, 3604190, 13000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2160, 1, 1403110, 71000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3513,7 +3374,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2167, 1, 3529150, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2168, 1, 3304030, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2169, 1, 3208180, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2170, 1, 9413030, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2171, 1, 7471010, 45000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2172, 1, 6103050, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2173, 1, 1204080, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3526,8 +3386,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2180, 1, 1906030, 26000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2181, 1, 1112010, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2182, 1, 3278060, 13000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2183, 1, 8203040, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2184, 1, 8203030, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2185, 1, 3206192, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2186, 1, 7313100, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2187, 1, 3214020, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3547,7 +3405,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2201, 1, 7171040, 42000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2202, 1, 1309122, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2203, 1, 1309123, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2204, 1, 7602041, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2205, 1, 7318013, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2206, 1, 7305020, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2207, 1, 7322121, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3582,12 +3439,8 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2236, 1, 7322120, 49000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2237, 1, 7318053, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2238, 1, 3314030, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2239, 1, 9426020, 203000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2240, 1, 9105170, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2241, 1, 7602043, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2242, 1, 6106060, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2243, 1, 6106070, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2244, 1, 7602061, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2245, 1, 5271020, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2246, 1, 1804071, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2247, 1, 6303110, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3647,7 +3500,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2301, 1, 3525040, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2302, 1, 7318020, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2303, 1, 6103060, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2304, 1, 9404051, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2305, 1, 6501050, 69000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2306, 1, 6202020, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2307, 1, 6202070, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3660,17 +3512,14 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2314, 1, 3523150, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2315, 1, 2101032, 63000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2316, 1, 1208090, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2317, 1, 9401040, 108000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2318, 1, 1901080, 40000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2319, 1, 1803091, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2320, 1, 9104090, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2321, 1, 1211120, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2322, 1, 3471030, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2323, 1, 1507011, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2324, 1, 1504010, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2325, 1, 3308110, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2326, 1, 1108050, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2327, 1, 7603020, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2328, 1, 1505010, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2329, 1, 1602020, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2330, 1, 1872012, 35000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3686,18 +3535,10 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2340, 1, 2103030, 95000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2341, 1, 3374010, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2342, 1, 1109130, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2343, 1, 9412010, 110000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2344, 1, 9412011, 110000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2345, 1, 9412012, 110000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2346, 1, 9412030, 110000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2347, 1, 9412020, 110000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2348, 1, 9412022, 110000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2349, 1, 1405010, 37000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2350, 1, 9413020, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2351, 1, 3404020, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2352, 1, 3314140, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2353, 1, 3305080, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2354, 1, 9108020, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2355, 1, 3512060, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2356, 1, 3502080, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2357, 1, 3404060, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3726,14 +3567,8 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2380, 1, 3523050, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2381, 1, 5203031, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2382, 1, 7502041, 67000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2383, 1, 9107060, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2384, 1, 7203060, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2385, 1, 2101010, 95000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2386, 1, 9104080, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2387, 1, 9104100, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2388, 1, 9106060, 144000, 1, '2015-02-13 22:00:41', NULL, NULL);
-INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
-(2389, 1, 8271011, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2390, 1, 7105080, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2391, 1, 7208060, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2392, 1, 7404080, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3778,7 +3613,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2431, 1, 1608090, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2432, 1, 6105070, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2433, 1, 1604041, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2434, 1, 9411050, 125000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2435, 1, 3578090, 17000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2436, 1, 3509090, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2437, 1, 3602110, 13000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3795,16 +3629,11 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2448, 1, 3309040, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2449, 1, 1109080, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2450, 1, 1109081, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2451, 1, 9401050, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2452, 1, 9404080, 98000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2453, 1, 9404071, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2454, 1, 5308010, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2455, 1, 3202220, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2456, 1, 3204101, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2457, 1, 1217050, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2458, 1, 3320050, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2459, 1, 9414010, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2460, 1, 8104020, 85000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2461, 1, 1212060, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2462, 1, 1306040, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2463, 1, 6109010, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3818,7 +3647,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2471, 1, 7104080, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2472, 1, 7402080, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2473, 1, 1703091, 66000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2474, 1, 9404090, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2475, 1, 3203040, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2476, 1, 5201050, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2477, 1, 1704010, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3878,39 +3706,25 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2531, 1, 3311050, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2532, 1, 1111121, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2533, 1, 1605102, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2534, 1, 9403170, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2535, 1, 9403160, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2536, 1, 9416020, 203000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2537, 1, 1506050, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2538, 1, 8101053, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2539, 1, 1111020, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2540, 1, 3309120, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2541, 1, 3529200, 41000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2542, 1, 7603031, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2543, 1, 6105200, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2544, 1, 5308050, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2545, 1, 9409010, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2546, 1, 9409020, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2547, 1, 5304102, 82000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2548, 1, 6504040, 55000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2549, 1, 1105150, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2550, 1, 7103101, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2551, 1, 3208021, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2552, 1, 8171010, 52000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2553, 1, 5105010, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2554, 1, 3301200, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2555, 1, 3202150, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2556, 1, 9414030, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2557, 1, 8204020, 117000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2558, 1, 8204010, 117000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2559, 1, 5371030, 50000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2560, 1, 5304072, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2561, 1, 9401020, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2562, 1, 9417020, 108000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2563, 1, 3527050, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2564, 1, 5308060, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2565, 1, 1217040, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2566, 1, 9105100, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2567, 1, 3209031, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2568, 1, 3322050, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2569, 1, 5302030, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -3936,7 +3750,8 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2589, 1, 1371040, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2590, 1, 1109140, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2591, 1, 1371050, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2592, 1, 1213110, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
+(2592, 1, 1213110, 48000, 1, '2015-02-13 22:00:41', NULL, NULL);
+INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
 (2593, 1, 1702030, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2594, 1, 1371070, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2595, 1, 3522230, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4008,7 +3823,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2661, 1, 3213190, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2662, 1, 3604090, 13000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2663, 1, 3207120, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2664, 1, 7601020, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2665, 1, 3528050, 22000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2666, 1, 1502030, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2667, 1, 3204170, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4021,7 +3835,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2674, 1, 6302180, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2675, 1, 6302200, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2676, 1, 3211032, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2677, 1, 7603030, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2678, 1, 1207160, 72000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2679, 1, 1207140, 72000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2680, 1, 1207150, 72000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4044,7 +3857,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2697, 1, 1110020, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2698, 1, 1209090, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2699, 1, 3520080, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2700, 1, 7604051, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2701, 1, 3204040, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2702, 1, 1205090, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2703, 1, 3205212, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4065,7 +3877,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2718, 1, 3521070, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2719, 1, 3209201, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2720, 1, 1217080, 38000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2721, 1, 9410080, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2722, 1, 3601060, 13000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2723, 1, 3326020, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2724, 1, 3207290, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4073,12 +3884,9 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2726, 1, 3401030, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2727, 1, 3512120, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2728, 1, 3603040, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2729, 1, 9419060, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2730, 1, 5314050, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2731, 1, 1218110, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2732, 1, 9415010, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2733, 1, 1212280, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2734, 1, 9419022, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2735, 1, 5307010, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2736, 1, 5307011, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2737, 1, 1118070, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4091,7 +3899,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2744, 1, 1202053, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2745, 1, 3210160, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2746, 1, 6301010, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2747, 1, 7604031, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2748, 1, 3506180, 24000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2749, 1, 3323010, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2750, 1, 3202250, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4118,7 +3925,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2771, 1, 3206061, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2772, 1, 3209011, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2773, 1, 1312080, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2774, 1, 7605030, 49000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2775, 1, 1571040, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2776, 1, 3372030, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2777, 1, 3214090, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4139,7 +3945,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2792, 1, 7315050, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2793, 1, 1306061, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2794, 1, 6212040, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2795, 1, 8202042, 117000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2796, 1, 3279030, 13000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2797, 1, 3324040, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2798, 1, 3324160, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4274,7 +4079,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2927, 1, 7406061, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2928, 1, 7406050, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2929, 1, 5304021, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2930, 1, 7602050, 49000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2931, 1, 3311070, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2932, 1, 7404020, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2933, 1, 3507100, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4299,7 +4103,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2952, 1, 1672030, 31000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2953, 1, 1672020, 31000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2954, 1, 3312010, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(2955, 1, 9105120, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2956, 1, 3529010, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2957, 1, 3511160, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2958, 1, 3404090, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4345,7 +4148,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (2998, 1, 6302030, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (2999, 1, 6302040, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3000, 1, 6302060, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3001, 1, 8204070, 117000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3002, 1, 6209070, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3003, 1, 1802030, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3004, 1, 6203090, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4355,7 +4157,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3008, 1, 6302050, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3009, 1, 6302010, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3010, 1, 2103043, 95000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3011, 1, 8105030, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3012, 1, 1214020, 72000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3013, 1, 3503060, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3014, 1, 3315060, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4432,7 +4233,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3085, 1, 1971010, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3086, 1, 7318012, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3087, 1, 7105070, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3088, 1, 9105040, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3089, 1, 1114030, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3090, 1, 1610030, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3091, 1, 6304110, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4505,7 +4305,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3158, 1, 3529130, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3159, 1, 1471080, 37000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3160, 1, 1471081, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3161, 1, 9103070, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3162, 1, 7406030, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3163, 1, 1406062, 47000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3164, 1, 3201260, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4523,11 +4322,9 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3176, 1, 5320060, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3177, 1, 3207240, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3178, 1, 3305220, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3179, 1, 1506060, 39000, 1, '2015-02-13 22:00:41', NULL, NULL);
-INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
+(3179, 1, 1506060, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3180, 1, 3213010, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3181, 1, 3202080, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3182, 1, 8201100, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3183, 1, 1471040, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3184, 1, 1203160, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3185, 1, 6101043, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4546,7 +4343,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3198, 1, 1101040, 90000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3199, 1, 1213020, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3200, 1, 6101022, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3201, 1, 9107120, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3202, 1, 3206110, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3203, 1, 3317040, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3204, 1, 3329010, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4576,15 +4372,12 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3228, 1, 3502040, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3229, 1, 3316060, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3230, 1, 3401120, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3231, 1, 9409060, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3232, 1, 7604032, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3233, 1, 6302190, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3234, 1, 3301170, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3235, 1, 7401070, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3236, 1, 3502150, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3237, 1, 1111130, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3238, 1, 6209090, 93000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3239, 1, 8203020, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3240, 1, 3505180, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3241, 1, 3572030, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3242, 1, 6106100, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4603,7 +4396,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3255, 1, 7107010, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3256, 1, 6404050, 65000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3257, 1, 7101120, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3258, 1, 8103080, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3259, 1, 5206060, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3260, 1, 3529230, 41000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3261, 1, 3307030, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4612,28 +4404,22 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3264, 1, 7171020, 42000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3265, 1, 3524141, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3266, 1, 3206211, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3267, 1, 9419050, 108000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3268, 1, 1503040, 31000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3269, 1, 3529030, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3270, 1, 7605010, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3271, 1, 5306021, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3272, 1, 6310030, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3273, 1, 9109050, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3274, 1, 7208010, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3275, 1, 7410010, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3276, 1, 3173070, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3277, 1, 3519140, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3278, 1, 9428032, 203000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3279, 1, 5108070, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3280, 1, 1103070, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3281, 1, 3276010, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3282, 1, 7402051, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3283, 1, 9106080, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3284, 1, 3309080, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3285, 1, 1213100, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3286, 1, 3502050, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3287, 1, 6110030, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3288, 1, 9107180, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3289, 1, 3321040, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3290, 1, 1203011, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3291, 1, 6271011, 30000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4654,9 +4440,7 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3306, 1, 3209070, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3307, 1, 6405080, 77000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3308, 1, 7309091, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3309, 1, 9107130, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3310, 1, 1701050, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3311, 1, 9107131, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3312, 1, 1219010, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3313, 1, 2171040, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3314, 1, 1213030, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4684,7 +4468,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3336, 1, 3208040, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3337, 1, 6101010, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3338, 1, 1605031, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3339, 1, 8101043, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3340, 1, 6203040, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3341, 1, 1902063, 33000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3342, 1, 1771010, 22000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4711,7 +4494,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3363, 1, 1802011, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3364, 1, 3578230, 17000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3365, 1, 3523120, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3366, 1, 9401041, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3367, 1, 3403060, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3368, 1, 3374140, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3369, 1, 3374050, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4742,11 +4524,7 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3394, 1, 3508160, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3395, 1, 3173030, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3396, 1, 6103040, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3397, 1, 9420020, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3398, 1, 3523030, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3399, 1, 9403230, 108000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3400, 1, 9403220, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3401, 1, 9403240, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3402, 1, 3401060, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3403, 1, 6409040, 116000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3404, 1, 6211030, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4758,17 +4536,14 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3410, 1, 1805100, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3411, 1, 1805070, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3412, 1, 1805130, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3413, 1, 8106020, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3414, 1, 8107020, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3415, 1, 8103140, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3416, 1, 3673040, 9000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3417, 1, 3216021, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3418, 1, 2103060, 95000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3419, 1, 6107060, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3420, 1, 9106071, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3421, 1, 3372020, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3422, 1, 5108020, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3423, 1, 3674020, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
+(3423, 1, 3674020, 8000, 1, '2015-02-13 22:00:41', NULL, NULL);
+INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
 (3424, 1, 6208010, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3425, 1, 6208050, 93000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3426, 1, 6208040, 93000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4870,7 +4645,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3522, 1, 3202111, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3523, 1, 6306070, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3524, 1, 1409041, 71000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3525, 1, 9433040, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3526, 1, 3210091, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3527, 1, 1702031, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3528, 1, 3203020, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4915,15 +4689,12 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3567, 1, 3329050, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3568, 1, 1204081, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3569, 1, 7205120, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3570, 1, 8171020, 52000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3571, 1, 9410081, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3572, 1, 1204041, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3573, 1, 1501050, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3574, 1, 1311030, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3575, 1, 3512100, 24000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3576, 1, 3211070, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3577, 1, 3326101, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3578, 1, 9420050, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3579, 1, 3502020, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3580, 1, 3328100, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3581, 1, 3404130, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4954,15 +4725,11 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3606, 1, 3204190, 10000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3607, 1, 1204060, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3608, 1, 1204061, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3609, 1, 9171022, 80000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3610, 1, 9171010, 80000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3611, 1, 9171020, 80000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3612, 1, 7403090, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3613, 1, 1221050, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3614, 1, 1601070, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3615, 1, 1221010, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3616, 1, 1204071, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3617, 1, 9401044, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3618, 1, 7203071, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3619, 1, 3314100, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3620, 1, 3326100, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4973,7 +4740,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3625, 1, 3308050, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3626, 1, 3305140, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3627, 1, 1213070, 38000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3628, 1, 9415040, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3629, 1, 6101041, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3630, 1, 3213070, 13000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3631, 1, 2103061, 95000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -4981,7 +4747,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3633, 1, 3205211, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3634, 1, 3501120, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3635, 1, 5203081, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3636, 1, 9435020, 125000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3637, 1, 3522070, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3638, 1, 3524070, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3639, 1, 6108150, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5016,7 +4781,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3668, 1, 3216111, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3669, 1, 5104010, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3670, 1, 3205220, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3671, 1, 9434010, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3672, 1, 3524120, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3673, 1, 3508130, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3674, 1, 3307051, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5030,13 +4794,10 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3682, 1, 3509270, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3683, 1, 3212220, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3684, 1, 3573020, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3685, 1, 8203010, 117000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3686, 1, 5303150, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3687, 1, 3317080, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3688, 1, 7317020, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3689, 1, 1175040, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3690, 1, 7505040, 67000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3691, 1, 7603010, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3692, 1, 1508021, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3693, 1, 3302210, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3694, 1, 5204080, 35000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5095,9 +4856,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3747, 1, 1806070, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3748, 1, 1806080, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3749, 1, 1801052, 66000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3750, 1, 9427010, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3751, 1, 9427030, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3752, 1, 9427020, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3753, 1, 7315010, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3754, 1, 3328170, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3755, 1, 3202030, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5111,7 +4869,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3763, 1, 1302070, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3764, 1, 6102051, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3765, 1, 3505060, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3766, 1, 7504030, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3767, 1, 1111140, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3768, 1, 1111040, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3769, 1, 1171040, 33000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5124,7 +4881,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3776, 1, 7103060, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3777, 1, 7103070, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3778, 1, 7103100, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3779, 1, 7603100, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3780, 1, 5302020, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3781, 1, 6304010, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3782, 1, 5303121, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5151,8 +4907,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3803, 1, 1603080, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3804, 1, 3529050, 41000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3805, 1, 3205020, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3806, 1, 8203060, 117000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3807, 1, 8203050, 117000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3808, 1, 5310040, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3809, 1, 6405020, 77000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3810, 1, 5207030, 35000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5193,7 +4947,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3845, 1, 1209060, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3846, 1, 1111120, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3847, 1, 1403040, 71000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3848, 1, 9401042, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3849, 1, 1111150, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3850, 1, 1210120, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3851, 1, 6110020, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5205,7 +4958,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3857, 1, 1509050, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3858, 1, 3604271, 13000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3859, 1, 3578150, 17000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3860, 1, 7603060, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3861, 1, 1407020, 47000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3862, 1, 7310010, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3863, 1, 7311720, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5221,9 +4973,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3873, 1, 3504050, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3874, 1, 3315190, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3875, 1, 1109100, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3876, 1, 8101040, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3877, 1, 8101050, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3878, 1, 8106040, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3879, 1, 6309060, 42000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3880, 1, 1603020, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3881, 1, 1272020, 38000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5265,8 +5014,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3917, 1, 7308050, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3918, 1, 6309050, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3919, 1, 1103050, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3920, 1, 7604011, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3921, 1, 7602042, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3922, 1, 3511070, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3923, 1, 1209140, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3924, 1, 1204040, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5315,14 +5062,12 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3967, 1, 3511140, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3968, 1, 3510040, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3969, 1, 3501090, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3970, 1, 3471140, 16000, 1, '2015-02-13 22:00:41', NULL, NULL);
-INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
+(3970, 1, 3471140, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3971, 1, 3510071, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3972, 1, 3513060, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3973, 1, 3215011, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3974, 1, 1809070, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3975, 1, 3315180, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3976, 1, 8103040, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3977, 1, 5108090, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3978, 1, 6101031, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3979, 1, 3508070, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5335,9 +5080,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3986, 1, 7314020, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3987, 1, 7373040, 49000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3988, 1, 6112040, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3989, 1, 8171031, 52000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3990, 1, 8171030, 52000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3991, 1, 9102020, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3992, 1, 6111040, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3993, 1, 6405090, 77000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3994, 1, 1871010, 17000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5345,10 +5087,7 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (3996, 1, 1871050, 17000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3997, 1, 2102040, 63000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (3998, 1, 1214030, 38000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(3999, 1, 9102040, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4000, 1, 6101060, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4001, 1, 9404081, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4002, 1, 9108041, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4003, 1, 1218090, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4004, 1, 1404042, 47000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4005, 1, 5307050, 82000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5356,7 +5095,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (4007, 1, 6404042, 52000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4008, 1, 2102051, 63000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4009, 1, 1771030, 22000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4010, 1, 9404061, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4011, 1, 3215032, 9000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4012, 1, 3215031, 9000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4013, 1, 3603200, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5368,8 +5106,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (4019, 1, 1403060, 37000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4020, 1, 1403061, 47000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4021, 1, 5106030, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4022, 1, 9104060, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4023, 1, 9106070, 115000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4024, 1, 3401010, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4025, 1, 7313020, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4026, 1, 3508050, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5391,15 +5127,12 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (4042, 1, 3578050, 17000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4043, 1, 3201290, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4044, 1, 3201051, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4045, 1, 8103060, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4046, 1, 3403040, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4047, 1, 5203030, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4048, 1, 3309070, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4049, 1, 1706030, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4050, 1, 6112020, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4051, 1, 6102041, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4052, 1, 8271020, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4053, 1, 8271030, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4054, 1, 3325060, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4055, 1, 1805090, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4056, 1, 1116010, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5410,15 +5143,9 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (4061, 1, 6205050, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4062, 1, 6205040, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4063, 1, 7502030, 67000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4064, 1, 8272030, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4065, 1, 8272010, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4066, 1, 8272020, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4067, 1, 1211030, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4068, 1, 1210100, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4069, 1, 3603020, 8000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4070, 1, 9436030, 125000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4071, 1, 9436020, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4072, 1, 9436040, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4073, 1, 1303061, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4074, 1, 7171031, 42000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4075, 1, 3524140, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5427,14 +5154,12 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (4078, 1, 1117010, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4079, 1, 6203160, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4080, 1, 1216021, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4081, 1, 7602010, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4082, 1, 7405010, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4083, 1, 7201040, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4084, 1, 7306070, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4085, 1, 3373020, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4086, 1, 7208040, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4087, 1, 7208041, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4088, 1, 9430030, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4089, 1, 7404050, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4090, 1, 3513080, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4091, 1, 1109090, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5449,9 +5174,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (4100, 1, 3323031, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4101, 1, 3511050, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4102, 1, 6105010, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4103, 1, 7604054, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4104, 1, 8205040, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4105, 1, 8205030, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4106, 1, 1905030, 32000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4107, 1, 3316160, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4108, 1, 7209070, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5460,14 +5182,12 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (4111, 1, 7209020, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4112, 1, 7209010, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4113, 1, 7502042, 67000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4114, 1, 7505050, 67000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4115, 1, 7102160, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4116, 1, 7109050, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4117, 1, 7306071, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4118, 1, 7102171, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4119, 1, 7407020, 117000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4120, 1, 7208050, 73000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4121, 1, 7604033, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4122, 1, 3211120, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4123, 1, 7173022, 58000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4124, 1, 7173010, 58000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5488,8 +5208,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (4139, 1, 7402010, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4140, 1, 3329060, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4141, 1, 7311050, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4142, 1, 7604052, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4143, 1, 9419040, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4144, 1, 1222020, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4145, 1, 3527020, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4146, 1, 3315040, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5574,9 +5292,7 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (4225, 1, 3319040, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4226, 1, 3322151, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4227, 1, 3322152, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4228, 1, 9403180, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4229, 1, 6309090, 53000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4230, 1, 9404050, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4231, 1, 1306070, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4232, 1, 1306071, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4233, 1, 1508041, 39000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5584,10 +5300,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (4235, 1, 3211100, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4236, 1, 5313121, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4237, 1, 3507210, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4238, 1, 9108050, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4239, 1, 9108040, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4240, 1, 9108080, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4241, 1, 9108060, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4242, 1, 5310041, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4243, 1, 3507110, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4244, 1, 7371060, 32000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5598,8 +5310,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (4249, 1, 3209010, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4250, 1, 7317080, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4251, 1, 3202021, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4252, 1, 9402110, 108000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4253, 1, 9104040, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4254, 1, 1213080, 48000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4255, 1, 3304100, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4256, 1, 3205210, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5608,23 +5318,14 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (4259, 1, 3602011, 13000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4260, 1, 3329140, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4261, 1, 3214080, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4262, 1, 9435060, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4263, 1, 7171021, 42000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4264, 1, 9404070, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4265, 1, 7407040, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4266, 1, 7407050, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4267, 1, 3302020, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4268, 1, 9426014, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4269, 1, 7373020, 49000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4270, 1, 7373010, 49000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4271, 1, 7373030, 49000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4272, 1, 3604180, 13000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4273, 1, 9420030, 108000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4274, 1, 9105110, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4275, 1, 9428030, 203000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4276, 1, 9426010, 203000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4277, 1, 9413050, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4278, 1, 9409090, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4279, 1, 3528110, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4280, 1, 3272030, 9000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4281, 1, 3202120, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5632,11 +5333,9 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (4283, 1, 3203130, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4284, 1, 3327011, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4285, 1, 3328180, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4286, 1, 8206030, 117000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4287, 1, 8206020, 117000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4288, 1, 9103030, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4289, 1, 7314030, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4290, 1, 7315040, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
+(4290, 1, 7315040, 62000, 1, '2015-02-13 22:00:41', NULL, NULL);
+INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
 (4291, 1, 3401020, 20000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4292, 1, 7402062, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4293, 1, 7404010, 78000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5655,9 +5354,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (4306, 1, 1803092, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4307, 1, 1801061, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4308, 1, 1807041, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4309, 1, 9106072, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4310, 1, 9420010, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4311, 1, 8202030, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4312, 1, 3318150, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4313, 1, 3310030, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4314, 1, 3321130, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5665,7 +5361,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (4316, 1, 3324120, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4317, 1, 7171030, 42000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4318, 1, 5206070, 44000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4319, 1, 8107030, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4320, 1, 3209150, 16000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4321, 1, 5311071, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4322, 1, 5317050, 123000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5677,7 +5372,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (4328, 1, 3521150, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4329, 1, 1117040, 60000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4330, 1, 3518160, 27000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4331, 1, 9103050, 144000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4332, 1, 3308160, 23000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4333, 1, 3318040, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4334, 1, 3514210, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5705,7 +5399,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (4356, 1, 3326161, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4357, 1, 3578110, 17000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4358, 1, 3513210, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4359, 1, 7602040, 62000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4360, 1, 3326120, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4361, 1, 3514080, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4362, 1, 3321080, 25000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -5730,13 +5423,6 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (4381, 1, 1303120, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4382, 1, 1303130, 43000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4383, 1, 1406020, 71000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4384, 1, 9408070, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4385, 1, 9408060, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4386, 1, 9408040, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4387, 1, 9404110, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4388, 1, 8101051, 161000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4389, 1, 9404060, 157000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4390, 1, 9409070, 135000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4391, 1, 3508090, 29000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4392, 2, 6471050, 45000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4393, 2, 6471010, 45000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -6106,8 +5792,7 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (4757, 2, 3671050, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4758, 2, 3276050, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4759, 2, 3275060, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4760, 2, 3275050, 15000, 1, '2015-02-13 22:00:41', NULL, NULL);
-INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
+(4760, 2, 3275050, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4761, 2, 3275040, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4762, 2, 3275070, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4763, 2, 3671060, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
@@ -6191,7 +5876,497 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 (4841, 2, 3216100, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4842, 2, 3171090, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
 (4843, 2, 3603200, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
-(4844, 2, 3603020, 15000, 1, '2015-02-13 22:00:41', NULL, NULL);
+(4844, 2, 3603020, 15000, 1, '2015-02-13 22:00:41', NULL, NULL),
+(4845, 1, 1306052, 8000, NULL, NULL, NULL, NULL),
+(4846, 1, 0, 17000, 9, '2015-02-25 11:13:46', NULL, NULL),
+(4847, 1, 3173020, 8000, 9, '2015-02-25 11:14:21', NULL, NULL),
+(4848, 1, 3173010, 8000, 9, '2015-02-25 11:14:48', NULL, NULL),
+(4849, 1, 3171070, 8000, 9, '2015-02-25 11:29:16', NULL, NULL),
+(4850, 1, 5271031, 25000, 9, '2015-02-25 11:30:35', NULL, NULL),
+(4851, 1, 5271011, 25000, 9, '2015-02-25 11:30:37', NULL, NULL),
+(4852, 1, 5271021, 25000, 9, '2015-02-25 11:30:40', NULL, NULL),
+(4853, 1, 5205051, 44000, 9, '2015-02-25 11:32:19', NULL, NULL),
+(4854, 1, 5203050, 44000, 9, '2015-02-25 11:33:15', NULL, NULL),
+(4855, 1, 5204070, 66000, 9, '2015-02-25 11:33:56', NULL, NULL),
+(4856, 1, 5204052, 66000, 9, '2015-02-25 11:35:01', NULL, NULL),
+(4857, 1, 5204121, 44000, 9, '2015-02-25 11:35:40', NULL, NULL),
+(4858, 1, 5204112, 66000, 9, '2015-02-25 11:35:57', NULL, NULL),
+(4859, 1, 5204111, 66000, 9, '2015-02-25 11:36:17', NULL, NULL),
+(4860, 1, 5204122, 44000, 9, '2015-02-25 11:36:27', NULL, NULL),
+(4861, 1, 5204132, 66000, 9, '2015-02-25 11:36:42', NULL, NULL),
+(4862, 1, 5204091, 60000, 9, '2015-02-25 11:36:45', NULL, NULL),
+(4863, 1, 5204021, 66000, 9, '2015-02-25 11:37:01', NULL, NULL),
+(4864, 1, 5204062, 44000, 9, '2015-02-25 11:37:11', NULL, NULL),
+(4865, 1, 5204061, 40000, 9, '2015-02-25 11:37:14', NULL, NULL),
+(4866, 1, 5204082, 66000, 9, '2015-02-25 11:37:29', NULL, NULL),
+(4867, 1, 5204141, 66000, 9, '2015-02-25 11:37:34', NULL, NULL),
+(4868, 1, 5201060, 44000, 9, '2015-02-25 11:38:05', NULL, NULL),
+(4869, 1, 5201010, 66000, 9, '2015-02-25 11:38:21', NULL, NULL),
+(4870, 1, 5207031, 44000, 9, '2015-02-25 11:40:08', NULL, NULL),
+(4871, 1, 5207021, 66000, 9, '2015-02-25 11:40:29', NULL, NULL),
+(4872, 1, 5207051, 66000, 9, '2015-02-25 11:40:32', NULL, NULL),
+(4873, 1, 5206052, 66000, 9, '2015-02-25 11:41:10', NULL, NULL),
+(4874, 1, 5206041, 66000, 9, '2015-02-25 11:41:19', NULL, NULL),
+(4875, 1, 5206011, 66000, 9, '2015-02-25 11:41:22', NULL, NULL),
+(4876, 1, 5206081, 66000, 9, '2015-02-25 11:41:38', NULL, NULL),
+(4925, 1, 6307041, 53000, 9, '2015-02-25 11:49:45', NULL, NULL),
+(4926, 1, 6307091, 53000, 9, '2015-02-25 11:49:47', NULL, NULL),
+(4927, 1, 6302021, 53000, 9, '2015-02-25 11:50:51', NULL, NULL),
+(4928, 1, 6302061, 53000, 9, '2015-02-25 11:50:52', NULL, NULL),
+(4929, 1, 6302031, 53000, 9, '2015-02-25 11:50:53', NULL, NULL),
+(4930, 1, 6302201, 53000, 9, '2015-02-25 11:50:55', NULL, NULL),
+(4931, 1, 6302121, 53000, 9, '2015-02-25 11:50:55', NULL, NULL),
+(4932, 1, 6302161, 53000, 9, '2015-02-25 11:50:57', NULL, NULL),
+(4934, 1, 6372032, 30000, 9, '2015-02-25 11:52:51', NULL, NULL),
+(4935, 1, 6372031, 30000, 9, '2015-02-25 11:52:52', NULL, NULL),
+(4936, 1, 6372020, 30000, 9, '2015-02-25 11:52:52', NULL, NULL),
+(4937, 1, 6372010, 30000, 9, '2015-02-25 11:52:53', NULL, NULL),
+(4938, 1, 6372011, 30000, 9, '2015-02-25 11:55:33', NULL, NULL),
+(4939, 1, 6308071, 53000, 9, '2015-02-25 11:57:21', NULL, NULL),
+(4940, 1, 6308011, 53000, 9, '2015-02-25 11:57:23', NULL, NULL),
+(4941, 1, 6308031, 53000, 9, '2015-02-25 11:57:24', NULL, NULL),
+(4942, 1, 6304071, 53000, 9, '2015-02-25 11:57:43', NULL, NULL),
+(4943, 1, 6304160, 53000, 9, '2015-02-25 11:57:47', NULL, NULL),
+(4944, 1, 6303011, 53000, 9, '2015-02-25 11:59:34', NULL, NULL),
+(4945, 1, 6303052, 53000, 9, '2015-02-25 11:59:35', NULL, NULL),
+(4946, 1, 6303051, 53000, 9, '2015-02-25 11:59:36', NULL, NULL),
+(4947, 1, 6303091, 53000, 9, '2015-02-25 11:59:39', NULL, NULL),
+(4948, 1, 6303101, 53000, 9, '2015-02-25 11:59:42', NULL, NULL),
+(4949, 1, 6303031, 53000, 9, '2015-02-25 11:59:46', NULL, NULL),
+(4950, 1, 6303121, 53000, 9, '2015-02-25 11:59:47', NULL, NULL),
+(4951, 1, 6301061, 53000, 9, '2015-02-25 12:00:43', NULL, NULL),
+(4952, 1, 6301040, 53000, 9, '2015-02-25 12:00:44', NULL, NULL),
+(4953, 1, 6301031, 53000, 9, '2015-02-25 12:02:20', NULL, NULL),
+(4954, 1, 6305060, 53000, 9, '2015-02-25 12:03:46', NULL, NULL),
+(4955, 1, 6305050, 53000, 9, '2015-02-25 12:06:21', NULL, NULL),
+(4956, 1, 6305020, 53000, 9, '2015-02-25 12:06:23', NULL, NULL),
+(4957, 1, 6305030, 53000, 9, '2015-02-25 12:06:23', NULL, NULL),
+(4958, 1, 6305070, 53000, 9, '2015-02-25 12:06:25', NULL, NULL),
+(4959, 1, 6205061, 53000, 9, '2015-02-25 12:07:20', NULL, NULL),
+(4960, 1, 6205051, 53000, 9, '2015-02-25 12:07:25', NULL, NULL),
+(4961, 1, 6205052, 53000, 9, '2015-02-25 12:07:31', NULL, NULL),
+(4963, 1, 6212053, 53000, 9, '2015-02-25 12:11:56', NULL, NULL),
+(4964, 1, 6212021, 53000, 9, '2015-02-25 12:11:57', NULL, NULL),
+(4965, 1, 6212052, 53000, 9, '2015-02-25 12:11:59', NULL, NULL),
+(4966, 1, 6212051, 53000, 9, '2015-02-25 12:12:04', NULL, NULL),
+(4969, 1, 6311041, 53000, 9, '2015-02-25 12:16:05', NULL, NULL),
+(4970, 1, 6311031, 53000, 9, '2015-02-25 12:16:06', NULL, NULL),
+(4971, 1, 6310053, 53000, 9, '2015-02-25 12:16:32', NULL, NULL),
+(4972, 1, 6310052, 53000, 9, '2015-02-25 12:16:34', NULL, NULL),
+(4973, 1, 6310051, 53000, 9, '2015-02-25 12:16:36', NULL, NULL),
+(4974, 1, 6310031, 53000, 9, '2015-02-25 12:16:45', NULL, NULL),
+(4975, 1, 3273141, 10000, 9, '2015-02-25 14:16:09', NULL, NULL),
+(4976, 1, 3273020, 10000, 9, '2015-02-25 14:16:12', NULL, NULL),
+(4977, 1, 3273090, 10000, 9, '2015-02-25 14:16:13', NULL, NULL),
+(4978, 1, 3273121, 10000, 9, '2015-02-25 14:16:21', NULL, NULL),
+(4979, 1, 3273101, 10000, 9, '2015-02-25 14:16:23', NULL, NULL),
+(4980, 1, 3273142, 10000, 9, '2015-02-25 14:16:24', NULL, NULL),
+(4981, 1, 3273111, 10000, 9, '2015-02-25 14:16:26', NULL, NULL),
+(4982, 1, 3273170, 10000, 9, '2015-02-25 14:16:26', NULL, NULL),
+(4983, 1, 3273120, 10000, 9, '2015-02-25 14:16:29', NULL, NULL),
+(4984, 1, 3204280, 16000, 9, '2015-02-25 14:17:15', NULL, NULL),
+(4985, 1, 3204191, 16000, 9, '2015-02-25 14:17:24', NULL, NULL),
+(4986, 1, 3211020, 16000, 9, '2015-02-25 14:18:18', NULL, NULL),
+(4987, 1, 3211150, 16000, 9, '2015-02-25 14:18:21', NULL, NULL),
+(4988, 1, 3211031, 16000, 9, '2015-02-25 14:18:45', NULL, NULL),
+(4989, 1, 3278031, 13000, 9, '2015-02-25 14:19:20', NULL, NULL),
+(4990, 1, 3207291, 16000, 9, '2015-02-25 14:20:29', NULL, NULL),
+(4991, 1, 3207170, 16000, 9, '2015-02-25 14:20:30', NULL, NULL),
+(4992, 1, 3206161, 16000, 9, '2015-02-25 14:21:22', NULL, NULL),
+(4993, 1, 3205290, 16000, 9, '2015-02-25 14:22:20', NULL, NULL),
+(4994, 1, 3205080, 16000, 9, '2015-02-25 14:22:21', NULL, NULL),
+(4995, 1, 3205070, 16000, 9, '2015-02-25 14:22:27', NULL, NULL),
+(4996, 1, 3205040, 16000, 9, '2015-02-25 14:22:29', NULL, NULL),
+(4997, 1, 3214112, 16000, 9, '2015-02-25 14:23:09', NULL, NULL),
+(4998, 1, 3214111, 16000, 9, '2015-02-25 14:23:10', NULL, NULL),
+(4999, 1, 3214091, 16000, 9, '2015-02-25 14:23:11', NULL, NULL),
+(5000, 1, 3214011, 16000, 9, '2015-02-25 14:23:13', NULL, NULL),
+(5001, 1, 3214030, 16000, 9, '2015-02-25 14:23:18', NULL, NULL),
+(5002, 1, 3217130, 16000, 9, '2015-02-25 14:23:49', NULL, NULL),
+(5003, 1, 3217071, 16000, 9, '2015-02-25 14:23:53', NULL, NULL),
+(5004, 1, 3213210, 16000, 9, '2015-02-25 14:24:17', NULL, NULL),
+(5005, 1, 3213141, 16000, 9, '2015-02-25 14:24:18', NULL, NULL),
+(5006, 1, 3213110, 16000, 9, '2015-02-25 14:24:21', NULL, NULL),
+(5007, 1, 3213120, 16000, 9, '2015-02-25 14:24:22', NULL, NULL),
+(5008, 1, 3213201, 16000, 9, '2015-02-25 14:24:26', NULL, NULL),
+(5009, 1, 3213011, 16000, 9, '2015-02-25 14:24:42', NULL, NULL),
+(5010, 1, 3213191, 16000, 9, '2015-02-25 14:24:43', NULL, NULL),
+(5011, 1, 3213171, 16000, 9, '2015-02-25 14:24:44', NULL, NULL),
+(5012, 1, 3213040, 16000, 9, '2015-02-25 14:24:46', NULL, NULL),
+(5013, 1, 3275030, 8000, 9, '2015-02-25 14:25:13', NULL, NULL),
+(5014, 1, 3275031, 8000, 9, '2015-02-25 14:25:21', NULL, NULL),
+(5015, 1, 3275012, 8000, 9, '2015-02-25 14:25:24', NULL, NULL),
+(5016, 1, 3216031, 8000, 9, '2015-02-25 14:25:50', NULL, NULL),
+(5017, 1, 3216010, 8000, 9, '2015-02-25 14:25:57', NULL, NULL),
+(5018, 1, 3216120, 8000, 9, '2015-02-25 14:25:58', NULL, NULL),
+(5019, 1, 1771040, 22000, 9, '2015-02-25 14:27:28', NULL, NULL),
+(5020, 1, 1771023, 22000, 9, '2015-02-25 14:27:44', NULL, NULL),
+(5021, 1, 1703073, 44000, 9, '2015-02-25 14:28:09', NULL, NULL),
+(5022, 1, 1703061, 44000, 9, '2015-02-25 14:28:24', NULL, NULL),
+(5023, 1, 1703072, 44000, 9, '2015-02-25 14:28:33', NULL, NULL),
+(5024, 1, 1703053, 44000, 9, '2015-02-25 14:28:42', NULL, NULL),
+(5025, 1, 1703054, 44000, 9, '2015-02-25 14:29:15', NULL, NULL),
+(5026, 1, 1703092, 44000, 9, '2015-02-25 14:29:16', NULL, NULL),
+(5027, 1, 1702045, 44000, 9, '2015-02-25 14:29:36', NULL, NULL),
+(5028, 1, 1702032, 44000, 9, '2015-02-25 14:29:37', NULL, NULL),
+(5029, 1, 1702043, 44000, 9, '2015-02-25 14:29:38', NULL, NULL),
+(5030, 1, 1702047, 44000, 9, '2015-02-25 14:29:39', NULL, NULL),
+(5031, 1, 1702044, 44000, 9, '2015-02-25 14:29:40', NULL, NULL),
+(5032, 1, 1702046, 44000, 9, '2015-02-25 14:29:41', NULL, NULL),
+(5033, 1, 1702021, 44000, 9, '2015-02-25 14:29:42', NULL, NULL),
+(5034, 1, 1702033, 44000, 9, '2015-02-25 14:29:43', NULL, NULL),
+(5035, 1, 1702034, 44000, 9, '2015-02-25 14:29:44', NULL, NULL),
+(5036, 1, 1701045, 44000, 9, '2015-02-25 14:30:18', NULL, NULL),
+(5037, 1, 1701043, 44000, 9, '2015-02-25 14:30:21', NULL, NULL),
+(5038, 1, 1701051, 44000, 9, '2015-02-25 14:30:22', NULL, NULL),
+(5039, 1, 1701044, 44000, 9, '2015-02-25 14:30:24', NULL, NULL),
+(5040, 1, 1701062, 44000, 9, '2015-02-25 14:30:26', NULL, NULL),
+(5041, 1, 1704061, 44000, 9, '2015-02-25 14:30:57', NULL, NULL),
+(5042, 1, 1704041, 44000, 9, '2015-02-25 14:31:09', NULL, NULL),
+(5043, 1, 1704042, 44000, 9, '2015-02-25 14:31:13', NULL, NULL),
+(5044, 1, 1704072, 44000, 9, '2015-02-25 14:31:14', NULL, NULL),
+(5045, 1, 1704071, 44000, 9, '2015-02-25 14:31:33', NULL, NULL),
+(5046, 1, 1704073, 44000, 9, '2015-02-25 14:31:34', NULL, NULL),
+(5047, 1, 1704051, 44000, 9, '2015-02-25 14:31:35', NULL, NULL),
+(5048, 1, 1704031, 44000, 9, '2015-02-25 14:32:10', NULL, NULL),
+(5049, 1, 1708060, 44000, 9, '2015-02-25 14:33:55', NULL, NULL),
+(5050, 1, 1708080, 44000, 9, '2015-02-25 14:33:56', NULL, NULL),
+(5051, 1, 1708010, 44000, 9, '2015-02-25 14:33:57', NULL, NULL),
+(5052, 1, 1708030, 44000, 9, '2015-02-25 14:33:57', NULL, NULL),
+(5053, 1, 1707051, 35000, 9, '2015-02-25 14:34:33', NULL, NULL),
+(5054, 1, 1707021, 35000, 9, '2015-02-25 14:34:34', NULL, NULL),
+(5055, 1, 1707031, 35000, 9, '2015-02-25 14:34:35', NULL, NULL),
+(5056, 1, 1707041, 35000, 9, '2015-02-25 14:34:36', NULL, NULL),
+(5057, 1, 1707042, 35000, 9, '2015-02-25 14:34:37', NULL, NULL),
+(5058, 1, 1707053, 35000, 9, '2015-02-25 14:34:38', NULL, NULL),
+(5059, 1, 1707011, 35000, 9, '2015-02-25 14:34:39', NULL, NULL),
+(5060, 1, 1707052, 35000, 9, '2015-02-25 14:34:40', NULL, NULL),
+(5061, 1, 1706041, 44000, 9, '2015-02-25 14:35:01', NULL, NULL),
+(5062, 1, 1706051, 44000, 9, '2015-02-25 14:35:12', NULL, NULL),
+(5063, 1, 1706011, 44000, 9, '2015-02-25 14:35:13', NULL, NULL),
+(5064, 1, 1706010, 44000, 9, '2015-02-25 14:35:14', NULL, NULL),
+(5065, 1, 1706050, 44000, 9, '2015-02-25 14:35:20', NULL, NULL),
+(5066, 1, 1706040, 35000, 9, '2015-02-25 14:35:22', NULL, NULL),
+(5067, 1, 1706012, 44000, 9, '2015-02-25 14:35:23', NULL, NULL),
+(5068, 1, 1706031, 44000, 9, '2015-02-25 14:35:23', NULL, NULL),
+(5069, 1, 1706020, 44000, 9, '2015-02-25 14:35:24', NULL, NULL),
+(5070, 1, 1706032, 44000, 9, '2015-02-25 14:35:26', NULL, NULL),
+(5071, 1, 1706022, 44000, 9, '2015-02-25 14:35:28', NULL, NULL),
+(5072, 1, 1706052, 44000, 9, '2015-02-25 14:35:29', NULL, NULL),
+(5073, 1, 1706042, 44000, 9, '2015-02-25 14:35:30', NULL, NULL),
+(5074, 1, 1705050, 44000, 9, '2015-02-25 14:36:25', NULL, NULL),
+(5076, 1, 3201181, 8000, 9, '2015-02-25 14:38:07', NULL, NULL),
+(5077, 1, 3201130, 8000, 9, '2015-02-25 14:38:11', NULL, NULL),
+(5078, 1, 3201221, 8000, 9, '2015-02-25 14:38:12', NULL, NULL),
+(5079, 1, 3201071, 8000, 9, '2015-02-25 14:38:12', NULL, NULL),
+(5080, 1, 3201161, 8000, 9, '2015-02-25 14:38:14', NULL, NULL),
+(5081, 1, 3201220, 8000, 9, '2015-02-25 14:38:18', NULL, NULL),
+(5082, 1, 3201090, 8000, 9, '2015-02-25 14:38:19', NULL, NULL),
+(5083, 1, 3201100, 8000, 9, '2015-02-25 14:38:21', NULL, NULL),
+(5084, 1, 3201110, 8000, 9, '2015-02-25 14:38:22', NULL, NULL),
+(5085, 1, 6403010, 69000, 9, '2015-02-25 14:39:53', NULL, NULL),
+(5086, 1, 6403080, 69000, 9, '2015-02-25 14:40:00', NULL, NULL),
+(5087, 1, 6405110, 77000, 9, '2015-02-25 14:40:26', NULL, NULL),
+(5088, 1, 6405100, 77000, 9, '2015-02-25 14:40:28', NULL, NULL),
+(5089, 1, 6405021, 77000, 9, '2015-02-25 14:40:29', NULL, NULL),
+(5090, 1, 6409020, 116000, 9, '2015-02-25 14:40:54', NULL, NULL),
+(5091, 1, 6409030, 116000, 9, '2015-02-25 14:40:55', NULL, NULL),
+(5092, 1, 6404031, 98000, 9, '2015-02-25 14:41:31', NULL, NULL),
+(5093, 1, 6404012, 98000, 9, '2015-02-25 14:41:42', NULL, NULL),
+(5094, 1, 6404040, 52000, 9, '2015-02-25 14:41:55', NULL, NULL),
+(5095, 1, 2171051, 25000, 9, '2015-02-25 14:43:55', NULL, NULL),
+(5096, 1, 2171061, 25000, 9, '2015-02-25 14:43:56', NULL, NULL),
+(5097, 1, 2171080, 25000, 9, '2015-02-25 14:43:57', NULL, NULL),
+(5098, 1, 2171081, 25000, 9, '2015-02-25 14:43:57', NULL, NULL),
+(5099, 1, 2171020, 25000, 9, '2015-02-25 14:43:59', NULL, NULL),
+(5100, 1, 2171050, 25000, 9, '2015-02-25 14:43:59', NULL, NULL),
+(5101, 1, 2171041, 25000, 9, '2015-02-25 14:44:00', NULL, NULL),
+(5102, 1, 2171060, 25000, 9, '2015-02-25 14:44:02', NULL, NULL),
+(5103, 1, 2104032, 95000, 9, '2015-02-25 14:44:19', NULL, NULL),
+(5104, 1, 2104031, 95000, 9, '2015-02-25 14:44:33', NULL, NULL),
+(5105, 1, 2104022, 95000, 9, '2015-02-25 14:44:47', NULL, NULL),
+(5106, 1, 2104021, 95000, 9, '2015-02-25 14:44:47', NULL, NULL),
+(5107, 1, 2103053, 95000, 9, '2015-02-25 14:45:09', NULL, NULL),
+(5108, 1, 2103062, 95000, 9, '2015-02-25 14:45:14', NULL, NULL),
+(5109, 1, 2101011, 95000, 9, '2015-02-25 14:45:58', NULL, NULL),
+(5110, 1, 1171010, 33000, 9, '2015-02-25 14:46:27', NULL, NULL),
+(5111, 1, 1173021, 48000, 9, '2015-02-25 14:46:42', NULL, NULL),
+(5112, 1, 1174021, 48000, 9, '2015-02-25 14:46:59', NULL, NULL),
+(5113, 1, 1108130, 60000, 9, '2015-02-25 14:47:41', NULL, NULL),
+(5114, 1, 1108081, 60000, 9, '2015-02-25 14:47:45', NULL, NULL),
+(5115, 1, 1108041, 60000, 9, '2015-02-25 14:47:47', NULL, NULL),
+(5116, 1, 1108020, 60000, 9, '2015-02-25 14:47:49', NULL, NULL),
+(5117, 1, 1110060, 60000, 9, '2015-02-25 14:48:09', NULL, NULL),
+(5118, 1, 1110031, 60000, 9, '2015-02-25 14:48:12', NULL, NULL),
+(5121, 1, 1104011, 60000, 9, '2015-02-25 14:49:29', NULL, NULL),
+(5122, 1, 1104053, 60000, 9, '2015-02-25 14:49:31', NULL, NULL),
+(5123, 1, 1104052, 60000, 9, '2015-02-25 14:49:31', NULL, NULL),
+(5124, 1, 1104023, 60000, 9, '2015-02-25 14:49:32', NULL, NULL),
+(5125, 1, 1104032, 60000, 9, '2015-02-25 14:49:34', NULL, NULL),
+(5126, 1, 1104012, 60000, 9, '2015-02-25 14:49:39', NULL, NULL),
+(5128, 1, 1107080, 60000, 9, '2015-02-25 14:50:31', NULL, NULL),
+(5129, 1, 1107081, 60000, 9, '2015-02-25 14:50:32', NULL, NULL),
+(5130, 1, 1107082, 60000, 9, '2015-02-25 14:50:33', NULL, NULL),
+(5131, 1, 1107083, 60000, 9, '2015-02-25 14:50:35', NULL, NULL),
+(5133, 1, 1109071, 60000, 9, '2015-02-25 14:51:29', NULL, NULL),
+(5134, 1, 1109151, 60000, 9, '2015-02-25 14:51:31', NULL, NULL),
+(5135, 1, 1109180, 60000, 9, '2015-02-25 14:51:32', NULL, NULL),
+(5136, 1, 1109111, 60000, 9, '2015-02-25 14:51:32', NULL, NULL),
+(5137, 1, 1109200, 48000, 9, '2015-02-25 14:51:36', NULL, NULL),
+(5138, 1, 1109190, 60000, 9, '2015-02-25 14:52:08', NULL, NULL),
+(5139, 1, 1109112, 60000, 9, '2015-02-25 14:52:11', NULL, NULL),
+(5140, 1, 1106010, 60000, 9, '2015-02-25 14:52:30', NULL, NULL),
+(5141, 1, 1106031, 60000, 9, '2015-02-25 14:52:31', NULL, NULL),
+(5142, 1, 1103022, 60000, 9, '2015-02-25 14:52:49', NULL, NULL),
+(5143, 1, 1103090, 60000, 9, '2015-02-25 14:52:49', NULL, NULL),
+(5144, 1, 1103012, 60000, 9, '2015-02-25 14:52:58', NULL, NULL),
+(5146, 1, 1172010, 48000, 9, '2015-02-25 14:53:52', NULL, NULL),
+(5147, 1, 1172020, 48000, 9, '2015-02-25 14:53:54', NULL, NULL),
+(5148, 1, 1112020, 60000, 9, '2015-02-25 14:54:13', NULL, NULL),
+(5149, 1, 1112021, 60000, 9, '2015-02-25 14:54:15', NULL, NULL),
+(5150, 1, 1112011, 60000, 9, '2015-02-25 14:54:18', NULL, NULL),
+(5151, 1, 1112030, 48000, 9, '2015-02-25 14:54:20', NULL, NULL),
+(5152, 1, 1116030, 48000, 9, '2015-02-25 14:54:42', NULL, NULL),
+(5153, 1, 1116051, 60000, 9, '2015-02-25 14:55:07', NULL, NULL);
+INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
+(5154, 1, 1116061, 60000, 9, '2015-02-25 14:55:08', NULL, NULL),
+(5155, 1, 1116020, 60000, 9, '2015-02-25 14:55:09', NULL, NULL),
+(5156, 1, 1116011, 60000, 9, '2015-02-25 14:55:10', NULL, NULL),
+(5157, 1, 1116050, 60000, 9, '2015-02-25 14:55:12', NULL, NULL),
+(5158, 1, 1102022, 60000, 9, '2015-02-25 14:55:26', NULL, NULL),
+(5159, 1, 1102011, 60000, 9, '2015-02-25 14:55:27', NULL, NULL),
+(5160, 1, 1102033, 60000, 9, '2015-02-25 14:55:29', NULL, NULL),
+(5161, 1, 1114011, 60000, 9, '2015-02-25 14:55:42', NULL, NULL),
+(5162, 1, 1114061, 60000, 9, '2015-02-25 14:55:43', NULL, NULL),
+(5163, 1, 1114040, 48000, 9, '2015-02-25 14:55:50', NULL, NULL),
+(5164, 1, 1114071, 60000, 9, '2015-02-25 14:55:52', NULL, NULL),
+(5165, 1, 1114050, 60000, 9, '2015-02-25 14:55:53', NULL, NULL),
+(5166, 1, 1114021, 60000, 9, '2015-02-25 14:55:53', NULL, NULL),
+(5167, 1, 1105151, 60000, 9, '2015-02-25 14:56:14', NULL, NULL),
+(5168, 1, 1105134, 60000, 9, '2015-02-25 14:56:15', NULL, NULL),
+(5169, 1, 1105135, 60000, 9, '2015-02-25 14:56:16', NULL, NULL),
+(5170, 1, 1105133, 60000, 9, '2015-02-25 14:56:17', NULL, NULL),
+(5171, 1, 1105170, 60000, 9, '2015-02-25 14:56:18', NULL, NULL),
+(5172, 1, 1105082, 60000, 9, '2015-02-25 14:56:18', NULL, NULL),
+(5173, 1, 1105080, 60000, 9, '2015-02-25 14:56:23', NULL, NULL),
+(5174, 1, 1105101, 60000, 9, '2015-02-25 14:56:24', NULL, NULL),
+(5175, 1, 1111100, 60000, 9, '2015-02-25 14:56:52', NULL, NULL),
+(5176, 1, 1111101, 60000, 9, '2015-02-25 14:56:52', NULL, NULL),
+(5177, 1, 1111022, 60000, 9, '2015-02-25 14:56:53', NULL, NULL),
+(5178, 1, 1111041, 60000, 9, '2015-02-25 14:56:55', NULL, NULL),
+(5179, 1, 1111151, 60000, 9, '2015-02-25 14:56:56', NULL, NULL),
+(5180, 1, 1111060, 60000, 9, '2015-02-25 14:56:57', NULL, NULL),
+(5181, 1, 1111021, 60000, 9, '2015-02-25 14:57:01', NULL, NULL),
+(5182, 1, 1111062, 60000, 9, '2015-02-25 14:57:02', NULL, NULL),
+(5183, 1, 1111010, 60000, 9, '2015-02-25 14:57:03', NULL, NULL),
+(5184, 1, 1111090, 60000, 9, '2015-02-25 14:57:04', NULL, NULL),
+(5185, 1, 1111031, 60000, 9, '2015-02-25 14:57:05', NULL, NULL),
+(5186, 1, 1117051, 60000, 9, '2015-02-25 14:57:32', NULL, NULL),
+(5187, 1, 1117011, 60000, 9, '2015-02-25 14:57:33', NULL, NULL),
+(5188, 1, 1117061, 60000, 9, '2015-02-25 14:57:34', NULL, NULL),
+(5189, 1, 1117020, 60000, 9, '2015-02-25 14:57:34', NULL, NULL),
+(5190, 1, 1117060, 60000, 9, '2015-02-25 14:57:36', NULL, NULL),
+(5192, 1, 1113020, 48000, 9, '2015-02-25 14:58:48', NULL, NULL),
+(5193, 1, 1113022, 60000, 9, '2015-02-25 14:58:49', NULL, NULL),
+(5194, 1, 1113041, 60000, 9, '2015-02-25 14:58:50', NULL, NULL),
+(5195, 1, 1113050, 60000, 9, '2015-02-25 14:58:50', NULL, NULL),
+(5196, 1, 1113051, 60000, 9, '2015-02-25 14:58:51', NULL, NULL),
+(5197, 1, 1115022, 60000, 9, '2015-02-25 14:59:25', NULL, NULL),
+(5198, 1, 1115011, 60000, 9, '2015-02-25 14:59:26', NULL, NULL),
+(5199, 1, 1115021, 60000, 9, '2015-02-25 14:59:26', NULL, NULL),
+(5200, 1, 1115020, 60000, 9, '2015-02-25 14:59:27', NULL, NULL),
+(5201, 1, 1115031, 60000, 9, '2015-02-25 14:59:29', NULL, NULL),
+(5202, 1, 1118060, 60000, 9, '2015-02-25 15:00:35', NULL, NULL),
+(5203, 1, 1101050, 90000, 9, '2015-02-25 15:00:49', NULL, NULL),
+(5204, 1, 1101032, 90000, 9, '2015-02-25 15:00:50', NULL, NULL),
+(5205, 1, 1101031, 90000, 9, '2015-02-25 15:00:52', NULL, NULL),
+(5206, 1, 1101022, 90000, 9, '2015-02-25 15:00:52', NULL, NULL),
+(5207, 1, 1175050, 48000, 9, '2015-02-25 15:01:06', NULL, NULL),
+(5208, 1, 3212030, 16000, 9, '2015-02-25 15:01:51', NULL, NULL),
+(5209, 1, 3212110, 16000, 9, '2015-02-25 15:01:53', NULL, NULL),
+(5210, 1, 3212162, 16000, 9, '2015-02-25 15:01:58', NULL, NULL),
+(5211, 1, 3212221, 16000, 9, '2015-02-25 15:01:59', NULL, NULL),
+(5212, 1, 3212160, 16000, 9, '2015-02-25 15:02:01', NULL, NULL),
+(5213, 1, 3212041, 16000, 9, '2015-02-25 15:02:01', NULL, NULL),
+(5214, 1, 3212061, 16000, 9, '2015-02-25 15:02:02', NULL, NULL),
+(5215, 1, 3208071, 16000, 9, '2015-02-25 15:02:37', NULL, NULL),
+(5216, 1, 3208100, 16000, 9, '2015-02-25 15:02:38', NULL, NULL),
+(5217, 1, 3208190, 16000, 9, '2015-02-25 15:02:48', NULL, NULL),
+(5218, 1, 3208121, 16000, 9, '2015-02-25 15:02:53', NULL, NULL),
+(5219, 1, 3208050, 16000, 9, '2015-02-25 15:02:53', NULL, NULL),
+(5220, 1, 3210021, 16000, 9, '2015-02-25 15:03:19', NULL, NULL),
+(5221, 1, 3210210, 16000, 9, '2015-02-25 15:03:21', NULL, NULL),
+(5222, 1, 3210041, 16000, 9, '2015-02-25 15:03:26', NULL, NULL),
+(5223, 1, 3210150, 16000, 9, '2015-02-25 15:03:32', NULL, NULL),
+(5224, 1, 3210170, 13000, 9, '2015-02-25 15:03:34', NULL, NULL),
+(5225, 1, 3210151, 16000, 9, '2015-02-25 15:03:35', NULL, NULL),
+(5226, 1, 3209101, 16000, 9, '2015-02-25 15:04:16', NULL, NULL),
+(5227, 1, 3209171, 16000, 9, '2015-02-25 15:04:17', NULL, NULL),
+(5228, 1, 3209191, 16000, 9, '2015-02-25 15:04:17', NULL, NULL),
+(5229, 1, 3209021, 16000, 9, '2015-02-25 15:04:24', NULL, NULL),
+(5230, 1, 3209151, 16000, 9, '2015-02-25 15:04:38', NULL, NULL),
+(5231, 1, 3209111, 16000, 9, '2015-02-25 15:04:48', NULL, NULL),
+(5232, 1, 3209181, 16000, 9, '2015-02-25 15:04:49', NULL, NULL),
+(5233, 1, 3174040, 8000, 9, '2015-02-25 15:05:23', NULL, NULL),
+(5234, 1, 3174080, 8000, 9, '2015-02-25 15:05:24', NULL, NULL),
+(5235, 1, 3174010, 8000, 9, '2015-02-25 15:05:25', NULL, NULL),
+(5236, 1, 3174030, 8000, 9, '2015-02-25 15:05:26', NULL, NULL),
+(5237, 1, 3174060, 8000, 9, '2015-02-25 15:05:26', NULL, NULL),
+(5238, 1, 3174050, 8000, 9, '2015-02-25 15:05:27', NULL, NULL),
+(5239, 1, 3171080, 8000, 9, '2015-02-25 15:05:38', NULL, NULL),
+(5240, 1, 3171020, 8000, 9, '2015-02-25 15:05:39', NULL, NULL),
+(5241, 1, 3171040, 8000, 9, '2015-02-25 15:05:39', NULL, NULL),
+(5242, 1, 3171100, 8000, 9, '2015-02-25 15:05:40', NULL, NULL),
+(5243, 1, 3172030, 8000, 9, '2015-02-25 15:05:47', NULL, NULL),
+(5244, 1, 3172060, 8000, 9, '2015-02-25 15:05:48', NULL, NULL),
+(5245, 1, 3172040, 8000, 9, '2015-02-25 15:05:48', NULL, NULL),
+(5246, 1, 3172100, 8000, 9, '2015-02-25 15:05:49', NULL, NULL),
+(5247, 1, 3172010, 8000, 9, '2015-02-25 15:05:50', NULL, NULL),
+(5248, 1, 3172090, 8000, 9, '2015-02-25 15:05:50', NULL, NULL),
+(5249, 1, 3175020, 8000, 9, '2015-02-25 15:05:57', NULL, NULL),
+(5250, 1, 3175010, 8000, 9, '2015-02-25 15:05:58', NULL, NULL),
+(5251, 1, 3175030, 8000, 9, '2015-02-25 15:05:59', NULL, NULL),
+(5252, 1, 3672022, 9000, 9, '2015-02-25 15:06:17', NULL, NULL),
+(5253, 1, 3672020, 9000, 9, '2015-02-25 15:06:17', NULL, NULL),
+(5254, 1, 3672021, 9000, 9, '2015-02-25 15:06:18', NULL, NULL),
+(5255, 1, 3601170, 13000, 9, '2015-02-25 15:06:39', NULL, NULL),
+(5256, 1, 3601090, 13000, 9, '2015-02-25 15:06:40', NULL, NULL),
+(5257, 1, 3601190, 13000, 9, '2015-02-25 15:06:41', NULL, NULL),
+(5258, 1, 3601031, 13000, 9, '2015-02-25 15:06:44', NULL, NULL),
+(5259, 1, 3601192, 13000, 9, '2015-02-25 15:06:47', NULL, NULL),
+(5260, 1, 3601120, 13000, 9, '2015-02-25 15:06:49', NULL, NULL),
+(5261, 1, 3601181, 13000, 9, '2015-02-25 15:06:49', NULL, NULL),
+(5262, 1, 3601172, 13000, 9, '2015-02-25 15:06:52', NULL, NULL),
+(5263, 1, 3601141, 13000, 9, '2015-02-25 15:06:55', NULL, NULL),
+(5264, 1, 3601112, 13000, 9, '2015-02-25 15:06:58', NULL, NULL),
+(5265, 1, 3601072, 13000, 9, '2015-02-25 15:06:59', NULL, NULL),
+(5266, 1, 3602060, 13000, 9, '2015-02-25 15:07:22', NULL, NULL),
+(5267, 1, 3602040, 13000, 9, '2015-02-25 15:07:23', NULL, NULL),
+(5268, 1, 3602051, 13000, 9, '2015-02-25 15:07:23', NULL, NULL),
+(5269, 1, 3602021, 13000, 9, '2015-02-25 15:07:25', NULL, NULL),
+(5270, 1, 3602031, 13000, 9, '2015-02-25 15:07:26', NULL, NULL),
+(5271, 1, 3602091, 13000, 9, '2015-02-25 15:07:26', NULL, NULL),
+(5272, 1, 3602080, 13000, 9, '2015-02-25 15:07:30', NULL, NULL),
+(5273, 1, 3602181, 13000, 9, '2015-02-25 15:07:31', NULL, NULL),
+(5274, 1, 3602121, 13000, 9, '2015-02-25 15:07:32', NULL, NULL),
+(5275, 1, 3602190, 13000, 9, '2015-02-25 15:07:33', NULL, NULL),
+(5276, 1, 3602111, 13000, 9, '2015-02-25 15:07:36', NULL, NULL),
+(5277, 1, 3604091, 13000, 9, '2015-02-25 15:08:25', NULL, NULL),
+(5278, 1, 3604261, 13000, 9, '2015-02-25 15:08:26', NULL, NULL),
+(5279, 1, 3604030, 13000, 9, '2015-02-25 15:08:27', NULL, NULL),
+(5280, 1, 3604251, 13000, 9, '2015-02-25 15:08:42', NULL, NULL),
+(5281, 1, 3604040, 13000, 9, '2015-02-25 15:08:44', NULL, NULL),
+(5282, 1, 3604211, 13000, 9, '2015-02-25 15:08:45', NULL, NULL),
+(5283, 1, 3301040, 23000, 9, '2015-02-25 15:10:03', NULL, NULL),
+(5284, 1, 3301080, 23000, 9, '2015-02-25 15:10:10', NULL, NULL),
+(5285, 1, 3301180, 23000, 9, '2015-02-25 15:10:19', NULL, NULL),
+(5286, 1, 3301020, 23000, 9, '2015-02-25 15:10:27', NULL, NULL),
+(5287, 1, 1507012, 39000, 9, '2015-02-25 15:12:21', NULL, NULL),
+(5288, 1, 1507031, 39000, 9, '2015-02-25 15:12:22', NULL, NULL),
+(5289, 1, 1507041, 39000, 9, '2015-02-25 15:12:23', NULL, NULL),
+(5291, 1, 1507015, 39000, 9, '2015-02-25 15:12:28', NULL, NULL),
+(5292, 1, 1507014, 39000, 9, '2015-02-25 15:12:29', NULL, NULL),
+(5293, 1, 1507032, 39000, 9, '2015-02-25 15:12:29', NULL, NULL),
+(5294, 1, 1507021, 39000, 9, '2015-02-25 15:12:30', NULL, NULL),
+(5295, 1, 1507013, 39000, 9, '2015-02-25 15:12:31', NULL, NULL),
+(5296, 1, 1502041, 31000, 9, '2015-02-25 15:12:52', NULL, NULL),
+(5297, 1, 1502043, 31000, 9, '2015-02-25 15:12:54', NULL, NULL),
+(5298, 1, 1502066, 39000, 9, '2015-02-25 15:13:07', NULL, NULL),
+(5299, 1, 1502021, 39000, 9, '2015-02-25 15:13:09', NULL, NULL),
+(5300, 1, 1502042, 39000, 9, '2015-02-25 15:13:10', NULL, NULL),
+(5301, 1, 1502031, 39000, 9, '2015-02-25 15:13:16', NULL, NULL),
+(5302, 1, 1502033, 39000, 9, '2015-02-25 15:13:16', NULL, NULL),
+(5303, 1, 1502052, 39000, 9, '2015-02-25 15:13:17', NULL, NULL),
+(5304, 1, 1502032, 39000, 9, '2015-02-25 15:13:18', NULL, NULL),
+(5305, 1, 1502051, 39000, 9, '2015-02-25 15:13:19', NULL, NULL),
+(5306, 1, 1502011, 59000, 9, '2015-02-25 15:13:34', NULL, NULL),
+(5307, 1, 1502067, 39000, 9, '2015-02-25 15:13:38', NULL, NULL),
+(5308, 1, 1502063, 39000, 9, '2015-02-25 15:13:38', NULL, NULL),
+(5309, 1, 1502065, 39000, 9, '2015-02-25 15:13:39', NULL, NULL),
+(5310, 1, 1502062, 39000, 9, '2015-02-25 15:13:40', NULL, NULL),
+(5311, 1, 1502064, 39000, 9, '2015-02-25 15:13:41', NULL, NULL),
+(5312, 1, 1502022, 39000, 9, '2015-02-25 15:13:50', NULL, NULL),
+(5313, 1, 1509052, 39000, 9, '2015-02-25 15:16:28', NULL, NULL),
+(5314, 1, 1509025, 39000, 9, '2015-02-25 15:16:29', NULL, NULL),
+(5315, 1, 1509032, 39000, 9, '2015-02-25 15:16:30', NULL, NULL),
+(5316, 1, 1509023, 39000, 9, '2015-02-25 15:16:32', NULL, NULL),
+(5317, 1, 1509061, 59000, 9, '2015-02-25 15:16:37', NULL, NULL),
+(5318, 1, 1509031, 39000, 9, '2015-02-25 15:16:44', NULL, NULL),
+(5319, 1, 1509024, 39000, 9, '2015-02-25 15:16:51', NULL, NULL),
+(5320, 1, 1509022, 39000, 9, '2015-02-25 15:16:55', NULL, NULL),
+(5321, 1, 1509041, 39000, 9, '2015-02-25 15:17:05', NULL, NULL),
+(5322, 1, 1501073, 39000, 9, '2015-02-25 15:17:36', NULL, NULL),
+(5323, 1, 1501011, 39000, 9, '2015-02-25 15:17:43', NULL, NULL),
+(5324, 1, 1501072, 39000, 9, '2015-02-25 15:17:45', NULL, NULL),
+(5325, 1, 1501091, 39000, 9, '2015-02-25 15:17:46', NULL, NULL),
+(5326, 1, 1501092, 39000, 9, '2015-02-25 15:17:52', NULL, NULL),
+(5327, 1, 1501081, 39000, 9, '2015-02-25 15:17:55', NULL, NULL),
+(5328, 1, 1501082, 39000, 9, '2015-02-25 15:18:00', NULL, NULL),
+(5329, 1, 1505013, 39000, 9, '2015-02-25 15:18:31', NULL, NULL),
+(5330, 1, 1505012, 39000, 9, '2015-02-25 15:18:31', NULL, NULL),
+(5331, 1, 1505021, 39000, 9, '2015-02-25 15:18:34', NULL, NULL),
+(5332, 1, 1505041, 39000, 9, '2015-02-25 15:18:35', NULL, NULL),
+(5334, 1, 1503020, 39000, 9, '2015-02-25 15:19:36', NULL, NULL),
+(5335, 1, 1503021, 39000, 9, '2015-02-25 15:19:36', NULL, NULL),
+(5336, 1, 1503041, 39000, 9, '2015-02-25 15:19:37', NULL, NULL),
+(5337, 1, 1503051, 39000, 9, '2015-02-25 15:19:38', NULL, NULL),
+(5338, 1, 1503030, 39000, 9, '2015-02-25 15:19:40', NULL, NULL),
+(5339, 1, 1503031, 39000, 9, '2015-02-25 15:19:40', NULL, NULL),
+(5340, 1, 1506031, 31000, 9, '2015-02-25 15:20:10', NULL, NULL),
+(5341, 1, 1506032, 31000, 9, '2015-02-25 15:20:11', NULL, NULL),
+(5342, 1, 1506011, 39000, 9, '2015-02-25 15:20:14', NULL, NULL),
+(5343, 1, 1506033, 39000, 9, '2015-02-25 15:20:15', NULL, NULL),
+(5344, 1, 1506012, 39000, 9, '2015-02-25 15:20:16', NULL, NULL),
+(5345, 1, 1508011, 39000, 9, '2015-02-25 15:20:34', NULL, NULL),
+(5346, 1, 1508042, 39000, 9, '2015-02-25 15:20:37', NULL, NULL),
+(5347, 1, 1508043, 39000, 9, '2015-02-25 15:20:41', NULL, NULL),
+(5533, 1, 3276031, 8000, 9, '2015-02-25 15:36:21', NULL, NULL),
+(5534, 1, 3276061, 8000, 9, '2015-02-25 15:36:22', NULL, NULL),
+(5535, 1, 3276030, 8000, 9, '2015-02-25 15:36:23', NULL, NULL),
+(5536, 1, 3276041, 8000, 9, '2015-02-25 15:36:24', NULL, NULL),
+(5537, 1, 5171031, 20000, 9, '2015-02-25 15:37:15', NULL, NULL),
+(5538, 1, 5107080, 29000, 9, '2015-02-25 15:37:35', NULL, NULL),
+(5539, 1, 5107030, 29000, 9, '2015-02-25 15:37:41', NULL, NULL),
+(5540, 1, 5107010, 29000, 9, '2015-02-25 15:37:42', NULL, NULL),
+(5541, 1, 5107070, 29000, 9, '2015-02-25 15:37:43', NULL, NULL),
+(5542, 1, 5107020, 29000, 9, '2015-02-25 15:37:43', NULL, NULL),
+(5544, 1, 5104060, 29000, 9, '2015-02-25 15:38:38', NULL, NULL),
+(5545, 1, 5101021, 29000, 9, '2015-02-25 15:38:53', NULL, NULL),
+(5547, 1, 5108040, 29000, 9, '2015-02-25 15:39:49', NULL, NULL),
+(5548, 1, 5108030, 29000, 9, '2015-02-25 15:39:52', NULL, NULL),
+(5550, 1, 5102040, 29000, 9, '2015-02-25 15:40:48', NULL, NULL),
+(5551, 1, 5103010, 20000, 9, '2015-02-25 15:41:09', NULL, NULL),
+(5552, 1, 5103030, 20000, 9, '2015-02-25 15:41:10', NULL, NULL),
+(5553, 1, 5103040, 26000, 9, '2015-02-25 15:41:16', NULL, NULL),
+(5558, 1, 7502022, 67000, 9, '2015-02-25 15:43:37', NULL, NULL),
+(5559, 1, 7502081, 67000, 9, '2015-02-25 15:43:41', NULL, NULL),
+(5560, 1, 7502011, 67000, 9, '2015-02-25 15:43:47', NULL, NULL),
+(5561, 1, 7502023, 67000, 9, '2015-02-25 15:43:48', NULL, NULL),
+(5562, 1, 7502044, 67000, 9, '2015-02-25 15:43:48', NULL, NULL),
+(5563, 1, 7502010, 67000, 9, '2015-02-25 15:43:49', NULL, NULL),
+(5564, 1, 7502043, 67000, 9, '2015-02-25 15:43:50', NULL, NULL),
+(5565, 1, 7502083, 67000, 9, '2015-02-25 15:43:55', NULL, NULL),
+(5566, 1, 7502082, 67000, 9, '2015-02-25 15:43:56', NULL, NULL),
+(5567, 1, 7501052, 67000, 9, '2015-02-25 15:44:13', NULL, NULL),
+(5590, 1, 7503032, 67000, 9, '2015-02-25 15:45:46', NULL, NULL),
+(5591, 1, 7503051, 67000, 9, '2015-02-25 15:45:47', NULL, NULL),
+(5592, 1, 7503033, 67000, 9, '2015-02-25 15:45:53', NULL, NULL),
+(5593, 1, 7503020, 67000, 9, '2015-02-25 15:45:54', NULL, NULL),
+(5594, 1, 7503030, 67000, 9, '2015-02-25 15:45:55', NULL, NULL),
+(5595, 1, 7503050, 67000, 9, '2015-02-25 15:45:56', NULL, NULL),
+(5596, 1, 7503031, 67000, 9, '2015-02-25 15:45:56', NULL, NULL),
+(5597, 1, 7503010, 67000, 9, '2015-02-25 15:45:57', NULL, NULL),
+(5598, 1, 7503011, 67000, 9, '2015-02-25 15:45:58', NULL, NULL),
+(5599, 1, 7503012, 67000, 9, '2015-02-25 15:45:59', NULL, NULL),
+(5600, 1, 7503040, 67000, 9, '2015-02-25 15:45:59', NULL, NULL),
+(5601, 1, 7503041, 67000, 9, '2015-02-25 15:46:00', NULL, NULL),
+(5602, 1, 7503021, 67000, 9, '2015-02-25 15:46:02', NULL, NULL),
+(5603, 1, 9471063, 53000, 9, '2015-02-25 15:46:48', NULL, NULL),
+(5604, 1, 3509220, 29000, 9, '2015-02-25 15:48:05', NULL, NULL),
+(5605, 1, 3509020, 29000, 9, '2015-02-25 15:48:06', NULL, NULL),
+(5606, 1, 3509160, 29000, 9, '2015-02-25 15:48:10', NULL, NULL),
+(5607, 1, 3509170, 29000, 9, '2015-02-25 15:48:16', NULL, NULL),
+(5608, 1, 9471064, 20000, 9, '2015-02-25 15:48:56', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -6199,6 +6374,7 @@ INSERT INTO `shipping` (`id`, `courier_id`, `town_id`, `cost`, `created_by`, `cr
 -- Table structure for table `tag`
 --
 
+DROP TABLE IF EXISTS `tag`;
 CREATE TABLE IF NOT EXISTS `tag` (
 `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -6206,7 +6382,7 @@ CREATE TABLE IF NOT EXISTS `tag` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `tag`
@@ -6227,6 +6403,7 @@ INSERT INTO `tag` (`id`, `name`, `created_by`, `created_date`, `updated_by`, `up
 -- Table structure for table `town`
 --
 
+DROP TABLE IF EXISTS `town`;
 CREATE TABLE IF NOT EXISTS `town` (
 `id` int(7) NOT NULL,
   `city_id` int(11) DEFAULT NULL,
@@ -6235,7 +6412,7 @@ CREATE TABLE IF NOT EXISTS `town` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9471044 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9471065 ;
 
 --
 -- Dumping data for table `town`
@@ -10207,7 +10384,6 @@ INSERT INTO `town` (`id`, `city_id`, `name`, `created_by`, `created_date`, `upda
 (3604020, 3604, 'Padarincang', NULL, NULL, NULL, NULL),
 (3604030, 3604, 'Ciomas', NULL, NULL, NULL, NULL),
 (3604040, 3604, 'Pabuaran', NULL, NULL, NULL, NULL),
-(3604041, 3604, 'Gunung Sari', NULL, NULL, NULL, NULL),
 (3604050, 3604, 'Baros', NULL, NULL, NULL, NULL),
 (3604060, 3604, 'Petir', NULL, NULL, NULL, NULL),
 (3604061, 3604, 'Tunjung Teja', NULL, NULL, NULL, NULL),
@@ -10982,9 +11158,9 @@ INSERT INTO `town` (`id`, `city_id`, `name`, `created_by`, `created_date`, `upda
 (6206030, 6206, 'Balai Riam', NULL, NULL, NULL, NULL),
 (6206031, 6206, 'Permata Kecubung', NULL, NULL, NULL, NULL),
 (6207010, 6207, 'Bulik', NULL, NULL, NULL, NULL),
-(6207011, 6207, 'Sematu Jaya', NULL, NULL, NULL, NULL);
+(6207011, 6207, 'Sematu Jaya', NULL, NULL, NULL, NULL),
+(6207012, 6207, 'Menthobi Raya', NULL, NULL, NULL, NULL);
 INSERT INTO `town` (`id`, `city_id`, `name`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
-(6207012, 6207, 'Menthobi Raya', NULL, NULL, NULL, NULL),
 (6207013, 6207, 'Bulik Timur', NULL, NULL, NULL, NULL),
 (6207020, 6207, 'Lamandau', NULL, NULL, NULL, NULL),
 (6207021, 6207, 'Belantikan Raya', NULL, NULL, NULL, NULL),
@@ -11917,9 +12093,9 @@ INSERT INTO `town` (`id`, `city_id`, `name`, `created_by`, `created_date`, `upda
 (7318020, 7318, 'Mengkendek', NULL, NULL, NULL, NULL),
 (7318021, 7318, 'Gandang Batu Silanan', NULL, NULL, NULL, NULL),
 (7318030, 7318, 'Sangalla', NULL, NULL, NULL, NULL),
-(7318031, 7318, 'Sangala Selatan', NULL, NULL, NULL, NULL);
+(7318031, 7318, 'Sangala Selatan', NULL, NULL, NULL, NULL),
+(7318032, 7318, 'Sangalla Utara', NULL, NULL, NULL, NULL);
 INSERT INTO `town` (`id`, `city_id`, `name`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
-(7318032, 7318, 'Sangalla Utara', NULL, NULL, NULL, NULL),
 (7318040, 7318, 'Makale', NULL, NULL, NULL, NULL),
 (7318041, 7318, 'Makale Selatan', NULL, NULL, NULL, NULL),
 (7318042, 7318, 'Makale Utara', NULL, NULL, NULL, NULL),
@@ -12241,7 +12417,6 @@ INSERT INTO `town` (`id`, `city_id`, `name`, `created_by`, `created_date`, `upda
 (7503012, 7503, 'Popayato Timur', NULL, NULL, NULL, NULL),
 (7503020, 7503, 'Lemito', NULL, NULL, NULL, NULL),
 (7503021, 7503, 'Wanggarasi', NULL, NULL, NULL, NULL),
-(7503030, 7503, 'Marisa', NULL, NULL, NULL, NULL),
 (7503031, 7503, 'Patilanggio', NULL, NULL, NULL, NULL),
 (7503032, 7503, 'Buntulia', NULL, NULL, NULL, NULL),
 (7503033, 7503, 'Duhiadaa', NULL, NULL, NULL, NULL),
@@ -12872,10 +13047,10 @@ INSERT INTO `town` (`id`, `city_id`, `name`, `created_by`, `created_date`, `upda
 (9413021, 9413, 'Iniyandit', NULL, NULL, NULL, NULL),
 (9413022, 9413, 'Kombut', NULL, NULL, NULL, NULL),
 (9413023, 9413, 'Sesnuk', NULL, NULL, NULL, NULL),
-(9413030, 9413, 'Mandobo', NULL, NULL, NULL, NULL);
-INSERT INTO `town` (`id`, `city_id`, `name`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
+(9413030, 9413, 'Mandobo', NULL, NULL, NULL, NULL),
 (9413031, 9413, 'Fofi', NULL, NULL, NULL, NULL),
-(9413032, 9413, 'Arimop', NULL, NULL, NULL, NULL),
+(9413032, 9413, 'Arimop', NULL, NULL, NULL, NULL);
+INSERT INTO `town` (`id`, `city_id`, `name`, `created_by`, `created_date`, `updated_by`, `updated_date`) VALUES
 (9413040, 9413, 'Kouh', NULL, NULL, NULL, NULL),
 (9413041, 9413, 'Bomakia', NULL, NULL, NULL, NULL),
 (9413042, 9413, 'Firiwage', NULL, NULL, NULL, NULL),
@@ -13127,7 +13302,28 @@ INSERT INTO `town` (`id`, `city_id`, `name`, `created_by`, `created_date`, `upda
 (9471020, 9471, 'Abepura', NULL, NULL, NULL, NULL),
 (9471021, 9471, 'Heram', NULL, NULL, NULL, NULL),
 (9471030, 9471, 'Jayapura Selatan', NULL, NULL, NULL, NULL),
-(9471040, 9471, 'Jayapura Utara', NULL, NULL, NULL, NULL);
+(9471040, 9471, 'Jayapura Utara', NULL, NULL, NULL, NULL),
+(9471044, 8101, 'Saumlaki', 9, '2015-02-25 11:48:44', NULL, NULL),
+(9471045, 6302, 'Kota Baru', 9, '2015-02-25 11:51:19', NULL, NULL),
+(9471046, 6205, 'Muara Teweh', 9, '2015-02-25 12:11:14', NULL, NULL),
+(9471047, 6212, 'Tamiang Layang', 9, '2015-02-25 12:12:22', NULL, NULL),
+(9471048, 6204, 'Buntok', 9, '2015-02-25 12:15:00', NULL, NULL),
+(9471049, 1705, 'Tais', 9, '2015-02-25 14:37:09', NULL, NULL),
+(9471050, 1110, 'Bireun', 9, '2015-02-25 14:48:33', NULL, NULL),
+(9471051, 1108, 'Janto', 9, '2015-02-25 14:48:57', NULL, NULL),
+(9471052, 1104, 'Kutacane', 9, '2015-02-25 14:50:05', NULL, NULL),
+(9471053, 1107, 'Meulaboh', 9, '2015-02-25 14:50:51', NULL, NULL),
+(9471054, 1172, 'Sabang', 9, '2015-02-25 14:53:42', NULL, NULL),
+(9471055, 1117, 'Simpang Tiga Redelon', 9, '2015-02-25 14:58:22', NULL, NULL),
+(9471056, 1507, 'Kualatungkal', 9, '2015-02-25 15:12:13', NULL, NULL),
+(9471057, 1505, 'Sengeti', 9, '2015-02-25 15:18:59', NULL, NULL),
+(9471058, 9413, 'Tanah Merah/ Boven Digoel', 9, '2015-02-25 15:29:48', NULL, NULL),
+(9471059, 9427, 'Sorendiweri', 9, '2015-02-25 15:32:53', NULL, NULL),
+(9471060, 5107, 'Amlapura', 9, '2015-02-25 15:38:04', NULL, NULL),
+(9471061, 5105, 'Semarapura', 9, '2015-02-25 15:39:26', NULL, NULL),
+(9471062, 5108, 'Singaraja', 9, '2015-02-25 15:40:17', NULL, NULL),
+(9471063, 7503, 'Marisa', 9, '2015-02-25 15:46:21', NULL, NULL),
+(9471064, 3509, 'Jember', 9, '2015-02-25 15:48:50', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -13135,6 +13331,7 @@ INSERT INTO `town` (`id`, `city_id`, `name`, `created_by`, `created_date`, `upda
 -- Table structure for table `user`
 --
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
 `id` int(11) NOT NULL,
   `group_id` int(11) DEFAULT '1',
@@ -13152,7 +13349,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `user`
@@ -13170,6 +13367,7 @@ INSERT INTO `user` (`id`, `group_id`, `first_name`, `middle_name`, `last_name`, 
 -- Table structure for table `user_address`
 --
 
+DROP TABLE IF EXISTS `user_address`;
 CREATE TABLE IF NOT EXISTS `user_address` (
 `id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
@@ -13185,7 +13383,7 @@ CREATE TABLE IF NOT EXISTS `user_address` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `user_address`
@@ -13205,6 +13403,7 @@ INSERT INTO `user_address` (`id`, `user_id`, `address`, `province_id`, `city_id`
 -- Table structure for table `user_dropship`
 --
 
+DROP TABLE IF EXISTS `user_dropship`;
 CREATE TABLE IF NOT EXISTS `user_dropship` (
 `id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
@@ -13220,7 +13419,7 @@ CREATE TABLE IF NOT EXISTS `user_dropship` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `user_dropship`
@@ -13236,6 +13435,7 @@ INSERT INTO `user_dropship` (`id`, `user_id`, `address`, `province_id`, `city_id
 -- Table structure for table `user_group`
 --
 
+DROP TABLE IF EXISTS `user_group`;
 CREATE TABLE IF NOT EXISTS `user_group` (
 `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -13243,7 +13443,7 @@ CREATE TABLE IF NOT EXISTS `user_group` (
   `created_date` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `user_group`
@@ -13494,7 +13694,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 -- AUTO_INCREMENT for table `shipping`
 --
 ALTER TABLE `shipping`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4845;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5609;
 --
 -- AUTO_INCREMENT for table `tag`
 --
@@ -13504,7 +13704,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 -- AUTO_INCREMENT for table `town`
 --
 ALTER TABLE `town`
-MODIFY `id` int(7) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9471044;
+MODIFY `id` int(7) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9471065;
 --
 -- AUTO_INCREMENT for table `user`
 --

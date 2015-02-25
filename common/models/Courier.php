@@ -11,10 +11,10 @@ class Courier extends \yii\db\ActiveRecord {
     public function rules(){
         return[
             [['id'],'integer'],
-            [['name','status'],'safe','on'=>['search']],
+            [['name','origin','status'],'safe','on'=>['search']],
             [['id','icon'],'safe','on'=>['save','update']],
             [['icon'],'file','extensions'=>'jpg, gif, png','on'=>['save','update']],
-            [['name','status'],'required','on'=>['save','update']]
+            [['name','origin','status'],'required','on'=>['save','update']]
         ];
     }
     
@@ -45,6 +45,7 @@ class Courier extends \yii\db\ActiveRecord {
             return $dataProvider;
         
         $this->name?$query->andFilterWhere(['like','name',$this->name]):'';
+        $this->origin?$query->andFilterWhere(['like','origin',$this->origin]):'';
         $this->status?$query->andFilterWhere(['status'=>$this->status]):'';
         return $dataProvider;
     }
@@ -53,6 +54,7 @@ class Courier extends \yii\db\ActiveRecord {
         if($this->validate()){
             $model = new Courier();
             $model->name = $this->name;
+            $model->origin = $this->origin;
             $model->status = $this->status;
             $model->created_by = Yii::$app->user->getId();
             $model->created_date  = date('Y-m-d H:i:s');
@@ -67,6 +69,7 @@ class Courier extends \yii\db\ActiveRecord {
             $model = new Courier();
             $model = $model->findOne($id);
             $model->name = $this->name;
+            $model->origin = $this->origin;
             $model->status = $this->status;
             $model->updated_by = Yii::$app->user->getId();
             $model->updated_date  = date('Y-m-d H:i:s');

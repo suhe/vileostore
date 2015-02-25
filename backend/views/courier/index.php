@@ -45,7 +45,12 @@ use yii\helpers\Html;
                         ],
                         'name' => [
                             'attribute' => 'name',
-                            'headerOptions' => ['style'=>'width:50%'],
+                            'headerOptions' => ['style'=>'width:40%'],
+                            'filter' => true,
+                        ],
+                        'origin' => [
+                            'attribute' => 'origin',
+                            'headerOptions' => ['style'=>'width:15%'],
                             'filter' => true,
                         ],
                         'status' => [

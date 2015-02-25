@@ -24,7 +24,8 @@ class Province extends \yii\db\ActiveRecord {
     
     public static function dropdownList($captionTitle='',$condition=[]){
         $options[0] = $captionTitle;
-        $query = static::find();
+        $query = static::find()
+        ->orderBy(['name' => SORT_ASC]);
         if($condition)
             $query = $query->andWhere($condition);
         

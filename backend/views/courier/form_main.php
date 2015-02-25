@@ -9,7 +9,7 @@ $page_id = isset(Yii::$app->request->QueryParams['id'])?Yii::$app->request->Quer
         <div class="col-md-12">
             <div class="panel panel-transparent ">
                 <div class="panel-heading">
-                    <div class="panel-title"><?=Yii::t('app','user information')?></div>
+                    <div class="panel-title"><?=Yii::t('app','shipping information')?></div>
                     <div class="btn-group pull-right m-b-10">
                         <button type="button" class="btn btn-default"><i class="fa fa-list"></i> <?=Yii::t('app','toolbar')?> </button>
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
