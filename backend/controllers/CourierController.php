@@ -131,7 +131,7 @@ class CourierController extends \yii\web\Controller {
         }
         
         if($value==0){
-            $delete = \common\models\Shipping::deleteAll('courier_id = :courier_id AND town_id > :town_id', [':courier_id' => $id, ':town_id' => $town_id]);
+            //$delete = \common\models\Shipping::deleteAll('courier_id = :courier_id AND town_id > :town_id', [':courier_id' => $id, ':town_id' => $town_id]);
         }
         
         if($query){

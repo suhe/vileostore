@@ -1683,7 +1683,7 @@ a {
   margin-left:15px; 
 }
 .sidebar .sidebar-module-container .sidebar-widget .sidebar-widget-body .list li a {
-  color: #666666;
+  /*color: #666666;*/
   display: block;
 }
 .sidebar .sidebar-module-container .sidebar-widget .sidebar-widget-body .compare-report {
@@ -5283,3 +5283,5 @@ a {
 .nav-pills .dropdown-menu li a{
   padding:10px !important;
 }
+
+.user .active {color:red}

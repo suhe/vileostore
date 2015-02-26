@@ -189,7 +189,6 @@ class CartController extends \yii\web\Controller {
         if($formModel->load(Yii::$app->request->post()) && $formModel->validate()){
             Yii::$app->session->set('after_payment',TRUE);
             $formModel->getRequestOrder(Yii::$app->user->getId());
-            
             Yii::$app->session->setFlash('msg',Yii::t('app/message','msg thanks for purchase we wait confirm'));
             /**
             * Unset Session

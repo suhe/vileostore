@@ -1,4 +1,9 @@
 <?php
+$this->params['breadcrumbs'] = [
+    ['label' => Yii::t('app','my profile'),'url' => ['user/profile']],
+    ['label' => Yii::t('app','history transaction'),'url' => ['user/history']],
+    ['label' => Yii::t('app','payment confirmation'),'url' => ['cart/payment']],
+];
 $this->title = Yii::t('app','payment confirmation');
 ?>
 <div class="contact-page">
@@ -78,7 +83,8 @@ $this->title = Yii::t('app','payment confirmation');
 		<span class="contact-i"><i class="fa fa-envelope"></i></span>
 		<span class="contact-span"><?=\yii\helpers\Html::a(Yii::$app->setting->Variable('Email')->content)?></span>
 	</div>
-</div>			</div><!-- /.contact-page -->
+</div>
+</div><!-- /.contact-page -->
 
 
 <?php

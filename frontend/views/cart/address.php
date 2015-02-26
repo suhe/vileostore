@@ -1,11 +1,10 @@
 <?php
 use vileosoft\shoppingcart\Cart;
-if($_POST){
-    $cart->update($_POST);
-    Yii::$app->controller->refresh();
-}
-
-$this->title = Yii::t('app','shopping cart');
+$this->params['breadcrumbs'] = [
+    ['label' => Yii::t('app','shopping cart'),'url' => ['cart/shopping']],
+    ['label' => Yii::t('app','shipping address'),'url' => ['cart/address']],
+];
+$this->title = Yii::t('app','shipping address');
 ?>
 <div class="sign-in-page inner-bottom-sm">
     <div class="row">

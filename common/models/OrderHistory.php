@@ -84,7 +84,7 @@ class OrderHistory extends \yii\db\ActiveRecord {
         return false;
     }
     
-    public static function Insert($order_id,$type,$description){
+    public static function InsertHistory($order_id,$type,$description){
         $history = new \common\models\OrderHistory();
         $history->order_id = $order_id;
         $history->type = $type;

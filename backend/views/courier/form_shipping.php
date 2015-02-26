@@ -53,7 +53,7 @@ echo TabularForm::widget([
         'area' => [
             'attribute' => 'area',
             'type' => TabularForm::INPUT_STATIC,
-            'columnOptions'=>['width'=>'60%']
+            'columnOptions'=>['width'=>'70%']
         ],
         'cost' => [
             'attribute' => 'cost',
@@ -64,6 +64,9 @@ echo TabularForm::widget([
             'columnOptions'=>['width'=>'20%']
         ]   
     ],
+    'checkboxColumn' => false,
+    'actionColumn' => false,
+    
     
 ]);
 // Add other fields if needed or render your submit button

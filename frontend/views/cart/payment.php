@@ -1,8 +1,9 @@
 <?php
-if($_POST){
-    $cart->update($_POST);
-    Yii::$app->controller->refresh();
-}
+$this->params['breadcrumbs'] = [
+    ['label' => Yii::t('app','shopping cart'),'url' => ['cart/shopping']],
+    ['label' => Yii::t('app','shipping address'),'url' => ['cart/address']],
+    ['label' => Yii::t('app','payment'),'url' => ['cart/payment']],
+];
 $this->title = Yii::t('app','payment');
 ?>
 <div class="shopping-cart">

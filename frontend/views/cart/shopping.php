@@ -1,10 +1,5 @@
 <?php
 use vileosoft\shoppingcart\Cart;
-if($_POST){
-    $cart->update($_POST);
-    Yii::$app->controller->refresh();
-}
-
 $this->params['breadcrumbs'] = [
     ['label' => Yii::t('app','shopping cart'),'url' => ['cart/shopping']],
 ];
