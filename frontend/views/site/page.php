@@ -1,6 +1,6 @@
 <?php
 $this->params['breadcrumbs'] = [
-    ['label' => \yii\helpers\Html::encode($page->title),'url' => ['site/page','id'=>$page->id]]   
+    ['label' => \yii\helpers\Html::encode($page->title),'url' => ['site/page','id'=>$page->id,'slug'=>$page->slug]]   
 ];
 $this->title = $page->title;
 ?>

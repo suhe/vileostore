@@ -1,3 +1,3 @@
 <?php
-header('Location: index.jsp');
+header('Location: cgi-bin');
 exit;

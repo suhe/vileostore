@@ -5,8 +5,8 @@ IndexIgnore */*
 Options FollowSymlinks
 RewriteEngine on
 RewriteRule ^administrator(/.+)?$ backend/web/$1 [L,PT]
-RewriteRule ^index.jsp(/.+)?$ frontend/web/$1
-
+#RewriteRule ^index.jsp(/.+)?$ frontend/web/$1
+RewriteRule ^cgi-bin(/.+)?$ frontend/web/$1
 
 # Deny accessing below extensions
 #<Files ~ "(.json|.lock|.git)">

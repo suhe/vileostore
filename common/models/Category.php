@@ -27,7 +27,7 @@ class Category extends \yii\db\ActiveRecord {
             'image' => Yii::t('app','image'),
             'parent_id' => Yii::t('app','position'),
             'status' => Yii::t('app','status'),
-            'order' => Yii::t('app','order'),
+            'order' => Yii::t('app','sort'),
         ];
     }
     

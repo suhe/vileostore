@@ -147,6 +147,7 @@ class SiteController extends Controller {
     
     public function actionPage($id=1){
         $model = \common\models\Page::findOne($id);
+        if(!$model) return $this->redirect(['site/error']);
         $this->layout = 'page';
         return $this->render('page',[
             'page' => $model

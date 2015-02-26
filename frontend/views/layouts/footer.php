@@ -155,7 +155,7 @@
                     <div class="module-body">
                         <ul class='list-unstyled'>
 			    <?php foreach(\common\models\Page::content(['status'=>1,'type'=>'Help & Support']) as $page){?>
-				<li><?=\yii\helpers\Html::a($page->title,['site/page','id'=>$page->id])?></li>
+				<li><?=\yii\helpers\Html::a($page->title,['site/page','id'=>$page->id,'slug'=>$page->slug])?></li>
                             <?php } ?>
                         </ul>
                     </div><!-- /.module-body -->
@@ -202,12 +202,11 @@
             <div class="col-xs-12 col-sm-6 no-padding">
                 <div class="clearfix payment-methods">
                     <ul>
-			<li><?=Yii::t('app/message','msg we are support payment')?> :</li>
-                        <li><img src="assets/images/payments/1.png" alt=""></li>
-                        <li><img src="assets/images/payments/2.png" alt=""></li>
-                        <li><img src="assets/images/payments/3.png" alt=""></li>
-                        <li><img src="assets/images/payments/4.png" alt=""></li>
-                        <li><img src="assets/images/payments/5.png" alt=""></li>
+                        <li><img src="<?=Yii::$app->homeUrl?>/assets/images/payments/1.png" alt=""></li>
+                        <li><img src="<?=Yii::$app->homeUrl?>/assets/images/payments/2.png" alt=""></li>
+                        <li><img src="<?=Yii::$app->homeUrl?>/assets/images/payments/3.png" alt=""></li>
+                        <li><img src="<?=Yii::$app->homeUrl?>/assets/images/payments/4.png" alt=""></li>
+                        <li><img src="<?=Yii::$app->homeUrl?>/assets/images/payments/5.png" alt=""></li>
                     </ul>
                 </div><!-- /.payment-methods -->
             </div>

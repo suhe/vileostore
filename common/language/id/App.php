@@ -203,6 +203,7 @@ return [
     'sign up account' => 'Daftarkan Diri Anda disini',
     'sign up newsletter' => 'Berlangganan Info Produk',
     'sku' => 'SKU',
+    'sort' => 'Urutan',
     'sort by' => 'Urutkan',
     'stock' => 'Stok',
     'store setting' =>'Pengaturan Toko',

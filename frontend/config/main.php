@@ -6,7 +6,7 @@ $params = array_merge(
 
 
 use \yii\web\Request;
-$baseUrl = str_replace('/frontend/web', '/index.jsp', (new Request)->getBaseUrl());
+$baseUrl = str_replace('/frontend/web', '/cgi-bin', (new Request)->getBaseUrl());
 return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
@@ -33,7 +33,8 @@ return [
                 //'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
                //'<controller:\w+>/<id:\d+>/<slug:[-a-zA-Z]+>' => '<controller>/<action>',
                 //'<controller:\w+>/<slug:[a-zA-Z0-9-]+>'=>'<controller>/index',
-            ]
+            ],
+            'suffix' => '.html',
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -52,6 +53,6 @@ return [
             'errorAction' => 'site/error',
         ],
     ],
-    'homeUrl' => str_replace('/index.jsp', '',$baseUrl),
+    'homeUrl' => str_replace('/cgi-bin', '',$baseUrl),
     'params' => $params,
 ];
