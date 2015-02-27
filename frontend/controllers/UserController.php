@@ -3,15 +3,7 @@ namespace frontend\controllers;
 
 use Yii;
 use common\models\LoginForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
-use frontend\models\ContactForm;
-use yii\base\InvalidParamException;
-use yii\web\BadRequestHttpException;
 use yii\web\Controller;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 
 /**
  * Site controller
@@ -80,6 +72,8 @@ class UserController extends Controller {
         
         //process to action
         if($formModel->load(Yii::$app->request->post()) && $formModel->getConfirmPayment($id)){
+            //put history transaction
+            \common\models\OrderHistory::InsertHistory(Yii::$app->session->get('payment_id'),'Payment Confirmation',Yii::t('app','invoice no').' : '.$query->invoice_no);
             Yii::$app->session->setFlash('msg',Yii::t('app/message','msg thanks for confirmation wait for verification'));
             Yii::$app->mail->verification($id,Yii::t('app','confirm payment invoice'));
             return $this->redirect(['user/history_details','id' => $id],301);

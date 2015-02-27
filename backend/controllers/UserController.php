@@ -99,5 +99,43 @@ class UserController extends \yii\web\Controller {
         Yii::$app->session->setFlash('msg',Yii::t('app/message','delete has been successfuly'));
         return $this->redirect(['user/index']);
     }
+    
+    public function actionMyprofile(){
+        $user_id = Yii::$app->user->getId();
+        $model =  new \common\models\User(['scenario' => 'update_profile']);
+        $query = $model->findOne($user_id);
+        
+        if($query){
+            $model->first_name = $query->first_name;
+            $model->middle_name = $query->middle_name;
+            $model->last_name = $query->last_name;
+            $model->email = $query->email;
+        }
+        
+        //update $model
+        if($model->load(Yii::$app->request->post()) && ($model->getUpdateProfile($user_id))){
+            Yii::$app->session->setFlash('msg',Yii::t('app/message','msg update has been successfuly'));
+            return $this->redirect(['user/myprofile']);
+        }
+        
+        return $this->render('profile_main',[
+            'model' => $model,
+            'form' => 'profile_information',
+        ]);
+    }
+    
+    public function actionChpassword(){
+        $user_id = Yii::$app->user->getId();
+        $model =  new \common\models\User(['scenario' => 'update_password']);
+        //update $model
+        if($model->load(Yii::$app->request->post()) && ($model->getUpdatePassword($user_id))){
+            Yii::$app->session->setFlash('msg',Yii::t('app/message','msg update has been successfuly'));
+            return $this->redirect(['user/chpassword']);
+        }
+        return $this->render('profile_main',[
+            'model' => $model,
+            'form' => 'profile_password',
+        ]);
+    }
 
 }

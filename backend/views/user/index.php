@@ -36,7 +36,7 @@ use yii\helpers\Html;
                         ],    
                         'username' => [
                             'attribute' => 'username',
-                            'headerOptions' => ['style'=>'width:35%'],
+                            'headerOptions' => ['style'=>'width:30%'],
                             'filter' => true,
                         ],
                         'email' => [
@@ -53,7 +53,7 @@ use yii\helpers\Html;
                         ],
                         'last_login' => [
                             'attribute' => 'last_login',
-                            'headerOptions' => ['style'=>'width:10%'],
+                            'headerOptions' => ['style'=>'width:15%'],
                             'filter' => false,
                         ],
                         ['class'=>'yii\grid\ActionColumn',

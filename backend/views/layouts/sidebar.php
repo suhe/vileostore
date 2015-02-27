@@ -97,7 +97,7 @@ use yii\helpers\Url;
                     <span class="icon-thumbnail "><i class="fa fa-gear"></i></span>
                     <ul class="sub-menu">
                         <li class=""> <a href="<?=Url::to(['user/myprofile'])?>"><?=Yii::t('app','my profile')?></a><span class="icon-thumbnail"><i class="fa fa-user"></i></span></li>
-                        <li class=""> <a href="<?=Url::to(['setting/index'])?>"><?=Yii::t('app','store setting')?></a><span class="icon-thumbnail"><i class="fa fa-wrench"></i></span></li>
+                        <li class=""> <a href="<?=Url::to(['setting/basic'])?>"><?=Yii::t('app','store setting')?></a><span class="icon-thumbnail"><i class="fa fa-wrench"></i></span></li>
                         <li class=""> <a href="<?=Url::to(['user/chpassword'])?>"><?=Yii::t('app','change password')?></a><span class="icon-thumbnail"><i class="fa fa-key"></i></span></li>
                     </ul>
                 </li>

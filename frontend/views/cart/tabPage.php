@@ -19,3 +19,4 @@
 	<span class="title"><?=\yii\helpers\Html::a(Yii::t('app','finish'),['cart/confirmation'])?></span>
     </li>
 </ul>
+

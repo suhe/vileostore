@@ -56,8 +56,8 @@ class ProductCategory extends \yii\db\ActiveRecord {
             'product.online','product.cod','product.dropshier','product.stock','product.arrival_date','product.weight','product.slug as product_slug'
         ])
         ->joinWith('product')
-        ->where(['product_category.category_id' => $id]);
-        
+        ->andWhere(['product_category.category_id' => $id])
+        ->andWhere(['product.status' => 1]);
         if ($this->load($params) && $this->brand_id)
             $query = $query->andWhere(['product.brand_id' => $this->brand_id]);
         

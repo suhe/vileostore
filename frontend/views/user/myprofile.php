@@ -1,6 +1,6 @@
 <?php
 $this->params['breadcrumbs'] = [
-    ['label' => Yii::t('app','home page'),'url' => ['site/index']],
+    ['label' => Yii::t('app','control panel'),'url' => ['user/profile']],
     ['label' => Yii::t('app','my profile'),'url' => ['user/profile']],
 ];
 

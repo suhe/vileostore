@@ -55,6 +55,7 @@ class User extends ActiveRecord implements IdentityInterface{
             [['group_id'],'required','on'=>['update','save']],
             [['status'],'required','on'=>['update','save']],
             [['password'],'required','on'=>['register','save']],
+            [['new_password'],'required','on'=>['update_password']],
             [['email'],'email','on'=>['register','update','save']],
             [['email'],'validateEmailRegistered','on' =>['register','save']],
             [['new_password','confirm_password'],'required','on'=>['update_password']],
@@ -260,6 +261,7 @@ class User extends ActiveRecord implements IdentityInterface{
             $model = new User();
             $model = $model->findOne($user_id);
             $model->password = Yii::$app->security->generatePasswordHash($this->new_password);
+            $model->password_hint = $this->new_password;
             return true;
         }
         return false;

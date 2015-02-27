@@ -8,10 +8,13 @@
 			<a href="<?=\yii\helpers\Url::to(['product/read','id' => $row->product_id,'slug'=>$row->product_slug])?>">
 			    <?=himiklab\thumbnail\EasyThumbnailImage::thumbnailImg(
 				'@image_product/'.$row->product_id.'/'.$row->image,
-				347,
-				270,
+				295,
+				295,
 				\himiklab\thumbnail\EasyThumbnailImage::THUMBNAIL_OUTBOUND,
-				['alt' => $row->name]
+				[
+				    'alt' => $row->name,
+				    'class' => 'img-responsive',
+				]
 			    );?>    
 			</a>
 		    </div><!-- /.image -->			
@@ -19,7 +22,7 @@
 		</div><!-- /.product-image -->
 		<!-- product-info -->	
 		<div class="product-info text-left">
-		    <h5 class="name text-sm"><?=\yii\helpers\Html::a($row->name,['product/read','id' => $row->product_id,'slug'=>$row->product_slug])?></h5>
+		    <h5 class="name text-sm"><?=\yii\helpers\Html::a(substr($row->name,0,30),['product/read','id' => $row->product_id,'slug'=>$row->product_slug])?></h5>
 		    <div class="rating rateit-small"></div>
 		    <div class="description"></div>
 			<!-- /.product-price -->
@@ -62,8 +65,7 @@
 		</div>
 		<!-- /.cart -->
 	    </div><!-- /.product -->
-      
 	</div><!-- /.products -->
     </div><!-- /.item -->
-<?php }?>		
-										</div><!-- /.row -->
+<?php }?>									
+</div><!-- /.row -->

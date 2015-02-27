@@ -87,6 +87,7 @@ AppAsset::register($this);
                         </div>
                     </div>
                 </div>
+               
                 <?=$content;?>                   
                 <div class="container-fluid container-fixed-lg footer">
                     <div class="copyright sm-text-center">
@@ -104,7 +105,20 @@ AppAsset::register($this);
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
+
+ <!-- Message Notification -->
+ <?php if(Yii::$app->session->getFlash('msg')){ ?>
+ <div data-position="top" class="pgn-wrapper">
+    <div class="pgn pgn-bar">
+        <div class="alert alert-info">
+            <span style="color:red"><i class="fa fa-warning"></i>  <?=Yii::$app->session->getFlash('msg')?></span>
+        </div>
+    </div>
+ </div>
+ <?php } ?>
+<!-- Message Notification -->
+ 
 <?php $this->endBody() ?>
 </body>
 </html>

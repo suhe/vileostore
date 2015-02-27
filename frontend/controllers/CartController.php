@@ -42,6 +42,11 @@ class CartController extends \yii\web\Controller {
     }
     
     public function actionShopping(){
+        if(Yii::$app->session->get('payment_id')) {
+            Yii::$app->session->setFlash('msg',Yii::t('app/message','msg you must have confirmation payment before continue'));
+            return $this->redirect(['cart/confirmation']);
+        }
+        
         $formModel = new \frontend\models\CartForm();
         $cart = new Cart();
         if($formModel->load(Yii::$app->request->post()) && $formModel->validate()){
@@ -67,6 +72,11 @@ class CartController extends \yii\web\Controller {
     }
     
     public function switchAddress(){
+        if(Yii::$app->session->get('payment_id')) {
+            Yii::$app->session->setFlash('msg',Yii::t('app/message','msg you must have confirmation payment before continue'));
+            return $this->redirect(['cart/confirmation']);
+        }
+        
         $type = Yii::$app->session->get('cart_address_type');
         switch($type){
             case 1 : $route = 'cart/address';break;
@@ -173,6 +183,11 @@ class CartController extends \yii\web\Controller {
         $user_id = Yii::$app->user->getId();
         $formModel = new \common\models\Order(['scenario' => 'payment']);
         
+        if(Yii::$app->session->get('payment_id')) {
+            Yii::$app->session->setFlash('msg',Yii::t('app/message','msg you must have confirmation payment before continue'));
+            return $this->redirect(['cart/confirmation']);
+        }
+        
         if(!Yii::$app->session->get('cart_payment')){
             Yii::$app->session->setFlash('msg',Yii::t('app/message','msg your address / cart empty'));
             return $this->redirect(['cart/address'],301);
@@ -197,7 +212,6 @@ class CartController extends \yii\web\Controller {
             $Cart->destroy(); //destroy cart
             Yii::$app->session->remove('cart_payment');
             Yii::$app->session->remove('cart_address_id');
-            Yii::$app->session->remove('cart_address_type');
             
             return $this->redirect(['cart/confirmation'],301);
         }
@@ -222,10 +236,13 @@ class CartController extends \yii\web\Controller {
         
         if($formModel->load(Yii::$app->request->post()) && $formModel->getConfirmPayment(Yii::$app->session->get('payment_id'))){
              //put history transaction
-            \common\models\OrderHistory::Insert(Yii::$app->session->get('payment_id'),'Payment Confirmation',Yii::t('app','invoice no').' : '.$this->getId());
+            \common\models\OrderHistory::InsertHistory(Yii::$app->session->get('payment_id'),'Payment Confirmation',Yii::t('app','invoice no').' : '.$cart->invoice_no);
             
             Yii::$app->mail->verification(Yii::$app->session->get('payment_id'),Yii::t('app','confirm payment invoice'));
             Yii::$app->session->setFlash('msg',Yii::t('app/message','msg thanks for confirmation wait for verification'));
+            //delete session payment id and adddress type
+            Yii::$app->session->remove('payment_id');
+            Yii::$app->session->remove('cart_address_type');
             return $this->redirect(['user/history_details','id' => $cart->id],301);
         }
         
@@ -279,38 +296,66 @@ class CartController extends \yii\web\Controller {
         }
     }
     
-    public function actionProvince($id){
+    public function actionProvince(){
+        $id = isset($_POST['id'])?$_POST['id']:5;
         $models = \common\models\City::find()
         ->where(['province_id' => $id])
         ->orderBy(['name' => SORT_ASC])
         ->all();
         
         if($models) {
-            echo "<option>".Yii::t('app','select city')."</option>";
+            $result = '';
+            $result.= "<option>".Yii::t('app','select city')."</option>";
             foreach($models as $row){
-                echo "<option value='".$row->id."'>".$row->name."</option>";
+                $result.= "<option value='".$row->id."'>".$row->name."</option>";
             }
         }
         else {
-            echo "<option>-</option>";
+            $result = "<option>-</option>";
+        }
+        
+        Yii::$app->response->format = 'json';
+        if($result){
+            return [
+                'success' => true,
+                'result' => $result,
+            ];
+        } else {
+            return [
+                'success' => false
+            ];
         }
         
     }
     
-    public function actionTown($id){
+    public function actionTown(){
+        $id = isset($_POST['id'])?$_POST['id']:379;
         $models = \common\models\Town::find()
         ->where(['city_id' => $id])
         ->orderBy(['name' => SORT_ASC])
         ->all();
         
         if($models) {
-            echo "<option>".Yii::t('app','select town')."</option>";
+            $result = '';
+            $result.= "<option>".Yii::t('app','select town')."</option>";
             foreach($models as $row){
-                echo "<option value='".$row->id."'>".$row->name."</option>";
+                $result.= "<option value='".$row->id."'>".$row->name."</option>";
             }
         }
         else {
-            echo "<option>-</option>";
+            $result = "<option>-</option>";
+        }
+        
+        Yii::$app->response->format = 'json';
+        if($result){
+            return [
+                'success' => true,
+                'result' => $result,
+            ];
+        } else {
+            return [
+                'success' => false
+            ];
         }
         
     }

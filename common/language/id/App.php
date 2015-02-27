@@ -26,7 +26,7 @@ return [
     /** Abjad B **/
     'bank transfer' => 'Bank Transfer',
     'banner' => 'Banner',
-    'basic information' => 'Informasi User',
+    'basic information' => 'Informasi Umum',
     'brand' => 'Brand',
     'by' => 'Oleh',
     /** Abjad C **/

@@ -2494,6 +2494,7 @@ a {
 }
 .product .product-info .name a {
   color: #555;
+  font-size:16px;
 }
 .product .product-info .star-rating .color {
   color: #ffb400;

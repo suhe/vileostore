@@ -6,7 +6,8 @@ $params = array_merge(
 
 
 use \yii\web\Request;
-$baseUrl = str_replace('/frontend/web', '/cgi-bin', (new Request)->getBaseUrl());
+$cgiBin = '/cgi.bin';
+$baseUrl = str_replace('/frontend/web', $cgiBin, (new Request)->getBaseUrl());
 return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
@@ -14,7 +15,6 @@ return [
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'RhLqcR79Fcg9GUBYSQa9R9BzTfo7htK-',
             'baseUrl' => $baseUrl,
         ],
@@ -53,6 +53,6 @@ return [
             'errorAction' => 'site/error',
         ],
     ],
-    'homeUrl' => str_replace('/cgi-bin', '',$baseUrl),
+    'homeUrl' => str_replace($cgiBin, '',$baseUrl),
     'params' => $params,
 ];

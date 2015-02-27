@@ -36,16 +36,26 @@ $this->title = Yii::t('app','shipping address');
 		    'template' => '<div class="col-md-2">{label}</div><div class="col-md-10">{input}{error}</div>',
 		],
 	    ]);?>
-	    <div class="loading" style="display: none" ><?=Yii::t('app','please wait do not refresh .... ')?></div>
+	    <div class="loading" style="display: none" ><?=Yii::t('app/message','msg please wait do not refresh')?></div>
 	    <?=$form->field($formModel,'latest_address')->dropdownList(\common\models\UserAddress::dropdownList(Yii::t('app','add new'),['user_id' => Yii::$app->user->getId()]),['id' => 'select'])?>
-	    
 	    <?=$form->field($formModel,'address')->textarea(['rows' => 2,'placeholder' => Yii::t('app/message','msg put your address,rt,rw and kelurahan')])?>
 	    <?=$form->field($formModel,'province_id')
 	    ->dropdownList(\common\models\Province::dropdownList('-'),[
-		'onchange' => '$.post("'.Yii::$app->urlManager->createUrl('cart/province?id=').'" + $(this).val(),function(data){
-			$("#useraddress-city_id").removeAttr("disabled");
-			$("#useraddress-town_id").val("0");
-			$("#useraddress-city_id").html(data);
+		'onchange' => '
+		    $(".loading").show();
+		    var info = "id=" + $(this).val();
+		    $.ajax({
+			url: "'.\yii\helpers\Url::to(['cart/province']).'",
+			type: "post",
+			data: info,
+			success: function(data) {
+			    if(data.success==true){
+				$("#useraddress-city_id").removeAttr("disabled");
+				$("#useraddress-town_id").val("0");
+				$("#useraddress-city_id").html(data.result);
+				$(".loading").hide();
+			    }
+			}
 		    });
 	    ']);?>
 	    
@@ -53,13 +63,22 @@ $this->title = Yii::t('app','shipping address');
 	    ->dropdownList(\common\models\City::dropdownList('-'),[
 		'disabled' => 'disabled',
 		'onchange' => '
-			$(".loading").show();
-			$.post("'.Yii::$app->urlManager->createUrl('cart/town?id=').'" + $(this).val(),function(data){
-			    $("#useraddress-town_id").removeAttr("disabled");
-			    $("#useraddress-town_id").html(data);
-			    $(".loading").hide();
-			});
+		    $(".loading").show();
+		    var info = "id=" + $(this).val();
+		    $.ajax({
+			url: "'.\yii\helpers\Url::to(['cart/town']).'",
+			type: "post",
+			data: info,
+			success: function(data) {
+			    if(data.success==true){
+				$("#useraddress-town_id").removeAttr("disabled");
+				$("#useraddress-town_id").html(data.result);
+				$(".loading").hide();
+			    }
+			}
+		    });
 	    ']);?>
+	    	 
 	    <?=$form->field($formModel,'town_id')->dropdownList(\common\models\Town::dropdownList('-'),['disabled' => 'disabled'],[
 	    ])?>
 	    

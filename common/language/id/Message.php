@@ -41,5 +41,8 @@ return [
                                                                             dan Password yang telah didaftarkan, kami mengirimkan email pemberitahuan mohon cek INBOX/SPAM Anda',
     'msg are you sure want to delete' => 'Apakah Anda yakin akan menghapusnya ! ',
     'msg put your address,rt,rw and kelurahan' => 'Masukkan Alamat Lengkap, RT, RW Serta Kelurahan di Box ini !',
+    'msg update has been successfuly' => 'Update Data berhasil disubmit !',
+    'msg please wait do not refresh' => 'Iniliasi Data ...',
+    'msg you must have confirmation payment before continue' => 'Anda harus mengkonfirmasi pembayaran terlebih dahulu !',
                                                                             
  ];
