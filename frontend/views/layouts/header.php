@@ -163,15 +163,14 @@ $cart = new Cart();
 <!-- ============================================== HEADER : END ============================================== -->
 
 <div class="breadcrumb">
-	<div class="container">
-		<div class="breadcrumb-inner">
-		    <?=yii\widgets\Breadcrumbs::widget([
-			'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-			'options' => ['class' => 'list-inline list-unstyled']
-		    ])?>
+    <div class="container bg-white">
+	<div class="breadcrumb-inner">
+	    <?=yii\widgets\Breadcrumbs::widget([
+		'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+		'options' => ['class' => 'list-inline list-unstyled']
+	    ])?>
 							    
-		</div><!-- /.breadcrumb-inner -->
-	</div><!-- /.container -->
-	
+	</div><!-- /.breadcrumb-inner -->
+    </div><!-- /.container -->	
 </div>
 

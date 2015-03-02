@@ -12,8 +12,7 @@ class UserController extends \yii\web\Controller {
     public $administrator = 2;
     
     public function actions(){
-        if(Yii::$app->user->isGuest)
-            $this->redirect(['site/login']);
+        if(!Yii::$app->store->isAdmin()) return $this->redirect(['site/login']);
     }
     
     public function actionCustomer(){

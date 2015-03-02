@@ -164,7 +164,7 @@ $this->title = Yii::t('app','home page')
 	<?php foreach(\common\models\Banner::homePageBanner('home','static') as $row){?>	
 	<div class="col-md-6">
 	    <div class="wide-banner cnt-strip">
-		<div class="image">
+		<div class="image image-grid">
 		    <?=himiklab\thumbnail\EasyThumbnailImage::thumbnailImg(
 			'@image_banner/'.$row->id.'/'.$row->image,
 			    $row->width,

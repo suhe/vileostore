@@ -113,7 +113,7 @@ class Order extends \yii\db\ActiveRecord {
         else if(Yii::$app->session->get('cart_address_type') == 3)
             $address = '';
         
-        $query = \common\models\Shipping::findOne(['courier_id' => $this->label_courier_id,'town_id' => $address?$address->town_id:0]);
+        $query = \common\models\Shipping::findOne(['courier_id' => isset($post['courier'])?$post['courier']:0,'town_id' => $address?$address->town_id:0]);
     
         $model->shipping_cost = $query?($query->cost * $cart->total_weight_kg()):0;
         $model->grand_total =  ($query?($query->cost * $cart->total_weight_kg()):0) + $cart->total();
@@ -156,11 +156,11 @@ class Order extends \yii\db\ActiveRecord {
     public function getMyOrderTransaction($params){
         $query = static::find()
         ->select(['id','invoice_no','DATE_FORMAT(created_date,\'%d/%m/%Y\') created_date','status'])
-        ->andWhere(['user_id' => Yii::$app->user->getId()]);
+        ->andWhere(['user_id' => Yii::$app->user->getId()])
+        ->orderBy(['ABS(id)' => SORT_DESC]);
         
         $dataProvider = new \yii\data\ActiveDataProvider([
             'query' => $query,
-            'sort'=> ['defaultOrder' => ['ABS(id)'=> SORT_DESC]],
             'pagination' =>[
                 'pageSize' => Yii::$app->params['show_page']
             ]    
@@ -168,14 +168,19 @@ class Order extends \yii\db\ActiveRecord {
         
         $dataProvider->setSort([
             'attributes' => [
-                'invoice_no'=>[
-                    'asc' => ['invoice_no' => SORT_ASC],
-                    'desc' =>['invoice_no' => SORT_DESC],
+                'id' => [
+                    'asc' => ['id' => SORT_ASC],
+                    'desc' =>['id' => SORT_DESC],
                     'default' => SORT_DESC
                 ],
                 'created_date'=>[
                     'asc' => ['created_date' => SORT_ASC],
                     'desc' =>['created_date' => SORT_DESC],
+                    'default' => SORT_DESC
+                ],
+                'invoice_no'=>[
+                    'asc' => ['invoice_no' => SORT_ASC],
+                    'desc' =>['invoice_no' => SORT_DESC],
                     'default' => SORT_DESC
                 ],
                 'status'=>[

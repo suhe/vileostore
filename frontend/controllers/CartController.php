@@ -89,6 +89,8 @@ class CartController extends \yii\web\Controller {
     
     public function actionAddress(){    
         //cek auth
+        $user_id = Yii::$app->user->getId();
+         
         if(Yii::$app->user->isGuest){
             Yii::$app->session->setFlash('msg',Yii::t('app/message','msg you must have login to continue'));
             Yii::$app->getUser()->setReturnUrl([Yii::$app->controller->getRoute()]);
@@ -103,11 +105,22 @@ class CartController extends \yii\web\Controller {
         }
         
         $formModel = new \common\models\UserAddress(['scenario' => 'register']);
-        $user_id = Yii::$app->user->getId();
-        if($formModel->load(Yii::$app->request->post()) && $formModel->getSaveUserAddress($user_id)){
+        
+        if(Yii::$app->session->get('cart_payment')){
+            $address = \common\models\UserAddress::getLatestAddress($user_id);
+            $formModel->latest_address = $address->id;
+            $formModel->address = $address->address;
+            $formModel->province_id = $address->province_id;
+            $formModel->city_id = $address->city_id;
+            $formModel->town_id = $address->town_id;
+            $formModel->receiver = $address->receiver;
+            $formModel->receiver_contact = $address->receiver_contact;
+        }
+        
+        if($formModel->load(Yii::$app->request->post()) && $id = $formModel->getSaveUserAddress($user_id)){
             Yii::$app->session->set('cart_payment',TRUE); // set to set payment
-            Yii::$app->session->set('cart_address_id',$formModel->id); // set to set town id
-            Yii::$app->session->set('cart_address_type',1); // set to set town id 
+            Yii::$app->session->set('cart_address_id',$id); // set to set town id
+            Yii::$app->session->set('cart_address_type',1); // set to address type 1= address 
             Yii::$app->session->setFlash('msg',Yii::t('app/message','msg config address finish'));
             return $this->redirect(['cart/payment'],301);
         }

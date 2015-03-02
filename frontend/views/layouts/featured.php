@@ -11,7 +11,7 @@
 			    <a href="<?=\yii\helpers\Url::to(['product/read','id'=>$row->id,'slug'=>$row->slug])?>">
 				<?=himiklab\thumbnail\EasyThumbnailImage::thumbnailImg(
 				'@image_product/'.$row->id.'/'.$row->image,
-				200,
+				195,
 				170,
 				\himiklab\thumbnail\EasyThumbnailImage::THUMBNAIL_OUTBOUND,
 				['alt' => $row->name]

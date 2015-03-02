@@ -8,8 +8,7 @@ use Yii;
 class OrderController extends \yii\web\Controller {
     
     public function actions(){
-        if(Yii::$app->user->isGuest)
-            $this->redirect(['site/login']);
+        if(!Yii::$app->store->isAdmin()) return $this->redirect(['site/login']);
     }
     
     public function actionIndex(){

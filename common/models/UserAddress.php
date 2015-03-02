@@ -17,6 +17,7 @@ class UserAddress extends \yii\db\ActiveRecord  {
         return[
             [['address','province_id','city_id','town_id','receiver','receiver_contact'],'required','on'=>'register'],
             [['latest_address','id'],'safe','on'=>['register']],
+            [['latest_address','id'],'integer','on'=>['register']],
             [['province_id'],'integer','tooSmall'=>Yii::t('app/message','msg fill province'),'min'=>1,'on'=>['register']],
             [['city_id'],'integer','tooSmall'=>Yii::t('app/message','msg fill city'),'min'=>1,'on'=>['register']],
             [['town_id'],'integer','tooSmall'=>Yii::t('app/message','msg fill town'),'min'=>1,'on'=>['register']],

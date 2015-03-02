@@ -26,14 +26,14 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 <?=$this->render('header')?>
 <div class="body-content outer-top-xs" id="top-banner-and-menu">
-    <div class="container">
+    <div class="container bg-white">
 	<div class="row">
             <?=$this->render('sidebar')?>
             <?=$content?> 	    
             <?=$this->render('featured')?>
-		</div><!-- /.homebanner-holder -->
+	</div><!-- /.homebanner-holder -->
 		
-	</div><!-- /.row -->
+    </div><!-- /.row -->
 	<!-- Brand -->
 	<?=$this->render('brand-footer')?>
 	<!-- Brand -->

@@ -5281,8 +5281,23 @@ a {
   padding-top:20px;
 }
 
+.products{
+  padding: 5px 10px;
+}
+
+.image-grid{
+  width:100% !important;
+  height:250px !important;
+  border: 1px solid #f6f6f6;
+}
+
 .nav-pills .dropdown-menu li a{
   padding:10px !important;
 }
 
 .user .active {color:red}
+.rating{padding:10px 5px}
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}

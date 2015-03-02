@@ -2,14 +2,17 @@
 <?php foreach($query as $row){ ?>					
     <div class="col-sm-6 col-md-4 wow fadeInUp">
 	<div class="products">
-	    <div class="product">		
+	    <div class="product">
+		<div class="product-info text-left">
+		    <h5 class="name text-sm"><?=\yii\helpers\Html::a(substr($row->name,0,38),['product/read','id' => $row->product_id,'slug'=>$row->product_slug])?></h5>
+		</div>
 		<div class="product-image">
-		    <div class="image">
+		    <div class="image image-grid">
 			<a href="<?=\yii\helpers\Url::to(['product/read','id' => $row->product_id,'slug'=>$row->product_slug])?>">
 			    <?=himiklab\thumbnail\EasyThumbnailImage::thumbnailImg(
 				'@image_product/'.$row->product_id.'/'.$row->image,
-				295,
-				295,
+				200,
+				200,
 				\himiklab\thumbnail\EasyThumbnailImage::THUMBNAIL_OUTBOUND,
 				[
 				    'alt' => $row->name,
@@ -21,8 +24,9 @@
 		<!--<div class="tag new"><span>new</span></div>-->                        		   
 		</div><!-- /.product-image -->
 		<!-- product-info -->	
-		<div class="product-info text-left">
-		    <h5 class="name text-sm"><?=\yii\helpers\Html::a(substr($row->name,0,30),['product/read','id' => $row->product_id,'slug'=>$row->product_slug])?></h5>
+		<div class="product-info text-center">
+		    <div class="description"></div>
+		    <!--<h5 class="name text-sm"><?php // \yii\helpers\Html::a(substr($row->name,0,30),['product/read','id' => $row->product_id,'slug'=>$row->product_slug])?></h5>-->
 		    <div class="rating rateit-small"></div>
 		    <div class="description"></div>
 			<!-- /.product-price -->
@@ -49,7 +53,7 @@
 		    <!-- /.action -->
 		    
 		    <div class="action col-md-12">
-			<center>
+			<div class="col-centered">
 			    <ul class="list-unstyled">
 				<li class="add-cart-button btn-group">
 				    <button class="btn btn-primary icon" data-toggle="dropdown" type="button"><i class="fa fa-shopping-cart"></i></button>
@@ -59,8 +63,18 @@
 				    <?=\yii\helpers\Html::a(Yii::t('app','empty'),['product/read','id'=>$row->product_id,'slug'=>$row->product_slug],['class'=>'btn btn-primary'])?>
 				    <?php } ?>    
 				</li>
+				<li class="lnk wishlist">
+				    <a title="Wishlist" href="#" class="add-to-cart">
+				        <i class="icon fa fa-heart"></i>
+				    </a>
+				</li>
+				<li class="lnk">
+				    <a title="Compare" href="#" class="add-to-cart">
+					<i class="fa fa-retweet"></i>
+				    </a>
+				</li>
 			    </ul>
-			</center>
+			</div>
 		    </div><!-- /.action -->    
 		</div>
 		<!-- /.cart -->

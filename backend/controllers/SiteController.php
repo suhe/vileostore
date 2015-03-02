@@ -9,9 +9,8 @@ use common\models\LoginForm;
  */
 class SiteController extends \yii\web\Controller{    
     public function actionLogin(){
-        if (!\Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
+        if(Yii::$app->store->isAdmin()) return $this->goHome();
+        
         $model = new \common\models\LoginForm(['scenario' => 'login']);
         
         //process to login
@@ -27,8 +26,8 @@ class SiteController extends \yii\web\Controller{
     }
     
     public function actionIndex() {
-        if(Yii::$app->user->isGuest)
-            return $this->redirect(['site/login']);
+        if(!Yii::$app->store->isAdmin()) return $this->redirect(['site/login']);
+        
         return $this->render('index', [
             'bestSellerdataProvider' => \common\models\Product::getActiveDataProviderBestSeller(5),
             'salesTodaydataProvider' => \common\models\Order::getActiveDataProviderOrderByCondition(['date_format(order.created_date,\'%Y-%m-%d\')' => date('Y-m-d'),'order.status'=>1],5),

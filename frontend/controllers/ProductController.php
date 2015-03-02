@@ -9,7 +9,7 @@ use Yii;
  */
 class ProductController extends \yii\web\Controller {
     
-    public function actionCategory($id,$view='list'){
+    public function actionCategory($id,$view='grid'){
         $model = new \common\models\ProductCategory();
         $this->layout = 'category';
         

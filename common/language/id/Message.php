@@ -11,7 +11,7 @@ return [
     'msg fill province' => 'Provinsi Harus diisi',
     'msg fill city' => 'Kota Harus diisi',
     'msg fill town' => 'Kecamatan Harus diisi untuk perhitungan Biaya Kurir Ekspedisi',
-    'msg your address / cart empty' => 'Harap Belanjaan Alamat anda set terlebih dahulu sebelum melangkah selanjutnya !',
+    'msg your address / cart empty' => 'Harap Alamat Pengiriman  diset terlebih dahulu sebelum melangkah selanjutnya !',
     'msg config address finish' => 'Pengaturan Alamat sudah selesai',
     'msg config dropship finish' => 'Pengaturan Dropship sudah selesai',
     'msg fill one' => 'Pilih Salah Satu',

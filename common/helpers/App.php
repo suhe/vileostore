@@ -66,4 +66,11 @@ class App {
         return preg_replace('!(\d+)/(\d+)/(\d+)!', '\3-\2-\1',trim($date));
     }
     
+    public function isAdmin(){
+        if(Yii::$app->user->identity->group_id!=2)
+            return false;
+        else
+            return true;
+    }
+    
 }
