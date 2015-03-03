@@ -58,7 +58,7 @@ use yii\helpers\Html;
                             'filter' => true,
                         ],
                         ['class'=>'yii\grid\ActionColumn',
-                            'headerOptions' => ['style'=>'width:10%'],
+                            'headerOptions' => ['style'=>'width:12%'],
                             'controller'=>'category',
                             'template'=>'{view}',
                                 'buttons' => [

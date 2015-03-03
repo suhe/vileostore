@@ -219,6 +219,9 @@ class Product extends \yii\db\ActiveRecord  {
                 $model->update();
             else
                 $model->insert();
+                
+            $storeFolder = Yii::getAlias('@image_product/'.$model->id);
+            $cdir = \yii\helpers\FileHelper::createDirectory($storeFolder,0777);
             return $model->id;
         }
         return false;

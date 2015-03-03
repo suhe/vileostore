@@ -114,7 +114,7 @@ class ProductController extends \yii\web\Controller {
         $storeFolder = Yii::getAlias('@image_product/'.$id);
         
         if (isset($_FILES[$fileName])){
-            \yii\helpers\FileHelper::createDirectory($storeFolder,777,true);
+            \yii\helpers\FileHelper::createDirectory($storeFolder,0777,true);
             $file = \yii\web\UploadedFile::getInstanceByName($fileName);
             if ($file->saveAs($storeFolder.'/'.$file->name)) {
                 /** Insert Image to Database**/

@@ -4,7 +4,7 @@ use yii\bootstrap\ActiveForm;
 
 $this->params['breadcrumbs'] = [
     ['label' => Yii::t('app','setting'),'url' => ['setting/basic']],
-    ['label' => Yii::t('app','basic information'),'url' => ['setting/basic']],
+    ['label' => Yii::t('app',Yii::$app->controller->action->id),'url' => [Yii::$app->controller->getRoute()]],
 ];
 $this->title = Yii::t('app','basic information');
 
@@ -23,11 +23,12 @@ $form = ActiveForm::begin([
         'labelOptions' => ['class' => 'col-sm-3 control-label'],
     ],
 ]); ?>
-<?=$form->field($model,'first_name')->textInput()?>
-<?=$form->field($model,'middle_name')->textInput()?>
-<?=$form->field($model,'last_name')->textInput()?>
-<?=$form->field($model,'email')->textInput(['readonly'=>true])?>
+<?php
+foreach($items as $i=>$item){
+    echo $form->field($item,"[$i]content")->textarea(['rows'=>5])->label(Yii::t('app',$item->name));
+}
+?>
 <div class="form-group" style="margin-bottom:10px">
-<?=Html::submitButton('<i class="fa fa-save icon-on-right"></i> '.Yii::t('app','save'), ['class' => 'btn btn-primary btn-md pull-right','name' => 'post'])?>
+<?=Html::submitButton('<i class="fa fa-save icon-on-right"></i> '.Yii::t('app','update'), ['class' => 'btn btn-primary btn-md pull-right','name' => 'post'])?>
 </div>
 <?php ActiveForm::end(); ?>

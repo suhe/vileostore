@@ -41,16 +41,16 @@ use yii\helpers\Html;
                                             return himiklab\thumbnail\EasyThumbnailImage::thumbnailImg('@image_product/'.$data->id.'/'.$data->image,55,55,
                                                     \himiklab\thumbnail\EasyThumbnailImage::THUMBNAIL_OUTBOUND,
                                                     ['alt' => $data->name]);},
-                            'headerOptions' => ['style'=>'width:10%'],
+                            'headerOptions' => ['style'=>'width:5%'],
                         ],
                         'sku' => [
                             'attribute' => 'sku',
-                            'headerOptions' => ['style'=>'width:10%'],
+                            'headerOptions' => ['style'=>'width:5%'],
                             'filter' => true,
                         ],
                         'name' => [
                             'attribute' => 'name',
-                            'headerOptions' => ['style'=>'width:20%'],
+                            'headerOptions' => ['style'=>'width:18%'],
                             'filter' => true,
                         ],
                         'category_name' => [
@@ -60,7 +60,7 @@ use yii\helpers\Html;
                         ],
                         'status' => [
                             'attribute' => 'status',
-                            'headerOptions' => ['style'=>'width:8%'],
+                            'headerOptions' => ['style'=>'width:10%'],
                             'value' => function($data) {return \common\models\Product::stringStatus($data->status);},
                             'contentOptions' => ['class'=>'text-center'],
                             'filter' => \yii\helpers\Html::activeDropDownList($model,'status',\common\models\Product::dropdownStatus(),['class' => 'form-control']),
@@ -73,12 +73,12 @@ use yii\helpers\Html;
                         ],
                         'stock' => [
                             'attribute' => 'stock',
-                            'headerOptions' => ['style'=>'width:8%'],
+                            'headerOptions' => ['style'=>'width:7%'],
                             'format'=>['decimal',0],
                             'filter' => true,
                         ],
                         ['class'=>'yii\grid\ActionColumn',
-                            'headerOptions' => ['style'=>'width:10%'],
+                            'headerOptions' => ['style'=>'width:11%'],
                             'controller'=>'product',
                             'template'=>'{view}',
                                 'buttons' => [

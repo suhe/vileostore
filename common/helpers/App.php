@@ -67,7 +67,7 @@ class App {
     }
     
     public function isAdmin(){
-        if(Yii::$app->user->identity->group_id!=2)
+        if(isset(Yii::$app->user->identity->group_id)!=2)
             return false;
         else
             return true;

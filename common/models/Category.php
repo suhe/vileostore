@@ -56,7 +56,7 @@ class Category extends \yii\db\ActiveRecord {
     public static function getHierarchyList($All=true,$caption='') {
         $options = [];
         if($All==true)
-            $options[0] = $caption?$caption:Yii::t('app','all category');
+            $options[0] = $caption?$caption:Yii::t('app','all');
             
         $parents = self::find()
         ->where(['parent_id'=> 0])
@@ -137,7 +137,7 @@ class Category extends \yii\db\ActiveRecord {
         $query = static::find();
         $dataProvider = new \yii\data\ActiveDataProvider([
             'query' => $query,
-            'sort'=> ['defaultOrder' => ['id'=> SORT_ASC,'parent_id'=>SORT_ASC]],
+            'sort'=> ['defaultOrder' => ['sctructure'=>SORT_ASC,'order'=>SORT_ASC]],
             'pagination' =>[
                 'pageSize' => Yii::$app->params['show_page']
             ]    

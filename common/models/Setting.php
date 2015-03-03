@@ -8,6 +8,12 @@ class Setting extends \yii\db\ActiveRecord {
         return 'setting';
     }
     
+    public function rules(){
+        return[
+            [['id','name','type','content'],'safe'],
+        ];
+    }
+    
     public function Variable($name){
         return static::find()
         ->where(['name' => $name])

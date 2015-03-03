@@ -65,6 +65,11 @@
 				</li>
 				<li class="lnk wishlist">
 				    <a title="Wishlist" href="#" class="add-to-cart">
+					<?php
+					if($row->stock>0){
+					    echo Yii::t('app','in stock');
+					}
+					?>
 				        <i class="icon fa fa-heart"></i>
 				    </a>
 				</li>
