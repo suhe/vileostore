@@ -73,11 +73,11 @@
 				        <i class="icon fa fa-heart"></i>
 				    </a>
 				</li>
-				<li class="lnk">
+				<!--<li class="lnk">
 				    <a title="Compare" href="#" class="add-to-cart">
 					<i class="fa fa-retweet"></i>
 				    </a>
-				</li>
+				</li>-->
 			    </ul>
 			</div>
 		    </div><!-- /.action -->    
